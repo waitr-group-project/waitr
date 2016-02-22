@@ -8,7 +8,7 @@ angular.module('waitrApp')
 
   function configure($stateProvider, $urlRouterProvider) {
 
-    $urlRouterProvider.otherwise('/');
+    $urlRouterProvider.otherwise('/customer/home');
 
     $stateProvider
       // LOGIN - REGISTER ROUTES
@@ -30,17 +30,17 @@ angular.module('waitrApp')
 
 
       // CUSTOMER ROUTES
-      // .state('customer', {
-      //   url: '/customer',
-      //   abstract: true,
-      //   templateUrl: '',
-      //   controller: ''
-      // })
-      // .state('customer.home', {
-      //   url: '',
-      //   templateUrl: '',
-      //   controller:''
-      // })
+      .state('customer', {
+         url: '/customer',
+         abstract: true,
+         templateUrl: 'app/customer/customer.html'
+         //controller: ''
+      })
+      .state('customer.home', {
+         url: '/home',
+         template: '<div>Hi!</div>'
+         //controller:''
+      })
       // .state('customer.restaurant', {
       //   url: '',
       //   templateUrl: '',
