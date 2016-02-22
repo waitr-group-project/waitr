@@ -1,8 +1,10 @@
-angular.module('waitrApp').controller('customerCtrl', function() {
+(function () {
+  angular
+    .module('waitrApp')
+    .controller('customerCtrl', [customerCtrl]);
 
+  function customerCtrl () {
 
+  }
 
-
-
-
-});
+})();
