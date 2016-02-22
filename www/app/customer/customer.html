@@ -1,4 +1,22 @@
-<ion-pane ion-side-menu-content>
-  <navbar></navbar>
-  <ion-view></ion-view>
-</ion-pane>
+<ion-side-menus>
+  <ion-pane ion-side-menu-content>
+    <ion-header-bar class="bar-energized">
+      <button menu-toggle="left" class="button button-icon icon ion-navicon"></button>
+    </ion-header-bar>
+    <ion-nav-view name="mainContent"></ion-nav-view>
+  </ion-pane>
+
+  <ion-side-menu side="left">
+    <header class="bar bar-header bar-energized">
+      <h1 class="title">Profile.name</h1>
+    </header>
+    <ion-content class="has-header">
+      <ion-list>
+        <ion-item nav-clear menu-close>Wait List</ion-item>
+        <ion-item nav-clear menu-close>Profile</ion-item>
+        <ion-item nav-clear menu-close>Reviews</ion-item>
+        <ion-item nav-clear menu-close>Settings</ion-item>
+      </ion-list>
+  </ion-side-menu>
+
+</ion-side-menus>
