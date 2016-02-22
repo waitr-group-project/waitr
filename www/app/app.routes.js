@@ -33,8 +33,9 @@ angular.module('waitrApp')
       .state('customer', {
          url: '/customer',
          abstract: true,
-         templateUrl: 'app/customer/customer.html'
-         //controller: ''
+         templateUrl: 'app/customer/customer.html',
+         controller: 'customerCtrl',
+         controllerAs: 'cc'
       })
       .state('customer.home', {
          url: '/home',
@@ -64,22 +65,24 @@ angular.module('waitrApp')
 
 
       // RESTAURANT ROUTES
-      // .state('restaurant', {
-      //   url: '/restaurant',
-      //   abstract: true,
-      //   templateUrl: '',
-      //   controller: ''
-      // })
+      .state('restaurant', {
+        url: '/restaurant',
+        abstract: true,
+        templateUrl: 'app/restaurant/restaurant.html',
+        controller: 'restaurantCtrl',
+        controllerAs: 'rc'
+      })
       // .state('restaurant.home', {
       //   url: '',
       //   templateUrl: '',
       //   controller:''
       // })
-      // .state('restaurant.queue', {
-      //   url: '',
-      //   templateUrl: '',
-      //   controller:''
-      // })
+      .state('restaurant.queue', {
+        url: '/queue',
+        templateUrl: 'app/restaurant/resQueue/resQueueT.html',
+        controller:'resQueueCtrl',
+        controllerAs: 'rqc'
+      })
       // .state('restaurant.profile', {
       //   url: '',
       //   templateUrl: '',

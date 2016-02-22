@@ -20,5 +20,5 @@
           StatusBar.styleDefault();
         }
       });
-    })
+    });
 })();
