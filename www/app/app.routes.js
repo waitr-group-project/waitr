@@ -38,7 +38,7 @@ angular.module('waitrApp')
       })
       .state('customer.home', {
          url: '/home',
-         template: '<div>Hi!</div>'
+         templateUrl: 'app/customer/home/home.html'
          //controller:''
       })
       // .state('customer.restaurant', {
