@@ -145,7 +145,7 @@ angular.module('waitrApp')
         url: '/profile/menu',
         templateUrl: './app/restaurant/restaProfile/restaMenu.html',
         controller: 'restaProfileCtrl',
-        controllerAs: 'rmc'
+        controllerAs: 'rpc'
       })
 
       .state('restaurant.settings', {
