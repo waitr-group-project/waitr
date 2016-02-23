@@ -1,19 +1,15 @@
 /* Empty. Add your own CSS if you like */
-<<<<<<< HEAD
-body {
-  background-color: #F2F1ED;
-=======
-#resQWaitingList {
-font-weight: bold;
-color: orange;
-font-size: 90%;
-}
-.bar-energized {
-  background-color: orange !important;
-}
-#resProfileImage {
-  width: 100%;
-  height: 35vh;
-  object-fit: cover;
->>>>>>> dev
-}
+/*#resQWaitingList {*/
+/*font-weight: bold;*/
+/*color: orange;*/
+/*font-size: 90%;*/
+/*}*/
+/*.bar-energized {*/
+  /*background-color: orange !important;*/
+/*}*/
+/*#resProfileImage {*/
+  /*width: 100%;*/
+  /*height: 35vh;*/
+  /*object-fit: cover;*/
+/*}*/
+

@@ -8,7 +8,7 @@ angular.module('waitrApp')
 
   function configure($stateProvider, $urlRouterProvider) {
 
-    $urlRouterProvider.otherwise('/customer/restaurantsList');
+    $urlRouterProvider.otherwise('customer/home');
 
     $stateProvider
       // LOGIN - REGISTER ROUTES
