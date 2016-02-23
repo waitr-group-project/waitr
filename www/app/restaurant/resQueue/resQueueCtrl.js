@@ -6,6 +6,8 @@
   function resQueueCtrl () {
     var vm = this;
 
+    vm.customerEntries = [];
+    
 
 
 

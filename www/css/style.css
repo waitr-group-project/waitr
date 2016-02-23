@@ -7,3 +7,8 @@ font-size: 110%;
 .bar-energized {
   background-color: orange !important;
 }
+#resProfileImage {
+  width: 100%;
+  height: 35vh;
+  object-fit: cover;
+}

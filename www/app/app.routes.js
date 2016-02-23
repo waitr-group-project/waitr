@@ -83,11 +83,12 @@ angular.module('waitrApp')
         controller:'resQueueCtrl',
         controllerAs: 'rqc'
       })
-      // .state('restaurant.profile', {
-      //   url: '',
-      //   templateUrl: '',
-      //   controller:''
-      // })
+      .state('restaurant.profile', {
+        url: '/profile',
+        templateUrl: 'app/restaurant/resProfile/resProfileT.html',
+        controller:'resProfileCtrl',
+        controllerAs: 'rpc'
+      })
       // .state('restaurant.menu', {
       //   url: '',
       //   templateUrl: '',
