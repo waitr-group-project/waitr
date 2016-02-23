@@ -1,12 +1,14 @@
 (function () {
   angular
     .module('waitrApp')
-    .controller('customerCtrl', [customerCtrl]);
+    .controller('resQueueCtrl', [resQueueCtrl]);
 
-  function customerCtrl () {
+  function resQueueCtrl () {
     var vm = this;
 
-  
+
+
+
 
   }
 
