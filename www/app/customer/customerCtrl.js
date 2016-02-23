@@ -4,7 +4,7 @@
     .controller('customerCtrl', [customerCtrl]);
 
   function customerCtrl () {
-    var vm = this;
+    var cc = this;
 
   
 

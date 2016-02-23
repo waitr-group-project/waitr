@@ -8,7 +8,7 @@ angular.module('waitrApp')
 
   function configure($stateProvider, $urlRouterProvider) {
 
-    $urlRouterProvider.otherwise('/customer/home');
+    $urlRouterProvider.otherwise('/customer/restaurantsList');
 
     $stateProvider
       // LOGIN - REGISTER ROUTES
@@ -29,76 +29,157 @@ angular.module('waitrApp')
       // })
 
 
-      // CUSTOMER ROUTES
+// CUSTOMER ROUTES
       .state('customer', {  //parent, sidenav
          url: '/customer',
          abstract: true,
-         templateUrl: './customer/customer.html',
+         templateUrl: './app/customer/customer.html',
          controller: 'customerCtrl',
          controllerAs: 'cc'
       })
       .state('customer.home', {
-         url: '/restaurants',
-         templateUrl: './customer/home/restaurants.html', 
+         url: '/restaurantsList',
+         templateUrl: './app/customer/home/restaurantsList.html', 
          controller:'homeCtrl',
          controllerAs: 'hc'
       })
-      .state('customer.singleRestaurant', {
+      //restaurant child-that-has-children thingamajigger route
+      .state('customer.restaurant', {
         url: '/restaurants/:restaurantId',
-        templateUrl: './customer/restaurant/restaurant.html',
+        templateUrl: './app/customer/restaurant/restaurant.html',
         controller:'restaurantCtrl',
         controllerAs:'rc'
       })
-      .state('customer.menu', {
-        url: '/restaurants/:restaurantId/menu',
-        templateUrl: './customer/menu/menu.html',
-        controller:'menuCtrl',
-        controllerAs: 'mc'
+      //restaurant children
+      .state('customer.restaurant.desc', {
+        url: '/description',
+        templateUrl: './app/customer/restaurant/restaurantDesc.html',
       })
+      .state('customer.restaurant.call', {
+        url: '/call',
+        templateUrl: './app/customer/customer.restaurant/restaurantCall.html',
+      })
+      .state('customer.restaurant.menu', {
+        url: '/menu',
+        templateUrl: './app/customer/restaurant/restaurantMenu.html',
+      })
+      .state('customer.restaurant.website', {
+        url: '/website',
+        templateUrl: './app/customer/restaurant/restaurantWebsite.html',
+      })
+      
       .state('customer.settings', {
         url: '/settings',
-        templateUrl: './customer/settings/settings.html',
+        templateUrl: './app/customer/settings/settings.html',
         controller:'settingsCtrl',
         controllerAs:'sc'
       })
+      //called in settings, but still customer child
+      .state('customer.editContactInfo', {
+        url: '/settings/edit-contact-info',
+        templateUrl: './app/customer/settings/editContactInfo.html',
+        controller:'settingsCtrl',
+        controllerAs:'sc'
+      })
+      .state('customer.paymentMethods', {
+        url: '/settings/payment-methods',
+        templateUrl: './app/customer/settings/paymentMethods.html',
+        controller:'settingsCtrl',
+        controllerAs:'sc'
+      })
+            
       .state('customer.waitlist', {
         url: '/waitlist',
-        templateUrl: './customer/waitlist/waitlist.html',
+        templateUrl: './app/customer/waitlist/waitlist.html',
         controller:'waitlistCtrl',
         controllerAs: 'wc'
       })
 
 
-      // RESTAURANT ROUTES
-      .state('restaurantAdmin', {
-        url: '/restaurantAdmin',
+// RESTAURANT ROUTES
+      .state('restaAdmin', {
+        url: '/admin/:restaurantId',
         abstract: true,
-        templateUrl: 'app/restaurantAdmin/restaurantAdmin.html',
-        controller: 'restaurantAdminCtrl',
+        templateUrl: './app/restaurant/restaAdmin.html',
+        controller: 'restaAdminCtrl',
         controllerAs: 'rac'
       })
-      // .state('restaurant.home', {
-      //   url: '',
-      //   templateUrl: '',
-      //   controller:''
-      // })
-      .state('restaurant.queue', {
-        url: '/queue',
-        templateUrl: 'app/restaurant/resQueue/resQueueT.html',
-        controller:'resQueueCtrl',
-        controllerAs: 'rqc'
+      .state('restaAdmin.home', {
+        url: '/waitlist',
+        templateUrl: './app/restaurant/restaHome/restaWaitlist.html',
+        controller: 'restaHomeCtrl',
+        controllerAs: 'rhc'
       })
-      // .state('restaurant.profile', {
-      //   url: '',
-      //   templateUrl: '',
-      //   controller:''
-      // })
-      // .state('restaurant.menu', {
-      //   url: '',
-      //   templateUrl: '',
-      //   controller:''
-      // })
-      ;
+    //called in restaWaitlist, but still restaAdmin child
+      .state('restaAdmin.addPerson', {
+        url: '/waitlist/add-person',
+        templateUrl: './app/restaurant/restaHome/restaWaitlist.html',
+        controller: 'restaHomeCtrl',
+        controllerAs: 'rhc'
+      })      
+      .state('restaAdmin.editPerson', {
+        url: '/waitlist/edit-person',
+        templateUrl: './app/restaurant/restaHome/restaWaitlist.html',
+        controller: 'restaHomeCtrl',
+        controllerAs: 'rhc'
+      })
+      
+    //child-of-restaAdmin-that-has-children thingamajigger route
+      .state('restaAdmin.profile', {  
+        url: '/profile',
+        templateUrl: './app/restaurant/restaProfile/restaProfile.html',
+        controller: 'restaProfileCtrl',
+        controllerAs: 'rpc'
+      })
+    //profile children
+      .state('restaAdmin.profile.desc', {
+        url: '/description',
+        templateUrl: './app/restaurant/restaProfile/restaDesc.html',
+      })
+      .state('restaAdmin.profile.call', {
+        url: '/call',
+        templateUrl: './app/restaurant/restaProfile/restaCall.html',
+      })
+      .state('restaAdmin.profile.menu', {
+        url: '/menu',
+        templateUrl: './app/restaurant/restaProfile/restaMenu.html',
+      })
+      .state('restaAdmin.profile.website', {
+        url: '/website',
+        templateUrl: './app/restaurant/restaProfile/restaWebsite.html',
+      })
+      
+      .state('restaAdmin.settings', {
+        url: '/settings',
+        templateUrl: './app/restaurant/restaSettings/restaSettings.html',
+        controller: 'restaSettingsCtrl',
+        controllerAs: 'rsc'
+      })
+    //called in restaSettings, but still restaAdmin child
+      .state('restaAdmin.editDesc', {
+        url: '/settings/edit-description',
+        templateUrl: './app/restaurant/restaSettings/restaEditDesc.html',
+        controller: 'restaSettingsCtrl',
+        controllerAs: 'rsc'
+      })
+      .state('restaAdmin.editCall', {
+        url: '/settings/edit-call',
+        templateUrl: './app/restaurant/restaSettings/restaEditCall.html',
+        controller: 'restaSettingsCtrl',
+        controllerAs: 'rsc'
+      })
+      .state('restaAdmin.profile.editMenu', {
+        url: '/settings/edit-menu',
+        templateUrl: './app/restaurant/restaSettings/restaEditMenu.html',
+        controller: 'restaSettingsCtrl',
+        controllerAs: 'rsc'
+      })
+      .state('restaAdmin.editWebsite', {
+        url: '/settings/edit-website',
+        templateUrl: './app/restaurant/restaSettings/restaEditWebsite.html',
+        controller: 'restaSettingsCtrl',
+        controllerAs: 'rsc'
+      })
     }
 
 })();
