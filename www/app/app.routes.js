@@ -38,14 +38,14 @@ angular.module('waitrApp')
          controllerAs: 'ccc'
       })
       .state('customer.home', {
-         url: '/restaurantsList',
-         templateUrl: './app/customer/home/custRestaurantsList.html', 
+         url: '/home',
+         templateUrl: './app/customer/home/custHome.html',
          controller:'custHomeCtrl',
          controllerAs: 'chc'
       })
       //restaurant child-that-has-children thingamajigger route
       .state('customer.restaurant', {
-        url: '/restaurantsList/restaurant',  // /:restaurantId
+        url: '/home/restaurant',  // /:restaurantId
         templateUrl: './app/customer/restaurant/custRestaurant.html',
         controller: 'custRestaurantCtrl',
         controllerAs:'crc'
@@ -61,13 +61,13 @@ angular.module('waitrApp')
       })
       //not restaurant child, but called by restaurant
       .state('customer.menu', {
-        url: 'restaurantsList/restaurant/menu',
+        url: '/home/restaurant/menu',
         templateUrl: './app/customer/restaurant/custRestaurantMenu.html',
         controller: 'custRestaurantCtrl',
         controllerAs: 'crc'
       })
 
-      
+
       .state('customer.settings', {
         url: '/settings',
         templateUrl: './app/customer/settings/custSettings.html',
@@ -87,7 +87,7 @@ angular.module('waitrApp')
         controller:'custSettingsCtrl',
         controllerAs:'csc'
       })
-            
+
       .state('customer.waitlist', {
         url: '/waitlist',
         templateUrl: './app/customer/waitlist/custWaitlist.html',
@@ -98,34 +98,34 @@ angular.module('waitrApp')
 
 // RESTAURANT ROUTES
       .state('restaurant', {
-        url: '/restaurant',  // /:restaurantId  
+        url: '/restaurant',  // /:restaurantId
         abstract: true,
         templateUrl: './app/restaurant/restaRestaurant.html',
         controller: 'restaRestaurantCtrl',
         controllerAs: 'rrc'
       })
       .state('restaurant.home', {
-        url: '/waitlist',
-        templateUrl: './app/restaurant/restaHome/restaWaitlist.html',
+        url: '/home',
+        templateUrl: './app/restaurant/restaHome/restaHome.html',
         controller: 'restaHomeCtrl',
         controllerAs: 'rhc'
       })
     //called in restaWaitlist, but still restaurant child
       .state('restaurant.addPerson', {
-        url: '/waitlist/add-person',
+        url: '/home/add-person',
         templateUrl: './app/restaurant/restaHome/restaAddPerson.html',
         controller: 'restaHomeCtrl',
         controllerAs: 'rhc'
-      })      
+      })
       .state('restaurant.editPerson', {
-        url: '/waitlist/edit-person',
+        url: '/home/edit-person',
         templateUrl: './app/restaurant/restaHome/restaEditPerson.html',
         controller: 'restaHomeCtrl',
         controllerAs: 'rhc'
       })
-      
+
     //child-of-restaurant-that-has-children thingamajigger route
-      .state('restaurant.profile', {  
+      .state('restaurant.profile', {
         url: '/profile',
         templateUrl: './app/restaurant/restaProfile/restaProfile.html',
         controller: 'restaProfileCtrl',
@@ -147,7 +147,7 @@ angular.module('waitrApp')
         controller: 'restaProfileCtrl',
         controllerAs: 'rmc'
       })
-      
+
       .state('restaurant.settings', {
         url: '/settings',
         templateUrl: './app/restaurant/restaSettings/restaSettings.html',
@@ -178,7 +178,8 @@ angular.module('waitrApp')
         templateUrl: './app/restaurant/restaSettings/restaEditWebsite.html',
         controller: 'restaSettingsCtrl',
         controllerAs: 'rsc'
-      })
+      });
+
     }
 
 })();

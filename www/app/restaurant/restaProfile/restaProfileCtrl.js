@@ -6,7 +6,7 @@
   function restaProfileCtrl () {
     var rpc = this;
 
-  
+
 
   }
 

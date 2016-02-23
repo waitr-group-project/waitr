@@ -6,7 +6,8 @@
   function restaHomeCtrl () {
     var rhc = this;
 
-  
+    rhc.customerEntries = [];
+
 
   }
 

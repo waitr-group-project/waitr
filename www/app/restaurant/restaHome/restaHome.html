@@ -1,0 +1,26 @@
+<ion-view>
+  <ion-nav-title>
+    <span style="font-size:1.5rem">Wait List</span>
+  </ion-nav-title>
+
+  <ion-content>
+    <div class="list">
+      <label class="item item-input">
+        <i class="icon ion-search placeholder-icon"></i>
+        <input type="text" placeholder="Search">
+      </label>
+      <div id="resQWaitingList" class="item row">
+        <div class="col col-40">Name</div>
+        <div class="col">Waiting</div>
+        <div class="col">Quoted</div>
+        <div class="col">Size</div>
+      </div>
+      <div class="item row" ng-repeat="entry in customerEntries">
+        <div class="col col-40">{{entry.lastName}}</div>
+        <div class="col">{{entry.waitingTime}} mins</div>
+        <div class="col">{{entry.quotedTime}}</div>
+        <div class="col">{{entry.partySize}}</div>
+      </div>
+    </div>
+  </ion-content>
+</ion-view>
