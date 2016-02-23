@@ -1,1 +1,9 @@
 /* Empty. Add your own CSS if you like */
+#resQWaitingList {
+font-weight: bold;
+color: orange;
+font-size: 110%;
+}
+.bar-energized {
+  background-color: orange !important;
+}
