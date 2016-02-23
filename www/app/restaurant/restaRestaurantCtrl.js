@@ -1,10 +1,10 @@
 (function () {
   angular
     .module('waitrApp')
-    .controller('restaAdminCtrl', [restaAdminCtrl]);
+    .controller('restaRestaurantCtrl', [restaAdminCtrl]);
 
   function restaAdminCtrl () {
-    var rac = this;
+    var rrc = this;
 
 
 
