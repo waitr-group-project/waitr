@@ -4,11 +4,13 @@
 angular.module('waitrApp')
   .config(configure)
 
-  configure.$inject = ['$stateProvider', '$urlRouterProvider'];
+  configure.$inject = ['$stateProvider', '$urlRouterProvider', '$ionicConfigProvider'];
 
-  function configure($stateProvider, $urlRouterProvider) {
-
-    $urlRouterProvider.otherwise('/customer/restaurantsList');
+  function configure($stateProvider, $urlRouterProvider, $ionicConfigProvider) {
+      
+      $ionicConfigProvider.backButton.text('').icon('ion-ios7-arrow-left');
+      
+    $urlRouterProvider.otherwise('/customer/home');
 
     $stateProvider
       // LOGIN - REGISTER ROUTES
@@ -145,7 +147,7 @@ angular.module('waitrApp')
         url: '/profile/menu',
         templateUrl: './app/restaurant/restaProfile/restaMenu.html',
         controller: 'restaProfileCtrl',
-        controllerAs: 'rmc'
+        controllerAs: 'rpc'
       })
 
       .state('restaurant.settings', {
