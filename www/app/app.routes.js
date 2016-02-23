@@ -2,7 +2,7 @@
 'use strict';
 
 angular.module('waitrApp')
-  .config(configure)
+  .config(configure);
 
   configure.$inject = ['$stateProvider', '$urlRouterProvider'];
 
