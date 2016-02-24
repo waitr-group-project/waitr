@@ -61,8 +61,8 @@ app.get('/api/restaurant', restaurantCtrl.read);
 app.put('/api/restaurant/:id', restaurantCtrl.update);
 app.delete('/api/restaurant/:id', restaurantCtrl.delete);
 
-//app.post('/api/waitlist', waitlistCtrl.create);
-//app.get('/api/waitlist', waitlistCtrl.read);
+app.post('/api/waitlist', waitlistCtrl.create);
+app.get('/api/waitlist', waitlistCtrl.read);
 //app.put('/api/waitlist/:id', waitlistCtrl.update);
 //app.delete('/api/waitlist/:id', waitlistCtrl.delete);
 

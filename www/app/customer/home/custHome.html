@@ -3,13 +3,13 @@
     <span style="font-size:1.5rem">Restaurants</span>
   </ion-nav-title>
   <ion-content>
-    <div class="list" id="restList" ng-repeat="info in chc.data">
+    <div class="list" id="restList" ng-repeat="restaurant in chc.restaurantList">
       <a class="item item-avatar item-icon-right" id="restItem" ui-sref="restaurant.profile">
-        <img ng-src="{{info.img}}">
-        <h2>{{info.name}}</h2>
-        <p>{{info.type}}</p>
-        <p>{{info.address}}</p>
-        <i class="icon ion-ios-clock-outline" style="color: lightgrey">{{info.wait}}</i>
+        <img ng-src="{{restaurant.restaurantImage}}">
+        <h2>{{restaurant.restaurantName}}</h2>
+        <p>{{restaurant.foodType}}</p>
+        <p>{{restaurant.addressLineOne}}, {{restaurant.city}}, {{restaurant.zipcode}}</p>
+        <i class="icon ion-ios-clock-outline" style="color: lightgrey">{{restaurant.waitlist_id.quotedTime}}</i>
       </a>
     </div>
   </ion-content>
