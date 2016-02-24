@@ -7,8 +7,10 @@
     var rhc = this;
 
     rhc.customerEntries = [];
-
-
+      
+    rhc.addPersonToQ = function(newQPerson) {
+        console.log(newQPerson);
+    }
   }
 
 })();

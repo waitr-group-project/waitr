@@ -57,3 +57,15 @@ font-size: 90%;
 #restProfileLinks {
   color: orange;
 }
+.formButton {
+    font-weight: 600;
+    font-size: 200%;
+    text-transform: uppercase;
+    display: block;
+    width: 60vw;
+    margin: auto;
+}
+.formContainer {
+    margin-left: 10px;
+    margin-right: 10px;
+}
