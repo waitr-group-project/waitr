@@ -1,0 +1,26 @@
+var Mongoose = require('mongoose'),
+    Schema = Mongoose.Schema,
+    objectId = Schema.Types.ObjectId,
+    HoursSchema = ('./HoursSchema'),
+    MenuSchema = ('./MenuSchema');
+
+var Account = new Schema({
+    restaurantName: {type: String, required: true},
+    addressLineOne: {type: String, required: true},
+    addressLineTwo: {type: String},
+    city: {type: String, required: true},
+    state: {type: String, required: true},
+    zipcode: {type: String},
+    location: {type: String},
+    shortDescription: {type: String, required: true},
+    description: {type: String, required: true},
+    foodType: {type: String, required: true},
+    hours: HoursSchema,
+    menu: MenuSchema,
+    waitlist_id: {type: objectId, ref: 'Waitlist'},
+    waitTimePerUser: {type: Number}
+    
+        
+})
+
+module.exports = Mongoose.model('Restaurant', Account)
