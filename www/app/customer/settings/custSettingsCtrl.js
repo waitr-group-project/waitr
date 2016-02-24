@@ -3,16 +3,12 @@
     .module('waitrApp')
     .controller('custSettingsCtrl', [custSettingsCtrl]);
 
-  function custSettingsCtrl ($cordovaVibration) {
+  function custSettingsCtrl ($ionicPlatform, $cordovaVibration) {
     var csc = this;
 
     csc.toggle = function() {
-      $ionicPlatform.ready(function() {
-        $cordovaVibration.vibrate(100).then(function() {
-          console.log("Phone vibrating");
-        })
-
-      });
+      ocument.addEventListener( "deviceready", function() {
+        $cordovaVibration.vibrate( 2000 ); }, false );
 
     }
 
