@@ -23,15 +23,14 @@ var RestaurantSchema = new Mongoose.Schema({
         saturday: { openTime: { type: Number }, closeTime: { type: Number } },
         sunday: { openTime: { type: Number }, closeTime: { type: Number } }
     },
-    menu: {
+    menu: [{
         item: { type: String, required: true },
         desc: { type: String, required: true },
         price: { type: Number, required: true },
         section: { type: String }
-    },
+    }],
     waitlist_id: { type: Mongoose.Schema.Types.ObjectId, ref: 'Waitlist' },
-    // waitTimePerUser: { type: Number }
-
+    restaurantImage: { type: String, required: true }
 });
 
 module.exports = Mongoose.model('Restaurant', RestaurantSchema)

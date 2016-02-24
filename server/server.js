@@ -5,6 +5,7 @@ var express = require('express'),
     jwt = require('jsonwebtoken'),
     config = require('./config/config');
 
+
 var userCtrl = require('./controllers/userCtrl'),
     restaurantCtrl = require('./controllers/restaurantCtrl'),
     waitlistCtrl = require('./controllers/waitlistCtrl');
