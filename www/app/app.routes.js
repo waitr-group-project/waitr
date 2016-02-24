@@ -4,9 +4,13 @@
 angular.module('waitrApp')
   .config(configure);
 
-  configure.$inject = ['$stateProvider', '$urlRouterProvider'];
+  configure.$inject = ['$stateProvider', '$urlRouterProvider', '$ionicConfigProvider'];
 
-  function configure($stateProvider, $urlRouterProvider) {
+
+  function configure($stateProvider, $urlRouterProvider, $ionicConfigProvider) {
+ 
+    $ionicConfigProvider.backButton.text('').icon('ion-ios7-arrow-left');
+
 
     $urlRouterProvider.otherwise('/customer/home');
 
