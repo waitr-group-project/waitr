@@ -46,7 +46,7 @@ module.exports = {
             }
             waitList.list.push(req.body);
             waitList.save();
-            res.send("successfully created list item");
+            res.send(waitList.list[waitList.list.length - 1]);
         })
     },
     removeFromList: function(req, res) {
