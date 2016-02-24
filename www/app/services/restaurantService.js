@@ -4,7 +4,6 @@
     .service('restaurantService', [restaurantService]);
       
     function restaurantService () {
-        
     }
     
 })();
