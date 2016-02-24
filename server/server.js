@@ -51,19 +51,19 @@ app.get('/protected', authorize(['restaurant']), function(req, res) {
 app.post('/register', userCtrl.register);
 app.post('/login', userCtrl.login);
 // app.post('api/user', userCtrl.create);
-app.get('api/user', userCtrl.read);
-app.put('api/user/:id', userCtrl.update);
-app.delete('api/user/:id', userCtrl.delete);
+app.get('/api/user', userCtrl.read);
+app.put('/api/user/:id', userCtrl.update);
+app.delete('/api/user/:id', userCtrl.delete);
 
-app.post('api/restaurant', restaurantCtrl.create);
-app.get('api/restaurant', restaurantCtrl.read);
-app.put('api/restaurant/:id', restaurantCtrl.update);
-app.delete('api/restaurant/:id', restaurantCtrl.delete);
+app.post('/api/restaurant', restaurantCtrl.create);
+app.get('/api/restaurant', restaurantCtrl.read);
+app.put('/api/restaurant/:id', restaurantCtrl.update);
+app.delete('/api/restaurant/:id', restaurantCtrl.delete);
 
-app.post('api/waitlist', waitlistCtrl.create);
-app.get('api/waitlist', waitlistCtrl.read);
-app.put('api/waitlist/:id', waitlistCtrl.update);
-app.delete('api/waitlist/:id', waitlistCtrl.delete);
+app.post('/api/waitlist', waitlistCtrl.create);
+app.get('/api/waitlist', waitlistCtrl.read);
+app.put('/api/waitlist/:id', waitlistCtrl.update);
+app.delete('/api/waitlist/:id', waitlistCtrl.delete);
 
 
 app.listen(port, function() {
