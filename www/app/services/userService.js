@@ -1,9 +1,9 @@
 (function () {
   angular
     .module('waitrApp')
-    .service('customerService', [customerService]);
+    .service('userService', [userService]);
       
-    function customerService () {
+    function userService () {
         
     }
     
