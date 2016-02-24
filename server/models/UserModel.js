@@ -1,14 +1,27 @@
 var Mongoose = require('mongoose'),
-    Schema = Mongoose.Schema,
-    objectId = Schema.Types.ObjectId,
-    HoursSchema = ('./HoursSchema'),
-    MenuSchema = ('./MenuSchema');
+    bcrypt = require('bcrypt');
 
-var User = new Schema({
-    userName: {type: String, required: true, unique: true },
-    password: {type: String, required: true },
-    email: {type: String, required: true },
-    restaurant_id: {type: objectId, ref: 'Restaurant '}
+var UserSchema = new Mongoose.Schema({
+
+    name: { type: String, required: true },
+    email: { type: String, required: true, unique: true },
+    password: { type: String, required: true },
+    phone: { type: String, required: true },
+    restaurant_id: { type: Mongoose.Schema.Types.ObjectId, ref: 'Restaurant' },
+    role: {
+      type: String,
+      enum: ['user', 'restaurant'],
+      default: 'user'
+    }
+
 });
 
-module.exports = Mongoose.model('Restaurant', User)
+UserSchema.methods.generateHash = function(password) {
+	return bcrypt.hashSync(password, bcrypt.genSaltSync(8));
+};
+
+UserSchema.methods.validPassword = function(password) {
+	return bcrypt.compareSync(password, this.password);
+};
+
+module.exports = Mongoose.model('User', UserSchema);
