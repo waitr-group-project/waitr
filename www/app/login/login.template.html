@@ -1,0 +1,15 @@
+<ion-view view-title="Login">
+  <ion-content>
+
+    <form ng-submit="logCtrl.login(credentials)">
+      <label for="username">Username:</label>
+      <input type="text" ng-model="credentials.username" autofocus="true">
+
+      <label for="password">Password:</label>
+      <input type="password" ng-model="credentials.password">
+
+      <button type="submit">Login</button>
+    </form>
+
+  </ion-content>
+</ion-view>

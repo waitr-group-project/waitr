@@ -6,9 +6,8 @@ angular.module('waitrApp')
 
   configure.$inject = ['$stateProvider', '$urlRouterProvider', '$ionicConfigProvider'];
 
-
   function configure($stateProvider, $urlRouterProvider, $ionicConfigProvider) {
-      
+
     $ionicConfigProvider.backButton.text('').icon('ion-ios7-arrow-left');
 
 
@@ -16,24 +15,29 @@ angular.module('waitrApp')
 
     $stateProvider
       // LOGIN - REGISTER ROUTES
-      // .state('login', {
-      //   url: '',
-      //   templateUrl: '',
-      //   controller:''
-      // })
-      // .state('customer-sign-up', {
-      //   url: '',
-      //   templateUrl: '',
-      //   controller:''
-      // })
-      // .state('restaurant-sign-up', {
-      //   url: '',
-      //   templateUrl: '',
-      //   controller:''
-      // })
+      .state('login', {
+        url: '/login',
+        templateUrl: 'app/login/login.template.html',
+        controller: 'LoginCtrl',
+        controllerAs: 'logCtrl'
+      })
+      .state('customer-sign-up', {
+        url: '/customer-registration',
+        templateUrl: 'app/registration/custReg.template.html',
+        controller: 'RegistrationCtrl',
+        controllerAs: 'regCtrl'
+      })
+      .state('restaurant-sign-up', {
+        url: '/restaurant-registration',
+        templateUrl: 'app/registration/restReg.template.html',
+        controller: 'RegistrationCtrl',
+        controllerAs: 'regCtrl'
+      })
 
 
-// CUSTOMER ROUTES
+
+
+      // CUSTOMER ROUTES
       .state('customer', {  //parent, sidenav
          url: '/customer',
          abstract: true,
@@ -47,6 +51,7 @@ angular.module('waitrApp')
          controller:'custHomeCtrl',
          controllerAs: 'chc'
       })
+
       //restaurant child-that-has-children thingamajigger route
       .state('customer.restaurant', {
         url: '/home/restaurant',  // /:restaurantId
@@ -54,6 +59,7 @@ angular.module('waitrApp')
         controller: 'custRestaurantCtrl',
         controllerAs:'crc'
       })
+
       //restaurant children
       .state('customer.restaurant.desc', {
         url: '/description',
@@ -63,6 +69,7 @@ angular.module('waitrApp')
         url: '/hours',
         templateUrl: './app/customer/restaurant/custRestaurantHours.html',
       })
+
       //not restaurant child, but called by restaurant
       .state('customer.menu', {
         url: '/home/restaurant/menu',
@@ -70,14 +77,13 @@ angular.module('waitrApp')
         controller: 'custRestaurantCtrl',
         controllerAs: 'crc'
       })
-
-
       .state('customer.settings', {
         url: '/settings',
         templateUrl: './app/customer/settings/custSettings.html',
         controller:'custSettingsCtrl',
         controllerAs:'csc'
       })
+
       //called in settings, but still customer child
       .state('customer.editContactInfo', {
         url: '/settings/edit-contact-info',
@@ -91,7 +97,6 @@ angular.module('waitrApp')
         controller:'custSettingsCtrl',
         controllerAs:'csc'
       })
-
       .state('customer.waitlist', {
         url: '/waitlist',
         templateUrl: './app/customer/waitlist/custWaitlist.html',
@@ -100,7 +105,9 @@ angular.module('waitrApp')
       })
 
 
-// RESTAURANT ROUTES
+
+
+      // RESTAURANT ROUTES
       .state('restaurant', {
         url: '/restaurant',  // /:restaurantId
         abstract: true,
@@ -114,7 +121,8 @@ angular.module('waitrApp')
         controller: 'restaHomeCtrl',
         controllerAs: 'rhc'
       })
-    //called in restaWaitlist, but still restaurant child
+
+      //called in restaWaitlist, but still restaurant child
       .state('restaurant.addPerson', {
         url: '/home/add-person',
         templateUrl: './app/restaurant/restaHome/restaAddPerson.html',
@@ -128,14 +136,15 @@ angular.module('waitrApp')
         controllerAs: 'rhc'
       })
 
-    //child-of-restaurant-that-has-children thingamajigger route
+      //child-of-restaurant-that-has-children thingamajigger route
       .state('restaurant.profile', {
         url: '/profile',
         templateUrl: './app/restaurant/restaProfile/restaProfile.html',
         controller: 'restaProfileCtrl',
         controllerAs: 'rpc'
       })
-    //profile children
+
+      //profile children
       .state('restaurant.profile.desc', {
         url: '/description',
         templateUrl: './app/restaurant/restaProfile/restaDesc.html',
@@ -144,21 +153,22 @@ angular.module('waitrApp')
         url: '/hours',
         templateUrl: './app/restaurant/restaProfile/restaHours.html',
       })
-    //not child of profile, but still called by profile
+
+      //not child of profile, but still called by profile
       .state('restaurant.menu', {
         url: '/profile/menu',
         templateUrl: './app/restaurant/restaProfile/restaMenu.html',
         controller: 'restaProfileCtrl',
         controllerAs: 'rpc'
       })
-
       .state('restaurant.settings', {
         url: '/settings',
         templateUrl: './app/restaurant/restaSettings/restaSettings.html',
         controller: 'restaSettingsCtrl',
         controllerAs: 'rsc'
       })
-    //called in restaSettings, but still restaurant child
+
+      //called in restaSettings, but still restaurant child
       .state('restaurant.editDesc', {
         url: '/settings/edit-description',
         templateUrl: './app/restaurant/restaSettings/restaEditDesc.html',
