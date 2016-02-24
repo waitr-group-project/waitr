@@ -4,6 +4,7 @@
     .controller('custHomeCtrl', [custHomeCtrl]);
 
   function custHomeCtrl () {
+    var chc = this;
 
     chc.data = [
       {

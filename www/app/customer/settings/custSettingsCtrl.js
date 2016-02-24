@@ -6,12 +6,16 @@
   function custSettingsCtrl ($cordovaVibration) {
     var csc = this;
 
-    //$cordovaVibration.vibrate(500);
+    csc.toggle = function() {
+      $ionicPlatform.ready(function() {
+        $cordovaVibration.vibrate(100).then(function() {
+          console.log("Phone vibrating");
+        })
 
-    //csc.vibrate = false;
-    csc.vibrate = {checked: true};
+      });
 
-    console.log(csc.vibrate);
+    }
+
   }
 
 })();
