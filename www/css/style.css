@@ -24,3 +24,10 @@ font-size: 90%;
     margin-left: 10px;
     margin-right: 10px;
 }
+#restItem {
+  border-width: 0px;
+  border-bottom: 1px solid #ddd;
+}
+#restList {
+  margin-bottom: 0px;
+}
