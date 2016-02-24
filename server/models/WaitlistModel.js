@@ -1,10 +1,9 @@
-var Mongoose = require('mongoose'),
-    objectId = Schema.Types.ObjectId;
+var Mongoose = require('mongoose');
 
 var WaitlistSchema = new Mongoose.Schema({
 
-    restaurant_id: { type: objectId, ref: 'Restaurant' },
-    user_id: { type: objectId, ref: 'User' },
+    restaurant_id: { type: Mongoose.Schema.Types.ObjectId, ref: 'Restaurant' },
+    user_id: { type: Mongoose.Schema.Types.ObjectId, ref: 'User' },
     addedPerson: {
         name: { type: String },
         amountInGroup: { type: Number },
@@ -13,4 +12,4 @@ var WaitlistSchema = new Mongoose.Schema({
 
 });
 
-module.exports = Mongoose.model('Restaurant', WaitlistSchema)
+module.exports = Mongoose.model('Waitlist', WaitlistSchema)
