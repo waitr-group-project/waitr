@@ -7,7 +7,7 @@
     var csc = this;
 
     csc.toggle = function() {
-      ocument.addEventListener( "deviceready", function() {
+      document.addEventListener( "deviceready", function() {
         $cordovaVibration.vibrate( 2000 ); }, false );
 
     }
