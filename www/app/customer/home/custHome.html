@@ -4,7 +4,7 @@
   </ion-nav-title>
   <ion-content>
     <div class="list" id="restList" ng-repeat="restaurant in chc.restaurantList">
-      <a class="item item-avatar item-icon-right" id="restItem" ui-sref="restaurant.profile">
+      <a class="item item-avatar item-icon-right" id="restItem" ui-sref="customer.restaurant">
         <img ng-src="{{restaurant.restaurantImage}}">
         <h2>{{restaurant.restaurantName}}</h2>
         <p>{{restaurant.foodType}}</p>
