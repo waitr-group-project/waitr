@@ -30,7 +30,7 @@ var RestaurantSchema = new Mongoose.Schema({
         section: { type: String }
     }],
     waitlist_id: { type: Mongoose.Schema.Types.ObjectId, ref: 'Waitlist' },
-    restaurantImage: {type: String, required: true}
+    restaurantImage: { type: String, required: true }
 });
 
 module.exports = Mongoose.model('Restaurant', RestaurantSchema)
