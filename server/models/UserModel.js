@@ -1,14 +1,18 @@
 var Mongoose = require('mongoose'),
-    Schema = Mongoose.Schema,
-    objectId = Schema.Types.ObjectId,
-    HoursSchema = ('./HoursSchema'),
-    MenuSchema = ('./MenuSchema');
+    objectId = Schema.Types.ObjectId;
 
-var User = new Schema({
-    userName: {type: String, required: true, unique: true },
-    password: {type: String, required: true },
-    email: {type: String, required: true },
-    restaurant_id: {type: objectId, ref: 'Restaurant '}
+var User = new Mongoose.Schema({
+
+    name: { type: String, required: true },
+    password: { type: String, required: true },
+    email: { type: String, required: true, unique: true },
+    phone: { type: String, required: true },
+    restaurant_id: { type: objectId, ref: 'Restaurant' },
+    role: {
+      type: String,
+      enum: ['user', 'admin']
+    }
+
 });
 
 module.exports = Mongoose.model('Restaurant', User)
