@@ -1,34 +1,38 @@
-<ion-view title="Profile" hide-nav-bar="true"></ion-nav-bar>
+<ion-view title="Profile" hide-nav-bar="true">
   <ion-content overflow-scroll="true">
 <div class="item item-image">
+  <ion-header-bar id="profileBarHeader" align-title="left" class="bar-transparent">
+    <button id="backButtonRestProfile" menu-toggle="left" class="button button-clear icon ion-navicon">
+    </button>
+  </ion-header-bar>
   <img id='resProfileImage' src="http://www.bradhoen.com/images/logos/logo-j-dawgs-2.jpeg">
 </div>
-<span id="mainBackgroundColor" class="item item-avatar item-icon-right">
+<span id="restaurantProfileDescription" class="item item-avatar item-icon-right">
   <img src="http://provorestaurantreviews.files.wordpress.com/2010/09/j-dawg.png">
-  <h2>J Dawgs</h2>
-  <p>Hot Dog Restaurant</p>
-  <p>858 700 East, Provo, UT 84606</p>
-  <i class="icon ion-ios-clock-outline" style="color: white">45</i>
+  <h2 id="restaTitleInDesc">J Dawgs</h2>
+  <p id="restaDescInDesc">Hot Dog Restaurant</p>
+  <p id="restaDescInDesc">858 700 East, Provo, UT 84606</p>
+  <i id="timeOnRestaurantProfile" class="icon ion-ios-clock-outline">45</i>
 </span>
 <div id="resQWaitingList" class="item row">
   <div class="col text-center">
-    <button style="color: orange" class="button button-icon icon ion-ios-telephone-outline"></button>
+    <button id="restProfileLinks" class="button button-icon icon ion-ios-telephone-outline"></button>
     <div>CALL</div>
   </div>
   <div class="col text-center">
-    <button style="color: orange" class="button button-icon icon ion-ios-wineglass-outline"></button>
+    <button id="restProfileLinks" class="button button-icon icon ion-ios-wineglass-outline"></button>
     <div>MENU</div>
   </div>
   <div class="col text-center">
-    <button style="color: orange" class="button button-icon icon ion-ios-world-outline"></button>
+    <button id="restProfileLinks" class="button button-icon icon ion-ios-world-outline"></button>
     <div>WEBSITE</div>
   </div>
   <div class="col text-center">
-    <button style="color: orange" class="button button-icon icon ion-ios-list-outline"></button>
+    <button id="restProfileLinks" class="button button-icon icon ion-ios-list-outline"></button>
     <div>INFO</div>
   </div>
   <div class="col text-center">
-    <button style="color: orange" class="button button-icon icon ion-ios-time-outline "></button>
+    <button id="restProfileLinks" class="button button-icon icon ion-ios-time-outline "></button>
     <div>HOURS</div>
   </div>
 </div>
@@ -46,15 +50,11 @@
   food, food, food, food, food, food, food, food, food, food, food, food, food, food, food, food, food, food, food, food,
 </div>
 
-<!-- <div class="item text-center">
-  <button id='buttonOnRestProfile' class="button button-large button-energized">
-  Enter line
-  </button>
-</div> -->
+
 </ion-content>
 </ion-view>
-<div class="bar bar-footer">
+<!-- <div class="bar bar-footer">
   <button id='buttonOnRestProfile' class="button button-block bar-energized">
     Enter line
     </button>
-</div>
+</div> -->
