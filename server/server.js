@@ -26,6 +26,7 @@ db.once('open', function() {
 });
 
 
+
 //var authorize = function(roles) {
 //  return function(req, res, next) {
 //    var authHeader = req.header('Authorization');
@@ -55,6 +56,7 @@ db.once('open', function() {
 //app.get('/api/user', userCtrl.read);
 //app.put('/api/user/:id', userCtrl.update);
 //app.delete('/api/user/:id', userCtrl.delete);
+
 
 app.post('/api/restaurant', restaurantCtrl.create);
 app.get('/api/restaurant', restaurantCtrl.read);
