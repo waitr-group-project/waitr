@@ -30,7 +30,7 @@ var RestaurantSchema = new Mongoose.Schema({
         section: { type: String }
     },
     waitlist_id: { type: Mongoose.Schema.Types.ObjectId, ref: 'Waitlist' },
-    waitTimePerUser: { type: Number }
+    // waitTimePerUser: { type: Number }
 
 });
 
