@@ -6,11 +6,13 @@ var WaitlistSchema = new Mongoose.Schema({
     quotedTime: {type: Number, required: true},
     list: [{
         user_id: { type: Mongoose.Schema.Types.ObjectId, ref: 'User' },
-        lastName: { type: String, required: true },
-        partySize: { type: Number, required: true },
-        phoneNumber: { type: Number, required: true },
-        timeAdded: {type: Date, required: true},
-        quotedTimeGiven: {type: Number, required: true}
+        firstName: { type: String/*, required: true*/ },
+        lastName: { type: String/*, required: true*/ },
+        partySize: { type: Number/*, required: true*/ },
+        phoneNumber: { type: Number/*, required: true*/ },
+        timeAdded: {type: Date},
+        quotedTimeGiven: {type: Number/*, required: true*/},
+        notes: {type: String}
     }]
 
 });
