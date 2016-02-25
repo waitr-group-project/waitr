@@ -21,8 +21,6 @@
 
     //console.log('outside', crc.currentUser);
 
-
-
     crc.userAddingToQ = function () {
       console.log('user adding to Q',crc.currentUser);
       waitlistService.addAnonToWaitlist(crc.currentUser, crc.restaurant).then(function(res) {
