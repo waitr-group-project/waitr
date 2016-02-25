@@ -1,9 +1,9 @@
 (function () {
   angular
     .module('waitrApp')
-    .controller('custRestaurantCtrl', ['restaurantService', 'userService','$stateParams', '$ionicHistory', custRestaurantCtrl]);
+    .controller('custRestaurantCtrl', ['restaurantService', 'userService', 'waitlistService','$stateParams', '$ionicHistory', custRestaurantCtrl]);
 
-  function custRestaurantCtrl (restaurantService, userService, $stateParams, $ionicHistory) {
+  function custRestaurantCtrl (restaurantService, userService, waitlistService, $stateParams, $ionicHistory) {
 
     var crc = this;
 
@@ -16,7 +16,7 @@
     });
 
     userService.currentUser('56ce45fba2440fe4375e106c').then(function (user) {
-      crc.currentUser = user;
+      crc.currentUser = user[0];
     });
 
     //console.log('outside', crc.currentUser);
@@ -24,15 +24,15 @@
 
 
     crc.userAddingToQ = function () {
-      console.log(crc.currentUser);
-      //waitlistService.addAnonToWaitlist(newQPerson, rhc.dummyData).then(function(res) {
-      //  console.log(res);
-      //  $ionicHistory.nextViewOptions({
-      //    disableBack: true
-      //  });
-      //
-      //  $state.go("restaurant.home");
-      //})
+      console.log('user adding to Q',crc.currentUser);
+      waitlistService.addAnonToWaitlist(crc.currentUser, crc.restaurant).then(function(res) {
+        console.log(res);
+        $ionicHistory.nextViewOptions({
+          disableBack: true
+        });
+
+        $state.go("restaurant.home");
+      })
     };
 
     restaurantService.getRestaurant('56ce9b91f6326bb743e015f0').then(function(response) {
