@@ -10,7 +10,7 @@ var userCtrl = require('./controllers/userCtrl'),
     restaurantCtrl = require('./controllers/restaurantCtrl'),
     waitlistCtrl = require('./controllers/waitlistCtrl');
 
-var port = 3210;
+var port = 1234;
 
 var app = express();
 app.use(bodyParser.json());
@@ -42,7 +42,7 @@ var authorize = function(roles) {
     }
     else res.status(401).send('Unauthenticated');
   };
-}
+};
 
 // PROTECTED TEST ROUTE
 app.get('/protected', authorize(['restaurant']), function(req, res) {
@@ -71,5 +71,5 @@ app.put('/api/waitlist/:id/list/:listId', waitlistCtrl.removeFromList);
 
 
 app.listen(port, function() {
-  console.log("listening on port ", port);
+  console.log('listening on port', port);
 });
