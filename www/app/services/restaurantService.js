@@ -1,7 +1,6 @@
 (function () {
   angular
     .module('waitrApp')
-<<<<<<< HEAD
     .service('restaurantService', restaurantService);
 
     function restaurantService ($http) {
@@ -15,11 +14,15 @@
             return response.data
           })
         };
-=======
-    .service('restaurantService', [restaurantService]);
-      
-    function restaurantService () {
->>>>>>> dev
+
+        this.getCurrentRestaurants = function (id) {
+          return $http({
+            method: 'GET',
+            url: '/api/restaurant/' + id
+          }).then(function (response){
+            return response.data
+          })
+        }
     }
 
 })();

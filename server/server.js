@@ -10,7 +10,7 @@ var userCtrl = require('./controllers/userCtrl'),
     restaurantCtrl = require('./controllers/restaurantCtrl'),
     waitlistCtrl = require('./controllers/waitlistCtrl');
 
-var port = 3210;
+var port = 1234;
 
 var app = express();
 app.use(bodyParser.json());
@@ -50,16 +50,18 @@ app.get('/protected', authorize(['restaurant']), function(req, res) {
 
 app.post('/register', userCtrl.register);
 app.post('/login', userCtrl.login);
-app.post('api/user', userCtrl.create);
+app.post('/api/user', userCtrl.create);
 app.get('/api/user', userCtrl.read);
 app.put('/api/user/:id', userCtrl.update);
 app.delete('/api/user/:id', userCtrl.delete);
+app.get('/api/user/:id', userCtrl.currentUser);
 
 
 app.post('/api/restaurant', restaurantCtrl.create);
 app.get('/api/restaurant', restaurantCtrl.read);
 app.put('/api/restaurant/:id', restaurantCtrl.update);
 app.delete('/api/restaurant/:id', restaurantCtrl.delete);
+app.get('/api/restaurant/:id', restaurantCtrl.currentRestId);
 
 app.post('/api/waitlist', waitlistCtrl.create);
 app.get('/api/waitlist', waitlistCtrl.read);

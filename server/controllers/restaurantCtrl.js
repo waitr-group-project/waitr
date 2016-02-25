@@ -41,5 +41,17 @@ module.exports = {
             }
             res.send(result);
         })
-    }
+    },
+  currentRestId: function (req, res) {
+    Restaurant
+      .find({_id: req.params.id})
+      .populate('waitlist_id')
+      .exec(function (err, result) {
+        if (err) {
+          return res.status(500).send(err);
+        } else {
+          res.send(result);
+        }
+      })
+  }
 };
