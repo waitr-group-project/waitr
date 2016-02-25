@@ -26,7 +26,7 @@ db.once('open', function() {
 });
 
 
-/*var authorize = function(roles) {
+var authorize = function(roles) {
   return function(req, res, next) {
     var authHeader = req.header('Authorization');
     if (authHeader) {
