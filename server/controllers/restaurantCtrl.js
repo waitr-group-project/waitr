@@ -2,7 +2,8 @@ var Restaurant = require('../models/RestaurantModel');
 
 module.exports = {
     create: function(req, res) {
-        Restaurant.create(req.body, function(err, result) {
+        Restaurant
+          .create(req.body, function(err, result) {
             if (err) {
                 console.log(err);
                 return res.status(500).send(err);
@@ -14,6 +15,7 @@ module.exports = {
     read: function(req, res) {
         Restaurant
         .find(req.query)
+          .populate('waitlist_id')
         .exec(function(err,result) {
             if (err) {
                 return res.status(500).send(err);
@@ -23,7 +25,8 @@ module.exports = {
         });
     },
     update: function(req, res) {
-        Restaurant.findByIdAndUpdate(req.params.id, req.body, function(err, result) {
+        Restaurant
+          .findByIdAndUpdate(req.params.id, req.body, function(err, result) {
             if (err) {
                 return res.status(500).send(err);
             }
@@ -31,11 +34,29 @@ module.exports = {
         })
     },
     delete: function(req, res) {
-        Restaurant.findByIdAndRemove(req.params.id, function(err, result) {
+        Restaurant
+          .findByIdAndRemove(req.params.id, function(err, result) {
             if (err) {
                 return res.status(500).send(err);
             }
             res.send(result);
         })
+<<<<<<< HEAD
+    },
+  currentRestId: function (req, res) {
+    Restaurant
+      .find({_id: req.params.id})
+      .populate('waitlist_id')
+      .exec(function (err, result) {
+        if (err) {
+          return res.status(500).send(err);
+        } else {
+          res.send(result);
+        }
+      })
+  }
+};
+=======
     }
 }
+>>>>>>> dev

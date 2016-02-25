@@ -14,7 +14,7 @@ var UserSchema = new Mongoose.Schema({
       enum: ['user', 'restaurant'],
       default: 'user'
     },
-    inWaitList: { type: Mongoose.Schema.Types.ObjectId, ref: 'Waitlist' },
+    inWaitList: { type: Mongoose.Schema.Types.ObjectId, ref: 'Waitlist' }
 
 });
 
