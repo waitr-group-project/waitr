@@ -3,6 +3,11 @@ var Mongoose = require('mongoose'),
      // = require('./MenuSchema');
 
 var RestaurantSchema = new Mongoose.Schema({
+<<<<<<< HEAD
+=======
+
+
+>>>>>>> dev
     restaurantName: { type: String/*, required: true*/ },
     addressLineOne: { type: String/*, required: true*/ },
     addressLineTwo: { type: String },

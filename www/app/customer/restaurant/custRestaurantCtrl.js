@@ -1,9 +1,10 @@
 (function () {
   angular
     .module('waitrApp')
-    .controller('custRestaurantCtrl', ['restaurantService', 'userService','$stateParams', custRestaurantCtrl]);
+    .controller('custRestaurantCtrl', ['restaurantService', 'userService','$stateParams', '$ionicHistory', custRestaurantCtrl]);
 
-  function custRestaurantCtrl (restaurantService, userService, $stateParams) {
+  function custRestaurantCtrl (restaurantService, userService, $stateParams, $ionicHistory) {
+
     var crc = this;
 
     //var restaurantId = $stateParams.id;
@@ -32,8 +33,21 @@
       //
       //  $state.go("restaurant.home");
       //})
-    }
+    };
 
+    restaurantService.getRestaurant('56ce9b91f6326bb743e015f0').then(function(response) {
+      crc.restaurantObj = response;
+    });
+
+    crc.goBack = function() {
+       $ionicHistory.goBack();
+    };
+
+    crc.infoHoursToggle = true;
+
+    crc.showOnClick = function(value) {
+      crc.infoHoursToggle = value;
+    };
 
   }
 

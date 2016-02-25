@@ -1,10 +1,19 @@
 (function () {
   angular
     .module('waitrApp')
-    .controller('restaHomeCtrl', ['waitlistService', '$state', "$ionicHistory", restaHomeCtrl]);
+.controller('restaHomeCtrl', ['restaurantService', 'waitlistService', '$state', "$ionicHistory", restaHomeCtrl]);
 
-  function restaHomeCtrl (waitlistService, $state, $ionicHistory) {
-    var rhc = this;
+function restaHomeCtrl (restaurantService, $stateParams, waitlistService, $state, $ionicHistory) {
+var rhc = this;
+
+    restaurantService.getWaitList('56ce9b91f6326bb743e015f0').then(function(response) {
+      rhc.customerEntries = response[0];
+    });
+
+    rhc.addPersonToQ = function(newQPerson) {
+        console.log(newQPerson);
+    };
+
 
     rhc.dummyData = {
         //MAKE SURE TO CHANGE REFERENCE IF YOU ARE TESTING
@@ -24,8 +33,9 @@
             });
 
             $state.go("restaurant.home");
-        })
-    }
+        });
+    };
   }
+
 
 })();
