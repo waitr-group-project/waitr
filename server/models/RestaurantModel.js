@@ -33,4 +33,4 @@ var RestaurantSchema = new Mongoose.Schema({
     restaurantImage: { type: String/*, required: true*/ }
 });
 
-module.exports = Mongoose.model('Restaurant', RestaurantSchema)
+module.exports = Mongoose.model('Restaurant', RestaurantSchema);
