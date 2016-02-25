@@ -1,9 +1,17 @@
-/**
- * Created by danle on 2/22/16.
- */
-(function () {
-  angular
-    .module('waitrApp', ['ionic'])
+(function() {
+
+  angular.module('waitrApp', ['ionic'])
+
+    .constant('AUTH_EVENTS', {
+      notAuthenticated: 'auth-not-authenticated',
+      notAuthorized: 'auth-not-authorized'
+    })
+
+    .constant('USER_ROLES', {
+      user: 'user',
+      restaurant: 'restaurant'
+    })
+
     .run(function($ionicPlatform) {
       $ionicPlatform.ready(function() {
         if(window.cordova && window.cordova.plugins.Keyboard) {
@@ -20,5 +28,39 @@
           StatusBar.styleDefault();
         }
       });
+    })
+
+    .run(function($rootScope, AUTH_EVENTS, authService, $timeout, $state) {
+
+      var user = authService.getUser();
+      if (user) {
+        $timeout(function(){
+          $rootScope.$broadcast('currentUser', user);
+        });
+      }
+
+      $rootScope.$on('$stateChangeStart', function (event, next) {
+        if (next.data) {
+          var authorizedRoles = next.data.authorizedRoles;
+          if (!authService.isAuthorized(authorizedRoles)) {
+            event.preventDefault();
+            if (authService.isAuthenticated()) {
+              // user is not allowed
+              $rootScope.$broadcast(AUTH_EVENTS.notAuthorized);
+              $state.go($state.$current, {}, {reload: true});
+            } else {
+              // user is not logged in
+              $rootScope.$broadcast(AUTH_EVENTS.notAuthenticated);
+              $state.go('login');
+            }
+          }
+        }
+      });
+
+    })
+
+    .config(function ($httpProvider) {
+      $httpProvider.interceptors.push('authInterceptorService');
     });
+
 })();
