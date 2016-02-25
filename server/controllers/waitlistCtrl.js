@@ -1,5 +1,14 @@
 var Waitlist = require('../models/WaitlistModel');
 
+var findBy_Id = function(list, id) {
+    for (var i = 0; i < list.length; i++) {
+        if (list[i]._id.toString() === id) {
+            console.log("position is: ", i);
+            return i;
+        }
+    }
+}
+
 module.exports = {
     create: function(req, res) {
         Waitlist.create(req.body, function(err, result) {
@@ -41,7 +50,7 @@ module.exports = {
     addToList: function(req, res) {
         Waitlist.findById(req.params.id, function(err, waitList) {
             //if there is an error, don't try to update anything
-            if (err) {
+            if (err || !waitList) {
                 return res.status(500).send(err);
             }
             waitList.list.push(req.body);
@@ -55,14 +64,22 @@ module.exports = {
                 return res.status(500).send(err);
             }
             //find the position of the list item
-            var pos = waitList.list.map(function(x) {
-                return x._id.toString();
-            }).indexOf(req.params.listId);
+            var pos = findBy_Id(waitList.list, req.params.listId);
             
             var removed = waitList.list.splice(pos, 1);
             waitList.save();
             res.send("successfully deleted item at index " + pos);
             
+        })
+    },
+    getFromList: function(req, res) {
+        Waitlist.findById(req.params.id, function(err, waitList) {
+            if (err) {
+                return res.status(500).send(err);
+            }
+            //find the person in the waitlist
+            var pos = findBy_Id(waitList.list, req.params.listId);
+            res.send(waitList.list[pos]);
         })
     }
 }
