@@ -1,9 +1,9 @@
 (function () {
   angular
     .module('waitrApp')
-    .controller('custRestaurantCtrl', ['restaurantService','$stateParams', custRestaurantCtrl]);
+    .controller('custRestaurantCtrl', ['restaurantService', 'userService','$stateParams', custRestaurantCtrl]);
 
-  function custRestaurantCtrl (restaurantService, $stateParams) {
+  function custRestaurantCtrl (restaurantService, userService, $stateParams) {
     var crc = this;
 
     //var restaurantId = $stateParams.id;
@@ -13,6 +13,26 @@
       console.log('hey',restaurant[0]);
       crc.restaurant = restaurant[0];
     });
+
+    userService.currentUser('56ce45fba2440fe4375e106c').then(function (user) {
+      crc.currentUser = user;
+    });
+
+    //console.log('outside', crc.currentUser);
+
+
+
+    crc.userAddingToQ = function () {
+      console.log(crc.currentUser);
+      //waitlistService.addAnonToWaitlist(newQPerson, rhc.dummyData).then(function(res) {
+      //  console.log(res);
+      //  $ionicHistory.nextViewOptions({
+      //    disableBack: true
+      //  });
+      //
+      //  $state.go("restaurant.home");
+      //})
+    }
 
 
   }
