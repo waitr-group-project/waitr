@@ -33,10 +33,10 @@ font-size: 90%;
   font-weight: bold;
 }
 #profileBarHeader {
-  border: 0px !important;
-  border-bottom-color: transparent !important;
-  background-image: none !important;
-  border-bottom: none !important;
+  border: 0px;
+  border-bottom-color: transparent;
+  background-image: none;
+  border-bottom: none;
   background-color: transparent;
 }
 #backButtonRestProfile {
@@ -68,4 +68,13 @@ font-size: 90%;
 .formContainer {
     margin-left: 10px;
     margin-right: 10px;
+}
+#timerNumberRestaProfile {
+    font-size: 0.7em;
+}
+#restProfileBodyBox{
+  border: 0px;
+  padding-bottom: 55px;
+  border-bottom: none;
+  border-bottom-color: transparent;
 }

@@ -2,17 +2,19 @@ var Mongoose = require('mongoose');
 
 var WaitlistSchema = new Mongoose.Schema({
 
-    restaurant_id: { type: Mongoose.Schema.Types.ObjectId, ref: 'Restaurant' },
-    quotedTime: {type: Number, required: true},
+    // restaurant_id: { type: Mongoose.Schema.Types.ObjectId, ref: 'Restaurant' },
+    restaurant_id: { type: String},
+    quotedTime: {type: Number},
     list: [{
-        user_id: { type: Mongoose.Schema.Types.ObjectId, ref: 'User' },
-        lastName: { type: String, required: true },
-        partySize: { type: Number, required: true },
-        phoneNumber: { type: Number, required: true },
-        timeAdded: {type: Date, required: true},
-        quotedTimeGiven: {type: Number, required: true},
+        // user_id: { type: Mongoose.Schema.Types.ObjectId, ref: 'User' },
+        user_id: { type: String},
+        lastName: { type: String},
+        partySize: { type: Number},
+        phoneNumber: { type: Number},
+        timeAdded: {type: Date},
+        quotedTimeGiven: {type: Number},
     }]
 
 });
 
-module.exports = Mongoose.model('Waitlist', WaitlistSchema)
+module.exports = Mongoose.model('Waitlist', WaitlistSchema);
