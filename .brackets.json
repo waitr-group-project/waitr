@@ -1,0 +1,8 @@
+{
+    "jscodehints.detectedExclusions": [
+        "C:/Users/tqhou/devmountain/waitr/server/server.js",
+        "C:/Users/tqhou/devmountain/waitr/server/models/RestaurantModel.js",
+        "C:/Users/tqhou/devmountain/waitr/server/controllers/waitlistCtrl.js",
+        "C:/Users/tqhou/devmountain/waitr/www/app/services/waitlistService.js"
+    ]
+}

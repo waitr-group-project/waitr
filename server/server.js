@@ -49,6 +49,7 @@ app.get('/protected', authorize(['restaurant']), function(req, res) {
   res.status(200).json('Auth worked!');
 });
 
+
 app.post('/register', userCtrl.register);
 app.post('/login', userCtrl.login);
 // app.post('api/user', userCtrl.create);
@@ -65,6 +66,8 @@ app.post('/api/waitlist', waitlistCtrl.create);
 app.get('/api/waitlist', waitlistCtrl.read);
 app.put('/api/waitlist/:id', waitlistCtrl.update);
 app.delete('/api/waitlist/:id', waitlistCtrl.delete);
+app.put('/api/waitlist/:id/list', waitlistCtrl.addToList);
+app.put('/api/waitlist/:id/list/:listId', waitlistCtrl.removeFromList);
 
 
 app.listen(port, function() {

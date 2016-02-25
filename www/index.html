@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html ng-app="waitrApp">
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no, width=device-width">
@@ -13,7 +13,7 @@
     <link href="css/ionic.app.css" rel="stylesheet">
     -->
   </head>
-  <body ng-app="waitrApp">
+  <body ng-controller="AppCtrl as ac">
     <ion-nav-view></ion-nav-view>
 
 
@@ -26,27 +26,35 @@
     <!-- your app's js -->
     <script src="app/app.js"></script>
     <script src="app/app.routes.js"></script>
+    <script src="app/app.controller.js"></script>
 
+    <!--Login / Registration Controllers' js-->
+    <script src="app/login/login.controller.js"></script>
+    <script src="app/registration/registration.controller.js"></script>
 
     <!--Customer Controllers' js-->
-    <script src="app/customer/custCustomerCtrl.js" charset="utf-8"></script>
+    <script src="app/customer/custCustomerCtrl.js"></script>
 
-    <script src="app/customer/home/custHomeCtrl.js" charset="utf-8"></script>
-    <script src="app/customer/restaurant/custRestaurantCtrl.js" charset="utf-8"></script>
-    <script src="app/customer/settings/custSettingsCtrl.js" charset="utf-8"></script>
-    <script src="app/customer/waitlist/custWaitlistCtrl.js" charset="utf-8"></script>
+    <script src="app/customer/home/custHomeCtrl.js"></script>
+    <script src="app/customer/restaurant/custRestaurantCtrl.js"></script>
+    <script src="app/customer/settings/custSettingsCtrl.js"></script>
+    <script src="app/customer/waitlist/custWaitlistCtrl.js"></script>
 
     <!--Restaurant Controllers' js-->
-    <script src="app/restaurant/restaRestaurantCtrl.js" charset="utf-8"></script>
+    <script src="app/restaurant/restaRestaurantCtrl.js"></script>
 
-    <script src="app/restaurant/restaHome/restaHomeCtrl.js" charset="utf-8"></script>
-    <script src="app/restaurant/restaProfile/restaProfileCtrl.js" charset="utf-8"></script>
-    <script src="app/restaurant/restaSettings/restaSettingsCtrl.js" charset="utf-8"></script>
+    <script src="app/restaurant/restaHome/restaHomeCtrl.js"></script>
+    <script src="app/restaurant/restaProfile/restaProfileCtrl.js"></script>
+    <script src="app/restaurant/restaSettings/restaSettingsCtrl.js"></script>
 
     <!--Services' js-->
     <script src="app/services/restaurantService.js"></script>
     <script src="app/services/userService.js"></script>
     <script src="app/services/waitlistService.js"></script>
-            
+    <script src="app/services/authService.js"></script>
+    <script src="app/services/authTokenService.js"></script>
+    <script src="app/services/AuthInterceptorService.js"></script>
+
+
   </body>
 </html>
