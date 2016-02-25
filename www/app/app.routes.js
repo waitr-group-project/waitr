@@ -12,6 +12,7 @@ angular.module('waitrApp')
 
     $urlRouterProvider.otherwise('/customer/home');
 
+
     $stateProvider
       // LOGIN - REGISTER ROUTES
       .state('login', {
@@ -58,7 +59,7 @@ angular.module('waitrApp')
 
       //restaurant child-that-has-children thingamajigger route
       .state('customer.restaurant', {
-        url: '/home/restaurant',  // /:restaurantId
+        url: '/home/restaurant/:restaurantId',  // /:restaurantId
         templateUrl: './app/customer/restaurant/custRestaurant.html',
         controller: 'custRestaurantCtrl',
         controllerAs:'crc'
@@ -197,7 +198,5 @@ angular.module('waitrApp')
         controller: 'restaSettingsCtrl',
         controllerAs: 'rsc'
       });
-
     }
-
 })();
