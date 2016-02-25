@@ -25,10 +25,6 @@ db.once('open', function() {
     console.log('Mongo connected at ' + config.db);
 });
 
-<<<<<<< HEAD
-=======
-
->>>>>>> dev
 var authorize = function(roles) {
   return function(req, res, next) {
     var authHeader = req.header('Authorization');
@@ -51,10 +47,6 @@ var authorize = function(roles) {
 app.get('/protected', authorize(['restaurant']), function(req, res) {
   res.status(200).json('Auth worked!');
 });
-<<<<<<< HEAD
-=======
-
->>>>>>> dev
 
 app.post('/register', userCtrl.register);
 app.post('/login', userCtrl.login);
@@ -76,12 +68,12 @@ app.get('/api/waitlist', waitlistCtrl.read);
 app.put('/api/waitlist/:id', waitlistCtrl.update);
 app.delete('/api/waitlist/:id', waitlistCtrl.delete);
 
+app.put('/api/waitlist/:id/list', waitlistCtrl.addToList);
+app.put('/api/waitlist/:id/list/:listId', waitlistCtrl.removeFromList);
+app.get('/api/waitlist/:id/list/:listId', waitlistCtrl.getFromList);
+
 
 
 app.listen(port, function() {
-<<<<<<< HEAD
   console.log("listening on port ", port);
-=======
-  console.log('listening on port', port);
->>>>>>> dev
 });
