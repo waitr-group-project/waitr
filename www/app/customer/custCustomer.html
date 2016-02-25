@@ -12,15 +12,15 @@
   </ion-side-menu-content>
 
   <ion-side-menu side="left">
-    <header class="bar bar-header bar-energized">
-      <h1 class="title">Customer</h1>
-    </header>
     <ion-content class="has-header">
       <ion-list>
-        <ion-item nav-clear menu-close ui-sref="customer.home">RESTAURANTS LIST</ion-item>
-        <ion-item nav-clear menu-close ui-sref="customer.waitlist">WAIT LIST</ion-item>
-        <ion-item nav-clear menu-close ui-sref="customer.settings">SETTINGS</ion-item>
+        <ion-item id="menuItem" nav-clear menu-close ui-sref="customer.home">RESTAURANTS LIST</ion-item>
+        <ion-item id="menuItem" nav-clear menu-close ui-sref="customer.waitlist" class="sideMenuItem">WAIT LIST</ion-item>
+        <ion-item id="menuItem" nav-clear menu-close ui-sref="customer.settings" class="sideMenuItem">SETTINGS</ion-item>
       </ion-list>
     </ion-content>
+    <ion-footer-bar align-title="left">
+      <ion-item id="menuItemFooter" nav-clear menu-close ui-sref="customer.settings" class="sideMenuItem">LOG OUT</ion-item>
+    </ion-footer-bar>
   </ion-side-menu>
 </ion-side-menus>

@@ -76,3 +76,10 @@ font-size: 90%;
 #restList {
   margin-bottom: 0px;
 }
+#menuItem {
+  border-style: none;
+}
+#menuItemFooter {
+  border-style: none;
+  margin-top: -30px;
+}
