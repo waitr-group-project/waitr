@@ -47,7 +47,8 @@ db.once('open', function() {
 // PROTECTED TEST ROUTE
 app.get('/protected', authorize(['restaurant']), function(req, res) {
   res.status(200).json('Auth worked!');
-})*/
+});
+
 
 app.post('/register', userCtrl.register);
 app.post('/login', userCtrl.login);
@@ -72,4 +73,4 @@ app.get('/api/waitlist/:id/list/:listId', waitlistCtrl.getFromList);
 
 app.listen(port, function() {
   console.log("listening on port ", port);
-})
+});
