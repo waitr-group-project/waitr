@@ -10,7 +10,7 @@ var userCtrl = require('./controllers/userCtrl'),
     restaurantCtrl = require('./controllers/restaurantCtrl'),
     waitlistCtrl = require('./controllers/waitlistCtrl');
 
-var port = 3210;
+var port = 1234;
 
 var app = express();
 app.use(bodyParser.json());
@@ -26,7 +26,7 @@ db.once('open', function() {
 });
 
 
-/*var authorize = function(roles) {
+var authorize = function(roles) {
   return function(req, res, next) {
     var authHeader = req.header('Authorization');
     if (authHeader) {
@@ -42,12 +42,13 @@ db.once('open', function() {
     }
     else res.status(401).send('Unauthenticated');
   };
-}
+};
 
 // PROTECTED TEST ROUTE
 app.get('/protected', authorize(['restaurant']), function(req, res) {
   res.status(200).json('Auth worked!');
-})*/
+});
+
 
 app.post('/register', userCtrl.register);
 app.post('/login', userCtrl.login);
@@ -70,5 +71,5 @@ app.put('/api/waitlist/:id/list/:listId', waitlistCtrl.removeFromList);
 
 
 app.listen(port, function() {
-  console.log("listening on port ", port);
-})
+  console.log('listening on port', port);
+});
