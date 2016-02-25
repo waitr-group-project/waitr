@@ -40,28 +40,23 @@
 <div id="restProfileBodyBox"class="item text-center item-text-wrap" ng-show="rpc.infoHoursToggle">
   <p>{{rpc.restaurantObj.description}}</p>
 </div>
-<div id="restProfileBodyBox" class="item col text-center" ng-hide="rpc.infoHoursToggle">
-  <li class="col" >
-    MON: open: {{rpc.restaurantObj.hours.monday.openTime}}AM, close: {{rpc.restaurantObj.hours.monday.closeTime}}PM
-  </li>
-  <li class="col">
-    TUE: open: {{rpc.restaurantObj.hours.tuesday.openTime}}AM, close: {{rpc.restaurantObj.hours.tuesday.closeTime}}PM
-  </li>
-  <li class="col">
-    WED: open: {{rpc.restaurantObj.hours.wednesday.openTime}}AM, close: {{rpc.restaurantObj.hours.wednesday.closeTime}}PM
-  </li>
-  <li class="col">
-    THU: open: {{rpc.restaurantObj.hours.thursday.openTime}}AM, close: {{rpc.restaurantObj.hours.thursday.closeTime}}PM
-  </li>
-  <li class="col">
-    FRI: open: {{rpc.restaurantObj.hours.friday.openTime}}AM, close: {{rpc.restaurantObj.hours.friday.closeTime}}PM
-  </li>
-    <li class="col">
-    SAT: open: {{rpc.restaurantObj.hours.saturday.openTime}}AM, close: {{rpc.restaurantObj.hours.saturday.closeTime}}PM
-  </li>
-    <li class="col">
-    SUN: open: {{rpc.restaurantObj.hours.sunday.openTime}}AM, close: {{rpc.restaurantObj.hours.sunday.closeTime}}PM
-  </li>
+<div id="restProfileBodyBox" class="item col text-center item-text-wrap" ng-hide="rpc.infoHoursToggle">
+  <pre id="restProfileHoursBox">
+    <span id="dayOfTheWeekInResta">MON</span>: Open: {{rpc.restaurantObj.hours.monday.openTime}}AM, Close: {{rpc.restaurantObj.hours.monday.closeTime}}PM
+
+    <span id="dayOfTheWeekInResta">TUE</span>: Open: {{rpc.restaurantObj.hours.tuesday.openTime}}AM, Close: {{rpc.restaurantObj.hours.tuesday.closeTime}}PM
+
+    <span id="dayOfTheWeekInResta">WED</span>: Open: {{rpc.restaurantObj.hours.wednesday.openTime}}AM, Close: {{rpc.restaurantObj.hours.wednesday.closeTime}}PM
+
+    <span id="dayOfTheWeekInResta">THU</span>: Open: {{rpc.restaurantObj.hours.thursday.openTime}}AM, Close: {{rpc.restaurantObj.hours.thursday.closeTime}}PM
+
+    <span id="dayOfTheWeekInResta">FRI</span>: Open: {{rpc.restaurantObj.hours.friday.openTime}}AM, Close: {{rpc.restaurantObj.hours.friday.closeTime}}PM
+
+    <span id="dayOfTheWeekInResta">SAT</span>: open: {{rpc.restaurantObj.hours.saturday.openTime}}AM, Close: {{rpc.restaurantObj.hours.saturday.closeTime}}PM
+
+    <span id="dayOfTheWeekInResta">SUN</span>: open: {{rpc.restaurantObj.hours.sunday.openTime}}AM, Close: {{rpc.restaurantObj.hours.sunday.closeTime}}PM
+  </pre>
+
 </div>
 
 </ion-content>
