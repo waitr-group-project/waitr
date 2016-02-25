@@ -8,10 +8,12 @@ module.exports = {
     register: function(req, res) {
       function regCust(req, res) {
         var newUser = new User();
-        newUser.name = req.body.name;
+        newUser.firstName = req.body.firstName;
+        newUser.lastName = req.body.lastName;
         newUser.email = req.body.email;
         newUser.password = newUser.generateHash(req.body.password);
         newUser.phone = req.body.phone;
+
         if (req.body.restaurantID) {
           newUser.restaurant_id = req.body.restaurantID;
           newUser.role = 'restaurant';
