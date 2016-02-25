@@ -4,6 +4,7 @@ var Mongoose = require('mongoose');
 
 var RestaurantSchema = new Mongoose.Schema({
 
+
     restaurantName: { type: String/*, required: true*/ },
     addressLineOne: { type: String/*, required: true*/ },
     addressLineTwo: { type: String },
