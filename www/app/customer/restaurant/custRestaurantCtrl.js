@@ -10,9 +10,8 @@
     //var restaurantId = $stateParams.id;
     //console.log('this is the rest id', restaurantId);
 
-    restaurantService.getCurrentRestaurants('56ce2b6c6910c73c351410e2').then(function (restaurant) {
-      console.log('hey',restaurant[0]);
-      crc.restaurant = restaurant[0];
+    restaurantService.getRestaurant('56ce9b91f6326bb743e015f0').then(function (restaurant) {
+      crc.restaurant = restaurant;
     });
 
     userService.currentUser('56ce45fba2440fe4375e106c').then(function (user) {
@@ -32,7 +31,7 @@
         });
 
         $state.go("restaurant.home");
-      })
+      });
     };
 
     restaurantService.getRestaurant('56ce9b91f6326bb743e015f0').then(function(response) {

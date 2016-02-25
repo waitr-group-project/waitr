@@ -31,7 +31,7 @@ module.exports = {
                 return res.status(500).send(err);
             }
             res.send(result);
-        })
+        });
     },
     delete: function(req, res) {
         Restaurant
@@ -40,8 +40,7 @@ module.exports = {
                 return res.status(500).send(err);
             }
             res.send(result);
-        })
-<<<<<<< HEAD
+        });
     },
   currentRestId: function (req, res) {
     Restaurant
@@ -53,10 +52,7 @@ module.exports = {
         } else {
           res.send(result);
         }
-      })
+      });
   }
+
 };
-=======
-    }
-}
->>>>>>> dev

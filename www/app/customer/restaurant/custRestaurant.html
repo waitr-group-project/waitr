@@ -40,30 +40,97 @@
 <div id="restProfileBodyBox"class="item text-center item-text-wrap" ng-show="crc.infoHoursToggle">
   <p>{{crc.restaurantObj.description}}</p>
 </div>
-<div id="restProfileBodyBox" class="item col text-center" ng-hide="crc.infoHoursToggle">
-  <li class="col" >
-    MON: open: {{crc.restaurantObj.hours.monday.openTime}}AM, close: {{crc.restaurantObj.hours.monday.closeTime}}PM
-  </li>
-  <li class="col">
-    TUE: open: {{crc.restaurantObj.hours.tuesday.openTime}}AM, close: {{crc.restaurantObj.hours.tuesday.closeTime}}PM
-  </li>
-  <li class="col">
-    WED: open: {{crc.restaurantObj.hours.wednesday.openTime}}AM, close: {{crc.restaurantObj.hours.wednesday.closeTime}}PM
-  </li>
-  <li class="col">
-    THU: open: {{crc.restaurantObj.hours.thursday.openTime}}AM, close: {{crc.restaurantObj.hours.thursday.closeTime}}PM
-  </li>
-  <li class="col">
-    FRI: open: {{crc.restaurantObj.hours.friday.openTime}}AM, close: {{crc.restaurantObj.hours.friday.closeTime}}PM
-  </li>
-    <li class="col">
-    SAT: open: {{crc.restaurantObj.hours.saturday.openTime}}AM, close: {{crc.restaurantObj.hours.saturday.closeTime}}PM
-  </li>
-    <li class="col">
-    SUN: open: {{crc.restaurantObj.hours.sunday.openTime}}AM, close: {{crc.restaurantObj.hours.sunday.closeTime}}PM
-  </li>
-</div>
+<div id="restProfileBodyBox" class="item item-body text-center item-text-wrap" ng-hide="crc.infoHoursToggle">
+  <div class="row text-center ">
+    <div class="col ">
+        <span id="dayOfTheWeekInResta"></span>
+    </div>
+    <div class="col ">
+      <span id="dayOfTheWeekInResta">OPEN</span>
+    </div>
+    <div class="col ">
+      <span id="dayOfTheWeekInResta">CLOSE</span>
+    </div>
+  </div>
+  <div class="row text-center">
+    <div class="col ">
+        <span>MON</span>
+    </div>
+    <div class="col ">
+     {{crc.restaurantObj.hours.monday.openTime}} AM
+    </div>
+    <div class="col ">
+     {{crc.restaurantObj.hours.monday.closeTime}} PM
+    </div>
+  </div>
+  <div class="row text-center">
+    <div class="col ">
+        <span>TUE</span>
+    </div>
+    <div class="col ">
+     {{crc.restaurantObj.hours.tuesday.openTime}} AM
+    </div>
+    <div class="col ">
+     {{crc.restaurantObj.hours.tuesday.closeTime}} PM
+    </div>
+  </div>
+  <div class="row text-center">
+    <div class="col ">
+        <span>WED</span>
+    </div>
+    <div class="col ">
+     {{crc.restaurantObj.hours.wednesday.openTime}} AM
+    </div>
+    <div class="col ">
+     {{crc.restaurantObj.hours.wednesday.closeTime}} PM
+    </div>
+  </div>
+  <div class="row text-center">
+    <div class="col ">
+      <span>THU</span>
+    </div>
+    <div class="col ">
+     {{crc.restaurantObj.hours.thursday.openTime}} AM
+    </div>
+    <div class="col ">
+     {{crc.restaurantObj.hours.thursday.closeTime}} PM
+    </div>
+  </div>
+  <div class="row text-center">
+    <div class="col ">
+        <span>FRI</span>
+    </div>
+    <div class="col ">
+     {{crc.restaurantObj.hours.friday.openTime}} AM
+    </div>
+    <div class="col ">
+     {{crc.restaurantObj.hours.friday.closeTime}} PM
+    </div>
+  </div>
+  <div class="row text-center">
+    <div class="col ">
+      <span>SAT</span>
+    </div>
+    <div class="col ">
+       {{crc.restaurantObj.hours.saturday.openTime}} AM
+    </div>
+    <div class="col ">
+     {{crc.restaurantObj.hours.saturday.closeTime}} PM
+    </div>
+  </div>
+  <div class="row text-center">
+    <div class="col ">
+      <span>SUN</span>
+    </div>
+    <div class="col ">
+       {{crc.restaurantObj.hours.sunday.openTime}} AM
+    </div>
+    <div class="col ">
+     {{crc.restaurantObj.hours.sunday.closeTime}} PM
+    </div>
+  </div>
 
+</div>
 </ion-content>
 </ion-view>
 <div class="bar bar-footer">
