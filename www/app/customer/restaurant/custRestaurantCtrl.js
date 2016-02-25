@@ -1,14 +1,17 @@
 (function () {
   angular
     .module('waitrApp')
-    .controller('custRestaurantCtrl', ['restaurantService',custRestaurantCtrl]);
+    .controller('custRestaurantCtrl', ['restaurantService','$stateParams', custRestaurantCtrl]);
 
-  function custRestaurantCtrl (restaurantService) {
+  function custRestaurantCtrl (restaurantService, $stateParams) {
     var crc = this;
 
-    restaurantService.getRestaurants().then(function (restaurant) {
-      console.log('hey',restaurant);
-      crc.restaurantList = restaurant;
+    //var restaurantId = $stateParams.id;
+    //console.log('this is the rest id', restaurantId);
+
+    restaurantService.getCurrentRestaurants('56ce2b6c6910c73c351410e2').then(function (restaurant) {
+      console.log('hey',restaurant[0]);
+      crc.restaurant = restaurant[0];
     });
 
 

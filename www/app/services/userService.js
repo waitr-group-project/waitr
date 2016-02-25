@@ -12,6 +12,16 @@
         }).then(function (response) {
           return response.data;
         })
+      };
+
+      this.updateUser = function (id, obj) {
+        return $http({
+          method: 'PUT',
+          url: '/api/user/' + id,
+          data: obj
+        }).then(function (response) {
+          return response.data
+        })
       }
     }
 

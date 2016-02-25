@@ -11,33 +11,18 @@
       <i class="icon ion-ios-clock-outline" style="color: lightgrey">{{cwc.restaurant.waitlist_id.quotedTime}}</i>
     </div>
     <div class="row">
-      <div class="col col-10"></div>
-      <div class="col col-50" style="float: right">
+      <div class="col" style="text-align: center">
+        <h4>02</h4>
         <h4>Parties ahead of you</h4>
       </div>
-      <div class="col col-40">
-        <h4>02</h4>
-      </div>
-    </div>
-    <div class="row">
-      <div class="col col-10"></div>
-      <div class="col col-50" style="float: right">
-        <h4>Est wait remaining</h4>
-      </div>
-      <div class="col col-40">
+      <div class="col" style="text-align: center">
         <h4>10 min</h4>
+        <h4>Est. wait remaining</h4>
       </div>
     </div>
-    <div class="row">
-      <div class="col col-10"></div>
-      <div class="col">
-        <i class="icon ion-man" style="font-size: 70px"></i>
-        <i class="icon ion-man" style="font-size: 70px"></i>
-        <i class="icon ion-man" style="font-size: 70px"></i>
-        <i class="icon ion-man" style="font-size: 70px; color: orange"></i>
-        <i class="icon ion-man" style="font-size: 70px"></i>
-        <i class="icon ion-man" style="font-size: 70px"></i>
-      </div>
-    </div>
+    <ul class="list" ng-repeat="waitlist in cwc.restaurant.waitlist_id.list">
+      <li class="item">{{waitlist.lastName}}</li>
+    </ul>
+
   </ion-content>
 </ion-view>
