@@ -46,7 +46,7 @@ var authorize = function(roles) {
 // PROTECTED TEST ROUTE
 app.get('/protected', authorize(['restaurant']), function(req, res) {
   res.status(200).json('Auth worked!');
-})
+});
 
 app.post('/register', userCtrl.register);
 app.post('/login', userCtrl.login);
@@ -68,4 +68,4 @@ app.delete('/api/waitlist/:id', waitlistCtrl.delete);
 
 app.listen(port, function() {
   console.log("listening on port ", port);
-})
+});

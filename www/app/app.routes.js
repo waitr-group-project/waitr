@@ -4,12 +4,11 @@
 angular.module('waitrApp')
   .config(configure);
 
-  configure.$inject = ['$stateProvider', '$urlRouterProvider', '$ionicConfigProvider'];
+  configure.$inject = ['$stateProvider', '$urlRouterProvider', '$ionicConfigProvider', 'USER_ROLES'];
 
-  function configure($stateProvider, $urlRouterProvider, $ionicConfigProvider) {
+  function configure($stateProvider, $urlRouterProvider, $ionicConfigProvider, USER_ROLES) {
 
     $ionicConfigProvider.backButton.text('').icon('ion-ios7-arrow-left');
-
 
     $urlRouterProvider.otherwise('/customer/home');
 
@@ -32,6 +31,11 @@ angular.module('waitrApp')
         templateUrl: 'app/registration/restReg.template.html',
         controller: 'RegistrationCtrl',
         controllerAs: 'regCtrl'
+      })
+      .state('auth-test', {
+        url: '/auth-test',
+        templateUrl: 'app/login/authTest.template.html',
+        data: { authorizedRoles: [USER_ROLES.user] }
       })
 
 

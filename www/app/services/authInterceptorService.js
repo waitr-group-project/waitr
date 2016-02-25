@@ -27,11 +27,14 @@ angular.module('waitrApp')
 
     function responseError(response) {
       $rootScope.$broadcast({
-        401: AUTH_EVENTS.notAuthenticated,
-        403: AUTH_EVENTS.notAuthorized
+        401: AUTH_EVENTS.notAuthenticated, // Failed attempt OR User not found
+        403: AUTH_EVENTS.notAuthorized // Not Authorized to access resource
       }[response.status], response);
       return $q.reject(response);
     }
+
+    // Status 200: OK
+    // Status 500: Issue with request
 
   }
 })();

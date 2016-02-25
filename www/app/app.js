@@ -30,26 +30,28 @@
       });
     })
 
-    .run(function($rootScope, AUTH_EVENTS, AuthFactory, $timeout) {
-      // var user = AuthFactory.getUser();
-      // if (user) {
-      //   $timeout(function(){
-      //     $rootScope.$broadcast('currentUser', user);
-      //   });
-      // }
+    .run(function($rootScope, AUTH_EVENTS, authService, $timeout, $state) {
+
+      var user = authService.getUser();
+      if (user) {
+        $timeout(function(){
+          $rootScope.$broadcast('currentUser', user);
+        });
+      }
+
       $rootScope.$on('$stateChangeStart', function (event, next) {
         if (next.data) {
           var authorizedRoles = next.data.authorizedRoles;
-          if (!AuthFactory.isAuthorized(authorizedRoles)) {
+          if (!authService.isAuthorized(authorizedRoles)) {
             event.preventDefault();
-            if (AuthFactory.isAuthenticated()) {
+            if (authService.isAuthenticated()) {
               // user is not allowed
-              toastr.error('Not Allowed!');
               $rootScope.$broadcast(AUTH_EVENTS.notAuthorized);
+              $state.go($state.$current, {}, {reload: true});
             } else {
               // user is not logged in
-              toastr.error('Not Logged In.');
               $rootScope.$broadcast(AUTH_EVENTS.notAuthenticated);
+              $state.go('login');
             }
           }
         }

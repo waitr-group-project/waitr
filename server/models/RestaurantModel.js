@@ -5,15 +5,15 @@ var Mongoose = require('mongoose');
 var RestaurantSchema = new Mongoose.Schema({
 
     restaurantName: { type: String, required: true },
-    addressLineOne: { type: String, required: true },
+    addressLineOne: { type: String },
     addressLineTwo: { type: String },
-    city: { type: String, required: true },
-    state: { type: String, required: true },
+    city: { type: String },
+    state: { type: String },
     zipcode: { type: String },
     location: { type: String },
-    shortDescription: { type: String, required: true },
-    description: { type: String, required: true },
-    foodType: { type: String, required: true },
+    shortDescription: { type: String },
+    description: { type: String },
+    foodType: { type: String },
     hours: {
         monday: { openTime: { type: Number }, closeTime: { type: Number } },
         tuesday: { openTime: { type: Number }, closeTime: { type: Number } },
@@ -24,9 +24,9 @@ var RestaurantSchema = new Mongoose.Schema({
         sunday: { openTime: { type: Number }, closeTime: { type: Number } }
     },
     menu: {
-        item: { type: String, required: true },
-        desc: { type: String, required: true },
-        price: { type: Number, required: true },
+        item: { type: String },
+        desc: { type: String },
+        price: { type: Number },
         section: { type: String }
     },
     waitlist_id: { type: Mongoose.Schema.Types.ObjectId, ref: 'Waitlist' },
