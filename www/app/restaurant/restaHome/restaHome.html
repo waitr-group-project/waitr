@@ -15,7 +15,7 @@
         <div class="col text-center">Quoted</div>
         <div class="col text-center">Size</div>
       </div>
-      <div class="item row" ng-repeat="entry in rhc.customerEntries.list">
+      <div class="item row" ng-repeat="entry in rhc.customerEntries.list" ui-sref="restaurant.editPerson({person:entry._id, waitlist: rhc.dummyData._id})">
         <div class="col col-40">{{entry.lastName}}</div>
         <time am-time-ago="entry.timeAdded" class="col text-center" >{{entry.timeAdded}}</time>
         <div class="col text-center">{{entry.quotedTimeGiven}}m</div>

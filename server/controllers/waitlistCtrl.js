@@ -3,7 +3,6 @@ var Waitlist = require('../models/WaitlistModel');
 var findBy_Id = function(list, id) {
     for (var i = 0; i < list.length; i++) {
         if (list[i]._id.toString() === id) {
-            console.log("position is: ", i);
             return i;
         }
     }
@@ -80,6 +79,32 @@ module.exports = {
             //find the person in the waitlist
             var pos = findBy_Id(waitList.list, req.params.listId);
             res.send(waitList.list[pos]);
-        });
+        })
+    },
+    updateListEntry: function(req, res) {
+        Waitlist.findById(req.params.id, function(err, waitList) {
+            if (err) {
+                return res.status(500).send(err);
+            }
+            var pos = findBy_Id(waitList.list, req.params.listId);
+            //console.log("position is: ", pos);
+            //console.log("req.body is: ", req.body);
+            //console.log("element is: ", waitList.list[pos]);
+            
+            for (var p in req.body) {
+                console.log(p);
+                waitList.list[pos][p] = req.body[p];
+                console.log("the new property is: ", waitList.list[pos][p]);
+            }
+            
+            waitList.save(function(err, result) {
+                if (err) {
+                    console.log(err);
+                    res.send(err);
+                } else {
+                    res.send(result);
+                }
+            });
+        })
     }
-};
+}
