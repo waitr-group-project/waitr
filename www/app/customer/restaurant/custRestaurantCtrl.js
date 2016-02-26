@@ -1,11 +1,16 @@
 (function () {
   angular
     .module('waitrApp')
-    .controller('custRestaurantCtrl', ['restaurantService', 'userService', 'waitlistService','$stateParams', '$ionicHistory', '$state',custRestaurantCtrl]);
+    .controller('custRestaurantCtrl', ['restaurantService', 'userService', 'waitlistService','$stateParams', '$ionicHistory', '$state', '$timeout',custRestaurantCtrl]);
 
-  function custRestaurantCtrl (restaurantService, userService, waitlistService, $stateParams, $ionicHistory, $state) {
+  function custRestaurantCtrl (restaurantService, userService, waitlistService, $stateParams, $ionicHistory, $state, $timeout) {
 
     var crc = this;
+
+    $timeout(function() {
+      crc.currentUser = $scope.ac.currentUser;
+      console.log('custRestaurant', crc.currentUser);
+    });
 
     var restaurantId = $stateParams.restaurantId;
     console.log('this is restaurant id',restaurantId);

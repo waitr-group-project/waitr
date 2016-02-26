@@ -10,8 +10,7 @@ angular.module('waitrApp')
 
     $ionicConfigProvider.backButton.text('').icon('ion-ios7-arrow-left');
 
-    $urlRouterProvider.otherwise('/restaurant/home');
-
+    $urlRouterProvider.otherwise('/login');
 
 
 
