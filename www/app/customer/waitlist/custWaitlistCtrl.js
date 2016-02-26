@@ -17,9 +17,6 @@
         console.log('this is it', cwc.restaurant);
       })
     });
-
-
-
   }
 
 })();
