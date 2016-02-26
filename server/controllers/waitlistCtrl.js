@@ -65,11 +65,11 @@ module.exports = {
             }
             //find the position of the list item
             var pos = findBy_Id(waitList.list, req.params.listId);
-            
+
             var removed = waitList.list.splice(pos, 1);
             waitList.save();
             res.send("successfully deleted item at index " + pos);
-            
+
         })
     },
     getFromList: function(req, res) {

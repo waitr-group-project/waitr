@@ -10,7 +10,7 @@ angular.module('waitrApp')
 
     $ionicConfigProvider.backButton.text('').icon('ion-ios7-arrow-left');
 
-    $urlRouterProvider.otherwise('/customer/home');
+    $urlRouterProvider.otherwise('/customer/home/menu');
 
 
     $stateProvider
@@ -67,9 +67,9 @@ angular.module('waitrApp')
 
       //not restaurant child, but called by restaurant
       .state('customer.menu', {
-        url: '/home/restaurant/restaurant/:restaurantId/menu',
+        url: '/home/menu',
         templateUrl: './app/customer/menu/custRestaurantMenu.html',
-        controller: 'custMenuCtrl', 
+        controller: 'custRestaurantMenuCtrl', 
         controllerAs: 'cmc',
       })
       .state('customer.settings', {

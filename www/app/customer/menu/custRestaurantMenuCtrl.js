@@ -1,13 +1,13 @@
 (function () {
   angular
     .module('waitrApp')
-    .controller('custMenuCtrl', ['restaurantService', 'userService', 'waitlistService','$stateParams', '$ionicHistory', '$state',custMenuCtrl]);
+    .controller('custRestaurantMenuCtrl', ['restaurantService', 'userService', 'waitlistService','$stateParams', '$ionicHistory', '$state', custRestaurantMenuCtrl]);
 
-  function custMenuCtrl (restaurantService, userService, waitlistService, $stateParams, $ionicHistory, $state) {
+  function custRestaurantMenuCtrl (restaurantService, userService, waitlistService, $stateParams, $ionicHistory, $state) {
 
     var cmc = this;
 
-    var restaurantId = $stateParams.restaurantId;
+    var restaurantId = "56cf854d507ee272a9dc2dbb"
     console.log('this is restaurant id',restaurantId);
 
     restaurantService.getRestaurantMenu(restaurantId).then(function (restaurant) {
