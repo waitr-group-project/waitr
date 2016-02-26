@@ -5,13 +5,14 @@
     <button id="backButtonRestProfile" menu-toggle="left" class="button button-clear icon ion-navicon">
     </button>
   </ion-header-bar>
-  <img id='resProfileImage' src="http://www.bradhoen.com/images/logos/logo-j-dawgs-2.jpeg">
+  <img id='resProfileImage' ng-src="{{rpc.restaurant.restaurantImage}}">
 </div>
 <span id="restaurantProfileDescription" class="item item-avatar item-icon-right">
-  <img src="http://provorestaurantreviews.files.wordpress.com/2010/09/j-dawg.png">
-  <h2 id="restaTitleInDesc">{{rpc.restaurantObj.restaurantName}}</h2>
-    <p id="restaDescInDesc">{{rpc.restaurantObj.shortDescription}}</p>
-    <p id="restaDescInDesc">{{rpc.restaurantObj.addressLineOne}}, {{rpc.restaurantObj.city}}, {{rpc.restaurantObj.state}}, {{rpc.restaurantObj.zipcode}}</p>
+  <img ng-src="{{rpc.restaurant.restaurantIcon}}">
+  <h2 id="restaTitleInDesc">{{rpc.restaurant.restaurantName}}</h2>
+    <p id="restaDescInDesc">{{rpc.restaurant.shortDescription}}</p>
+    <p id="restaDescInDesc">{{rpc.restaurant.addressLineOne}}</p>
+    <p id="restaDescInDesc">{{rpc.restaurant.city}}, {{rpc.restaurant.state}}, {{rpc.restaurant.zipcode}}</p>
   <i id="timeOnRestaurantProfile" class="icon ion-ios-clock-outline"><span id="timerNumberRestaProfile">45</span></i>
 </span>
 <div id="resQWaitingList" class="item row">
