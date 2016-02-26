@@ -16,13 +16,13 @@ var RestaurantSchema = new Mongoose.Schema({
     description: { type: String/*, required: true*/ },
     foodType: { type: String/*, required: true*/ },
     hours: {
-        monday: { openTime: { type: Number }, closeTime: { type: Number } },
-        tuesday: { openTime: { type: Number }, closeTime: { type: Number } },
-        wednesday: { openTime: { type: Number }, closeTime: { type: Number } },
-        thursday: { openTime: { type: Number }, closeTime: { type: Number } },
-        friday: { openTime: { type: Number }, closeTime: { type: Number } },
-        saturday: { openTime: { type: Number }, closeTime: { type: Number } },
-        sunday: { openTime: { type: Number }, closeTime: { type: Number } }
+        monday: { openTime: { type: String }, closeTime: { type: String } },
+        tuesday: { openTime: { type: String }, closeTime: { type: String } },
+        wednesday: { openTime: { type: String }, closeTime: { type: String } },
+        thursday: { openTime: { type: String }, closeTime: { type: String } },
+        friday: { openTime: { type: String }, closeTime: { type: String } },
+        saturday: { openTime: { type: String }, closeTime: { type: String } },
+        sunday: { openTime: { type: String }, closeTime: { type: String } }
     },
     menu: [{
         item: { type: String/*, required: true*/ },
@@ -31,7 +31,12 @@ var RestaurantSchema = new Mongoose.Schema({
         section: { type: String }
     }],
     waitlist_id: { type: Mongoose.Schema.Types.ObjectId, ref: 'Waitlist' },
-    restaurantImage: { type: String/*, required: true*/ }
+    restaurantImage: { type: String/*, required: true*/ },
+    restaurantIcon: { type: String/*, required: true*/ },
+    restaurantWebsite: { type: String}
 });
 
 module.exports = Mongoose.model('Restaurant', RestaurantSchema);
+
+
+
