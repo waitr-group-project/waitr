@@ -65,22 +65,12 @@ angular.module('waitrApp')
         controllerAs:'crc'
       })
 
-      //restaurant children
-      .state('customer.restaurant.desc', {
-        url: '/description',
-        templateUrl: './app/customer/restaurant/custRestaurantDesc.html',
-      })
-      .state('customer.restaurant.hours', {
-        url: '/hours',
-        templateUrl: './app/customer/restaurant/custRestaurantHours.html',
-      })
-
       //not restaurant child, but called by restaurant
       .state('customer.menu', {
-        url: '/home/restaurant/menu',
-        templateUrl: './app/customer/restaurant/custRestaurantMenu.html',
-        controller: 'custRestaurantCtrl',
-        controllerAs: 'crc'
+        url: '/home/restaurant/restaurant/:restaurantId/menu',
+        templateUrl: './app/customer/menu/custRestaurantMenu.html',
+        controller: 'custMenuCtrl', 
+        controllerAs: 'cmc',
       })
       .state('customer.settings', {
         url: '/settings',

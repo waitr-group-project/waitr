@@ -31,10 +31,17 @@
         };
 
         this.getRestaurant = function(restaId) {
-        return $http.get('/api/restaurant/?&_id=' + restaId).then(function(response) {
-          return response.data[0];
-        });
-      };
+            return $http.get('/api/restaurant/?&_id=' + restaId).then(function(response) {
+                console.log(response.data[0]);
+                return response.data[0];
+            });
+        };
+        
+        this.getRestaurantMenu = function(restaId) {
+            return $http.get('/api/restaurant/?&_id=' + restaId).then(function(response) {
+                return response.data[0].menu[0];
+            });
+        };
 
     }
 
