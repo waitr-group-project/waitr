@@ -1,7 +1,7 @@
 (function () {
   angular
     .module('waitrApp')
-    .service('restaurantService', restaurantService);
+    .service('restaurantService', ['$http', restaurantService]);
 
     function restaurantService ($http) {
 
@@ -17,7 +17,6 @@
 
         this.getWaitlist = function(waitListId) {
           return $http.get('/api/waitlist/?restaurant_id=' + waitListId).then(function(response) {
-            console.log(response.data);
             return response.data;
           });
         };

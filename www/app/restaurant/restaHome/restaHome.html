@@ -17,7 +17,7 @@
       </div>
       <div class="item row" ng-repeat="entry in rhc.customerEntries.list">
         <div class="col col-40">{{entry.lastName}}</div>
-        <time am-time-ago="entry.timeAdded" class="col text-center" >{{entry.timeAdded | amDateFormat: 'dddd, MMMM Do YYYY, h:mm a' }} mins</time>
+        <time am-time-ago="entry.timeAdded" class="col text-center" >{{entry.timeAdded}}</time>
         <div class="col text-center">{{entry.quotedTimeGiven}}m</div>
         <div class="col text-center">{{entry.partySize}}</div>
       </div>

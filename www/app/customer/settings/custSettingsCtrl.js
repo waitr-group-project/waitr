@@ -30,7 +30,7 @@
         email: email
       };
       userService.updateUser('56ce45fba2440fe4375e106c', user);
-    }
+    };
 
   }
 
