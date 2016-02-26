@@ -3,7 +3,7 @@
  */
 (function() {
 
-  angular.module('waitrApp', ['ionic', 'ngCordova'])
+  angular.module('waitrApp', ['ionic', 'ngCordova', 'angularMoment'])
 
     .run(function($ionicPlatform) {
       $ionicPlatform.ready(function() {

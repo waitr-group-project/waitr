@@ -36,7 +36,7 @@
         });
 
         $state.go("restaurant.home");
-      })
+      });
     };
 
     //restaurantService.getRestaurant('56ce9b91f6326bb743e015f0').then(function(response) {

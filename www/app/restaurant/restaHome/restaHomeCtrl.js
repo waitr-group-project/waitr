@@ -5,8 +5,25 @@
 
 function restaHomeCtrl (restaurantService, $stateParams, waitlistService, $state, $ionicHistory) {
 var rhc = this;
+    moment.locale('en', {
+    relativeTime : {
+        future: "in %s",
+        past:   "%s",
+        s:  "%ds",
+        m:  "1m",
+        mm: "%dm",
+        h:  "1h",
+        hh: "%dh",
+        d:  "1d",
+        dd: "%dd",
+        M:  "1mon",
+        y:  "1y",
+        yy: "%dy"
+    }
+    });
 
-    restaurantService.getWaitList('56ce2b6c6910c73c351410e2').then(function(response) {
+
+    restaurantService.getWaitlist('56cf854d507ee272a9dc2dbb').then(function(response) {
       rhc.customerEntries = response[0];
     });
 
@@ -22,7 +39,6 @@ var rhc = this;
         quotedTime: 35
     };
 
-    rhc.customerEntries = [];
 
     rhc.addPersonToQ = function(newQPerson) {
         console.log(newQPerson);

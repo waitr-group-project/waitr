@@ -1,4 +1,4 @@
-(function () {
+(function() {
   angular
     .module('waitrApp')
     .service('waitlistService', waitlistService);
@@ -28,8 +28,8 @@
                 data: newListEntry
             }).then(function(res) {
                 return res.data;
-            })
-        }
+            });
+        };
     }
 
 })();

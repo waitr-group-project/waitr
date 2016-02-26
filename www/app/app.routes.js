@@ -13,6 +13,7 @@ angular.module('waitrApp')
     $urlRouterProvider.otherwise('/login');
 
 
+
     $stateProvider
       // LOGIN - REGISTER ROUTES
       .state('login', {
@@ -200,4 +201,6 @@ angular.module('waitrApp')
         controllerAs: 'rsc'
       });
     }
-})();
+})
+
+();
