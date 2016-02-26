@@ -16,7 +16,7 @@
 </span>
 <div id="resQWaitingList" class="item row">
   <div class="col text-center">
-    <button id="restProfileLinks" class="button button-icon icon ion-ios-telephone-outline"></button>
+    <button href="tel:+1-801-833-7373" id="restProfileLinks" class="button button-icon icon ion-ios-telephone-outline"></button>
     <div>CALL</div>
   </div>
   <div class="col text-center">
@@ -40,24 +40,98 @@
 <div id="restProfileBodyBox"class="item text-center item-text-wrap" ng-show="rpc.infoHoursToggle">
   <p>{{rpc.restaurantObj.description}}</p>
 </div>
-<div id="restProfileBodyBox" class="item col text-center item-text-wrap" ng-hide="rpc.infoHoursToggle">
-  <pre id="restProfileHoursBox">
-    <span id="dayOfTheWeekInResta">MON</span>: Open: {{rpc.restaurantObj.hours.monday.openTime}}AM, Close: {{rpc.restaurantObj.hours.monday.closeTime}}PM
 
-    <span id="dayOfTheWeekInResta">TUE</span>: Open: {{rpc.restaurantObj.hours.tuesday.openTime}}AM, Close: {{rpc.restaurantObj.hours.tuesday.closeTime}}PM
+  <div id="restProfileBodyBox" class="item item-body text-center item-text-wrap" ng-hide="rpc.infoHoursToggle">
+    <div class="row text-center ">
+      <div class="col ">
+          <span id="dayOfTheWeekInResta"></span>
+      </div>
+      <div class="col ">
+        <span id="dayOfTheWeekInResta">OPEN</span>
+      </div>
+      <div class="col ">
+        <span id="dayOfTheWeekInResta">CLOSE</span>
+      </div>
+    </div>
+    <div class="row text-center">
+      <div class="col ">
+          <span>MON</span>
+      </div>
+      <div class="col ">
+       {{rpc.restaurantObj.hours.monday.openTime}} AM
+      </div>
+      <div class="col ">
+       {{rpc.restaurantObj.hours.monday.closeTime}} PM
+      </div>
+    </div>
+    <div class="row text-center">
+      <div class="col ">
+          <span>TUE</span>
+      </div>
+      <div class="col ">
+       {{rpc.restaurantObj.hours.tuesday.openTime}} AM
+      </div>
+      <div class="col ">
+       {{rpc.restaurantObj.hours.tuesday.closeTime}} PM
+      </div>
+    </div>
+    <div class="row text-center">
+      <div class="col ">
+          <span>WED</span>
+      </div>
+      <div class="col ">
+       {{rpc.restaurantObj.hours.wednesday.openTime}} AM
+      </div>
+      <div class="col ">
+       {{rpc.restaurantObj.hours.wednesday.closeTime}} PM
+      </div>
+    </div>
+    <div class="row text-center">
+      <div class="col ">
+        <span>THU</span>
+      </div>
+      <div class="col ">
+       {{rpc.restaurantObj.hours.thursday.openTime}} AM
+      </div>
+      <div class="col ">
+       {{rpc.restaurantObj.hours.thursday.closeTime}} PM
+      </div>
+    </div>
+    <div class="row text-center">
+      <div class="col ">
+          <span>FRI</span>
+      </div>
+      <div class="col ">
+       {{rpc.restaurantObj.hours.friday.openTime}} AM
+      </div>
+      <div class="col ">
+       {{rpc.restaurantObj.hours.friday.closeTime}} PM
+      </div>
+    </div>
+    <div class="row text-center">
+      <div class="col ">
+        <span>SAT</span>
+      </div>
+      <div class="col ">
+         {{rpc.restaurantObj.hours.saturday.openTime}} AM
+      </div>
+      <div class="col ">
+       {{rpc.restaurantObj.hours.saturday.closeTime}} PM
+      </div>
+    </div>
+    <div class="row text-center">
+      <div class="col ">
+        <span>SUN</span>
+      </div>
+      <div class="col ">
+         {{rpc.restaurantObj.hours.sunday.openTime}} AM
+      </div>
+      <div class="col ">
+       {{rpc.restaurantObj.hours.sunday.closeTime}} PM
+      </div>
+    </div>
 
-    <span id="dayOfTheWeekInResta">WED</span>: Open: {{rpc.restaurantObj.hours.wednesday.openTime}}AM, Close: {{rpc.restaurantObj.hours.wednesday.closeTime}}PM
-
-    <span id="dayOfTheWeekInResta">THU</span>: Open: {{rpc.restaurantObj.hours.thursday.openTime}}AM, Close: {{rpc.restaurantObj.hours.thursday.closeTime}}PM
-
-    <span id="dayOfTheWeekInResta">FRI</span>: Open: {{rpc.restaurantObj.hours.friday.openTime}}AM, Close: {{rpc.restaurantObj.hours.friday.closeTime}}PM
-
-    <span id="dayOfTheWeekInResta">SAT</span>: open: {{rpc.restaurantObj.hours.saturday.openTime}}AM, Close: {{rpc.restaurantObj.hours.saturday.closeTime}}PM
-
-    <span id="dayOfTheWeekInResta">SUN</span>: open: {{rpc.restaurantObj.hours.sunday.openTime}}AM, Close: {{rpc.restaurantObj.hours.sunday.closeTime}}PM
-  </pre>
-
-</div>
+  </div>
 
 </ion-content>
 </ion-view>

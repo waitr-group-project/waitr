@@ -1,12 +1,12 @@
-(function () {
+(function() {
   angular
     .module('waitrApp')
     .service('waitlistService', waitlistService);
 
     function waitlistService ($http) {
-        var url = "/api/waitlist";
+        var url = "/api/waitlist/";
 
-        this.addAnonToWaitlist = function(user, restaurantInfo) {
+        this.addAnonToWaitlist = function(user, waitListInfo) {
             //first, we need to structure our data in a way that the server will accept
             var newListEntry = {
                 firstName: user.firstName,
@@ -14,11 +14,9 @@
                 partySize: user.partySize,
                 phoneNumber: user.phoneNumber,
                 timeAdded: new Date(),
-                quotedTimeGiven: restaurantInfo.quotedTime,
+                //quotedTimeGiven: restaurantInfo.quotedTime,
                 notes: user.notes
             };
-
-            console.log("service gets: ", newListEntry);
 
             //now submit this as the data to the waitlist id on the restaurantInfo object
             return $http({

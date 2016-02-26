@@ -15,11 +15,8 @@
       restaurantService.getCurrentRestaurants(restaurantId).then(function (restaurant) {
         cwc.restaurant = restaurant[0];
         console.log('this is it', cwc.restaurant);
-      })
+      });
     });
-
-
-
   }
 
 })();
