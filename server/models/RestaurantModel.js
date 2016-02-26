@@ -1,10 +1,8 @@
-var Mongoose = require('mongoose');
-    // HoursSchema = ('./HoursSchema'),
-    // MenuSchema = require('./MenuSchema');
+var Mongoose = require('mongoose'),
+     HoursSchema = ('./HoursSchema');
+     // = require('./MenuSchema');
 
 var RestaurantSchema = new Mongoose.Schema({
-
-
     restaurantName: { type: String/*, required: true*/ },
     addressLineOne: { type: String/*, required: true*/ },
     addressLineTwo: { type: String },

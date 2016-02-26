@@ -1,6 +1,9 @@
+/**
+ * Created by danle on 2/22/16.
+ */
 (function() {
 
-  angular.module('waitrApp', ['ionic'])
+  angular.module('waitrApp', ['ionic', 'ngCordova'])
 
     .constant('AUTH_EVENTS', {
       notAuthenticated: 'auth-not-authenticated',

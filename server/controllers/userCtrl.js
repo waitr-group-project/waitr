@@ -70,16 +70,16 @@ module.exports = {
       });
     },
 
-    // create: function(req, res) {
-    //     User.create(req.body, function(err, result) {
-    //         if (err) {
-    //             console.log(err);
-    //             return res.status(500).send(err);
-    //         }
-    //         // console.log(result);
-    //         return res.status(200).send(result,"successfully created user!");
-    //     });
-    // },
+     create: function(req, res) {
+         User.create(req.body, function(err, result) {
+             if (err) {
+                 console.log(err);
+                 return res.status(500).send(err);
+             }
+             // console.log(result);
+             return res.status(200).send(result,"successfully created user!");
+         });
+     },
 
     read: function(req, res) {
         User
@@ -108,6 +108,19 @@ module.exports = {
                 return res.status(500).send(err);
             }
             res.send(result);
+        })
+    },
+
+    currentUser: function (req, res) {
+      User
+        .find({_id: req.params.id})
+        .populate('inWaitList')
+        .exec(function (err, result) {
+          if (err) {
+            res.status(500).send('failed to find');
+          } else {
+            res.json(result);
+          }
         })
     }
 

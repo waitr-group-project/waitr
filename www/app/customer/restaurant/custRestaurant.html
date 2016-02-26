@@ -9,10 +9,10 @@
 </div>
 <span id="restaurantProfileDescription" class="item item-avatar item-icon-right">
   <img src="http://provorestaurantreviews.files.wordpress.com/2010/09/j-dawg.png">
-  <h2 id="restaTitleInDesc">{{crc.restaurantObj.restaurantName}}</h2>
-    <p id="restaDescInDesc">{{crc.restaurantObj.shortDescription}}</p>
-    <p id="restaDescInDesc">{{crc.restaurantObj.addressLineOne}}, {{crc.restaurantObj.city}}, {{crc.restaurantObj.state}}, {{crc.restaurantObj.zipcode}}</p>
-  <i id="timeOnRestaurantProfile" class="icon ion-ios-clock-outline"><span id="timerNumberRestaProfile">45</span></i>
+  <h2 id="restaTitleInDesc">{{crc.restaurant.restaurantName}}</h2>
+  <p id="restaDescInDesc">{{crc.restaurant.foodType}}</p>
+  <p id="restaDescInDesc">{{crc.restaurant.addressLineOne}}, {{crc.restaurant.city}}, {{crc.restaurant.state}}, {{crc.restaurant.zipcode}}</p>
+  <i id="timeOnRestaurantProfile" class="icon ion-ios-clock-outline">45</i>
 </span>
 <div id="resQWaitingList" class="item row">
   <div class="col text-center">
@@ -67,7 +67,5 @@
 </ion-content>
 </ion-view>
 <div class="bar bar-footer">
-  <button id='buttonOnRestProfile' class="button button-block button-icon button-positive">
-    Enter line
-    </button>
+  <button id='buttonOnRestProfile' class="button button-block button-icon button-positive" ng-click="crc.userAddingToQ()">Enter line</button>
 </div>
