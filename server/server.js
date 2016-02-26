@@ -71,6 +71,7 @@ app.delete('/api/waitlist/:id', waitlistCtrl.delete);
 app.put('/api/waitlist/:id/list', waitlistCtrl.addToList);
 app.delete('/api/waitlist/:id/list/:listId', waitlistCtrl.removeFromList);
 app.get('/api/waitlist/:id/list/:listId', waitlistCtrl.getFromList);
+app.put('/api/waitlist/:id/list/:listId', waitlistCtrl.updateListEntry);
 
 
 

@@ -47,6 +47,17 @@
                 return res.data;
             })
         }
+        
+        this.updateWaitlistEntry = function(userId, waitlistId, body) {
+            delete body._id;
+            return $http({
+                method: "PUT",
+                url: url + "/" + waitlistId + "/list/" + userId,
+                data: body
+            }).then(function(res) {
+                return res.data;
+            })
+        }
     }
 
 })();

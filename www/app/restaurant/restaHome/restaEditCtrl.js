@@ -13,6 +13,17 @@ function restaEditCtrl (waitlistService, $state, $ionicHistory, $stateParams, $i
         rec.person = res;
     })
     
+    rec.submitEditedEntry = function(person) {
+        console.log("rec.person is: ", person);
+        waitlistService.updateWaitlistEntry($stateParams.person, $stateParams.waitlist, person).then(function(res) {
+            console.log("successfully updated entry!");
+            $ionicHistory.nextViewOptions({
+                disableBack: true
+            });
+            $state.go("restaurant.home");
+        })
+    }
+    
     var removeFromWaitlist = function() {
         waitlistService.removeFromWaitlist($stateParams.person, $stateParams.waitlist).then(function(res) {
             $ionicHistory.nextViewOptions({
