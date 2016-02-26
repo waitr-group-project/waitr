@@ -6,6 +6,7 @@
   function waitlistService($http) {
     var url = "/api/waitlist";
 
+
     this.addAnonToWaitlist = function(user, restaurantInfo) {
       //first, we need to structure our data in a way that the server will accept
       var newListEntry = {
@@ -17,15 +18,6 @@
         quotedTimeGiven: restaurantInfo.quotedTime,
         notes: user.notes
       };
-
-
-      this.getWaitList = function(waitListId) {
-        return $http.get('/api/waitlist/?restaurant_id=' + waitListId).then(function(response) {
-          return response.data;
-        });
-      };
-
-
       console.log("service gets: ", newListEntry);
 
       //now submit this as the data to the waitlist id on the restaurantInfo object
@@ -37,6 +29,10 @@
       //    return res.data;
       //})
     };
+
+
+
+
   }
 
 })();
