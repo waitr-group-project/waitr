@@ -81,5 +81,5 @@ module.exports = {
             var pos = findBy_Id(waitList.list, req.params.listId);
             res.send(waitList.list[pos]);
         })
-    }
+    },
 }

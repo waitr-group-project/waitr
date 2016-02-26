@@ -3,23 +3,21 @@
     .module('waitrApp')
 .controller('restaHomeCtrl', ['restaurantService', 'waitlistService', '$state', "$ionicHistory", restaHomeCtrl]);
 
-function restaHomeCtrl (restaurantService, $stateParams, waitlistService, $state, $ionicHistory) {
+function restaHomeCtrl (restaurantService, waitlistService, $state, $ionicHistory) {
 var rhc = this;
 
-    restaurantService.getWaitList('56ce9b91f6326bb743e015f0').then(function(response) {
+   rhc.dummyData = {
+        //MAKE SURE TO CHANGE REFERENCE IF YOU ARE TESTING
+        _id: "56cf91fd1c8d42bf93537247",
+        restaurant_id: "56cf854d507ee272a9dc2dbb",
+        quotedTime: 35
+    };
+    restaurantService.getWaitList(rhc.dummyData.restaurant_id).then(function(response) {
       rhc.customerEntries = response[0];
     });
 
     rhc.addPersonToQ = function(newQPerson) {
         console.log(newQPerson);
-    };
-
-
-    rhc.dummyData = {
-        //MAKE SURE TO CHANGE REFERENCE IF YOU ARE TESTING
-        _id: "56ce3580808588500f1a2bd1",
-        restaurant_id: "56cdfcf8ed86c8382ded1979",
-        quotedTime: 35
     };
 
     rhc.customerEntries = [];

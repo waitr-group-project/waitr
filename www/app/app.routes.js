@@ -135,10 +135,10 @@ angular.module('waitrApp')
         controllerAs: 'rhc'
       })
       .state('restaurant.editPerson', {
-        url: '/home/edit-person',
+        url: '/home/edit-person/:waitlist/:person',
         templateUrl: './app/restaurant/restaHome/restaEditPerson.html',
-        controller: 'restaHomeCtrl',
-        controllerAs: 'rhc'
+        controller: 'restaEditCtrl',
+        controllerAs: 'rec'
       })
 
       //child-of-restaurant-that-has-children thingamajigger route
