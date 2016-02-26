@@ -5,16 +5,6 @@
 
   angular.module('waitrApp', ['ionic', 'ngCordova', 'angularMoment'])
 
-    .constant('AUTH_EVENTS', {
-      notAuthenticated: 'auth-not-authenticated',
-      notAuthorized: 'auth-not-authorized'
-    })
-
-    .constant('USER_ROLES', {
-      user: 'user',
-      restaurant: 'restaurant'
-    })
-
     .run(function($ionicPlatform) {
       $ionicPlatform.ready(function() {
         if(window.cordova && window.cordova.plugins.Keyboard) {
@@ -33,6 +23,15 @@
       });
     })
 
+    .constant('AUTH_EVENTS', {
+      notAuthenticated: 'auth-not-authenticated',
+      notAuthorized: 'auth-not-authorized'
+    })
+
+    .constant('USER_ROLES', {
+      user: 'user',
+      restaurant: 'restaurant'
+    })
     .run(function($rootScope, AUTH_EVENTS, authService, $timeout, $state) {
 
       var user = authService.getUser();
