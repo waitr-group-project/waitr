@@ -7,18 +7,18 @@
 
     var crc = this;
 
-    //var restaurantId = $stateParams.id;
-    //console.log('this is the rest id', restaurantId);
+    var restaurantId = $stateParams.restaurantId;
+    console.log('this is restaurant id',restaurantId);
 
-    restaurantService.getCurrentRestaurants('56ce2b6c6910c73c351410e2').then(function (restaurant) {
-      //console.log('hey',restaurant[0]);
+    restaurantService.getCurrentRestaurants(restaurantId).then(function (restaurant) {
+      console.log('hey',restaurant[0]);
       crc.restaurant = restaurant[0];
     });
 
-    userService.currentUser('56ce45fba2440fe4375e106c').then(function (user) {
-      crc.currentUser = user[0];
-      console.log('hey ma',user[0])
-    });
+    //userService.currentUser('56ce45fba2440fe4375e106c').then(function (user) {
+    //  crc.currentUser = user[0];
+    //  console.log('hey ma',user[0])
+    //});
 
     //console.log('outside', crc.currentUser);
 
