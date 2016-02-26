@@ -109,9 +109,6 @@ angular.module('waitrApp')
         controllerAs: 'cwc'
       })
 
-
-
-
       // RESTAURANT ROUTES
       .state('restaurant', {
         url: '/restaurant',  // /:restaurantId

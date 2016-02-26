@@ -15,7 +15,6 @@ module.exports = {
     read: function(req, res) {
         Restaurant
         .find(req.query)
-          .populate('waitlist_id')
         .exec(function(err,result) {
             if (err) {
                 return res.status(500).send(err);
@@ -41,12 +40,11 @@ module.exports = {
             }
             res.send(result);
         })
-<<<<<<< HEAD
     },
   currentRestId: function (req, res) {
     Restaurant
       .find({_id: req.params.id})
-      .populate('waitlist_id')
+      //.populate('waitlist_id')
       .exec(function (err, result) {
         if (err) {
           return res.status(500).send(err);
@@ -56,7 +54,3 @@ module.exports = {
       })
   }
 };
-=======
-    }
-}
->>>>>>> dev

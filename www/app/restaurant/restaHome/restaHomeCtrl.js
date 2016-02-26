@@ -6,7 +6,7 @@
 function restaHomeCtrl (restaurantService, $stateParams, waitlistService, $state, $ionicHistory) {
 var rhc = this;
 
-    restaurantService.getWaitList('56ce9b91f6326bb743e015f0').then(function(response) {
+    restaurantService.getWaitList('56ce2b6c6910c73c351410e2').then(function(response) {
       rhc.customerEntries = response[0];
     });
 
@@ -17,8 +17,8 @@ var rhc = this;
 
     rhc.dummyData = {
         //MAKE SURE TO CHANGE REFERENCE IF YOU ARE TESTING
-        _id: "56ce3580808588500f1a2bd1",
-        restaurant_id: "56cdfcf8ed86c8382ded1979",
+        _id: "56ce2d16b6357f5435488161",
+        restaurant_id: "56ce2b6c6910c73c351410e2",
         quotedTime: 35
     };
 
