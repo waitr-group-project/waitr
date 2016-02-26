@@ -12,6 +12,9 @@
   </ion-side-menu-content>
 
   <ion-side-menu side="left">
+    <header class="bar bar-header">
+      <h1 class="title">Hello, {{ccc.currentUser.name}}</h1>
+    </header>
     <ion-content class="has-header">
       <ion-list>
         <ion-item id="menuItem" nav-clear menu-close ui-sref="customer.home">RESTAURANTS LIST</ion-item>
