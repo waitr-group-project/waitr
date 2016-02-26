@@ -4,30 +4,111 @@
   </ion-nav-title>
   <ion-content>
     <div class="list">
-      <label class="item item-input item-floating-label">
-        <span class="input-label">Name</span>
-        <input type="text" placeholder="Name" ng-model="rsc.name">
-      </label>
-      <label class="item item-input item-floating-label">
-        <span class="input-label">Short Description</span>
-        <input type="text" placeholder="Short Description" ng-model="rsc.city">
-      </label>
-      <label class="item item-input item-floating-label">
-        <span class="input-label">Description</span>
-        <textarea placeholder="Description"></textarea>
-      </label>
-      <label class="item item-input item-floating-label">
-        <span class="input-label">Food Type</span>
-        <input type="text" placeholder="Food Type" ng-model="rsc.state">
-      </label>
-      <label class="item item-input item-floating-label">
-        <span class="input-label">Header Image</span>
-        <input type="text" placeholder="Header Image" ng-model="rsc.zip">
-      </label>
-      <label class="item item-input item-floating-label">
-        <span class="input-label">Logo</span>
-        <input type="text" placeholder="Logo" ng-model="rsc.zip">
-      </label>
+      <div class="item item-divider">SUNDAY</div>
+      <div class="row">
+        <div class="col">
+          <label class="item item-input item-stacked-label">
+            <span class="input-label">OPEN</span>
+            <input type="time" placeholder="Name">
+          </label>
+        </div>
+        <div class="col">
+          <label class="item item-input item-stacked-label">
+            <span class="input-label">CLOSED</span>
+            <input type="time" placeholder="Name">
+          </label>
+        </div>
+      </div>
+      <div class="item item-divider">MONDAY</div>
+      <div class="row">
+        <div class="col">
+          <label class="item item-input item-stacked-label">
+            <span class="input-label">OPEN</span>
+            <input type="time" placeholder="Name">
+          </label>
+        </div>
+        <div class="col">
+          <label class="item item-input item-stacked-label">
+            <span class="input-label">CLOSED</span>
+            <input type="time" placeholder="Name">
+          </label>
+        </div>
+      </div>
+      <div class="item item-divider">TUESDAY</div>
+      <div class="row">
+        <div class="col">
+          <label class="item item-input item-stacked-label">
+            <span class="input-label">OPEN</span>
+            <input type="time" placeholder="Name">
+          </label>
+        </div>
+        <div class="col">
+          <label class="item item-input item-stacked-label">
+            <span class="input-label">CLOSED</span>
+            <input type="time" placeholder="Name">
+          </label>
+        </div>
+      </div>
+      <div class="item item-divider">WEDNESDAY</div>
+      <div class="row">
+        <div class="col">
+          <label class="item item-input item-stacked-label">
+            <span class="input-label">OPEN</span>
+            <input type="time" placeholder="Name">
+          </label>
+        </div>
+        <div class="col">
+          <label class="item item-input item-stacked-label">
+            <span class="input-label">CLOSED</span>
+            <input type="time" placeholder="Name">
+          </label>
+        </div>
+      </div>
+      <div class="item item-divider">THURSDAY</div>
+      <div class="row">
+        <div class="col">
+          <label class="item item-input item-stacked-label">
+            <span class="input-label">OPEN</span>
+            <input type="time" placeholder="Name">
+          </label>
+        </div>
+        <div class="col">
+          <label class="item item-input item-stacked-label">
+            <span class="input-label">CLOSED</span>
+            <input type="time" placeholder="Name">
+          </label>
+        </div>
+      </div>
+      <div class="item item-divider">FRIDAY</div>
+      <div class="row">
+        <div class="col">
+          <label class="item item-input item-stacked-label">
+            <span class="input-label">OPEN</span>
+            <input type="time" placeholder="Name">
+          </label>
+        </div>
+        <div class="col">
+          <label class="item item-input item-stacked-label">
+            <span class="input-label">CLOSED</span>
+            <input type="time" placeholder="Name">
+          </label>
+        </div>
+      </div>
+      <div class="item item-divider">SATURDAY</div>
+      <div class="row">
+        <div class="col">
+          <label class="item item-input item-stacked-label">
+            <span class="input-label">OPEN</span>
+            <input type="time" placeholder="Name">
+          </label>
+        </div>
+        <div class="col">
+          <label class="item item-input item-stacked-label">
+            <span class="input-label">CLOSED</span>
+            <input type="time" placeholder="Name">
+          </label>
+        </div>
+      </div>
     </div>
     <button class="button button-full button-positive" ng-click="rsc.updateRestaurant(rsc.address, csc.city, csc.state, csc.email)" ui-sref="customer.settings">SAVE</button>
   </ion-content>

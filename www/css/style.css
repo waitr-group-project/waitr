@@ -108,10 +108,3 @@ font-size: 90%;
   padding-bottom: 0;
   margin-bottom: 0;
 }
-.background, .background .pane, .background .item, .background .item-complex .item-content{
-  background-color: #FF4447;
-  color: white;
-}
-#navbar {
-  background-color: black;
-}

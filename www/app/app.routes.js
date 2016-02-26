@@ -39,9 +39,6 @@ angular.module('waitrApp')
         data: { authorizedRoles: [USER_ROLES.user] }
       })
 
-
-
-
       // CUSTOMER ROUTES
       .state('customer', {  //parent, sidenav
          url: '/customer',
