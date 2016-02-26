@@ -41,6 +41,7 @@ module.exports = {
             }
             res.send(result);
         })
+<<<<<<< HEAD
     },
   currentRestId: function (req, res) {
     Restaurant
@@ -55,3 +56,7 @@ module.exports = {
       })
   }
 };
+=======
+    }
+}
+>>>>>>> dev
