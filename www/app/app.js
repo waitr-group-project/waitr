@@ -3,17 +3,7 @@
  */
 (function() {
 
-  angular.module('waitrApp', ['ionic', 'ngCordova'])
-
-    .constant('AUTH_EVENTS', {
-      notAuthenticated: 'auth-not-authenticated',
-      notAuthorized: 'auth-not-authorized'
-    })
-
-    .constant('USER_ROLES', {
-      user: 'user',
-      restaurant: 'restaurant'
-    })
+  angular.module('waitrApp', ['ionic', 'ngCordova', 'angularMoment'])
 
     .run(function($ionicPlatform) {
       $ionicPlatform.ready(function() {
@@ -33,6 +23,15 @@
       });
     })
 
+    .constant('AUTH_EVENTS', {
+      notAuthenticated: 'auth-not-authenticated',
+      notAuthorized: 'auth-not-authorized'
+    })
+
+    .constant('USER_ROLES', {
+      user: 'user',
+      restaurant: 'restaurant'
+    })
     .run(function($rootScope, AUTH_EVENTS, authService, $timeout, $state) {
 
       var user = authService.getUser();
