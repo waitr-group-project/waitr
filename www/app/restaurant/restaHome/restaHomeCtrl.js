@@ -6,7 +6,7 @@
 function restaHomeCtrl (restaurantService, $stateParams, waitlistService, $state, $ionicHistory) {
 var rhc = this;
 
-    restaurantService.getWaitList('56ce9b91f6326bb743e015f0').then(function(response) {
+    restaurantService.getWaitList('56cf854d507ee272a9dc2dbb').then(function(response) {
       rhc.customerEntries = response[0];
     });
 
