@@ -1,3 +1,98 @@
-Hello.
+<ion-view  hide-left-nav-bar="true">
+  <ion-content overflow-scroll="true">
+  <ion-header-bar align-title="center" id="profileBarHeader" class="bar-transparent">
+    <button id="backButtonRestProfile" style="color:white" class="button button-clear icon ion-ios-arrow-back" ng-click="cmc.goBack()">
+    </button>
+    
+    <h1 class="title" style="color:white">MENU</h1>
+      <!--<ion-nav-buttons side="left">-->
+      <!--</ion-nav-buttons>-->
+      
+        <button menu-toggle="right" style="color:white" class="button button-icon icon ion-navicon"></button>
+</ion-header-bar>
+<ion-side-menus>
+  <ion-side-menu-content>
+    <ion-nav-bar class="bar-energized">
+      
+      <!--<ion-nav-back-button class="button-clear">
+        <i class="button-icon icon ion-ios-arrow-back"></i>
+      </ion-nav-back-button>      -->
+    </ion-nav-bar>
+    <div class="bar bar-subheader bar-dark">
+   <h2 class="title">Burgers</h2>
+</div>
+    <ion-view>
+
+  <ion-content class="padding has-subheader">
+        
+        <div class="list" id="restList" ng-repeat="menu in cmc.restaurant.menu">
+            <h4 style="text-align:center">{{menu.item}}</h4>
+            <p>{{menu.desc}}</p>
+            <p>${{menu.price}}</p>
+        </div>
+  </ion-content>
+</ion-view>
+  </ion-side-menu-content>
+
+  <ion-side-menu side="right">
+    <ion-header-bar>
+        <h1>Menu Sections</h1>
+    <ion-content>
+      <ion-list>
+        <ion-item id="menuItem" nav-clear menu-close class="sideMenuItem">{{restaurant.restaurantName}}</ion-item>
+        <ion-item id="menuItem" nav-clear menu-close ng-model="customer.menu.menuItems">MENU ITEMS!</ion-item>
+        <ion-item id="menuItem" nav-clear menu-close ui-sref="customer.home." class="sideMenuItem">WAIT LIST</ion-item>
+        <ion-item id="menuItem" nav-clear menu-close ui-sref="customer.settings" class="sideMenuItem">SETTINGS</ion-item>
+      </ion-list>
+    </ion-content>
+    <ion-footer-bar>
+      <ion-item id="menuItemFooter" nav-clear menu-close ui-sref="customer.settings" class="sideMenuItem">LOG OUT</ion-item>
+    </ion-footer-bar>
+  </ion-side-menu>
+</ion-side-menus>
 
 
+<!--<ion-view title="Menu" hide-nav-bar="true">
+  <ion-content overflow-scroll="true">
+  <ion-header-bar id="profileBarHeader" align-title="left" class="bar-transparent">
+    <button id="backButtonRestProfile" class="button button-clear icon ion-ios-arrow-back" ng-click="crc.goBack()">
+    </button>
+  </ion-header-bar>
+  <img id='resProfileImage' src="http://www.bradhoen.com/images/logos/logo-j-dawgs-2.jpeg">
+<span id="restaurantProfileDescription" class="item item-avatar item-icon-right">
+  <img src="http://provorestaurantreviews.files.wordpress.com/2010/09/j-dawg.png">
+  <h2 id="restaTitleInDesc">{{crc.restaurant.restaurantName}}</h2>
+  <p id="restaDescInDesc">{{crc.restaurant.foodType}}</p>
+  <p id="restaDescInDesc">{{crc.restaurant.addressLineOne}}, {{crc.restaurant.city}}, {{crc.restaurant.state}}, {{crc.restaurant.zipcode}}</p>
+  <i id="timeOnRestaurantProfile" class="icon ion-ios-clock-outline">45</i>
+</span>
+<div id="resQWaitingList" class="item row">
+  <div class="col text-center">
+    <button id="restProfileLinks" class="button button-icon icon ion-ios-telephone-outline"></button>
+    <div>CALL</div>
+  </div>
+  <div class="col text-center">
+    <a id="restProfileLinks" ui-sref="customer.menu" class="button button-icon icon ion-ios-wineglass-outline"></a>
+    <div>MENU</div>
+  </div>
+  <div class="col text-center">
+    <button id="restProfileLinks" class="button button-icon icon ion-ios-world-outline"></button>
+    <div>WEBSITE</div>
+  </div>
+  <div class="col text-center">
+    <button id="restProfileLinks" class="button button-icon icon ion-ios-list-outline" ng-click="crc.showOnClick(true)"></button>
+    <div>INFO</div>
+  </div>
+  <div class="col text-center">
+    <button id="restProfileLinks" class="button button-icon icon ion-ios-time-outline " ng-click="crc.showOnClick(false)"></button>
+    <div>HOURS</div>
+  </div>
+</div>
+
+
+</div>
+</ion-content>
+</ion-view>
+<div class="bar bar-footer">
+  <button id='buttonOnRestProfile' class="button button-block button-icon button-positive" ng-click="crc.userAddingToQ()">Enter line</button>
+</div>-->

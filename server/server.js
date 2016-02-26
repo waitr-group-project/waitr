@@ -10,7 +10,7 @@ var userCtrl = require('./controllers/userCtrl'),
     restaurantCtrl = require('./controllers/restaurantCtrl'),
     waitlistCtrl = require('./controllers/waitlistCtrl');
 
-var port = 8003;
+var port = 8100;
 
 var app = express();
 app.use(bodyParser.json());

@@ -66,18 +66,26 @@ angular.module('waitrApp')
       })
 
       //not restaurant child, but called by restaurant
-      .state('customer.menu', {
-        url: '/home/menu',
-        templateUrl: './app/customer/menu/custRestaurantMenu.html',
-        controller: 'custRestaurantMenuCtrl', 
-        controllerAs: 'cmc',
-      })
       .state('customer.settings', {
         url: '/settings',
         templateUrl: './app/customer/settings/custSettings.html',
         controller:'custSettingsCtrl',
         controllerAs:'csc'
       })
+      .state('customer.menu', {
+        url: '/home/menu',
+        templateUrl: './app/customer/menu/custRestaurantMenu.html',
+        controller: 'custRestaurantMenuCtrl', 
+        controllerAs: 'cmc',
+      })
+      //child of menu
+      .state('customer.menu.menuItems', {
+        url: '/menuItem',
+        templateUrl: './app/customer/menu/custRestaurantMenuItems.html',
+        controller: 'custRestaurantMenuCtrl', 
+        controllerAs: 'cmc',
+      })
+
 
       //called in settings, but still customer child
       .state('customer.editContactInfo', {

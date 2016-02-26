@@ -6,14 +6,20 @@
   function custRestaurantMenuCtrl (restaurantService, userService, waitlistService, $stateParams, $ionicHistory, $state) {
 
     var cmc = this;
+    cmc.menuSection = '';
 
     var restaurantId = "56cf854d507ee272a9dc2dbb"
     console.log('this is restaurant id',restaurantId);
 
     restaurantService.getRestaurantMenu(restaurantId).then(function (restaurant) {
-      console.log('hey',restaurant[0].menu[0]);
-      cmc.restaurant = restaurant[0].menu[0];
+      console.log('hey',restaurant);
+      cmc.restaurant = restaurant;
+      cmc.restaurantMenu = restaurant.menu;
+      console.log('menu', restaurant.menu);
     });
+    cmc.goBack = function() {
+       $ionicHistory.goBack();
+    };
 
     //userService.currentUser('56ce45fba2440fe4375e106c').then(function (user) {
     //  cmc.currentUser = user[0];
