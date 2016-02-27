@@ -36,7 +36,7 @@
 
           rsc.updateRestaurantContact = function (name, addressLineOne, city, state, zipcode) {
             var restInfo = {
-              name: name,
+              restaurantName: name,
               addressLineOne: addressLineOne,
               city: city,
               state: state,
