@@ -1,9 +1,9 @@
 (function () {
   angular
     .module('waitrApp')
-    .controller('custRestaurantCtrl', ['restaurantService', 'userService', 'waitlistService','$stateParams', '$ionicHistory', '$state', '$timeout',custRestaurantCtrl]);
+    .controller('custRestaurantCtrl', ['restaurantService', 'userService', 'waitlistService','$stateParams', '$ionicHistory', '$state', '$timeout', '$scope',custRestaurantCtrl]);
 
-  function custRestaurantCtrl (restaurantService, userService, waitlistService, $stateParams, $ionicHistory, $state, $timeout) {
+  function custRestaurantCtrl (restaurantService, userService, waitlistService, $stateParams, $ionicHistory, $state, $timeout, $scope) {
 
     var crc = this;
 

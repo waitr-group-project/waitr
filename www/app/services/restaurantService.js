@@ -15,6 +15,25 @@
           });
         };
 
+      this.getCurrentRestaurants = function (id) {
+        return $http({
+          method: 'GET',
+          url: '/api/restaurant/' + id
+        }).then(function (response){
+          return response.data
+        })
+      };
+
+      this.updateRestaurant = function (id, obj) {
+        return $http({
+          method: 'PUT',
+          url: '/api/restaurant/' + id,
+          data: obj
+        }).then(function (response) {
+          return response.data;
+        });
+      };
+
         this.getWaitlist = function(waitListId) {
           return $http.get('/api/waitlist/?restaurant_id=' + waitListId).then(function(response) {
               console.log(response.data);
