@@ -6,26 +6,19 @@ var Restaurant = require('../models/RestaurantModel'),
 module.exports = {
 
     register: function(req, res) {
-      function regCust(req, res) {
-        var newUser = new User();
-        newUser.name = req.body.name;
-        newUser.email = req.body.email;
-        newUser.password = newUser.generateHash(req.body.password);
-        newUser.phone = req.body.phone;
-        if (req.body.restaurantID) {
-          newUser.restaurant_id = req.body.restaurantID;
-          newUser.role = 'restaurant';
-        }
 
+      function regCust(req, res) {
+        if (req.body.restaurant_id) {
+          req.body.role = 'restaurant';
+        }
+        var newUser = new User(req.body);
+        newUser.password = newUser.generateHash(req.body.password);
         newUser.save(function(err, user) {
           if (err)
             res.status(500).send(err);
           else {
-            var token = jwt.sign({
-              id: user.id,
-              name: user.name,
-              role: user.role
-            }, config.secretKey, { expiresIn: 3600 }); // { expiresIn: 600 } expires in 10 minutes
+            var payload = user.toObject();
+            var token = jwt.sign(payload, config.secretKey); // { expiresIn: 600 } expires in 10 minutes
             res.status(200).json({
               token: token
             });
@@ -34,13 +27,12 @@ module.exports = {
       }
 
       if (req.body.restaurantName) {
-        var newRestaurant = new Restaurant();
-        newRestaurant.restaurantName = req.body.restaurantName;
+        var newRestaurant = new Restaurant({ restaurantName: req.body.restaurantName });
         newRestaurant.save(function(err, restaurant) {
           if (err)
             res.status(500).send(err);
           else
-            req.body.restaurantID = restaurant._id;
+            req.body.restaurant_id = restaurant._id;
             regCust(req, res);
         });
       } else {
@@ -54,30 +46,27 @@ module.exports = {
           if (!user.validPassword(req.body.password))
             res.status(401).send('Wrong password. Try again');
           else {
-            var token = jwt.sign({
-              id: user.id,
-              name: user.name,
-              role: user.role
-            }, config.secretKey, { expiresIn: 3600 });
+            var payload = user.toObject();
+            var token = jwt.sign(payload, config.secretKey, { expiresIn: 3600 });
             res.status(200).json({
               token: token
             });
           }
         }
-        else res.status(401).send('User not found!! !! !!');
+        else res.status(401).send('User not found');
       });
     },
 
-     create: function(req, res) {
-         User.create(req.body, function(err, result) {
-             if (err) {
-                 console.log(err);
-                 return res.status(500).send(err);
-             }
-             // console.log(result);
-             return res.status(200).send(result,"successfully created user!");
-         });
-     },
+    //  create: function(req, res) {
+    //      User.create(req.body, function(err, result) {
+    //          if (err) {
+    //              console.log(err);
+    //              return res.status(500).send(err);
+    //          }
+    //          // console.log(result);
+    //          return res.status(200).send(result,"successfully created user!");
+    //      });
+    //  },
 
     read: function(req, res) {
         User
