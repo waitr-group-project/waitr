@@ -7,54 +7,46 @@
     var rsc = this;
 
     $timeout(function() {
-      currentUser = $scope.ac.currentUser;
-      //console.log('custHome', currentRestaurant);
+      var currentUser = $scope.ac.currentUser;
       userService.currentUser(currentUser.id).then(function (currentUser) {
-        console.log(currentUser);
         var currentUserID = currentUser[0].restaurant_id;
-        console.log('rest id', currentUserID);
         restaurantService.getCurrentRestaurants(currentUserID).then(function (restaurant) {
           var restaurant = restaurant[0];
-          //console.log('this is rest, ',restaurant);
           rsc.name = restaurant.restaurantName;
           rsc.shortDescription = restaurant.shortDescription;
           rsc.description = restaurant.description;
           rsc.restaurantImage = restaurant.restaurantImage;
           rsc.restaurantIcon = restaurant.restaurantIcon;
           rsc.foodType = restaurant.foodType;
-          rsc.address = restaurant.addressLineOne;
+          rsc.addressLineOne = restaurant.addressLineOne;
           rsc.city = restaurant.city;
           rsc.state = restaurant.state;
           rsc.zipcode = restaurant.zipcode;
+
+          rsc.updateRestaurantInfo = function (shortDescription, description, foodType, restaurantImage, restaurantIcon) {
+            var restInfo = {
+              shortDescription: shortDescription,
+              description: description,
+              foodType: foodType,
+              restaurantImage: restaurantImage,
+              restaurantIcon: restaurantIcon
+            };
+            restaurantService.updateRestaurant(restaurant._id,restInfo);
+          };
+
+          rsc.updateRestaurantContact = function (name, addressLineOne, city, state, zipcode) {
+            var restInfo = {
+              name: name,
+              addressLineOne: addressLineOne,
+              city: city,
+              state: state,
+              zipcode: zipcode
+            };
+            restaurantService.updateRestaurant(restaurant._id, restInfo);
+          };
         });
-      })
+      });
     });
-
-
-    rsc.updateRestaurantInfo = function (name, shortDescription, description, foodType, restaurantImage, restaurantIcon) {
-      var restInfo = {
-        name: name,
-        shortDescription: shortDescription,
-        description: description,
-        foodType: foodType,
-        restaurantImage: restaurantImage,
-        restaurantIcon: restaurantIcon
-      };
-      console.log(restInfo);
-    };
-
-    rsc.updateRestaurantContact = function (name, shortDescription, description, foodType, restaurantImage, restaurantIcon) {
-      var restInfo = {
-        name: name,
-        shortDescription: shortDescription,
-        description: description,
-        foodType: foodType,
-        restaurantImage: restaurantImage,
-        restaurantIcon: restaurantIcon
-      };
-      console.log(restInfo);
-    };
-
   }
 
 })();

@@ -10,7 +10,7 @@
       </label>
       <label class="item item-input item-floating-label">
         <span class="input-label">Address</span>
-        <input type="text" placeholder="Address" ng-model="rsc.address">
+        <input type="text" placeholder="Address" ng-model="rsc.addressLineOne">
       </label>
       <label class="item item-input item-floating-label">
         <span class="input-label">City</span>
@@ -25,6 +25,6 @@
         <input type="text" placeholder="ZIP" ng-model="rsc.zipcode">
       </label>
     </div>
-    <button class="button button-full button-positive" ng-click="rsc.updateRestaurantContact(rsc.address, csc.city, csc.state, csc.zipcode)" ui-sref="restaurant.settings">SAVE</button>
+    <button class="button button-full button-positive" ng-click="rsc.updateRestaurantContact(rsc.name, rsc.address, rsc.city, rsc.state, rsc.zipcode)" ui-sref="restaurant.settings">SAVE</button>
   </ion-content>
 </ion-view>
