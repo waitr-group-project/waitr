@@ -10,7 +10,7 @@
       var currentUser = $scope.ac.currentUser;
       //console.log('custHome', currentUser.id);
 
-      userService.currentUser(currentUser.id).then(function (currUser){
+      userService.currentUser(currentUser._id).then(function (currUser){
         var user = currUser[0];
         csc.firstName = user.firstName;
         csc.lastName = user.lastName;
@@ -25,7 +25,7 @@
           phone: phone,
           email: email
         };
-        userService.updateUser('56ce45fba2440fe4375e106c', user);
+        userService.updateUser(currentUser._id, user);
       };
 
     });
