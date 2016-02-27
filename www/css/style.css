@@ -60,14 +60,23 @@ font-size: 90%;
 .formButton {
     font-weight: 600;
     font-size: 200%;
-    text-transform: uppercase;
     display: block;
-    width: 60vw;
+    width: 80vw;
     margin: auto;
+    margin-bottom: 15px;
 }
 .formContainer {
     margin-left: 10px;
     margin-right: 10px;
+}
+#saveButton {
+    color: black;
+    border: none;
+    background-color: transparent;
+    font-size: 125%;
+}
+.button-outline {
+    border-width: 2px;
 }
 #restItem {
   border-width: 0px;
