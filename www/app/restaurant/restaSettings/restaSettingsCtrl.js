@@ -31,7 +31,7 @@
     });
 
 
-    rsc.updateRestaurant = function (name, shortDescription, description, foodType, restaurantImage, restaurantIcon) {
+    rsc.updateRestaurantInfo = function (name, shortDescription, description, foodType, restaurantImage, restaurantIcon) {
       var restInfo = {
         name: name,
         shortDescription: shortDescription,
@@ -41,7 +41,20 @@
         restaurantIcon: restaurantIcon
       };
       console.log(restInfo);
-    }
+    };
+
+    rsc.updateRestaurantContact = function (name, shortDescription, description, foodType, restaurantImage, restaurantIcon) {
+      var restInfo = {
+        name: name,
+        shortDescription: shortDescription,
+        description: description,
+        foodType: foodType,
+        restaurantImage: restaurantImage,
+        restaurantIcon: restaurantIcon
+      };
+      console.log(restInfo);
+    };
+
   }
 
 })();
