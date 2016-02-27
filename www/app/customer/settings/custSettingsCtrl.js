@@ -1,36 +1,38 @@
 (function () {
   angular
     .module('waitrApp')
-    .controller('custSettingsCtrl', ['userService','$stateParams',custSettingsCtrl]);
+    .controller('custSettingsCtrl', ['userService', '$timeout', '$scope',custSettingsCtrl]);
 
-  function custSettingsCtrl (userService,$ionicPlatform, $cordovaVibration, $stateParams) {
+  function custSettingsCtrl (userService, $timeout, $scope) {
     var csc = this;
 
-    //var currentUserID = $stateParams.id;
+    $timeout(function() {
+      var currentUser = $scope.ac.currentUser;
+      //console.log('custHome', currentUser.id);
 
-    csc.toggle = function() {
-      document.addEventListener( "deviceready", function() {
-        $cordovaVibration.vibrate( 2000 ); }, false );
-    };
+      userService.currentUser(currentUser.id).then(function (currUser){
+        var user = currUser[0];
+        csc.firstName = user.firstName;
+        csc.lastName = user.lastName;
+        csc.phone = user.phone;
+        csc.email = user.email;
+      });
 
-    userService.currentUser('56ce45fba2440fe4375e106c').then(function (currUser){
-      var user = currUser[0];
-      console.log(user);
-      csc.firstName = user.firstName;
-      csc.lastName = user.lastName;
-      csc.phone = user.phone;
-      csc.email = user.email;
+      csc.updateUser = function(firstName, lastName, phone, email) {
+        var user = {
+          firstName: firstName,
+          lastName: lastName,
+          phone: phone,
+          email: email
+        };
+        userService.updateUser('56ce45fba2440fe4375e106c', user);
+      };
+
     });
 
-    csc.updateUser = function(firstName, lastName, phone, email) {
-      var user = {
-        firstName: firstName,
-        lastName: lastName,
-        phone: phone,
-        email: email
-      };
-      userService.updateUser('56ce45fba2440fe4375e106c', user);
-    };
+
+
+
 
   }
 

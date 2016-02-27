@@ -8,7 +8,7 @@
 
     $timeout(function() {
       var currentUser = $scope.ac.currentUser;
-      userService.currentUser(currentUser.id).then(function (currentUser) {
+      userService.currentUser(currentUser._id).then(function (currentUser) {
         var currentUserID = currentUser[0].restaurant_id;
         restaurantService.getCurrentRestaurants(currentUserID).then(function (restaurant) {
           var restaurant = restaurant[0];
@@ -31,7 +31,7 @@
               restaurantImage: restaurantImage,
               restaurantIcon: restaurantIcon
             };
-            restaurantService.updateRestaurant(restaurant._id,restInfo);
+            restaurantService.updateRestaurant(restaurant._id, restInfo);
           };
 
           rsc.updateRestaurantContact = function (name, addressLineOne, city, state, zipcode) {

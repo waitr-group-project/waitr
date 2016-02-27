@@ -1,20 +1,14 @@
 (function () {
   angular
     .module('waitrApp')
-    .controller('custHomeCtrl', ['restaurantService', '$scope', '$timeout', custHomeCtrl]);
+    .controller('custHomeCtrl', ['restaurantService', custHomeCtrl]);
 
-  function custHomeCtrl (restaurantService, $scope, $timeout) {
+  function custHomeCtrl (restaurantService) {
     var chc = this;
 
     restaurantService.getRestaurants().then(function (restaurant) {
       chc.restaurantList = restaurant;
     });
-
-    $timeout(function() {
-      chc.currentUser = $scope.ac.currentUser;
-      console.log('custHome', currentUser);
-    });
-
 
 
   }
