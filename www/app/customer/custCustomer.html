@@ -12,6 +12,9 @@
   </ion-side-menu-content>
 
   <ion-side-menu side="left">
+    <header class="bar bar-header">
+      <h1 class="title">Hello, {{ccc.currentUser.name}}</h1>
+    </header>
     <ion-content class="has-header">
       <ion-list>
         <ion-item id="menuItem" nav-clear menu-close ui-sref="customer.home">RESTAURANTS LIST</ion-item>
@@ -19,8 +22,8 @@
         <ion-item id="menuItem" nav-clear menu-close ui-sref="customer.settings" class="sideMenuItem">SETTINGS</ion-item>
       </ion-list>
     </ion-content>
-    <ion-footer-bar align-title="left">
-      <ion-item id="menuItemFooter" nav-clear menu-close ui-sref="customer.settings" class="sideMenuItem">LOG OUT</ion-item>
+    <ion-footer-bar>
+      <ion-item id="menuItemFooter" nav-clear menu-close ui-sref="customer.settings" class="sideMenuItem" ng-click="ac.logout()">LOG OUT</ion-item>
     </ion-footer-bar>
   </ion-side-menu>
 </ion-side-menus>

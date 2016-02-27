@@ -1,0 +1,26 @@
+<ion-view>
+  <ion-nav-title>
+    <span style="font-size:1.5rem">Information</span>
+  </ion-nav-title>
+  <ion-content>
+    <div class="list">
+      <label class="item item-input item-floating-label">
+        <span class="input-label">Address</span>
+        <input type="text" placeholder="Address" ng-model="rsc.address">
+      </label>
+      <label class="item item-input item-floating-label">
+        <span class="input-label">City</span>
+        <input type="text" placeholder="City" ng-model="rsc.city">
+      </label>
+      <label class="item item-input item-floating-label">
+        <span class="input-label">State</span>
+        <input type="text" placeholder="State" ng-model="rsc.state">
+      </label>
+      <label class="item item-input item-floating-label">
+        <span class="input-label">Zip</span>
+        <input type="text" placeholder="ZIP" ng-model="rsc.zipcode">
+      </label>
+    </div>
+    <button class="button button-full button-positive" ng-click="rsc.updateRestaurant(rsc.address, csc.city, csc.state, csc.zipcode)" ui-sref="restaurant.settings">SAVE</button>
+  </ion-content>
+</ion-view>

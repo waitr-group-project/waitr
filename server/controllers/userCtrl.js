@@ -86,7 +86,7 @@ module.exports = {
                 return res.status(500).send(err);
             }
             res.send(result);
-        })
+        });
     },
 
     delete: function(req, res) {
@@ -95,7 +95,7 @@ module.exports = {
                 return res.status(500).send(err);
             }
             res.send(result);
-        })
+        });
     },
 
     currentUser: function (req, res) {
@@ -108,7 +108,7 @@ module.exports = {
           } else {
             res.json(result);
           }
-        })
+        });
     }
 
 };
