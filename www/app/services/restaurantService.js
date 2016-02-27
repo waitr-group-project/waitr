@@ -5,6 +5,7 @@
 
     function restaurantService ($http) {
 
+
         this.getRestaurants = function () {
           return $http({
             method: 'GET',
@@ -14,13 +15,14 @@
           });
         };
 
+
       this.getCurrentRestaurants = function (id) {
         return $http({
           method: 'GET',
           url: '/api/restaurant/' + id
         }).then(function (response){
           return response.data
-        })
+        });
       };
 
       this.updateRestaurant = function (id, obj) {
@@ -40,7 +42,7 @@
         };
 
 
-        this.getRestaurant = function(restaId) {
+      this.getRestaurant = function(restaId) {
         return $http.get('/api/restaurant/?_id=' + restaId).then(function(response) {
           return response.data[0];
         });

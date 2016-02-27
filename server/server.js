@@ -50,7 +50,7 @@ app.get('/protected', authorize(['restaurant']), function(req, res) {
 
 app.post('/register', userCtrl.register);
 app.post('/login', userCtrl.login);
-app.post('/api/user', userCtrl.create);
+// app.post('/api/user', userCtrl.create);
 app.get('/api/user', userCtrl.read);
 app.put('/api/user/:id', userCtrl.update);
 app.delete('/api/user/:id', userCtrl.delete);
