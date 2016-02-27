@@ -18,9 +18,9 @@
       </label>
       <label class="item item-input item-floating-label">
         <span class="input-label">Zip</span>
-        <input type="text" placeholder="ZIP" ng-model="rsc.zip">
+        <input type="text" placeholder="ZIP" ng-model="rsc.zipcode">
       </label>
     </div>
-    <button class="button button-full button-positive" ng-click="rsc.updateRestaurant(rsc.address, csc.city, csc.state, csc.email)" ui-sref="customer.settings">SAVE</button>
+    <button class="button button-full button-positive" ng-click="rsc.updateRestaurant(rsc.address, csc.city, csc.state, csc.zipcode)" ui-sref="restaurant.settings">SAVE</button>
   </ion-content>
 </ion-view>

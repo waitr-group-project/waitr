@@ -14,7 +14,7 @@
 
   <ion-side-menu side="left">
     <header class="bar bar-header">
-      <h1 class="title">Profile.name</h1>
+      <h1 class="title">{{rrc.restaurant.restaurantName}}</h1>
     </header>
     <ion-content class="has-header" id="resta-sideMenu">
       <ion-list>
@@ -25,7 +25,7 @@
       </ion-list>
     </ion-content>
     <ion-footer-bar>
-      <ion-item id="menuItemFooter" nav-clear menu-close class="sideMenuItem">LOG OUT</ion-item>
+      <ion-item id="menuItemFooter" nav-clear menu-close class="sideMenuItem" ng-click="ac.logout()">LOG OUT</ion-item>
     </ion-footer-bar>
   </ion-side-menu>
 </ion-side-menus>
