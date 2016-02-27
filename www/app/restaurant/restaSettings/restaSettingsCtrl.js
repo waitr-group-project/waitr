@@ -9,9 +9,10 @@
     $timeout(function() {
       var currentUser = $scope.ac.currentUser;
       userService.currentUser(currentUser._id).then(function (currentUser) {
-        var currentUserID = currentUser[0].restaurant_id;
-        restaurantService.getCurrentRestaurants(currentUserID).then(function (restaurant) {
+        var restaurantID = currentUser[0].restaurant_id;
+        restaurantService.getCurrentRestaurants(restaurantID).then(function (restaurant) {
           var restaurant = restaurant[0];
+          //console.log(restaurant);
           rsc.name = restaurant.restaurantName;
           rsc.shortDescription = restaurant.shortDescription;
           rsc.description = restaurant.description;
@@ -42,6 +43,7 @@
               state: state,
               zipcode: zipcode
             };
+            console.log('hello', restInfo);
             restaurantService.updateRestaurant(restaurant._id, restInfo);
           };
         });

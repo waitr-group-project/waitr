@@ -10,15 +10,29 @@
     $timeout(function() {
       crc.currentUser = $scope.ac.currentUser;
       console.log('custRestaurant', crc.currentUser);
+
+      restaurantService.getCurrentRestaurants(restaurantId).then(function (restaurant) {
+        console.log('hey',restaurant[0]);
+        crc.restaurant = restaurant[0];
+      });
+
+
+      crc.userAddingToQ = function () {
+        //console.log('user adding to Q',crc.currentUser);
+        waitlistService.addAnonToWaitlist(crc.currentUser, crc.restaurant.waitlist_id).then(function(res) {
+          //console.log(res);
+          $ionicHistory.nextViewOptions({
+            disableBack: true
+          });
+
+          $state.go("restaurant.home");
+        });
+      };
     });
 
     var restaurantId = $stateParams.restaurantId;
     console.log('this is restaurant id',restaurantId);
 
-    restaurantService.getCurrentRestaurants(restaurantId).then(function (restaurant) {
-      console.log('hey',restaurant[0]);
-      crc.restaurant = restaurant[0];
-    });
 
     //userService.currentUser('56ce45fba2440fe4375e106c').then(function (user) {
     //  crc.currentUser = user[0];
@@ -27,17 +41,7 @@
 
     //console.log('outside', crc.currentUser);
 
-    crc.userAddingToQ = function () {
-      //console.log('user adding to Q',crc.currentUser);
-      waitlistService.addAnonToWaitlist(crc.currentUser, crc.restaurant.waitlist_id).then(function(res) {
-        //console.log(res);
-        $ionicHistory.nextViewOptions({
-          disableBack: true
-        });
 
-        $state.go("restaurant.home");
-      });
-    };
 
     //restaurantService.getRestaurant('56ce9b91f6326bb743e015f0').then(function(response) {
     //  crc.restaurantObj = response;
