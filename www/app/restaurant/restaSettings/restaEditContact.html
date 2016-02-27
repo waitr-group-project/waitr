@@ -10,25 +10,25 @@
       </label>
       <label class="item item-input item-floating-label">
         <span class="input-label">Short Description</span>
-        <input type="text" placeholder="Short Description" ng-model="rsc.city">
+        <input type="text" placeholder="Short Description" ng-model="rsc.shortDescription">
       </label>
       <label class="item item-input item-floating-label">
         <span class="input-label">Description</span>
-        <input type="text" placeholder="Description">
+        <input type="text" placeholder="Description" ng-model="rsc.description">
       </label>
       <label class="item item-input item-floating-label">
         <span class="input-label">Food Type</span>
-        <input type="text" placeholder="Food Type" ng-model="rsc.state">
+        <input type="text" placeholder="Food Type" ng-model="rsc.foodType">
       </label>
       <label class="item item-input item-floating-label">
         <span class="input-label">Header Image</span>
-        <input type="text" placeholder="Header Image" ng-model="rsc.zip">
+        <input type="text" placeholder="Header Image" ng-model="rsc.restaurantImage">
       </label>
       <label class="item item-input item-floating-label">
         <span class="input-label">Logo</span>
-        <input type="text" placeholder="Logo" ng-model="rsc.zip">
+        <input type="text" placeholder="Logo" ng-model="rsc.restaurantIcon">
       </label>
     </div>
-    <button class="button button-full button-positive" ng-click="rsc.updateRestaurant(rsc.address, csc.city, csc.state, csc.email)" ui-sref="customer.settings">SAVE</button>
+    <button class="button button-full button-positive" ng-click="rsc.updateRestaurant(rsc.name, rsc.shortDescription, rsc.description, rsc.foodType, rsc.restaurantImage, rsc.restaurantIcon)" ui-sref="customer.settings">SAVE</button>
   </ion-content>
 </ion-view>
