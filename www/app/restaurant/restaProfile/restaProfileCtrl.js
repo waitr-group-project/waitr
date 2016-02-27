@@ -12,7 +12,8 @@
 
       $timeout(function() {
         currentUser = $scope.ac.currentUser;
-        userService.currentUser(currentUser.id).then(function (currentUser) {
+        //console.log('resta profile',currentUser);
+        userService.currentUser(currentUser._id).then(function (currentUser) {
           var currentUserID = currentUser[0].restaurant_id;
           restaurantService.getCurrentRestaurants(currentUserID).then(function (restaurant) {
             rpc.restaurant = restaurant[0];
