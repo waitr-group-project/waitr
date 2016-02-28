@@ -1,16 +1,16 @@
 (function () {
   angular
     .module('waitrApp')
-    .controller('custWaitlistCtrl', ['userService', 'restaurantService', '$timeout', custWaitlistCtrl]);
+    .controller('custWaitlistCtrl', ['userService', 'restaurantService', '$timeout', '$scope',custWaitlistCtrl]);
 
-  function custWaitlistCtrl (userService, restaurantService, $timeout) {
+  function custWaitlistCtrl (userService, restaurantService, $timeout, $scope) {
     var cwc = this;
 
     $timeout(function() {
       var currentUser = $scope.ac.currentUser;
       userService.currentUser(currentUser._id).then(function (user){
-        ccc.user = user[0];
-        console.log('this is curr user',ccc.user);
+        cwc.user = user[0];
+        console.log('this is wait user',cwc.user);
 
 
       })

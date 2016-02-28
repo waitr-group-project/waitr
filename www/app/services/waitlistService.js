@@ -12,7 +12,7 @@
                 firstName: user.firstName,
                 lastName: user.lastName,
                 partySize: user.partySize,
-                phoneNumber: user.phoneNumber,
+                phone: user.phone,
                 timeAdded: new Date(),
                 //quotedTimeGiven: restaurantInfo.quotedTime,
                 notes: user.notes
