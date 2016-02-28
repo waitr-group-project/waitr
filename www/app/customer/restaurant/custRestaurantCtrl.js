@@ -16,16 +16,22 @@
         crc.restaurant = restaurant[0];
       });
 
+      var dummyData = {
+        //MAKE SURE TO CHANGE REFERENCE IF YOU ARE TESTING
+        _id: "56cf91fd1c8d42bf93537247",
+        restaurant_id: "56cf854d507ee272a9dc2dbb",
+        quotedTime: 35
+      };
+
 
       crc.userAddingToQ = function () {
         //console.log('user adding to Q',crc.currentUser);
-        waitlistService.addAnonToWaitlist(crc.currentUser, crc.restaurant.waitlist_id).then(function(res) {
-          //console.log(res);
-          $ionicHistory.nextViewOptions({
-            disableBack: true
-          });
-
-          $state.go("restaurant.home");
+        waitlistService.addAnonToWaitlist(crc.currentUser, dummyData).then(function(res) {
+          console.log(res);
+          //$ionicHistory.nextViewOptions({
+          //  disableBack: true
+          //});
+          $state.go("customer.waitlist");
         });
       };
     });
