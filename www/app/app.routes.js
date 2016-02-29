@@ -142,11 +142,11 @@ angular.module('waitrApp')
       //profile children
       .state('restaurant.profile.desc', {
         url: '/description',
-        templateUrl: './app/restaurant/restaProfile/restaDesc.html',
+        templateUrl: './app/restaurant/restaProfile/restaDesc.html'
       })
       .state('restaurant.profile.hours', {
         url: '/hours',
-        templateUrl: './app/restaurant/restaProfile/restaHours.html',
+        templateUrl: './app/restaurant/restaProfile/restaHours.html'
       })
 
       //not child of profile, but still called by profile
@@ -194,7 +194,7 @@ angular.module('waitrApp')
         controller: 'restaSettingsCtrl',
         controllerAs: 'rsc'
       });
-    }
-})
 
-();
+    }
+
+})();

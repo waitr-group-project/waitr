@@ -52,7 +52,7 @@ angular.module('waitrApp')
 
     function logout() {
       authTokenService.setToken();
-      $state.go('login');
+      // $state.go('login');
     }
 
     function isAuthenticated() {

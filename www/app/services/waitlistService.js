@@ -12,12 +12,14 @@
                 firstName: user.firstName,
                 lastName: user.lastName,
                 partySize: user.partySize,
-                phoneNumber: user.phoneNumber,
+                phone: user.phone,
                 timeAdded: new Date(),
                 //quotedTimeGiven: restaurantInfo.quotedTime,
                 notes: user.notes
             };
 
+          console.log('this is the new list entry',newListEntry);
+          console.log('this is waitlist info', waitlistInfo);
             //now submit this as the data to the waitlist id on the restaurantInfo object
             return $http({
                 method: "PUT",
@@ -26,8 +28,8 @@
             }).then(function(res) {
                 return res.data;
             })
-        }
-        
+        };
+
         this.getOneFromWaitlist = function(userId, waitlistId) {
             return $http({
                 method: "GET",
@@ -35,8 +37,8 @@
             }).then(function(res) {
                 return res.data;
             })
-        }
-        
+        };
+
         this.removeFromWaitlist = function(userId, waitlistId) {
             return $http({
                 method: "DELETE",
@@ -44,8 +46,8 @@
             }).then(function(res) {
                 return res.data;
             })
-        }
-        
+        };
+
         this.updateWaitlistEntry = function(userId, waitlistId, body) {
             delete body._id;
             return $http({

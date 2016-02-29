@@ -5,7 +5,6 @@
 
     function restaurantService ($http) {
 
-
         this.getRestaurants = function () {
           return $http({
             method: 'GET',
