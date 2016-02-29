@@ -6,7 +6,9 @@
   function custRestaurantMenuCtrl (restaurantService, userService, waitlistService, $stateParams, $ionicHistory, $state, $ionicSideMenuDelegate) {
     var cmc = this;
     // cmc.menuSection = [];
-    cmc.restaurantId = "56cf854d507ee272a9dc2dbb";
+        
+    cmc.restaurantId = $stateParams.restaurantId;
+    console.log($stateParams.restaurantId);
     cmc.menuTitle= 'PICK A SECTION';
     cmc.menuContent = cmc.groupedMenu;
     restaurantService.getRestaurantMenu(cmc.restaurantId).then(function (restaurant) {
@@ -36,7 +38,6 @@
     // cmc.showSectionOnClick = function(value) {
     //   cmc.SectionToggle = value;
     // };
-
   }
 
 })();

@@ -10,58 +10,38 @@
     $timeout(function() {
       crc.currentUser = $scope.ac.currentUser;
       console.log('custRestaurant', crc.currentUser);
-
-      restaurantService.getCurrentRestaurants(restaurantId).then(function (restaurant) {
-        console.log('hey',restaurant[0]);
-        crc.restaurant = restaurant[0];
-      });
-
-    //   var dummyData = {
-    //     //MAKE SURE TO CHANGE REFERENCE IF YOU ARE TESTING
-    //     _id: "56cf91fd1c8d42bf93537247",
-    //     restaurant_id: "56cf854d507ee272a9dc2dbb",
-    //     quotedTime: 35
-    //   };
-
-
-    //   crc.userAddingToQ = function () {
-    //     //console.log('user adding to Q',crc.currentUser);
-    //     waitlistService.addAnonToWaitlist(crc.currentUser, dummyData).then(function(res) {
-    //       console.log(res);
-    //       //$ionicHistory.nextViewOptions({
-    //       //  disableBack: true
-    //       //});
-    //       $state.go("customer.waitlist");
-    //     });
-    //   };
-    // });
+    });
 
     var restaurantId = $stateParams.restaurantId;
     console.log('this is restaurant id',restaurantId);
 
-
-    userService.currentUser('56ce45fba2440fe4375e106c').then(function (user) {
-      crc.currentUser = user[0];
+    restaurantService.getCurrentRestaurants(restaurantId).then(function (restaurant) {
+      console.log('hey',restaurant[0]);
+      crc.restaurant = restaurant[0];
     });
+
+    //userService.currentUser('56ce45fba2440fe4375e106c').then(function (user) {
+    //  crc.currentUser = user[0];
+    //  console.log('hey ma',user[0])
+    //});
 
     //console.log('outside', crc.currentUser);
 
-
-
     crc.userAddingToQ = function () {
-      console.log('user adding to Q',crc.currentUser);
-      waitlistService.addAnonToWaitlist(crc.currentUser, crc.restaurant).then(function(res) {
-        console.log(res);
+      //console.log('user adding to Q',crc.currentUser);
+      waitlistService.addAnonToWaitlist(crc.currentUser, crc.restaurant.waitlist_id).then(function(res) {
+        //console.log(res);
         $ionicHistory.nextViewOptions({
           disableBack: true
         });
+
+        $state.go("restaurant.home");
       });
     };
-        
 
-    restaurantService.getRestaurant('56ce9b91f6326bb743e015f0').then(function(response) {
-      crc.restaurantObj = response;
-    });
+    //restaurantService.getRestaurant('56ce9b91f6326bb743e015f0').then(function(response) {
+    //  crc.restaurantObj = response;
+    //});
 
     crc.goBack = function() {
        $ionicHistory.goBack();
@@ -73,7 +53,7 @@
       crc.infoHoursToggle = value;
     };
 
-  });
+
   }
 
 })();

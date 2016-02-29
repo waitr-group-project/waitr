@@ -1,137 +1,138 @@
 <ion-view title="Profile" hide-nav-bar="true">
-  <ion-content overflow-scroll="true">
-<div class="item item-image">
-  <ion-header-bar id="profileBarHeader" align-title="left" class="bar-transparent">
-    <button id="backButtonRestProfile" class="button button-clear icon ion-ios-arrow-back" ng-click="crc.goBack()">
-    </button>
-  </ion-header-bar>
-  <img id='resProfileImage' src="http://www.bradhoen.com/images/logos/logo-j-dawgs-2.jpeg">
-</div>
-<span id="restaurantProfileDescription" class="item item-avatar item-icon-right">
-  <img src="http://provorestaurantreviews.files.wordpress.com/2010/09/j-dawg.png">
+    <ion-content overflow-scroll="true">
+        <div class="item item-image">
+            <ion-header-bar id="profileBarHeader" align-title="left" class="bar-transparent">
+                <button id="backButtonRestProfile" class="button button-clear icon ion-ios-arrow-back" ng-click="crc.goBack()">
+                </button>
+            </ion-header-bar>
+            <img id='resProfileImage' src="{{crc.restaurant.restaurantImage}}">
+        </div>
+        <span id="restaurantProfileDescription" class="item item-avatar item-icon-right">
+  <img src="{{crc.restaurant.restaurantIcon}}">
   <h2 id="restaTitleInDesc">{{crc.restaurant.restaurantName}}</h2>
   <p id="restaDescInDesc">{{crc.restaurant.foodType}}</p>
-  <p id="restaDescInDesc">{{crc.restaurant.addressLineOne}}, {{crc.restaurant.city}}, {{crc.restaurant.state}}, {{crc.restaurant.zipcode}}</p>
+  <p id="restaDescInDesc">{{crc.restaurant.addressLineOne}}</p>
+  <p id="restaDescInDesc">{{crc.restaurant.city}}, {{crc.restaurant.state}}, {{crc.restaurant.zipcode}}</p>
   <i id="timeOnRestaurantProfile" class="icon ion-ios-clock-outline">45</i>
 </span>
-<div id="resQWaitingList" class="item row">
-  <div class="col text-center">
-    <button id="restProfileLinks" class="button button-icon icon ion-ios-telephone-outline"></button>
-    <div>CALL</div>
-  </div>
-  <div class="col text-center">
-    <a id="restProfileLinks" ui-sref="customer.menu({restaurant_Id: {{}} class="button button-icon icon ion-ios-wineglass-outline"></a>
-    <div>MENU</div>
-  </div>
-  <div class="col text-center">
-    <button id="restProfileLinks" class="button button-icon icon ion-ios-world-outline"></button>
-    <div>WEBSITE</div>
-  </div>
-  <div class="col text-center">
-    <button id="restProfileLinks" class="button button-icon icon ion-ios-list-outline" ng-click="crc.showOnClick(true)"></button>
-    <div>INFO</div>
-  </div>
-  <div class="col text-center">
-    <button id="restProfileLinks" class="button button-icon icon ion-ios-time-outline " ng-click="crc.showOnClick(false)"></button>
-    <div>HOURS</div>
-  </div>
-</div>
+        <div id="resQWaitingList" class="item row">
+            <div class="col text-center">
+                <button id="restProfileLinks" class="button button-icon icon ion-ios-telephone-outline"></button>
+                <div>CALL</div>
+            </div>
+            <div class="col text-center">
+                <a id="restProfileLinks" ui-sref="customer.menu({restaurantId: crc.restaurant._id})" class="button button-icon icon ion-ios-wineglass-outline"></a>
+                <div>MENU</div>
+            </div>
+            <div class="col text-center">
+                <button id="restProfileLinks" class="button button-icon icon ion-ios-world-outline"></button>
+                <div>WEBSITE</div>
+            </div>
+            <div class="col text-center">
+                <button id="restProfileLinks" class="button button-icon icon ion-ios-list-outline" ng-click="crc.showOnClick(true)"></button>
+                <div>INFO</div>
+            </div>
+            <div class="col text-center">
+                <button id="restProfileLinks" class="button button-icon icon ion-ios-time-outline " ng-click="crc.showOnClick(false)"></button>
+                <div>HOURS</div>
+            </div>
+        </div>
 
-<div id="restProfileBodyBox"class="item text-center item-text-wrap" ng-show="crc.infoHoursToggle">
-  <p>{{crc.restaurantObj.description}}</p>
-</div>
-<div id="restProfileBodyBox" class="item item-body text-center item-text-wrap" ng-hide="crc.infoHoursToggle">
-  <div class="row text-center ">
-    <div class="col ">
-        <span id="dayOfTheWeekInResta"></span>
-    </div>
-    <div class="col ">
-      <span id="dayOfTheWeekInResta">OPEN</span>
-    </div>
-    <div class="col ">
-      <span id="dayOfTheWeekInResta">CLOSE</span>
-    </div>
-  </div>
-  <div class="row text-center">
-    <div class="col ">
-        <span>MON</span>
-    </div>
-    <div class="col ">
-     {{crc.restaurantObj.hours.monday.openTime}} AM
-    </div>
-    <div class="col ">
-     {{crc.restaurantObj.hours.monday.closeTime}} PM
-    </div>
-  </div>
-  <div class="row text-center">
-    <div class="col ">
-        <span>TUE</span>
-    </div>
-    <div class="col ">
-     {{crc.restaurantObj.hours.tuesday.openTime}} AM
-    </div>
-    <div class="col ">
-     {{crc.restaurantObj.hours.tuesday.closeTime}} PM
-    </div>
-  </div>
-  <div class="row text-center">
-    <div class="col ">
-        <span>WED</span>
-    </div>
-    <div class="col ">
-     {{crc.restaurantObj.hours.wednesday.openTime}} AM
-    </div>
-    <div class="col ">
-     {{crc.restaurantObj.hours.wednesday.closeTime}} PM
-    </div>
-  </div>
-  <div class="row text-center">
-    <div class="col ">
-      <span>THU</span>
-    </div>
-    <div class="col ">
-     {{crc.restaurantObj.hours.thursday.openTime}} AM
-    </div>
-    <div class="col ">
-     {{crc.restaurantObj.hours.thursday.closeTime}} PM
-    </div>
-  </div>
-  <div class="row text-center">
-    <div class="col ">
-        <span>FRI</span>
-    </div>
-    <div class="col ">
-     {{crc.restaurantObj.hours.friday.openTime}} AM
-    </div>
-    <div class="col ">
-     {{crc.restaurantObj.hours.friday.closeTime}} PM
-    </div>
-  </div>
-  <div class="row text-center">
-    <div class="col ">
-      <span>SAT</span>
-    </div>
-    <div class="col ">
-       {{crc.restaurantObj.hours.saturday.openTime}} AM
-    </div>
-    <div class="col ">
-     {{crc.restaurantObj.hours.saturday.closeTime}} PM
-    </div>
-  </div>
-  <div class="row text-center">
-    <div class="col ">
-      <span>SUN</span>
-    </div>
-    <div class="col ">
-       {{crc.restaurantObj.hours.sunday.openTime}} AM
-    </div>
-    <div class="col ">
-     {{crc.restaurantObj.hours.sunday.closeTime}} PM
-    </div>
-  </div>
-</div>
-</ion-content>
+        <div id="restProfileBodyBox" class="item text-center item-text-wrap" ng-show="crc.infoHoursToggle">
+            <p>{{crc.restaurantObj.description}}</p>
+        </div>
+        <div id="restProfileBodyBox" class="item item-body text-center item-text-wrap" ng-hide="crc.infoHoursToggle">
+            <div class="row text-center ">
+                <div class="col ">
+                    <span id="dayOfTheWeekInResta"></span>
+                </div>
+                <div class="col ">
+                    <span id="dayOfTheWeekInResta">OPEN</span>
+                </div>
+                <div class="col ">
+                    <span id="dayOfTheWeekInResta">CLOSE</span>
+                </div>
+            </div>
+            <div class="row text-center">
+                <div class="col ">
+                    <span>MON</span>
+                </div>
+                <div class="col ">
+                    {{crc.restaurantObj.hours.monday.openTime}} AM
+                </div>
+                <div class="col ">
+                    {{crc.restaurantObj.hours.monday.closeTime}} PM
+                </div>
+            </div>
+            <div class="row text-center">
+                <div class="col ">
+                    <span>TUE</span>
+                </div>
+                <div class="col ">
+                    {{crc.restaurantObj.hours.tuesday.openTime}} AM
+                </div>
+                <div class="col ">
+                    {{crc.restaurantObj.hours.tuesday.closeTime}} PM
+                </div>
+            </div>
+            <div class="row text-center">
+                <div class="col ">
+                    <span>WED</span>
+                </div>
+                <div class="col ">
+                    {{crc.restaurantObj.hours.wednesday.openTime}} AM
+                </div>
+                <div class="col ">
+                    {{crc.restaurantObj.hours.wednesday.closeTime}} PM
+                </div>
+            </div>
+            <div class="row text-center">
+                <div class="col ">
+                    <span>THU</span>
+                </div>
+                <div class="col ">
+                    {{crc.restaurantObj.hours.thursday.openTime}} AM
+                </div>
+                <div class="col ">
+                    {{crc.restaurantObj.hours.thursday.closeTime}} PM
+                </div>
+            </div>
+            <div class="row text-center">
+                <div class="col ">
+                    <span>FRI</span>
+                </div>
+                <div class="col ">
+                    {{crc.restaurantObj.hours.friday.openTime}} AM
+                </div>
+                <div class="col ">
+                    {{crc.restaurantObj.hours.friday.closeTime}} PM
+                </div>
+            </div>
+            <div class="row text-center">
+                <div class="col ">
+                    <span>SAT</span>
+                </div>
+                <div class="col ">
+                    {{crc.restaurantObj.hours.saturday.openTime}} AM
+                </div>
+                <div class="col ">
+                    {{crc.restaurantObj.hours.saturday.closeTime}} PM
+                </div>
+            </div>
+            <div class="row text-center">
+                <div class="col ">
+                    <span>SUN</span>
+                </div>
+                <div class="col ">
+                    {{crc.restaurantObj.hours.sunday.openTime}} AM
+                </div>
+                <div class="col ">
+                    {{crc.restaurantObj.hours.sunday.closeTime}} PM
+                </div>
+            </div>
+        </div>
+    </ion-content>
 </ion-view>
 <div class="bar bar-footer">
-  <button id='buttonOnRestProfile' class="button button-block button-icon button-positive" ng-click="crc.userAddingToQ()">Enter line</button>
+    <button id='buttonOnRestProfile' class="button button-block button-icon button-positive" ng-click="crc.userAddingToQ()" ng-hide="crc.currentUser.waitlist_id._id">Enter line</button>
 </div>
