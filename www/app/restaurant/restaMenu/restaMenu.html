@@ -1,0 +1,57 @@
+<ion-view>
+  <!--<ion-content overflow-scroll="true">-->
+        <!--<button style="color:white" 
+        class="button icon ion-ios-arrow-back" 
+        ng-click="rmc.goBack()"></button>-->
+        <ion-nav-title >
+            <!--<span style="font-size:1.5rem">Wait List</span>-->
+            <h2 class="title">Menu</h2>
+        </ion-nav-title>
+
+    </ion-header-bar>
+</ion-view>
+<ion-side-menus>
+    <ion-side-menu-content>
+        <div class="bar bar-subheader bar-dark">
+            <h2 class="title">{{rmc.menuTitle}}</h2></i>
+            <button menu-toggle="right" class="button button-icon icon 
+            ion-navicon"></button>
+        </div>
+        
+    
+        <ion-content class="padding has-subheader">
+            <div class="padding list" ng-repeat="menu in rmc.menuContent">
+                <h4 style="text-align:center">{{menu.item}}</h4>
+                <p style="text-align:justify">{{menu.desc}}</p>
+                <p style="text-align:center">${{menu.price}}</p>
+            </div>
+        </ion-content>
+    </ion-side-menu-content>
+
+    <ion-side-menu side="right">
+        
+        <ion-content class="has-header">
+        <div class="bar bar-header bar-dark">
+            <h2 class="title">Sections</h2>
+        </div>
+            <!--<ion-list ng-repeat="(key, value) in rmc.groupedMenu">
+                <ion-item id="menuItem" menu-close 
+                class="sideMenuItem" ng-click="toggleSection(key, value)">
+                    {{key}}
+                </ion-item>
+            </ion-list>-->
+            <ion-list>
+                <ion-item>filler</ion-item>
+                <ion-item ng-repeat="(key, value) in rmc.groupedMenu" id="menuItem" menu-close 
+                class="sideMenuItem" ng-click="rmc.menuTitle = key; rmc.menuContent = value">
+                    {{key}}
+                </ion-item>
+            </ion-list>
+
+        </ion-content>
+        <ion-footer-bar>
+            <ion-item id="menuItemFooter" nav-clear menu-close 
+            ui-sref="customer.settings" class="sideMenuItem">LOG OUT</ion-item>
+        </ion-footer-bar>
+    </ion-side-menu>
+</ion-side-menus>

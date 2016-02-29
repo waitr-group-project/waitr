@@ -78,13 +78,13 @@ angular.module('waitrApp')
         controller: 'custRestaurantMenuCtrl', 
         controllerAs: 'cmc',
       })
-      //child of menu
-      .state('customer.menu.menuItems', {
-        url: '/menuItem',
-        templateUrl: './app/customer/menu/custRestaurantMenuItems.html',
-        controller: 'custRestaurantMenuCtrl', 
-        controllerAs: 'cmc',
-      })
+    //   //child of menu
+    //   .state('customer.menu.menuItems', {
+    //     url: '/menuItem',
+    //     templateUrl: './app/customer/menu/custRestaurantMenuItems.html',
+    //     controller: 'custRestaurantMenuCtrl', 
+    //     controllerAs: 'cmc',
+    //   })
 
 
       //called in settings, but still customer child
@@ -157,9 +157,9 @@ angular.module('waitrApp')
       //not child of profile, but still called by profile
       .state('restaurant.menu', {
         url: '/profile/menu',
-        templateUrl: './app/restaurant/restaProfile/restaMenu.html',
-        controller: 'restaProfileCtrl',
-        controllerAs: 'rpc'
+        templateUrl: './app/restaurant/restaMenu/restaMenu.html',
+        controller: 'restaMenuCtrl',
+        controllerAs: 'rmc'
       })
       .state('restaurant.settings', {
         url: '/settings',
