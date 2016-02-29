@@ -7,6 +7,9 @@
 
     var crc = this;
 
+    var restaurantId = $stateParams.restaurantId;
+    console.log('this is restaurant id',restaurantId);
+
     $timeout(function() {
       crc.currentUser = $scope.ac.currentUser;
       console.log('custRestaurant', crc.currentUser);
@@ -18,26 +21,14 @@
 
       var dummyData = {
         //MAKE SURE TO CHANGE REFERENCE IF YOU ARE TESTING
-        _id: "56cf91fd1c8d42bf93537247",
+        _id: "56d479229d46dc9827032b71",
         restaurant_id: "56cf854d507ee272a9dc2dbb",
         quotedTime: 35
       };
 
 
-      crc.userAddingToQ = function () {
-        //console.log('user adding to Q',crc.currentUser);
-        waitlistService.addAnonToWaitlist(crc.currentUser, dummyData).then(function(res) {
-          console.log(res);
-          //$ionicHistory.nextViewOptions({
-          //  disableBack: true
-          //});
-          $state.go("customer.waitlist");
-        });
-      };
-    });
 
-    var restaurantId = $stateParams.restaurantId;
-    console.log('this is restaurant id',restaurantId);
+    });
 
 
     //userService.currentUser('56ce45fba2440fe4375e106c').then(function (user) {

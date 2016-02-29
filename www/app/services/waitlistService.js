@@ -23,7 +23,7 @@
             //now submit this as the data to the waitlist id on the restaurantInfo object
             return $http({
                 method: "PUT",
-                url: url + waitlistInfo._id + "/list",
+                url: url + waitlistInfo + "/list",
                 data: newListEntry
             }).then(function(res) {
                 return res.data;
