@@ -6,28 +6,28 @@
     function waitlistService ($http) {
         var url = "/api/waitlist/";
 
-        this.addAnonToWaitlist = function(user, waitlistInfo) {
+        this.addAnonToWaitlist = function(user, waitlistId, waitTime) {
             //first, we need to structure our data in a way that the server will accept
             var newListEntry = {
                 firstName: user.firstName,
                 lastName: user.lastName,
                 partySize: user.partySize,
-                phoneNumber: user.phoneNumber,
+                phone: user.phone,
                 timeAdded: new Date(),
-                //quotedTimeGiven: restaurantInfo.quotedTime,
+                quotedTimeGiven: waitTime,
                 notes: user.notes
             };
-
+            
             //now submit this as the data to the waitlist id on the restaurantInfo object
             return $http({
                 method: "PUT",
-                url: url + waitlistInfo._id + "/list",
+                url: url + waitlistId + "/list",
                 data: newListEntry
             }).then(function(res) {
                 return res.data;
             })
-        }
-        
+        };
+
         this.getOneFromWaitlist = function(userId, waitlistId) {
             return $http({
                 method: "GET",
@@ -35,8 +35,8 @@
             }).then(function(res) {
                 return res.data;
             })
-        }
-        
+        };
+
         this.removeFromWaitlist = function(userId, waitlistId) {
             return $http({
                 method: "DELETE",
@@ -44,8 +44,8 @@
             }).then(function(res) {
                 return res.data;
             })
-        }
-        
+        };
+
         this.updateWaitlistEntry = function(userId, waitlistId, body) {
             delete body._id;
             return $http({
@@ -54,6 +54,17 @@
                 data: body
             }).then(function(res) {
                 return res.data;
+            })
+        }
+        
+        this.updateWaitTime = function(waitlistId, time) {
+            return $http({
+                method: "PUT",
+                url: url + waitlistId,
+                data: {quotedTime: time}
+            }).then(function(res) {
+                console.log(res.data.quotedTime);
+                return res.data.quotedTime;
             })
         }
     }

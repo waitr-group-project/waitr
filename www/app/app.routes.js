@@ -46,7 +46,7 @@ angular.module('waitrApp')
          abstract: true,
          templateUrl: './app/customer/custCustomer.html',
          controller: 'custCustomerCtrl',
-         controllerAs: 'ccc'
+         controllerAs: 'ccc',
       })
       .state('customer.home', {
          url: '/home',
@@ -66,11 +66,11 @@ angular.module('waitrApp')
       //restaurant children
       .state('customer.restaurant.desc', {
         url: '/description',
-        templateUrl: './app/customer/restaurant/custRestaurantDesc.html',
+        templateUrl: './app/customer/restaurant/custRestaurantDesc.html'
       })
       .state('customer.restaurant.hours', {
         url: '/hours',
-        templateUrl: './app/customer/restaurant/custRestaurantHours.html',
+        templateUrl: './app/customer/restaurant/custRestaurantHours.html'
       })
 
       //not restaurant child, but called by restaurant
@@ -147,11 +147,11 @@ angular.module('waitrApp')
       //profile children
       .state('restaurant.profile.desc', {
         url: '/description',
-        templateUrl: './app/restaurant/restaProfile/restaDesc.html',
+        templateUrl: './app/restaurant/restaProfile/restaDesc.html'
       })
       .state('restaurant.profile.hours', {
         url: '/hours',
-        templateUrl: './app/restaurant/restaProfile/restaHours.html',
+        templateUrl: './app/restaurant/restaProfile/restaHours.html'
       })
 
       //not child of profile, but still called by profile
@@ -200,7 +200,7 @@ angular.module('waitrApp')
         controller: 'restaSettingsCtrl',
         controllerAs: 'rsc'
       });
-    }
-})
 
-();
+    }
+
+})();

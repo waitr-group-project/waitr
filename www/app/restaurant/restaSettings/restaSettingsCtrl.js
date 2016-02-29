@@ -55,6 +55,7 @@
             restaurantService.updateRestaurant(rsc.restaurant._id, restaurant).then(function(response) {
               console.log(response);
             });
+
           };
 
           });

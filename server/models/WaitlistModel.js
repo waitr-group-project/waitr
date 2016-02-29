@@ -10,7 +10,7 @@ var WaitlistSchema = new Mongoose.Schema({
         firstName: { type: String/*, required: true*/ },
         lastName: { type: String/*, required: true*/ },
         partySize: { type: Number/*, required: true*/ },
-        phoneNumber: { type: Number/*, required: true*/ },
+        phone: { type: Number/*, required: true*/ },
         timeAdded: { type: Date, default: Date.now() },
         quotedTimeGiven: {type: Number/*, required: true*/},
         notes: {type: String}

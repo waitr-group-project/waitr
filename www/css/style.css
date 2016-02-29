@@ -114,3 +114,77 @@ font-size: 90%;
   padding-bottom: 0;
   margin-bottom: 0;
 }
+
+/***** LOGIN & REGISTRATION  ***********************************************/
+.bg {
+  background-size: cover;
+  background-repeat: no-repeat;
+  font-family: 'Lusitana', serif;
+}
+.login {
+  background-image: url(../../img/login.png);
+}
+.customer-reg {
+  background-image: url(../../img/customer_reg.png);
+}
+.restaurant-reg {
+  background-image: url(../../img/restaurant_reg.png);
+}
+
+.loginRegHeader {
+	text-align: center;
+  padding-top: 50px;
+}
+.loginRegHeader h1 {
+  font-family: 'Lusitana', serif;
+  font-weight: 700;
+  font-size: 3.8em;
+  color: #222222;
+}
+.loginRegHeader h4 {
+  font-family: 'Lusitana', serif;
+  font-weight: 700;
+  font-size: 1.5em;
+  color: #222222;
+  margin-top: -20px;
+}
+.loginRegHeader h6 {
+  font-family: 'Lusitana', serif;
+  font-weight: 700;
+  font-size: 1.2em;
+  color: #222222;
+  margin-top: -20px;
+}
+.loginReg {
+  background-color: transparent;
+}
+.loginReg label {
+  background-color: rgba(0,0,0,.4); border: none; border-radius: 5px;
+}
+.loginReg i {
+  color: white;
+  font-size: 1.3em;
+}
+.loginReg input {
+  color: white;
+  font-size: 18px;
+  padding-left: 10px;
+}
+.loginReg button {
+  font-size: 24px;
+  font-weight: bold;
+  color: blue;
+}
+
+.loginRegFooter {
+  margin: 0 auto;
+  line-height: 24px;
+  text-align: center;
+}
+.loginRegFooter a {
+  text-decoration: none;
+  color: #222222;
+  font-size: 1.2em;
+  font-family: 'Lusitana', serif;
+  font-weight: 700;
+}

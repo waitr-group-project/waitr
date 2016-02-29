@@ -7759,15 +7759,20 @@ input[type="file"] {
 
 input::-moz-placeholder,
 textarea::-moz-placeholder {
-  color: #aaaaaa; }
+  color: #aaaaaa;
+  padding-top: 3px;
+}
 
 input:-ms-input-placeholder,
 textarea:-ms-input-placeholder {
-  color: #aaaaaa; }
+  color: #aaaaaa;
+  padding-top: 3px;
+}
 
 input::-webkit-input-placeholder,
 textarea::-webkit-input-placeholder {
   color: #aaaaaa;
+  padding-top: 3px;
   text-indent: 0; }
 
 input[disabled],
