@@ -36,6 +36,7 @@
 
         this.getWaitlist = function(waitListId) {
           return $http.get('/api/waitlist/?restaurant_id=' + waitListId).then(function(response) {
+            console.log(response);
             return response.data;
           });
         };
