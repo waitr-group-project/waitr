@@ -15,6 +15,9 @@
         console.log('hey',restaurant[0]);
         crc.restaurant = restaurant[0];
       });
+      restaurantService.getWaitlist(restaurantId).then(function(res) {
+          crc.customerEntries = res[0];
+      });
 
       var dummyData = {
         //MAKE SURE TO CHANGE REFERENCE IF YOU ARE TESTING

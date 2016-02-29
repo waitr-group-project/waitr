@@ -43,7 +43,6 @@
           rsc.restaurant.hours.sunday.openTime = new Date(rsc.restaurant.hours.sunday.openTime);
           rsc.restaurant.hours.sunday.closeTime = new Date(rsc.restaurant.hours.sunday.closeTime);
 
-
           rsc.updateRestaurantInfo = function (restaurant) {
             restaurantService.updateRestaurant(rsc.restaurant._id, restaurant);
           };

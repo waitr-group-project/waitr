@@ -5,7 +5,7 @@
 
 function restaHomeCtrl (restaurantService, waitlistService, $state, $ionicHistory, $scope, $timeout, $ionicPopup) {
     var rhc = this;
-    
+
     moment.locale('en', {
     relativeTime : {
         future: "in %s",
@@ -22,7 +22,7 @@ function restaHomeCtrl (restaurantService, waitlistService, $state, $ionicHistor
         yy: "%dy"
     }
    });
-   
+
    $timeout(function() {
       var currentUser = $scope.ac.currentUser;
       //console.log('custHome', currentRestaurant);
@@ -30,7 +30,7 @@ function restaHomeCtrl (restaurantService, waitlistService, $state, $ionicHistor
        restaurantService.getWaitlist(currentUser.restaurant_id).then(function(res) {
             console.log("response is: ", res[0]);
             rhc.customerEntries = res[0];
-       })
+       });
     });
 
     rhc.addPersonToQ = function(newQPerson) {
@@ -44,7 +44,7 @@ function restaHomeCtrl (restaurantService, waitlistService, $state, $ionicHistor
             $state.go("restaurant.home");
         });
     };
-    
+
     rhc.showWaitTimeModal = function(time) {
         console.log(time);
         rhc.time = time;
@@ -69,7 +69,7 @@ function restaHomeCtrl (restaurantService, waitlistService, $state, $ionicHistor
                 }
             ]
         });
-        
+
         myPopup.then(function(res) {
             //console.log("tapped!", res);
             if (res >= 0) {
