@@ -10,6 +10,7 @@
       chc.restaurantList = restaurant;
     });
 
+
   }
 
 })();

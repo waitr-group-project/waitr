@@ -50,7 +50,7 @@ app.get('/protected', authorize(['restaurant']), function(req, res) {
 
 app.post('/register', userCtrl.register);
 app.post('/login', userCtrl.login);
-app.post('/api/user', userCtrl.create);
+// app.post('/api/user', userCtrl.create);
 app.get('/api/user', userCtrl.read);
 app.put('/api/user/:id', userCtrl.update);
 app.delete('/api/user/:id', userCtrl.delete);
@@ -69,8 +69,9 @@ app.put('/api/waitlist/:id', waitlistCtrl.update);
 app.delete('/api/waitlist/:id', waitlistCtrl.delete);
 
 app.put('/api/waitlist/:id/list', waitlistCtrl.addToList);
-app.put('/api/waitlist/:id/list/:listId', waitlistCtrl.removeFromList);
+app.delete('/api/waitlist/:id/list/:listId', waitlistCtrl.removeFromList);
 app.get('/api/waitlist/:id/list/:listId', waitlistCtrl.getFromList);
+app.put('/api/waitlist/:id/list/:listId', waitlistCtrl.updateListEntry);
 
 
 

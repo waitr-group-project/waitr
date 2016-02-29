@@ -11,7 +11,7 @@
           url: '/api/user/' + id
         }).then(function (response) {
           return response.data;
-        })
+        });
       };
 
       this.updateUser = function (id, obj) {
@@ -20,9 +20,10 @@
           url: '/api/user/' + id,
           data: obj
         }).then(function (response) {
-          return response.data
-        })
-      }
+          return response.data;
+        });
+      };
+
     }
 
 })();

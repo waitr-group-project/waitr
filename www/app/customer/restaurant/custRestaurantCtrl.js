@@ -1,11 +1,16 @@
 (function () {
   angular
     .module('waitrApp')
-    .controller('custRestaurantCtrl', ['restaurantService', 'userService', 'waitlistService','$stateParams', '$ionicHistory', '$state',custRestaurantCtrl]);
+    .controller('custRestaurantCtrl', ['restaurantService', 'userService', 'waitlistService','$stateParams', '$ionicHistory', '$state', '$timeout', '$scope',custRestaurantCtrl]);
 
-  function custRestaurantCtrl (restaurantService, userService, waitlistService, $stateParams, $ionicHistory, $state) {
+  function custRestaurantCtrl (restaurantService, userService, waitlistService, $stateParams, $ionicHistory, $state, $timeout, $scope) {
 
     var crc = this;
+
+    $timeout(function() {
+      crc.currentUser = $scope.ac.currentUser;
+      console.log('custRestaurant', crc.currentUser);
+    });
 
     var restaurantId = $stateParams.restaurantId;
     console.log('this is restaurant id',restaurantId);
@@ -31,7 +36,7 @@
         });
 
         $state.go("restaurant.home");
-      })
+      });
     };
 
     //restaurantService.getRestaurant('56ce9b91f6326bb743e015f0').then(function(response) {

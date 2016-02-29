@@ -15,6 +15,7 @@ angular.module('waitrApp')
 
     function register(data) {
       authService.register(data).then(function(res) {
+        console.log(res);
         if (res.role === 'user') $state.go('customer.home');
         if (res.role === 'restaurant') $state.go('restaurant.home');
       }, function(res) {
