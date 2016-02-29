@@ -34,9 +34,10 @@ angular.module('waitrApp')
 
     ////////////////
 
-    function logout(user) {
-      authService.logout();
+    function logout() {
       ac.currentUser = null;
+      authService.logout();
+      $state.go('login');
     }
 
     function setCurrentUser(user) {
