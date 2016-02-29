@@ -3,7 +3,7 @@
     .module('waitrApp')
     .controller('custRestaurantMenuCtrl', ['restaurantService', 'userService', 'waitlistService','$stateParams', '$ionicHistory', '$state', '$ionicSideMenuDelegate', custRestaurantMenuCtrl]);
 
-  function custRestaurantMenuCtrl (restaurantService, userService, waitlistService, $stateParams, $ionicHistory, $ionicSideMenuDelegate, $state) {
+  function custRestaurantMenuCtrl (restaurantService, userService, waitlistService, $stateParams, $ionicHistory, $state, $ionicSideMenuDelegate) {
     var cmc = this;
     // cmc.menuSection = [];
     cmc.restaurantId = "56cf854d507ee272a9dc2dbb";

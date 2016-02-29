@@ -1,14 +1,16 @@
 (function () {
   angular
     .module('waitrApp')
-    .controller('restaMenuCtrl', ['restaurantService', 'userService', 'waitlistService','$stateParams', '$ionicHistory', '$state', '$ionicSideMenuDelegate', restaMenuCtrl]);
+    .controller('restaMenuCtrl', ['$timeout', '$scope', 'restaurantService', 'userService', 'waitlistService','$stateParams', '$ionicHistory', '$state', '$ionicSideMenuDelegate', restaMenuCtrl]);
 
-  function restaMenuCtrl (restaurantService, userService, waitlistService, $stateParams, $ionicHistory, $ionicSideMenuDelegate, $state) {
+  function restaMenuCtrl ($timeout, $scope, restaurantService, userService, waitlistService, $stateParams, $ionicHistory, $state, $ionicSideMenuDelegate ) {
     var rmc = this;
     // rmc.menuSection = [];
-    rmc.restaurantId = "56cf854d507ee272a9dc2dbb";
+    $timeout(function(){
+    rmc.restaurantId = $scope.ac.currentUser.restaurant_id;
     rmc.menuTitle= 'PICK A SECTION';
     rmc.menuContent = rmc.groupedMenu;
+    
     restaurantService.getRestaurantMenu(rmc.restaurantId).then(function (restaurant) {
         console.log('restaurant',restaurant);
         rmc.restaurant = restaurant;
@@ -36,7 +38,7 @@
     // rmc.showSectionOnClick = function(value) {
     //   rmc.SectionToggle = value;
     // };
-
+    })
   }
 
 })();

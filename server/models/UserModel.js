@@ -18,6 +18,13 @@ var UserSchema = new Mongoose.Schema({
 
 });
 
+UserSchema.set('toObject', {
+  transform: function(doc, ret, options) {
+    delete ret.__v;
+    delete ret.password;
+  }
+});
+
 UserSchema.methods.generateHash = function(password) {
 	return bcrypt.hashSync(password, bcrypt.genSaltSync(8));
 };

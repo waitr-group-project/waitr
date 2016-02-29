@@ -10,9 +10,7 @@ angular.module('waitrApp')
 
     $ionicConfigProvider.backButton.text('').icon('ion-ios7-arrow-left');
 
-    $urlRouterProvider.otherwise('/customer/home/menu');
-
-
+    $urlRouterProvider.otherwise('/login');
     $stateProvider
       // LOGIN - REGISTER ROUTES
       .state('login', {
@@ -38,9 +36,6 @@ angular.module('waitrApp')
         templateUrl: 'app/login/authTest.template.html',
         data: { authorizedRoles: [USER_ROLES.user] }
       })
-
-
-
 
       // CUSTOMER ROUTES
       .state('customer', {  //parent, sidenav
@@ -73,7 +68,7 @@ angular.module('waitrApp')
         controllerAs:'csc'
       })
       .state('customer.menu', {
-        url: '/home/menu',
+        url: '/home/menu/:restaurantId',
         templateUrl: './app/customer/menu/custRestaurantMenu.html',
         controller: 'custRestaurantMenuCtrl', 
         controllerAs: 'cmc',
@@ -130,10 +125,10 @@ angular.module('waitrApp')
         controllerAs: 'rhc'
       })
       .state('restaurant.editPerson', {
-        url: '/home/edit-person',
+        url: '/home/edit-person/:waitlist/:person',
         templateUrl: './app/restaurant/restaHome/restaEditPerson.html',
-        controller: 'restaHomeCtrl',
-        controllerAs: 'rhc'
+        controller: 'restaEditCtrl',
+        controllerAs: 'rec'
       })
 
       //child-of-restaurant-that-has-children thingamajigger route
@@ -161,29 +156,35 @@ angular.module('waitrApp')
         controller: 'restaMenuCtrl',
         controllerAs: 'rmc'
       })
+
       .state('restaurant.settings', {
         url: '/settings',
         templateUrl: './app/restaurant/restaSettings/restaSettings.html',
         controller: 'restaSettingsCtrl',
         controllerAs: 'rsc'
       })
-
       //called in restaSettings, but still restaurant child
-      .state('restaurant.editDesc', {
-        url: '/settings/edit-description',
-        templateUrl: './app/restaurant/restaSettings/restaEditDesc.html',
+      .state('restaurant.editInfo', {
+        url: '/settings/edit-Info',
+        templateUrl: './app/restaurant/restaSettings/restaEditInfo.html',
         controller: 'restaSettingsCtrl',
         controllerAs: 'rsc'
       })
-      .state('restaurant.editCall', {
-        url: '/settings/edit-call',
-        templateUrl: './app/restaurant/restaSettings/restaEditCall.html',
+      .state('restaurant.editContact', {
+        url: '/settings/edit-contact',
+        templateUrl: './app/restaurant/restaSettings/restaEditContact.html',
         controller: 'restaSettingsCtrl',
         controllerAs: 'rsc'
       })
-      .state('restaurant.profile.editMenu', {
+      .state('restaurant.editMenu', {
         url: '/settings/edit-menu',
         templateUrl: './app/restaurant/restaSettings/restaEditMenu.html',
+        controller: 'restaSettingsCtrl',
+        controllerAs: 'rsc'
+      })
+      .state('restaurant.editHours', {
+        url: '/settings/edit-hours',
+        templateUrl: './app/restaurant/restaSettings/restaEditHours.html',
         controller: 'restaSettingsCtrl',
         controllerAs: 'rsc'
       })
@@ -194,4 +195,6 @@ angular.module('waitrApp')
         controllerAs: 'rsc'
       });
     }
-})();
+})
+
+();
