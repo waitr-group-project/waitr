@@ -18,7 +18,7 @@
           restaurantService.getCurrentRestaurants(currentUserID).then(function (restaurant) {
             rpc.restaurant = restaurant[0];
           });
-        })
+        });
       });
 
       rpc.infoHoursToggle = true;

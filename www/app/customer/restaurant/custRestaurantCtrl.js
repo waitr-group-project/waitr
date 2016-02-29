@@ -49,10 +49,6 @@
 
 
 
-    //restaurantService.getRestaurant('56ce9b91f6326bb743e015f0').then(function(response) {
-    //  crc.restaurantObj = response;
-    //});
-
     crc.goBack = function() {
        $ionicHistory.goBack();
     };
