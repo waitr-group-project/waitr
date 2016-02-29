@@ -1,4 +1,5 @@
 var Restaurant = require('../models/RestaurantModel'),
+    Waitlist = require('../models/WaitlistModel'),
     User = require('../models/UserModel'),
     jwt = require('jsonwebtoken'),
     config = require('../config/config');
@@ -31,9 +32,14 @@ module.exports = {
         newRestaurant.save(function(err, restaurant) {
           if (err)
             res.status(500).send(err);
-          else
+          else {
+            var newWaitlist = new Waitlist({ restaurant_id: restaurant._id });
+            newWaitlist.save(function(err, waitlist) {
+              console.log('Waitlist saved successfully');
+            });
             req.body.restaurant_id = restaurant._id;
             regCust(req, res);
+          }
         });
       } else {
         regCust(req, res);
