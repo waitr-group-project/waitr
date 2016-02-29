@@ -46,7 +46,7 @@ angular.module('waitrApp')
          abstract: true,
          templateUrl: './app/customer/custCustomer.html',
          controller: 'custCustomerCtrl',
-         controllerAs: 'ccc'
+         controllerAs: 'ccc',
       })
       .state('customer.home', {
          url: '/home',

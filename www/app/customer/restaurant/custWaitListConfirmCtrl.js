@@ -21,6 +21,7 @@
 
         cwlc.userAddingToQ = function (firstname, lastname, partysize, phone, notes) {
           var person = {
+            user_id: cwlc.currentUser._id,
             firstName: firstname,
             lastName: lastname,
             partySize: partysize,
