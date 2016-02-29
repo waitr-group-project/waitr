@@ -1,9 +1,9 @@
 (function () {
   angular
     .module('waitrApp')
-    .controller('custWaitlistCtrl', ['userService', 'restaurantService', '$timeout', '$scope',custWaitlistCtrl]);
+    .controller('custWaitlistCtrl', ['userService', 'restaurantService', '$timeout', '$scope', 'restaurantService', custWaitlistCtrl]);
 
-  function custWaitlistCtrl (userService, restaurantService, $timeout, $scope) {
+  function custWaitlistCtrl (userService, restaurantService, $timeout, $scope, restaurantService) {
     var cwc = this;
 
     $timeout(function() {
@@ -11,14 +11,11 @@
       userService.currentUser(currentUser._id).then(function (user){
         cwc.user = user[0];
         console.log('this is wait user',cwc.user);
-
-
-      })
-
-
-
-
-
+        restaurantService.getCurrentRestaurants(user[0].inWaitList.restaurant_id).then(function (data) {
+          cwc.restaurant = data[0];
+          console.log('wait list rest', cwc.restaurant);
+        })
+      });
     });
 
     //var currUser = '56ce45fba2440fe4375e106c';

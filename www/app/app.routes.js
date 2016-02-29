@@ -62,6 +62,12 @@ angular.module('waitrApp')
         controller: 'custRestaurantCtrl',
         controllerAs:'crc'
       })
+      .state('customer.waitlistconfirm', {
+        url: '/home/restaurant/:restaurantId/waitlist-confirm',
+        templateUrl: './app/customer/restaurant/custRestaurantConfirm.html',
+        controller: 'custWaitListConfirmCtrl',
+        controllerAs: 'cwlc'
+      })
 
       //restaurant children
       .state('customer.restaurant.desc', {

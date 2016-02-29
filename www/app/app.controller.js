@@ -16,7 +16,11 @@ angular.module('waitrApp')
     $scope.$on(AUTH_EVENTS.notAuthorized, function(event) {
       var alertPopup = $ionicPopup.alert({
         title: 'Unauthorized!',
-        template: 'Invalid access.'
+        template: 'Invalid access.',
+        buttons: [{
+            text: '<b>OK</b>',
+            type: 'button-energized'
+        }]
       });
     });
 
@@ -25,7 +29,11 @@ angular.module('waitrApp')
       $state.go('login');
       var alertPopup = $ionicPopup.alert({
         title: 'Unauthenticated!',
-        template: 'Must be logged in.' + response.data
+        template: response.data,
+        buttons: [{
+            text: '<b>OK</b>',
+            type: 'button-energized'
+        }]
       });
     });
 

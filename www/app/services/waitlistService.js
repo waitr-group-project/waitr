@@ -17,7 +17,11 @@
                 quotedTimeGiven: waitTime,
                 notes: user.notes
             };
-            
+
+            if (user.user_id) {
+              newListEntry.user_id = user.user_id;
+            }
+
             //now submit this as the data to the waitlist id on the restaurantInfo object
             return $http({
                 method: "PUT",
@@ -56,7 +60,7 @@
                 return res.data;
             })
         }
-        
+
         this.updateWaitTime = function(waitlistId, time) {
             return $http({
                 method: "PUT",

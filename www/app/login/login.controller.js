@@ -23,10 +23,11 @@ angular.module('waitrApp')
         if (user.role === 'user') $state.go('customer.home');
         if (user.role === 'restaurant') $state.go('restaurant.home');
       }, function(res) {
-        var alertPopup = $ionicPopup.alert({
-          title: 'Login failed!',
-          template: 'Error: ' + res
-        });
+        console.log('Login error: ' + res.data)
+        // var alertPopup = $ionicPopup.alert({
+        //   title: 'Login failed!',
+        //   template: 'Error: ' + res
+        // });
       });
     }
 
