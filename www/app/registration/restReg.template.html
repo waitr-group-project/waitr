@@ -1,33 +1,66 @@
-<ion-view view-title="Login">
-  <ion-content>
+<ion-view view-title="Restaurant Registration">
+  <ion-content class="padding bg restaurant-reg">
 
-    <h3>Restaurant Registration</h3>
+    <div class="loginRegHeader">
+      <h1>Waitr.</h1>
+        <h4>Restaurant Registration</h4>
+    </div>
 
     <form ng-submit="regCtrl.register(rest)">
-      <label>First name:</label>
-      <input type="text" ng-model="rest.firstName" autofocus="true">
+      <div class="list list-inset loginReg" style="width: 48%; float: left;">
+        <label class="item item-input">
+          <i class="icon ion-person placeholder-icon"></i>
+          <input type="text" placeholder="First name" ng-model="rest.firstName"  autofocus="true">
+        </label>
+      </div>
 
-      <label>Last name:</label>
-      <input type="text" ng-model="rest.lastName">
+      <div class="list list-inset loginReg" style="width: 48%; float: right;">
+        <label class="item item-input">
+          <!-- <i class="icon ion-locked placeholder-icon"></i> -->
+          <input type="text" placeholder="Last name" ng-model="rest.lastName">
+        </label>
+      </div>
 
-      <label>Email:</label>
-      <input type="text" ng-model="rest.email">
+      <div class="list list-inset loginReg" style="clear: both;">
+        <label class="item item-input">
+          <i class="icon ion-ios-email placeholder-icon"></i>
+          <input type="text" placeholder="Email" ng-model="rest.email">
+        </label>
+      </div>
 
-      <label>Password:</label>
-      <input type="password" ng-model="rest.password">
+      <div class="list list-inset loginReg">
+        <label class="item item-input">
+          <i class="icon ion-locked placeholder-icon"></i>
+          <input type="password" placeholder="Password" ng-model="rest.password">
+        </label>
+      </div>
 
-      <label>Phone #:</label>
-      <input type="text" ng-model="rest.phone">
+      <div class="list list-inset loginReg">
+        <label class="item item-input">
+          <i class="icon ion-ios-telephone placeholder-icon"></i>
+          <input type="text" placeholder="Phone" ng-model="rest.phone">
+        </label>
+      </div>
 
-      <label>Restaurant Name:</label>
-      <input type="text" ng-model="rest.restaurantName">
+      <div class="list list-inset loginReg">
+        <label class="item item-input">
+          <i class="icon ion-fork placeholder-icon"></i>
+          <i class="icon ion-knife placeholder-icon" style="margin-left: -4px;"></i>
+          <i class="icon ion-spoon placeholder-icon" style="margin-left: -6px;"></i>
+          <input type="text" placeholder="Restaurant Name" ng-model="rest.restaurantName">
+        </label>
+      </div>
 
-      <button type="submit">Sign Up</button>
+      <button type="submit" class="button button-block button-energized" style="font-size: 20px; font-weight: 700;">
+        REGISTER
+      </button>
     </form>
 
-    <br><br>
-    <a ui-sref="login">Already have an account? Sign In</a><br>
-    <a ui-sref="customer-sign-up">Register as a user</a>
-
   </ion-content>
+  <div class="bar bar-footer bar-clear" style="height: 80px;">
+    <div class="loginRegFooter">
+      <a ui-sref="login">Already have an account? Sign In.</a><br>
+      <a ui-sref="customer-sign-up">Register a user.</a>
+    </div>
+  </div>
 </ion-view>
