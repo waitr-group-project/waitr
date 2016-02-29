@@ -72,7 +72,7 @@ function restaHomeCtrl (restaurantService, waitlistService, $state, $ionicHistor
         
         myPopup.then(function(res) {
             //console.log("tapped!", res);
-            if (res) {
+            if (res >= 0) {
                 console.log(rhc.customerEntries);
                 waitlistService.updateWaitTime(rhc.customerEntries._id, res).then(function(res) {
                     rhc.customerEntries.quotedTime = res;
