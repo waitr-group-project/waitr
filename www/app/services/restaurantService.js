@@ -20,7 +20,7 @@
           method: 'GET',
           url: '/api/restaurant/' + id
         }).then(function (response){
-          return response.data
+          return response.data;
         });
       };
 

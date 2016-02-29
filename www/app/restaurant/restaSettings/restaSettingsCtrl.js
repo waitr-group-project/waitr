@@ -1,54 +1,66 @@
 (function () {
   angular
     .module('waitrApp')
-    .controller('restaSettingsCtrl', ['restaurantService', 'userService', '$scope', '$timeout',restaSettingsCtrl]);
+    .controller('restaSettingsCtrl', ['restaurantService', 'userService', '$scope', '$timeout', '$filter',restaSettingsCtrl])
+    .directive('formattedTime', function ($filter) {
 
-  function restaSettingsCtrl (restaurantService, userService, $scope, $timeout) {
+  return {
+    require: '?ngModel',
+    link: function(scope, elem, attr, ngModel) {
+        if( !ngModel )
+            return;
+        if( attr.type !== 'time' )
+            return;
+
+        ngModel.$formatters.unshift(function(value) {
+            return value.replace(/:[0-9]+.[0-9]+$/, '');
+        });
+    }
+
+  };
+
+});
+
+  function restaSettingsCtrl (restaurantService, userService, $scope, $timeout, $filter) {
     var rsc = this;
 
     $timeout(function() {
-      var currentUser = $scope.ac.currentUser;
-      userService.currentUser(currentUser._id).then(function (currentUser) {
-        var restaurantID = currentUser[0].restaurant_id;
-        restaurantService.getCurrentRestaurants(restaurantID).then(function (restaurant) {
-          var restaurant = restaurant[0];
-          //console.log(restaurant);
-          rsc.name = restaurant.restaurantName;
-          rsc.shortDescription = restaurant.shortDescription;
-          rsc.description = restaurant.description;
-          rsc.restaurantImage = restaurant.restaurantImage;
-          rsc.restaurantIcon = restaurant.restaurantIcon;
-          rsc.foodType = restaurant.foodType;
-          rsc.addressLineOne = restaurant.addressLineOne;
-          rsc.city = restaurant.city;
-          rsc.state = restaurant.state;
-          rsc.zipcode = restaurant.zipcode;
+      var currentUserID = $scope.ac.currentUser.restaurant_id;
+        restaurantService.getCurrentRestaurants(currentUserID).then(function (restaurant) {
+          rsc.restaurant = restaurant[0];
+          rsc.restaurant.hours.monday.openTime = new Date(rsc.restaurant.hours.monday.openTime);
+          rsc.restaurant.hours.monday.closeTime = new Date(rsc.restaurant.hours.monday.closeTime);
+          rsc.restaurant.hours.tuesday.openTime = new Date(rsc.restaurant.hours.tuesday.openTime);
+          rsc.restaurant.hours.tuesday.closeTime = new Date(rsc.restaurant.hours.tuesday.closeTime);
+          rsc.restaurant.hours.wednesday.openTime = new Date(rsc.restaurant.hours.wednesday.openTime);
+          rsc.restaurant.hours.wednesday.closeTime = new Date(rsc.restaurant.hours.wednesday.closeTime);
+          rsc.restaurant.hours.thursday.openTime = new Date(rsc.restaurant.hours.thursday.openTime);
+          rsc.restaurant.hours.thursday.closeTime = new Date(rsc.restaurant.hours.thursday.closeTime);
+          rsc.restaurant.hours.friday.openTime = new Date(rsc.restaurant.hours.friday.openTime);
+          rsc.restaurant.hours.friday.closeTime = new Date(rsc.restaurant.hours.friday.closeTime);
+          rsc.restaurant.hours.saturday.openTime = new Date(rsc.restaurant.hours.saturday.openTime);
+          rsc.restaurant.hours.saturday.closeTime = new Date(rsc.restaurant.hours.saturday.closeTime);
+          rsc.restaurant.hours.sunday.openTime = new Date(rsc.restaurant.hours.sunday.openTime);
+          rsc.restaurant.hours.sunday.closeTime = new Date(rsc.restaurant.hours.sunday.closeTime);
 
-          rsc.updateRestaurantInfo = function (shortDescription, description, foodType, restaurantImage, restaurantIcon) {
-            var restInfo = {
-              shortDescription: shortDescription,
-              description: description,
-              foodType: foodType,
-              restaurantImage: restaurantImage,
-              restaurantIcon: restaurantIcon
-            };
-            restaurantService.updateRestaurant(restaurant._id, restInfo);
+
+          rsc.updateRestaurantInfo = function (restaurant) {
+            restaurantService.updateRestaurant(rsc.restaurant._id, restaurant);
+          };
+          rsc.updateRestaurantContact = function (restaurant) {
+            restaurantService.updateRestaurant(rsc.restaurant._id, restaurant);
           };
 
-          rsc.updateRestaurantContact = function (name, addressLineOne, city, state, zipcode) {
-            var restInfo = {
-              restaurantName: name,
-              addressLineOne: addressLineOne,
-              city: city,
-              state: state,
-              zipcode: zipcode
-            };
-            console.log('hello', restInfo);
-            restaurantService.updateRestaurant(restaurant._id, restInfo);
+          rsc.updateRestaurantHours = function(restaurant) {
+            restaurantService.updateRestaurant(rsc.restaurant._id, restaurant).then(function(response) {
+              console.log(response);
+            });
+
           };
+
+          });
         });
-      });
-    });
+
   }
 
 })();

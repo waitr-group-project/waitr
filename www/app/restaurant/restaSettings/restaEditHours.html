@@ -4,33 +4,18 @@
   </ion-nav-title>
   <ion-content>
     <div class="list">
-      <div class="item item-divider">SUNDAY</div>
-      <div class="row">
-        <div class="col">
-          <label class="item item-input item-stacked-label">
-            <span class="input-label">OPEN</span>
-            <input type="time" placeholder="Name">
-          </label>
-        </div>
-        <div class="col">
-          <label class="item item-input item-stacked-label">
-            <span class="input-label">CLOSED</span>
-            <input type="time" placeholder="Name">
-          </label>
-        </div>
-      </div>
       <div class="item item-divider">MONDAY</div>
       <div class="row">
         <div class="col">
           <label class="item item-input item-stacked-label">
             <span class="input-label">OPEN</span>
-            <input type="time" placeholder="Name">
+            <input type="time" formatted-time  ng-model="rsc.restaurant.hours.monday.openTime ">
           </label>
         </div>
         <div class="col">
           <label class="item item-input item-stacked-label">
             <span class="input-label">CLOSED</span>
-            <input type="time" placeholder="Name">
+            <input type="time" formatted-time  ng-model="rsc.restaurant.hours.monday.closeTime">
           </label>
         </div>
       </div>
@@ -39,13 +24,13 @@
         <div class="col">
           <label class="item item-input item-stacked-label">
             <span class="input-label">OPEN</span>
-            <input type="time" placeholder="Name">
+            <input type="time" formatted-time  ng-model="rsc.restaurant.hours.tuesday.openTime">
           </label>
         </div>
         <div class="col">
           <label class="item item-input item-stacked-label">
             <span class="input-label">CLOSED</span>
-            <input type="time" placeholder="Name">
+            <input type="time" formatted-time  ng-model="rsc.restaurant.hours.tuesday.closeTime">
           </label>
         </div>
       </div>
@@ -54,13 +39,13 @@
         <div class="col">
           <label class="item item-input item-stacked-label">
             <span class="input-label">OPEN</span>
-            <input type="time" placeholder="Name">
+            <input type="time" formatted-time  ng-model="rsc.restaurant.hours.wednesday.openTime">
           </label>
         </div>
         <div class="col">
           <label class="item item-input item-stacked-label">
             <span class="input-label">CLOSED</span>
-            <input type="time" placeholder="Name">
+            <input type="time" formatted-time  ng-model="rsc.restaurant.hours.wednesday.closeTime">
           </label>
         </div>
       </div>
@@ -69,13 +54,13 @@
         <div class="col">
           <label class="item item-input item-stacked-label">
             <span class="input-label">OPEN</span>
-            <input type="time" placeholder="Name">
+            <input type="time" formatted-time  ng-model="rsc.restaurant.hours.thursday.openTime">
           </label>
         </div>
         <div class="col">
           <label class="item item-input item-stacked-label">
             <span class="input-label">CLOSED</span>
-            <input type="time" placeholder="Name">
+            <input type="time" formatted-time  ng-model="rsc.restaurant.hours.thursday.closeTime">
           </label>
         </div>
       </div>
@@ -84,13 +69,13 @@
         <div class="col">
           <label class="item item-input item-stacked-label">
             <span class="input-label">OPEN</span>
-            <input type="time" placeholder="Name">
+            <input type="time" formatted-time  ng-model="rsc.restaurant.hours.friday.openTime">
           </label>
         </div>
         <div class="col">
           <label class="item item-input item-stacked-label">
             <span class="input-label">CLOSED</span>
-            <input type="time" placeholder="Name">
+            <input type="time" formatted-time  ng-model="rsc.restaurant.hours.friday.closeTime">
           </label>
         </div>
       </div>
@@ -99,17 +84,32 @@
         <div class="col">
           <label class="item item-input item-stacked-label">
             <span class="input-label">OPEN</span>
-            <input type="time" placeholder="Name">
+            <input type="time" formatted-time  ng-model="rsc.restaurant.hours.saturday.openTime">
           </label>
         </div>
         <div class="col">
           <label class="item item-input item-stacked-label">
             <span class="input-label">CLOSED</span>
-            <input type="time" placeholder="Name">
+            <input type="time" formatted-time  ng-model="rsc.restaurant.hours.saturday.closeTime">
+          </label>
+        </div>
+      </div>
+      <div class="item item-divider">SUNDAY</div>
+      <div class="row">
+        <div class="col">
+          <label class="item item-input item-stacked-label">
+            <span class="input-label">OPEN</span>
+            <input type="time" formatted-time ng-model="rsc.restaurant.hours.sunday.openTime">
+          </label>
+        </div>
+        <div class="col">
+          <label class="item item-input item-stacked-label">
+            <span class="input-label">CLOSED</span>
+            <input type="time" formatted-time  ng-model="rsc.restaurant.hours.sunday.closeTime">
           </label>
         </div>
       </div>
     </div>
-    <button class="button button-full button-positive" ng-click="rsc.updateRestaurant(rsc.address, csc.city, csc.state, csc.email)" ui-sref="customer.settings">SAVE</button>
+    <button class="button button-full button-positive" ng-click="rsc.updateRestaurantHours(rsc.restaurant)" ui-sref="restaurant.settings">SAVE</button>
   </ion-content>
 </ion-view>
