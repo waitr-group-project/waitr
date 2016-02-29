@@ -1,30 +1,57 @@
-<ion-view view-title="Login">
-  <ion-content>
+<ion-view view-title="Customer Registration">
+  <ion-content class="padding bg customer-reg">
 
-    <h3>Customer Registration</h3>
+    <div class="loginRegHeader">
+      <h1>Waitr.</h1>
+        <h4>Customer Registration</h4>
+    </div>
 
     <form ng-submit="regCtrl.register(cust)">
-      <label>First name:</label>
-      <input type="text" ng-model="cust.firstName" autofocus="true">
+      <div class="list list-inset loginReg" style="width: 48%; float: left;">
+        <label class="item item-input">
+          <i class="icon ion-person placeholder-icon"></i>
+          <input type="text" placeholder="First name" ng-model="cust.firstName"  autofocus="true">
+        </label>
+      </div>
 
-      <label>Last name:</label>
-      <input type="text" ng-model="cust.lastName">
+      <div class="list list-inset loginReg" style="width: 48%; float: right;">
+        <label class="item item-input">
+          <!-- <i class="icon ion-locked placeholder-icon"></i> -->
+          <input type="text" placeholder="Last name" ng-model="cust.lastName">
+        </label>
+      </div>
 
-      <label>Email:</label>
-      <input type="text" ng-model="cust.email">
+      <div class="list list-inset loginReg" style="clear: both;">
+        <label class="item item-input">
+          <i class="icon ion-ios-email placeholder-icon"></i>
+          <input type="text" placeholder="Email" ng-model="cust.email">
+        </label>
+      </div>
 
-      <label>Password:</label>
-      <input type="password" ng-model="cust.password">
+      <div class="list list-inset loginReg">
+        <label class="item item-input">
+          <i class="icon ion-locked placeholder-icon"></i>
+          <input type="password" placeholder="Password" ng-model="cust.password">
+        </label>
+      </div>
 
-      <label>Phone #:</label>
-      <input type="text" ng-model="cust.phone">
+      <div class="list list-inset loginReg">
+        <label class="item item-input">
+          <i class="icon ion-ios-telephone placeholder-icon"></i>
+          <input type="text" placeholder="Phone" ng-model="cust.phone">
+        </label>
+      </div>
 
-      <button type="submit">Sign Up</button>
+      <button type="submit" class="button button-block button-energized" style="font-size: 20px; font-weight: 700;">
+        SIGN UP
+      </button>
     </form>
 
-    <br><br>
-    <a ui-sref="login">Already have an account? Sign In</a><br>
-    <a ui-sref="restaurant-sign-up">Register as a restaurant</a>
-
   </ion-content>
+  <div class="bar bar-footer bar-clear" style="height: 80px;">
+    <div class="loginRegFooter">
+      <a ui-sref="login">Already have an account? Sign In.</a><br>
+      <a ui-sref="restaurant-sign-up">Register a restaurant.</a>
+    </div>
+  </div>
 </ion-view>
