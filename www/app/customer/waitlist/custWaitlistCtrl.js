@@ -18,12 +18,23 @@
       });
 
       var removeFromWaitlist = function() {
-        waitlistService.removeFromWaitlist(cwc.user._id, cwc.user.inWaitList._id).then(function(res) {
-          $ionicHistory.nextViewOptions({
-            disableBack: true
-          });
-          $state.go("customer.home");
-        })
+        //for (var key in cwc.user) {
+          //console.log(cwc.user.inWaitList.list);
+        var list = cwc.user.inWaitList.list;
+          for (var i = 0; i < list.length; i++) {
+            if (list[i].user_id == cwc.user._id) {
+              //console.log(list[i]._id);
+              waitlistService.removeFromWaitlist(list[i]._id, cwc.user.inWaitList._id).then(function(res) {
+                console.log(res);
+                $ionicHistory.nextViewOptions({
+                  disableBack: true
+                });
+                $state.go("customer.home");
+              })
+            }
+          };
+
+
       };
 
       cwc.showRemovePopup = function() {
