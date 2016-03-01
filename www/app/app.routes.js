@@ -12,7 +12,7 @@ angular.module('waitrApp')
 
 
 
-    $urlRouterProvider.otherwise('/login');
+    $urlRouterProvider.otherwise('/restaurant/home');
 
 
     $stateProvider
@@ -80,14 +80,14 @@ angular.module('waitrApp')
       .state('customer.menu', {
         url: '/home/menu/:restaurantId',
         templateUrl: './app/customer/menu/custRestaurantMenu.html',
-        controller: 'custRestaurantMenuCtrl', 
+        controller: 'custRestaurantMenuCtrl',
         controllerAs: 'cmc',
       })
     //   //child of menu
     //   .state('customer.menu.menuItems', {
     //     url: '/menuItem',
     //     templateUrl: './app/customer/menu/custRestaurantMenuItems.html',
-    //     controller: 'custRestaurantMenuCtrl', 
+    //     controller: 'custRestaurantMenuCtrl',
     //     controllerAs: 'cmc',
     //   })
 
