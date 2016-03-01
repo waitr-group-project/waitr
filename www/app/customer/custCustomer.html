@@ -17,13 +17,25 @@
     </header>
     <ion-content class="has-header">
       <ion-list>
-        <ion-item id="menuItem" nav-clear menu-close ui-sref="customer.home">RESTAURANTS LIST</ion-item>
-        <ion-item id="menuItem" nav-clear menu-close ui-sref="customer.waitlist" class="sideMenuItem" ng-show="ccc.user.inWaitList">WAIT LIST</ion-item>
-        <ion-item id="menuItem" nav-clear menu-close ui-sref="customer.settings" class="sideMenuItem">SETTINGS</ion-item>
+
+        <ion-item id="menuItem" nav-clear menu-close ui-sref="customer.home">
+          <i class="icon ion-android-restaurant"></i>&nbsp; RESTAURANTS LIST
+        </ion-item>
+
+        <ion-item id="menuItem" nav-clear menu-close ui-sref="customer.waitlist" class="sideMenuItem" ng-show="ccc.user.inWaitList">
+          <i class="icon ion-ios-timer-outline"></i>&nbsp; WAIT LIST
+        </ion-item>
+
+        <ion-item id="menuItem" nav-clear menu-close ui-sref="customer.settings" class="sideMenuItem">
+          <i class="icon ion-gear-b"></i>&nbsp; SETTINGS
+        </ion-item>
+
       </ion-list>
     </ion-content>
     <ion-footer-bar>
-      <ion-item id="menuItemFooter" nav-clear menu-close ui-sref="login" class="sideMenuItem" ng-click="ac.logout()" >LOG OUT</ion-item>
+      <ion-item id="menuItemFooter" nav-clear menu-close ui-sref="login" class="sideMenuItem" ng-click="ac.logout()">
+        LOG OUT &nbsp;<i class="icon ion-power"></i>
+      </ion-item>
     </ion-footer-bar>
   </ion-side-menu>
 </ion-side-menus>
