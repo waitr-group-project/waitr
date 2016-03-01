@@ -6,3 +6,4 @@ platforms/
 plugins/
 .idea
 config/
+config.js

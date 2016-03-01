@@ -19,10 +19,11 @@ angular.module('waitrApp')
         if (res.role === 'user') $state.go('customer.home');
         if (res.role === 'restaurant') $state.go('restaurant.home');
       }, function(res) {
-        var alertPopup = $ionicPopup.alert({
-          title: 'Registration failed!',
-          template: 'Error: ' + res
-        });
+        console.log('Registration Error: ' + res.data)
+        // var alertPopup = $ionicPopup.alert({
+        //   title: 'Registration failed!',
+        //   template: 'Error: ' + res
+        // });
       });
     }
 

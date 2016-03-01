@@ -15,10 +15,15 @@
         //console.log('resta profile',currentUser);
         userService.currentUser(currentUser._id).then(function (currentUser) {
           var currentUserID = currentUser[0].restaurant_id;
-          restaurantService.getCurrentRestaurants(currentUserID).then(function (restaurant) {
+
+        restaurantService.getCurrentRestaurants(currentUserID).then(function (restaurant) {
             rpc.restaurant = restaurant[0];
+
+          restaurantService.getWaitlist(currentUserID).then(function(res) {
+              rpc.customerEntries = res[0];
+              });
           });
-        })
+        });
       });
 
       rpc.infoHoursToggle = true;

@@ -1,6 +1,6 @@
 <ion-view>
-    <ion-nav-title >
-        <span style="font-size:1.3rem">{{cmc.restaurant.restaurantName}}</span> 
+    <ion-nav-title>
+        <span style="font-size:1.3rem">{{cmc.restaurant.restaurantName}}</span>
     </ion-nav-title>
     <div class="padding bar bar-subheader bar-dark">
         <h2 class="title">MENU</h2>
@@ -9,22 +9,18 @@
     <ion-content class="has-subheader">
         <ion-list>
             <div ng-repeat="(key, value) in cmc.groupedMenu">
-                <ion-item class="item-stable" 
-                ng-click="cmc.toggleSection(key)">
+                <ion-item class="item-stable" ng-click="cmc.toggleSection(key)">
                     <i class="icon ion-ios-arrow-forward" ng-show="cmc.menuTitle === null"></i>
-                    <i class="icon ion-ios-arrow-down" ng-show="cmc.menuTitle === key"></i>
-                    &nbsp;
-                    {{key}}
+                    <i class="icon ion-ios-arrow-down" ng-show="cmc.menuTitle === key"></i> &nbsp; {{key}}
                 </ion-item>
-                <ion-item ng-show="cmc.menuTitle === key" class="item-accordion">
-                <div ng-repeat="item in value">
-                    <h4 style="text-align:center">{{item.item}}</h4>
-                    <p style="text-align:justify">{{item.desc}}</p>
-                    <p style="text-align:center">${{item.price}}</p>
-                </div>
+                <ion-item ng-show="cmc.menuTitle === key" class=" padding item-accordion">
+                    <div ng-repeat="item in value">
+                        <h4 class="title">{{item.item}}</h4>
+                        <p style="text-align:justify">{{item.desc}}</p>
+                        <p>${{item.price}}</p>
+                    </div>
                 </ion-item>
             </div>
     </ion-content>
 
 </ion-view>
-        

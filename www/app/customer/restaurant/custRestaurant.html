@@ -13,8 +13,12 @@
   <p id="restaDescInDesc">{{crc.restaurant.foodType}}</p>
   <p id="restaDescInDesc">{{crc.restaurant.addressLineOne}}</p>
   <p id="restaDescInDesc">{{crc.restaurant.city}}, {{crc.restaurant.state}}, {{crc.restaurant.zipcode}}</p>
-  <i id="timeOnRestaurantProfile" class="icon ion-ios-clock-outline">45</i>
-</span>
+  
+
+  
+  
+  <i id="timeOnRestaurantProfile" class="icon ion-ios-clock-outline"><span id="timerNumberRestaProfile">{{crc.customerEntries.quotedTime}}</span></i>  
+        </span>
         <div id="resQWaitingList" class="item row">
             <div class="col text-center">
                 <button id="restProfileLinks" class="button button-icon icon ion-ios-telephone-outline"></button>
@@ -39,7 +43,7 @@
         </div>
 
         <div id="restProfileBodyBox" class="item text-center item-text-wrap" ng-show="crc.infoHoursToggle">
-            <p>{{crc.restaurantObj.description}}</p>
+            <p>{{crc.restaurant.description}}</p>
         </div>
         <div id="restProfileBodyBox" class="item item-body text-center item-text-wrap" ng-hide="crc.infoHoursToggle">
             <div class="row text-center ">
@@ -58,10 +62,10 @@
                     <span>MON</span>
                 </div>
                 <div class="col ">
-                    {{crc.restaurantObj.hours.monday.openTime}} AM
+                    {{crc.restaurant.hours.monday.openTime | date: "hh:mm a"}}
                 </div>
                 <div class="col ">
-                    {{crc.restaurantObj.hours.monday.closeTime}} PM
+                    {{crc.restaurant.hours.monday.closeTime | date: "hh:mm a"}}
                 </div>
             </div>
             <div class="row text-center">
@@ -69,10 +73,10 @@
                     <span>TUE</span>
                 </div>
                 <div class="col ">
-                    {{crc.restaurantObj.hours.tuesday.openTime}} AM
+                    {{crc.restaurant.hours.tuesday.openTime | date: "hh:mm a"}}
                 </div>
                 <div class="col ">
-                    {{crc.restaurantObj.hours.tuesday.closeTime}} PM
+                    {{crc.restaurant.hours.tuesday.closeTime | date: "hh:mm a"}}
                 </div>
             </div>
             <div class="row text-center">
@@ -80,10 +84,10 @@
                     <span>WED</span>
                 </div>
                 <div class="col ">
-                    {{crc.restaurantObj.hours.wednesday.openTime}} AM
+                    {{crc.restaurant.hours.wednesday.openTime | date: "hh:mm a"}}
                 </div>
                 <div class="col ">
-                    {{crc.restaurantObj.hours.wednesday.closeTime}} PM
+                    {{crc.restaurant.hours.wednesday.closeTime | date: "hh:mm a"}}
                 </div>
             </div>
             <div class="row text-center">
@@ -91,10 +95,10 @@
                     <span>THU</span>
                 </div>
                 <div class="col ">
-                    {{crc.restaurantObj.hours.thursday.openTime}} AM
+                    {{crc.restaurant.hours.thursday.openTime | date: "hh:mm a"}}
                 </div>
                 <div class="col ">
-                    {{crc.restaurantObj.hours.thursday.closeTime}} PM
+                    {{crc.restaurant.hours.thursday.closeTime | date: "hh:mm a"}}
                 </div>
             </div>
             <div class="row text-center">
@@ -102,10 +106,10 @@
                     <span>FRI</span>
                 </div>
                 <div class="col ">
-                    {{crc.restaurantObj.hours.friday.openTime}} AM
+                    {{crc.restaurant.hours.friday.openTime | date: "hh:mm a"}}
                 </div>
                 <div class="col ">
-                    {{crc.restaurantObj.hours.friday.closeTime}} PM
+                    {{crc.restaurant.hours.friday.closeTime | date: "hh:mm a"}}
                 </div>
             </div>
             <div class="row text-center">
@@ -113,10 +117,10 @@
                     <span>SAT</span>
                 </div>
                 <div class="col ">
-                    {{crc.restaurantObj.hours.saturday.openTime}} AM
+                    {{crc.restaurant.hours.saturday.openTime | date: "hh:mm a"}}
                 </div>
                 <div class="col ">
-                    {{crc.restaurantObj.hours.saturday.closeTime}} PM
+                    {{crc.restaurant.hours.saturday.closeTime | date: "hh:mm a"}}
                 </div>
             </div>
             <div class="row text-center">
@@ -124,15 +128,16 @@
                     <span>SUN</span>
                 </div>
                 <div class="col ">
-                    {{crc.restaurantObj.hours.sunday.openTime}} AM
+                    {{crc.restaurant.hours.sunday.openTime | date: "hh:mm a"}}
                 </div>
                 <div class="col ">
-                    {{crc.restaurantObj.hours.sunday.closeTime}} PM
+                    {{crc.restaurant.hours.sunday.closeTime | date: "hh:mm a"}}
                 </div>
             </div>
         </div>
     </ion-content>
 </ion-view>
 <div class="bar bar-footer">
-    <button id='buttonOnRestProfile' class="button button-block button-icon button-positive" ng-click="crc.userAddingToQ()" ng-hide="crc.currentUser.waitlist_id._id">Enter line</button>
+    <button id='buttonOnRestProfile' class="button button-block button-icon button-positive" ui-sref="customer.waitlistconfirm({restaurantId: crc.restaurant._id})">Enter line</button>
 </div>
+>>>>>>> dev

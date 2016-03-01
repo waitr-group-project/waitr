@@ -1,4 +1,6 @@
 var Waitlist = require('../models/WaitlistModel');
+var User = require('../models/UserModel');
+var io = require('socket.io');
 
 var findBy_Id = function(list, id) {
     for (var i = 0; i < list.length; i++) {
@@ -35,7 +37,12 @@ module.exports = {
             if (err) {
                 return res.status(500).send(err);
             }
-            res.send(result);
+            Waitlist.findById(req.params.id, function(err, result) {
+                if (err) {
+                    return res.status(500).send(err);
+                }
+                res.send(result);
+            })
         });
     },
     delete: function(req, res) {
@@ -57,7 +64,7 @@ module.exports = {
             res.send(waitList.list[waitList.list.length - 1]);
         });
     },
-    removeFromList: function(req, res) {
+    removeFromList: function(req, res, next) {
         Waitlist.findById(req.params.id, function(err, waitList) {
             if (err) {
                 return res.status(500).send(err);
@@ -67,6 +74,24 @@ module.exports = {
 
             var removed = waitList.list.splice(pos, 1);
             waitList.save();
+            console.log(removed[0]);
+            if (removed[0].user_id) {
+                console.log("user has a user_id property");
+                User.findById(removed[0].user_id, function(err, user) {
+                    if (err) {
+                        return res.status(500).send(err);
+                    }
+                    user.inWaitList = undefined;
+                    console.log("successfully deleted user property");
+                    user.save(function(err, result) {
+                        if (err) {
+                            console.error(err);
+                        } else {
+                            console.log("successfully removed property");
+                        }
+                    });
+                })
+            }
             res.send("successfully deleted item at index " + pos);
 
         });

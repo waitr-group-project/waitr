@@ -14,13 +14,13 @@ var RestaurantSchema = new Mongoose.Schema({
     description: { type: String/*, required: true*/ },
     foodType: { type: String/*, required: true*/ },
     hours: {
-        monday: { openTime: { type: String }, closeTime: { type: String } },
-        tuesday: { openTime: { type: String }, closeTime: { type: String } },
-        wednesday: { openTime: { type: String }, closeTime: { type: String } },
-        thursday: { openTime: { type: String }, closeTime: { type: String } },
-        friday: { openTime: { type: String }, closeTime: { type: String } },
-        saturday: { openTime: { type: String }, closeTime: { type: String } },
-        sunday: { openTime: { type: String }, closeTime: { type: String } }
+        monday: { openTime: { type: Date, default: Date("1970-01-01T07:00:00.000Z") }, closeTime: { type: Date, default: Date("1970-01-01T07:00:00.000Z") } },
+        tuesday: { openTime: { type: Date, default: Date("1970-01-01T07:00:00.000Z") }, closeTime: { type: Date, default: Date("1970-01-01T07:00:00.000Z") } },
+        wednesday: { openTime: { type: Date, default: Date("1970-01-01T07:00:00.000Z") }, closeTime: { type: Date, default: Date("1970-01-01T07:00:00.000Z") } },
+        thursday: { openTime: { type: Date, default: Date("1970-01-01T07:00:00.000Z") }, closeTime: { type: Date, default: Date("1970-01-01T07:00:00.000Z") } },
+        friday: { openTime: { type: Date, default: Date("1970-01-01T07:00:00.000Z") }, closeTime: { type: Date, default: Date("1970-01-01T07:00:00.000Z") } },
+        saturday: { openTime: { type: Date, default: Date("1970-01-01T07:00:00.000Z") }, closeTime: { type: Date, default: Date("1970-01-01T07:00:00.000Z") } },
+        sunday: { openTime: { type: Date, default: Date("1970-01-01T07:00:00.000Z") }, closeTime: { type: Date, default: Date("1970-01-01T07:00:00.000Z") } }
     },
     menu: [{
         item: { type: String/*, required: true*/ },

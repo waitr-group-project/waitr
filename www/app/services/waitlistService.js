@@ -6,7 +6,7 @@
     function waitlistService ($http) {
         var url = "/api/waitlist/";
 
-        this.addAnonToWaitlist = function(user, waitlistInfo) {
+        this.addAnonToWaitlist = function(user, waitlistId, waitTime) {
             //first, we need to structure our data in a way that the server will accept
             var newListEntry = {
                 firstName: user.firstName,
@@ -14,16 +14,18 @@
                 partySize: user.partySize,
                 phone: user.phone,
                 timeAdded: new Date(),
-                //quotedTimeGiven: restaurantInfo.quotedTime,
+                quotedTimeGiven: waitTime,
                 notes: user.notes
             };
 
-          console.log('this is the new list entry',newListEntry);
-          console.log('this is waitlist info', waitlistInfo);
+            if (user.user_id) {
+              newListEntry.user_id = user.user_id;
+            }
+
             //now submit this as the data to the waitlist id on the restaurantInfo object
             return $http({
                 method: "PUT",
-                url: url + waitlistInfo._id + "/list",
+                url: url + waitlistId + "/list",
                 data: newListEntry
             }).then(function(res) {
                 return res.data;
@@ -56,6 +58,17 @@
                 data: body
             }).then(function(res) {
                 return res.data;
+            })
+        }
+
+        this.updateWaitTime = function(waitlistId, time) {
+            return $http({
+                method: "PUT",
+                url: url + waitlistId,
+                data: {quotedTime: time}
+            }).then(function(res) {
+                console.log(res.data.quotedTime);
+                return res.data.quotedTime;
             })
         }
     }
