@@ -41,6 +41,10 @@
                 });
             };
 
+            crc.callTel = function(tel) {
+                  window.location.href = 'tel:'+ tel;
+              };
+
             crc.goBack = function () {
                 $ionicHistory.goBack();
             };

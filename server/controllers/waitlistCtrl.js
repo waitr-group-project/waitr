@@ -117,13 +117,13 @@ module.exports = {
             //console.log("position is: ", pos);
             //console.log("req.body is: ", req.body);
             //console.log("element is: ", waitList.list[pos]);
-            
+
             for (var p in req.body) {
                 console.log(p);
                 waitList.list[pos][p] = req.body[p];
                 console.log("the new property is: ", waitList.list[pos][p]);
             }
-            
+
             waitList.save(function(err, result) {
                 if (err) {
                     console.log(err);
