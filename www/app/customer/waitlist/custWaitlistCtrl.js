@@ -29,7 +29,7 @@
       cwc.showRemovePopup = function() {
         var confirmPopup = $ionicPopup.confirm({
           title: "Remove from waitlist",
-          template: "WARNING: this will remove the user from the waitlist entirely"
+          template: "WARNING: this will remove you from the list"
         });
 
         confirmPopup.then(function(res) {
