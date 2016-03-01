@@ -11,6 +11,7 @@ angular.module('waitrApp')
     $ionicConfigProvider.backButton.text('').icon('ion-ios7-arrow-left');
 
 
+
     $urlRouterProvider.otherwise('/login');
 
 
@@ -69,29 +70,27 @@ angular.module('waitrApp')
         controllerAs: 'cwlc'
       })
 
-      //restaurant children
-      .state('customer.restaurant.desc', {
-        url: '/description',
-        templateUrl: './app/customer/restaurant/custRestaurantDesc.html'
-      })
-      .state('customer.restaurant.hours', {
-        url: '/hours',
-        templateUrl: './app/customer/restaurant/custRestaurantHours.html'
-      })
-
       //not restaurant child, but called by restaurant
-      .state('customer.menu', {
-        url: '/home/restaurant/menu',
-        templateUrl: './app/customer/restaurant/custRestaurantMenu.html',
-        controller: 'custRestaurantCtrl',
-        controllerAs: 'crc'
-      })
       .state('customer.settings', {
         url: '/settings',
         templateUrl: './app/customer/settings/custSettings.html',
         controller:'custSettingsCtrl',
         controllerAs:'csc'
       })
+      .state('customer.menu', {
+        url: '/home/menu/:restaurantId',
+        templateUrl: './app/customer/menu/custRestaurantMenu.html',
+        controller: 'custRestaurantMenuCtrl', 
+        controllerAs: 'cmc',
+      })
+    //   //child of menu
+    //   .state('customer.menu.menuItems', {
+    //     url: '/menuItem',
+    //     templateUrl: './app/customer/menu/custRestaurantMenuItems.html',
+    //     controller: 'custRestaurantMenuCtrl', 
+    //     controllerAs: 'cmc',
+    //   })
+
 
       //called in settings, but still customer child
       .state('customer.editContactInfo', {
@@ -161,6 +160,13 @@ angular.module('waitrApp')
       })
 
       //not child of profile, but still called by profile
+      .state('restaurant.menu', {
+        url: '/profile/menu',
+        templateUrl: './app/restaurant/restaMenu/restaMenu.html',
+        controller: 'restaMenuCtrl',
+        controllerAs: 'rmc'
+      })
+
       .state('restaurant.settings', {
         url: '/settings',
         templateUrl: './app/restaurant/restaSettings/restaSettings.html',
@@ -191,14 +197,6 @@ angular.module('waitrApp')
         templateUrl: './app/restaurant/restaSettings/restaEditHours.html',
         controller: 'restaSettingsCtrl',
         controllerAs: 'rsc'
-      })
-
-      // Dan I don't think we need these.
-      .state('restaurant.menu', {
-        url: '/profile/menu',
-        templateUrl: './app/restaurant/restaProfile/restaMenu.html',
-        controller: 'restaProfileCtrl',
-        controllerAs: 'rpc'
       })
       .state('restaurant.editWebsite', {
         url: '/settings/edit-website',

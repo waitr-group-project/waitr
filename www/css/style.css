@@ -188,3 +188,26 @@ font-size: 90%;
   font-family: 'Lusitana', serif;
   font-weight: 700;
 }
+
+
+/****MENUS*****/
+.list .item.item-accordion {
+    white-space: normal;  
+    line-height: 25px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+      transition: 0.09s all linear;
+}
+.list .item.item-accordion.ng-hide {
+     line-height: 0px;
+}
+.list .item.item-accordion h4 {
+    vertical-align: middle;
+    float: left;
+}
+.list .item.item-accordion span {
+    float: right;
+}
+.list .item.item-accordion p {
+    clear: both;
+}
