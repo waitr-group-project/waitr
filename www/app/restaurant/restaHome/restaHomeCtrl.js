@@ -5,6 +5,18 @@
 
 function restaHomeCtrl (restaurantService, waitlistService, $state, $ionicHistory, $scope, $timeout, $ionicPopup, $cordovaVibration) {
     var rhc = this;
+    
+    var socket = io();
+    
+    socket.on('newPersonAdded', function(data) {
+        console.log("socket data is: ", data);
+        rhc.customerEntries.list.push(data);
+    })
+    
+    socket.on('deletedPerson', function(data) {
+        console.log("hitting deletedPerson with data: ", data);
+        rhc.customerEntries.list.splice(data.pos, 1);
+    })
 
     moment.locale('en', {
     relativeTime : {
@@ -34,9 +46,12 @@ function restaHomeCtrl (restaurantService, waitlistService, $state, $ionicHistor
     });
 
     rhc.addPersonToQ = function(newQPerson) {
-        console.log(newQPerson);
+        //console.log(newQPerson);
         waitlistService.addAnonToWaitlist(newQPerson, rhc.customerEntries._id, rhc.customerEntries.quotedTime).then(function(res) {
-            console.log(res);
+            //console.log(res);
+            
+            socket.emit('newPerson', res);
+            
             $ionicHistory.nextViewOptions({
                 disableBack:true
             });

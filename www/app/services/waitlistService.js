@@ -46,6 +46,7 @@
                 method: "DELETE",
                 url: url + waitlistId + "/list/" + userId
             }).then(function(res) {
+                console.log("hitting return");
                 return res.data;
             })
         };

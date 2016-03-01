@@ -36,9 +36,15 @@ module.exports = {
             var newWaitlist = new Waitlist({ restaurant_id: restaurant._id });
             newWaitlist.save(function(err, waitlist) {
               console.log('Waitlist saved successfully');
+              Restaurant.findByIdAndUpdate(restaurant._id, { $set: { waitlist_id: waitlist._id }}, function(err, restaurant) {
+                if (err)
+                  res.status(500).send(err);
+                else {
+                  req.body.restaurant_id = restaurant._id;
+                  regCust(req, res);
+                }
+              });
             });
-            req.body.restaurant_id = restaurant._id;
-            regCust(req, res);
           }
         });
       } else {
