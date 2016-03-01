@@ -1,6 +1,6 @@
 <ion-view>
   <ion-nav-buttons side="right">
-    <button menu-toggle="right" class="button button-icon icon ion-plus-round" ui-sref="restaurant.addPerson"></button>
+    <button menu-toggle="right" class="button button-icon icon ion-plus-round"  ng-click="rhc.vibrate()" ></button>
   </ion-nav-buttons>
   <ion-nav-title>
     <span style="font-size:1.5rem">Wait List</span>
@@ -27,6 +27,6 @@
   </ion-content>
     <ion-footer-bar class="bar-energized" ng-click="rhc.showWaitTimeModal(rhc.customerEntries.quotedTime)">
         <h2 class="title"><i class="ion-compose"></i>&nbsp; Wait Time: {{rhc.customerEntries.quotedTime}} mins</h2>
-        
+
     </ion-footer-bar>
 </ion-view>

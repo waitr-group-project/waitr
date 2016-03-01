@@ -1,9 +1,9 @@
 (function () {
   angular
     .module('waitrApp')
-.controller('restaHomeCtrl', ['restaurantService', 'waitlistService', '$state', "$ionicHistory", '$scope',  '$timeout', '$ionicPopup', restaHomeCtrl]);
+.controller('restaHomeCtrl', ['restaurantService', 'waitlistService', '$state', "$ionicHistory", '$scope',  '$timeout', '$ionicPopup', '$cordovaVibration', restaHomeCtrl]);
 
-function restaHomeCtrl (restaurantService, waitlistService, $state, $ionicHistory, $scope, $timeout, $ionicPopup) {
+function restaHomeCtrl (restaurantService, waitlistService, $state, $ionicHistory, $scope, $timeout, $ionicPopup, $cordovaVibration) {
     var rhc = this;
 
     moment.locale('en', {
@@ -44,6 +44,12 @@ function restaHomeCtrl (restaurantService, waitlistService, $state, $ionicHistor
             $state.go("restaurant.home");
         });
     };
+
+  rhc.vibrate = function () {
+    console.log('im getting clicky');
+      $cordovaVibration.vibrate(50000);
+
+  };
 
     rhc.showWaitTimeModal = function(time) {
         console.log(time);
