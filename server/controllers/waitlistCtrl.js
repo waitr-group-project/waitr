@@ -1,6 +1,5 @@
 var Waitlist = require('../models/WaitlistModel');
 var User = require('../models/UserModel');
-var io = require('socket.io');
 
 var findBy_Id = function(list, id) {
     for (var i = 0; i < list.length; i++) {
@@ -61,6 +60,9 @@ module.exports = {
             }
             waitList.list.push(req.body);
             waitList.save();
+            
+            //NEW CODE!!!!
+            
             res.send(waitList.list[waitList.list.length - 1]);
         });
     },
@@ -92,7 +94,7 @@ module.exports = {
                     });
                 })
             }
-            res.send("successfully deleted item at index " + pos);
+            res.send({pos: pos});
 
         });
     },
@@ -115,13 +117,13 @@ module.exports = {
             //console.log("position is: ", pos);
             //console.log("req.body is: ", req.body);
             //console.log("element is: ", waitList.list[pos]);
-            
+
             for (var p in req.body) {
                 console.log(p);
                 waitList.list[pos][p] = req.body[p];
                 console.log("the new property is: ", waitList.list[pos][p]);
             }
-            
+
             waitList.save(function(err, result) {
                 if (err) {
                     console.log(err);

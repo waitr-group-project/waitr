@@ -26,6 +26,10 @@
         });
       });
 
+      rpc.callTel = function(tel) {
+            window.location.href = 'tel:'+ tel;
+        };
+
       rpc.infoHoursToggle = true;
 
       rpc.showOnClick = function(value) {
