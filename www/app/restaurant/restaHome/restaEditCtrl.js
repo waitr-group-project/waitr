@@ -1,9 +1,9 @@
 (function () {
   angular
     .module('waitrApp')
-.controller('restaEditCtrl', ['waitlistService', '$state', "$ionicHistory", "$stateParams", "$ionicPopup", restaEditCtrl]);
+.controller('restaEditCtrl', ['waitlistService', '$state', "$ionicHistory", "$stateParams", "$ionicPopup", '$cordovaVibration', restaEditCtrl]);
 
-function restaEditCtrl (waitlistService, $state, $ionicHistory, $stateParams, $ionicPopup) {
+function restaEditCtrl (waitlistService, $state, $ionicHistory, $stateParams, $ionicPopup, $cordovaVibration) {
 
     console.log($stateParams);
 
@@ -31,6 +31,10 @@ function restaEditCtrl (waitlistService, $state, $ionicHistory, $stateParams, $i
             });
             $state.go("restaurant.home");
         })
+    };
+
+    rec.vibrate = function () {
+      $cordovaVibration.vibrate(100);
     };
 
     rec.showCheckInPopup = function() {
