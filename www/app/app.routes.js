@@ -10,8 +10,8 @@ angular.module('waitrApp')
 
     $ionicConfigProvider.backButton.text('').icon('ion-ios7-arrow-left');
 
-    $urlRouterProvider.otherwise('/login');
 
+    $urlRouterProvider.otherwise('/login');
 
 
     $stateProvider
@@ -46,7 +46,7 @@ angular.module('waitrApp')
          abstract: true,
          templateUrl: './app/customer/custCustomer.html',
          controller: 'custCustomerCtrl',
-         controllerAs: 'ccc'
+         controllerAs: 'ccc',
       })
       .state('customer.home', {
          url: '/home',
@@ -61,6 +61,12 @@ angular.module('waitrApp')
         templateUrl: './app/customer/restaurant/custRestaurant.html',
         controller: 'custRestaurantCtrl',
         controllerAs:'crc'
+      })
+      .state('customer.waitlistconfirm', {
+        url: '/home/restaurant/:restaurantId/waitlist-confirm',
+        templateUrl: './app/customer/restaurant/custRestaurantConfirm.html',
+        controller: 'custWaitListConfirmCtrl',
+        controllerAs: 'cwlc'
       })
 
       //restaurant children
