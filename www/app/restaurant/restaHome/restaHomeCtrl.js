@@ -81,4 +81,6 @@ function restaHomeCtrl (restaurantService, waitlistService, $state, $ionicHistor
         })
     }
   }
+
 })();
+

@@ -1,0 +1,98 @@
+[{
+    "restaurantName": "Texas Roadhouse",
+    "addressLineOne": "1265 S State St",
+    "city": "Orem",
+    "state": "Utah",
+    "zipcode": "84097",
+    "shortDescription": "Southwestern steakhouse chain",
+    "description": "Lively chain steakhouse serving American fare with a Southwestern spin amid Texas-themed decor.",
+    "foodType": "southwestern",
+    "hours": {
+        "monday": { "openTime": "4:00 PM", "closeTime": "10:00 PM" },
+        "tuesday": { "openTime": "4:00 PM", "closeTime": "10:00 PM" },
+        "wednesday": { "openTime": "4:00 PM", "closeTime": "10:00 PM" },
+        "thursday": { "openTime": "4:00 PM", "closeTime": "10:00 PM" },
+        "friday": { "openTime": "11:00 AM", "closeTime": "11:00 PM" },
+        "saturday": { "openTime": "11:00 AM", "closeTime": "11:00 PM" },
+        "sunday": { "openTime": "11:00 AM", "closeTime": "10:00 PM" }
+    },
+    "menu": [{
+        "item": "CACTUS BLOSSOM",
+        "desc": "Texas-sized onion, golden-fried (1450 cal.) and served with Cajun Horseradish sauce (240 cal.) for dipping.",
+        "price": "4",
+        "section": "appetizers"
+    },
+    {
+        "item": "GRILLED SHRIMP",
+        "desc": "Seasoned shrimp drizzled with garlic lemon pepper butter and served on toasted fresh-baked bread. (420 cal.)",
+        "price": "6",
+        "section": "Appetizers"
+    },
+    {
+        "item": "DALLAS FILET",
+        "desc": "Our most tender steak that is lean and melts in your mouth. Served with your choice of two sides.",
+        "price": "14.99",
+        "section": "Hand-Cut Steaks"
+    },
+    {
+        "item": "ROAD KILL",
+        "desc": "A 10 oz. chop steak smothered with sautéed onions, sautéed mushrooms and jack cheese. (1010 cal.) Served with your choice of two sides",
+        "price": "11",
+        "section": "Hand-Cut Steaks"
+    }],
+    "waitlist_id": "FIND WAITLIST ID AND INPUT",
+    "restaurantImage": "https://www.texasroadhouse.com/img/store-images/Store%20Pic2.jpg",
+    "restaurantIcon": "http://a4.mzstatic.com/us/r30/Purple69/v4/d9/3e/50/d93e5037-c1fe-b978-b124-712aa3001345/icon175x175.png"
+},
+{
+    "restaurantName": "Red Robin Gourmet Burgers",
+    "addressLineOne": "1200 Towne Centre Blvd #1100",
+    "city": "Provo",
+    "state": "Utah",
+    "zipcode": "84601",
+    "shortDescription": "Gourmet Burger Chain",
+    "description": "Chain for gourmet burgers & boozy shakes, with other American comfort fare.",
+    "foodType": "hamburgers",
+    "hours": {
+        "monday": { "openTime": "11:00 AM", "closeTime": "10:00 PM" },
+        "tuesday": { "openTime": "11:00 AM", "closeTime": "10:00 PM" },
+        "wednesday": { "openTime": "11:00 AM", "closeTime": "10:00 PM" },
+        "thursday": { "openTime": "11:00 AM", "closeTime": "10:00 PM" },
+        "friday": { "openTime": "11:00 AM", "closeTime": "11:00 PM" },
+        "saturday": { "openTime": "11:00 AM", "closeTime": "11:00 PM" },
+        "sunday": { "openTime": "11:00 AM", "closeTime": "9:00 PM" }
+    },
+    "menu": [{
+        "item": "CHILI CHILI™ CHEESEBURGER",
+        "desc": "You might need an extra napkin. Served open-face with a generous helping of Red’s Chili Chili™, Cheddar cheese, chipotle aioli and diced red onions. Cleanup crew not included.",
+        "price": "10.49",
+        "section": "Gourmet Burgers"
+    },
+    {
+        "item": "GUACAMOLE BACON",
+        "desc": "Guac, bacon, Swiss, tomatoes, lettuce, onion and mayo. No wonder you’ll be grinning after the first bite.",
+        "price": "10.99",
+        "section": "Gourmet Burgers"
+    },
+    {
+        "item": "FRECKLED LEMONADE",
+        "desc": "The drink that made us delicious. And Famous. Try it with Maid® Light™ Lemonade.",
+        "price": "4.29",
+        "section": "BOTTOMLESS BEVERAGES™"
+    },
+    {
+        "item": "Root Beer Float",
+        "desc": "The Drinkable Dessert! Bottomless Barq’s® and soft serve.",
+        "price": "4.99",
+        "section": "BOTTOMLESS BEVERAGES™"
+    },
+    {
+        "item": "Soft Drinks",
+        "desc": "Coca-Cola, Minute Maid Lemonde, Minute Maid Light Lemonade, Diet Coke, Dr. Pepper, Sprite, Barq's Root Beer",
+        "price": "3.99",
+        "section": "BOTTOMLESS BEVERAGES™"
+    }],
+    "waitlist_id": "FIND WAITLIST ID AND INPUT",
+    "restaurantImage": "http://www.tourofkc.com/wp-content/uploads/2015/03/red-robin.jpg",
+    "restaurantIcon": "http://a3.mzstatic.com/us/r30/Purple/v4/f0/97/fa/f097fa50-8ef9-2ca2-d244-b4fba349f757/icon175x175.jpeg"
+}]

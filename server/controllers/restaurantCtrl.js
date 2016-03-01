@@ -39,7 +39,6 @@ module.exports = {
                 return res.status(500).send(err);
             }
             res.send(result);
-
         });
     },
     currentRestId: function (req, res) {

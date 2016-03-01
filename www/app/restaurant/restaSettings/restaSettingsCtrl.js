@@ -1,7 +1,7 @@
 (function () {
   angular
     .module('waitrApp')
-    .controller('restaSettingsCtrl', ['restaurantService', 'userService', '$scope', '$timeout', '$filter',restaSettingsCtrl])
+    .controller('restaSettingsCtrl', ['restaurantService', '$ionicHistory', 'userService', '$scope', '$timeout', '$filter',restaSettingsCtrl])
     .directive('formattedTime', function ($filter) {
 
   return {
@@ -21,13 +21,19 @@
 
 });
 
-  function restaSettingsCtrl (restaurantService, userService, $scope, $timeout, $filter) {
+  function restaSettingsCtrl (restaurantService, $ionicHistory, userService, $scope, $timeout, $filter) {
     var rsc = this;
 
     $timeout(function() {
       var currentUserID = $scope.ac.currentUser.restaurant_id;
         restaurantService.getCurrentRestaurants(currentUserID).then(function (restaurant) {
           rsc.restaurant = restaurant[0];
+          //for editing menu
+          rsc.menuTitle = null;
+          rsc.menuContent = rsc.groupedMenu;
+          rsc.groupedMenu = _.groupBy(restaurant[0].menu, 'section');
+          console.log(rsc.groupedMenu)
+          //for editing hours
           rsc.restaurant.hours.monday.openTime = new Date(rsc.restaurant.hours.monday.openTime);
           rsc.restaurant.hours.monday.closeTime = new Date(rsc.restaurant.hours.monday.closeTime);
           rsc.restaurant.hours.tuesday.openTime = new Date(rsc.restaurant.hours.tuesday.openTime);
@@ -58,8 +64,28 @@
           };
 
           });
-        });
-
+          
+          //edit menu functions
+          rsc.goBack = function() {
+            $ionicHistory.goBack();
+            };
+            //toggling accordion
+          rsc.toggleSection = function(key) {
+                if(key === rsc.menuTitle){
+                    rsc.menuTitle = null;
+                } else{
+                    rsc.menuTitle = key;
+                }
+            };
+            
+            rsc.toggleArrow = function(key) {
+                if(key === null){
+                    rsc.arrow = 'ion-ios-arrow-forward'
+                } else {
+                    rsc.arrow = 'ion-ios-arrow-down'
+                }
+            };
+            //end of edit menu functions
+    });
   }
-
 })();
