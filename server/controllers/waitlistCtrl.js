@@ -1,6 +1,5 @@
 var Waitlist = require('../models/WaitlistModel');
 var User = require('../models/UserModel');
-var io = require('socket.io');
 
 var findBy_Id = function(list, id) {
     for (var i = 0; i < list.length; i++) {
@@ -61,6 +60,9 @@ module.exports = {
             }
             waitList.list.push(req.body);
             waitList.save();
+            
+            //NEW CODE!!!!
+            
             res.send(waitList.list[waitList.list.length - 1]);
         });
     },
@@ -92,7 +94,7 @@ module.exports = {
                     });
                 })
             }
-            res.send("successfully deleted item at index " + pos);
+            res.send({pos: pos});
 
         });
     },

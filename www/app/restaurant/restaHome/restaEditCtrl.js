@@ -5,7 +5,7 @@
 
 function restaEditCtrl (waitlistService, $state, $ionicHistory, $stateParams, $ionicPopup) {
     
-    console.log($stateParams);
+    var socket = io();
     
     var rec = this;
 
@@ -17,15 +17,17 @@ function restaEditCtrl (waitlistService, $state, $ionicHistory, $stateParams, $i
         console.log("rec.person is: ", person);
         waitlistService.updateWaitlistEntry($stateParams.person, $stateParams.waitlist, person).then(function(res) {
             console.log("successfully updated entry!");
+            
+            $state.go("restaurant.home");
             $ionicHistory.nextViewOptions({
                 disableBack: true
             });
-            $state.go("restaurant.home");
         })
     }
     
     var removeFromWaitlist = function() {
         waitlistService.removeFromWaitlist($stateParams.person, $stateParams.waitlist).then(function(res) {
+            socket.emit('deletePerson', res);
             $ionicHistory.nextViewOptions({
                 disableBack: true
             });
