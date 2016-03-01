@@ -13,5 +13,6 @@
     <ul class="list" ng-repeat="waitlist in cwc.user.inWaitList.list" id="waitList">
       <li class="item">{{waitlist.lastName}}</li>
     </ul>
+    <button class="button button-full button-assertive" ng-click="cwc.showRemovePopup()">LEAVE</button>
   </ion-content>
 </ion-view>

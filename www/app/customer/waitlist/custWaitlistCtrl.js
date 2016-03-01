@@ -1,9 +1,9 @@
 (function () {
   angular
     .module('waitrApp')
-    .controller('custWaitlistCtrl', ['userService', 'restaurantService', '$timeout', '$scope', 'restaurantService', custWaitlistCtrl]);
+    .controller('custWaitlistCtrl', ['userService', 'restaurantService', '$timeout', '$scope', 'waitlistService', '$ionicPopup', '$state', '$ionicHistory',custWaitlistCtrl]);
 
-  function custWaitlistCtrl (userService, restaurantService, $timeout, $scope, restaurantService) {
+  function custWaitlistCtrl (userService, restaurantService, $timeout, $scope, waitlistService, $ionicPopup, $state, $ionicHistory) {
     var cwc = this;
 
     $timeout(function() {
@@ -16,6 +16,31 @@
           console.log('wait list rest', cwc.restaurant);
         })
       });
+
+      var removeFromWaitlist = function() {
+        waitlistService.removeFromWaitlist(cwc.user._id, cwc.user.inWaitList._id).then(function(res) {
+          $ionicHistory.nextViewOptions({
+            disableBack: true
+          });
+          $state.go("customer.home");
+        })
+      };
+
+      cwc.showRemovePopup = function() {
+        var confirmPopup = $ionicPopup.confirm({
+          title: "Remove from waitlist",
+          template: "WARNING: this will remove the user from the waitlist entirely"
+        });
+
+        confirmPopup.then(function(res) {
+          if (res) {
+            console.log("user wants to remove person from list");
+            removeFromWaitlist();
+          } else {
+            console.log("user does not want to remove person from list");
+          }
+        })
+      }
     });
 
     //var currUser = '56ce45fba2440fe4375e106c';
