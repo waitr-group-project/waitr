@@ -11,16 +11,15 @@
             <div ng-repeat="(key, value) in rmc.groupedMenu">
                 <ion-item class="item-stable" 
                 ng-click="rmc.toggleSection(key)">
-                    <i class="icon ion-ios-arrow-forward" ng-show="rmc.menuTitle === null"></i>
+                    <i class="icon ion-ios-arrow-forward" ng-show="rmc.menuTitle !== key"></i>
                     <i class="icon ion-ios-arrow-down" ng-show="rmc.menuTitle === key"></i>
                     &nbsp;
                     {{key}}
                 </ion-item>
                 <ion-item ng-show="rmc.menuTitle === key" class="item-accordion">
                 <div ng-repeat="item in value">
-                    <h4 style="text-align:center">{{item.item}}</h4>
+                    <h3 style="display:inline-block">{{item.item}}</h3> <span style="text-align:right">${{item.price}}</span>
                     <p style="text-align:justify">{{item.desc}}</p>
-                    <p style="text-align:center">${{item.price}}</p>
                 </div>
                 </ion-item>
             </div>
