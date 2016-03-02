@@ -5,7 +5,9 @@
 
 function restaHomeCtrl (restaurantService, waitlistService, $state, $ionicHistory, $scope, $timeout, $ionicPopup) {
     var rhc = this;
-
+    
+    rhc.newPerson = {};
+    
     var socket = io();
 
     socket.on('newPersonAdded', function(data) {
@@ -48,6 +50,12 @@ function restaHomeCtrl (restaurantService, waitlistService, $state, $ionicHistor
     });
 
     rhc.addPersonToQ = function(newQPerson) {
+<<<<<<< HEAD
+        if (newQPerson.firstName && newQPerson.lastName && newQPerson.phone && newQPerson.partySize) {
+            if (waitlistService.isValidPhone(newQPerson.phone) && newQPerson.partySize < waitlistService.maxPartySize) {
+                waitlistService.addAnonToWaitlist(newQPerson, rhc.customerEntries._id, rhc.customerEntries.quotedTime).then(function(res) {
+                    //console.log(res);
+=======
         //console.log(newQPerson);
         waitlistService.addAnonToWaitlist(newQPerson, rhc.customerEntries._id, rhc.customerEntries.quotedTime).then(function(res) {
             //console.log(res);
@@ -57,9 +65,35 @@ function restaHomeCtrl (restaurantService, waitlistService, $state, $ionicHistor
             $ionicHistory.nextViewOptions({
                 disableBack:true
             });
+>>>>>>> dev
 
-            $state.go("restaurant.home");
-        });
+                    socket.emit('newPerson', res);
+
+                    $ionicHistory.nextViewOptions({
+                        disableBack:true
+                    });
+
+                    $state.go("restaurant.home");
+                });
+            } else {
+                $ionicPopup.show({
+                    title: "Invalid Data",
+                    template: "Phone number must be 10 digits and party size cannot exceed 100<br/>Ex. 1234567890",
+                    buttons: [
+                        {text: "OK"}
+                    ]
+                })
+            }
+        } else {
+            $ionicPopup.show({
+                title: "Invalid Data",
+                template: "Fill out all fields before pressing 'Submit'",
+                buttons: [
+                    {text: "OK"}
+                ]
+            })
+        }
+        
     };
 
 

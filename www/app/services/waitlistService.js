@@ -5,6 +5,19 @@
 
     function waitlistService ($http) {
         var url = "/api/waitlist/";
+        
+        this.isValidPhone = function (num) {
+            if (num.length != 10) {
+                return false;
+            }
+            num = parseInt(num);
+            if (num && num > 1000000000) {
+                return true;
+            }
+            return false;
+        }
+        
+        this.maxPartySize = 100;
 
         this.addAnonToWaitlist = function(user, waitlistId, waitTime) {
             //first, we need to structure our data in a way that the server will accept
