@@ -5,19 +5,21 @@
 
 function restaHomeCtrl (restaurantService, waitlistService, $state, $ionicHistory, $scope, $timeout, $ionicPopup) {
     var rhc = this;
-
+    
+    rhc.newPerson = {};
+    
     var socket = io();
 
     socket.on('newPersonAdded', function(data) {
         console.log("socket data is: ", data);
         rhc.customerEntries.list.push(data);
-      $scope.$apply();
+        $scope.$apply();
     });
 
     socket.on('deletedPerson', function(data) {
         console.log("hitting deletedPerson with data: ", data);
         rhc.customerEntries.list.splice(data.pos, 1);
-      $scope.$apply();
+        $scope.$apply();
     });
 
     moment.locale('en', {
@@ -48,18 +50,37 @@ function restaHomeCtrl (restaurantService, waitlistService, $state, $ionicHistor
     });
 
     rhc.addPersonToQ = function(newQPerson) {
-        //console.log(newQPerson);
-        waitlistService.addAnonToWaitlist(newQPerson, rhc.customerEntries._id, rhc.customerEntries.quotedTime).then(function(res) {
-            //console.log(res);
+        if (newQPerson.firstName && newQPerson.lastName && newQPerson.phone && newQPerson.partySize) {
+            if (waitlistService.isValidPhone(newQPerson.phone) && newQPerson.partySize < waitlistService.maxPartySize) {
+                waitlistService.addAnonToWaitlist(newQPerson, rhc.customerEntries._id, rhc.customerEntries.quotedTime).then(function(res) {
+                    //console.log(res);
+                    socket.emit('newPerson', res);
 
-            socket.emit('newPerson', res);
+                    $ionicHistory.nextViewOptions({
+                        disableBack:true
+                    });
 
-            $ionicHistory.nextViewOptions({
-                disableBack:true
-            });
-
-            $state.go("restaurant.home");
-        });
+                    $state.go("restaurant.home");
+                });
+            } else {
+                $ionicPopup.show({
+                    title: "Invalid Data",
+                    template: "Phone number must be 10 digits and party size cannot exceed 100<br/>Ex. 1234567890",
+                    buttons: [
+                        {text: "OK"}
+                    ]
+                })
+            }
+        } else {
+            $ionicPopup.show({
+                title: "Invalid Data",
+                template: "Fill out all fields before pressing 'Submit'",
+                buttons: [
+                    {text: "OK"}
+                ]
+            })
+        }
+        
     };
 
 
