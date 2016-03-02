@@ -11,7 +11,7 @@
       userService.currentUser(currentUser._id).then(function (user){
         cwc.user = user[0];
         console.log('this is wait user',cwc.user);
-        restaurantService.getCurrentRestaurants(user[0].inWaitList.restaurant_id).then(function (data) {
+        restaurantService.getCurrentRestaurant(user[0].inWaitList.restaurant_id).then(function (data) {
           cwc.restaurant = data[0];
           console.log('wait list rest', cwc.restaurant);
         })
@@ -60,7 +60,7 @@
     //  cwc.user = data;
     //  var restaurantId = cwc.user[0].inWaitList.restaurant_id;
     //  console.log('rest id',restaurantId);
-    //  restaurantService.getCurrentRestaurants(restaurantId).then(function (restaurant) {
+    //  restaurantService.getCurrentRestaurant(restaurantId).then(function (restaurant) {
     //    cwc.restaurant = restaurant[0];
     //    console.log('this is it', cwc.restaurant);
     //  });

@@ -8,7 +8,7 @@
 
       $timeout(function() {
         var currentRestID = $scope.ac.currentUser.restaurant_id;
-          restaurantService.getCurrentRestaurants(currentRestID).then(function (restaurant) {
+          restaurantService.getCurrentRestaurant(currentRestID).then(function (restaurant) {
             rrc.restaurant = restaurant[0];
           });
       });
