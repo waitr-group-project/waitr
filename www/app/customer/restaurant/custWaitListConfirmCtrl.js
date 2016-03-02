@@ -20,7 +20,7 @@
 
       restaurantService.getCurrentRestaurants(currRest).then(function (data) {
         var currRestObj = data;
-        console.log('this is rest obj',currRestObj[0]);
+        //console.log('this is rest obj',currRestObj[0]);
 
         cwlc.userAddingToQ = function (firstname, lastname, partysize, phone, notes) {
           var person = {
