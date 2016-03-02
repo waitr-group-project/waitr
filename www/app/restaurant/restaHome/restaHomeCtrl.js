@@ -13,13 +13,13 @@ function restaHomeCtrl (restaurantService, waitlistService, $state, $ionicHistor
     socket.on('newPersonAdded', function(data) {
         console.log("socket data is: ", data);
         rhc.customerEntries.list.push(data);
-      $scope.$apply();
+        $scope.$apply();
     });
 
     socket.on('deletedPerson', function(data) {
         console.log("hitting deletedPerson with data: ", data);
         rhc.customerEntries.list.splice(data.pos, 1);
-      $scope.$apply();
+        $scope.$apply();
     });
 
     moment.locale('en', {
@@ -50,23 +50,10 @@ function restaHomeCtrl (restaurantService, waitlistService, $state, $ionicHistor
     });
 
     rhc.addPersonToQ = function(newQPerson) {
-<<<<<<< HEAD
         if (newQPerson.firstName && newQPerson.lastName && newQPerson.phone && newQPerson.partySize) {
             if (waitlistService.isValidPhone(newQPerson.phone) && newQPerson.partySize < waitlistService.maxPartySize) {
                 waitlistService.addAnonToWaitlist(newQPerson, rhc.customerEntries._id, rhc.customerEntries.quotedTime).then(function(res) {
                     //console.log(res);
-=======
-        //console.log(newQPerson);
-        waitlistService.addAnonToWaitlist(newQPerson, rhc.customerEntries._id, rhc.customerEntries.quotedTime).then(function(res) {
-            //console.log(res);
-
-            socket.emit('newPerson', res);
-
-            $ionicHistory.nextViewOptions({
-                disableBack:true
-            });
->>>>>>> dev
-
                     socket.emit('newPerson', res);
 
                     $ionicHistory.nextViewOptions({
