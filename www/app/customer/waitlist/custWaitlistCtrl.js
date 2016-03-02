@@ -6,6 +6,26 @@
   function custWaitlistCtrl (userService, restaurantService, $timeout, $scope, waitlistService, $ionicPopup, $state, $ionicHistory) {
     var cwc = this;
 
+    var socket = io();
+
+
+    socket.on('newPersonAdded', function(data) {
+      //console.log("socket data is: ", data);
+      console.log("before: ", cwc.user.inWaitList.list);
+      cwc.user.inWaitList.list.push(data);
+      $scope.$apply();
+      console.log("after", cwc.user.inWaitList.list);
+    });
+
+    socket.on('deletedPerson', function(data) {
+      console.log("hitting deletedPerson with data: ", data);
+      if (cwc.user.inWaitList) {
+        cwc.user.inWaitList.list.splice(data.pos, 1);
+        $scope.$apply();
+      }
+
+    });
+
     $timeout(function() {
       var currentUser = $scope.ac.currentUser;
       userService.currentUser(currentUser._id).then(function (user){
@@ -17,6 +37,7 @@
         })
       });
 
+
       var removeFromWaitlist = function() {
         //for (var key in cwc.user) {
           //console.log(cwc.user.inWaitList.list);
@@ -25,6 +46,7 @@
             if (list[i].user_id == cwc.user._id) {
               //console.log(list[i]._id);
               waitlistService.removeFromWaitlist(list[i]._id, cwc.user.inWaitList._id).then(function(res) {
+                socket.emit('deletePerson', res);
                 console.log(res);
                 $ionicHistory.nextViewOptions({
                   disableBack: true

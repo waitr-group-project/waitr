@@ -25,6 +25,11 @@ function restaEditCtrl (waitlistService, $state, $ionicHistory, $stateParams, $i
         })
     };
 
+  rec.vibrate = function () {
+    console.log('im getting clicky');
+    $cordovaVibration.vibrate(50000);
+  };
+
     var removeFromWaitlist = function() {
         waitlistService.removeFromWaitlist($stateParams.person, $stateParams.waitlist).then(function(res) {
             socket.emit('deletePerson', res);

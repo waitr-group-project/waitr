@@ -1,22 +1,24 @@
 (function () {
   angular
     .module('waitrApp')
-.controller('restaHomeCtrl', ['restaurantService', 'waitlistService', '$state', "$ionicHistory", '$scope',  '$timeout', '$ionicPopup', '$cordovaVibration', restaHomeCtrl]);
+.controller('restaHomeCtrl', ['restaurantService', 'waitlistService', '$state', "$ionicHistory", '$scope',  '$timeout', '$ionicPopup', restaHomeCtrl]);
 
-function restaHomeCtrl (restaurantService, waitlistService, $state, $ionicHistory, $scope, $timeout, $ionicPopup, $cordovaVibration) {
+function restaHomeCtrl (restaurantService, waitlistService, $state, $ionicHistory, $scope, $timeout, $ionicPopup) {
     var rhc = this;
-    
+
     var socket = io();
-    
+
     socket.on('newPersonAdded', function(data) {
         console.log("socket data is: ", data);
         rhc.customerEntries.list.push(data);
-    })
-    
+      $scope.$apply();
+    });
+
     socket.on('deletedPerson', function(data) {
         console.log("hitting deletedPerson with data: ", data);
         rhc.customerEntries.list.splice(data.pos, 1);
-    })
+      $scope.$apply();
+    });
 
     moment.locale('en', {
     relativeTime : {
@@ -49,9 +51,9 @@ function restaHomeCtrl (restaurantService, waitlistService, $state, $ionicHistor
         //console.log(newQPerson);
         waitlistService.addAnonToWaitlist(newQPerson, rhc.customerEntries._id, rhc.customerEntries.quotedTime).then(function(res) {
             //console.log(res);
-            
+
             socket.emit('newPerson', res);
-            
+
             $ionicHistory.nextViewOptions({
                 disableBack:true
             });
@@ -60,11 +62,7 @@ function restaHomeCtrl (restaurantService, waitlistService, $state, $ionicHistor
         });
     };
 
-  rhc.vibrate = function () {
-    console.log('im getting clicky');
-      $cordovaVibration.vibrate(50000);
 
-  };
 
     rhc.showWaitTimeModal = function(time) {
         console.log(time);
