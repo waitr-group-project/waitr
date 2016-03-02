@@ -2,7 +2,7 @@
   angular
     .module('waitrApp')
     .service('waitlistService', waitlistService);
-    
+
     function waitlistService ($http) {
         var url = "/api/waitlist/";
 
@@ -46,7 +46,7 @@
                 method: "DELETE",
                 url: url + waitlistId + "/list/" + userId
             }).then(function(res) {
-                console.log("hitting return");
+                //console.log("hitting return");
                 return res.data;
             })
         };
@@ -60,7 +60,7 @@
             }).then(function(res) {
                 return res.data;
             })
-        }
+        };
 
         this.updateWaitTime = function(waitlistId, time) {
             return $http({
@@ -68,7 +68,7 @@
                 url: url + waitlistId,
                 data: {quotedTime: time}
             }).then(function(res) {
-                console.log(res.data.quotedTime);
+                //console.log(res.data.quotedTime);
                 return res.data.quotedTime;
             })
         }

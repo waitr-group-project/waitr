@@ -1,10 +1,11 @@
 (function () {
   angular
     .module('waitrApp')
-.controller('restaEditCtrl', ['waitlistService', '$state', "$ionicHistory", "$stateParams", "$ionicPopup", restaEditCtrl]);
+.controller('restaEditCtrl', ['waitlistService', '$state', "$ionicHistory", "$stateParams", "$ionicPopup", '$cordovaVibration', '$ionicPlatform', restaEditCtrl]);
 
-function restaEditCtrl (waitlistService, $state, $ionicHistory, $stateParams, $ionicPopup) {    
+function restaEditCtrl (waitlistService, $state, $ionicHistory, $stateParams, $ionicPopup) {
     var socket = io();
+
 
     var rec = this;
 
@@ -16,13 +17,18 @@ function restaEditCtrl (waitlistService, $state, $ionicHistory, $stateParams, $i
         console.log("rec.person is: ", person);
         waitlistService.updateWaitlistEntry($stateParams.person, $stateParams.waitlist, person).then(function(res) {
             console.log("successfully updated entry!");
-            
+
             $state.go("restaurant.home");
             $ionicHistory.nextViewOptions({
                 disableBack: true
             });
         })
     };
+
+  rec.vibrate = function () {
+    console.log('im getting clicky');
+    $cordovaVibration.vibrate(50000);
+  };
 
     var removeFromWaitlist = function() {
         waitlistService.removeFromWaitlist($stateParams.person, $stateParams.waitlist).then(function(res) {
