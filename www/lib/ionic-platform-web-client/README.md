@@ -2,6 +2,7 @@
 A web client that provides interactions with the Ionic platform.
 Check out our [docs](http://docs.ionic.io/docs/io-introduction) for more detailed information.
 
+
 ## Installation
 
 Using the latest [Ionic CLI](https://github.com/driftyco/ionic-cli):
