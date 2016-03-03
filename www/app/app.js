@@ -24,7 +24,7 @@
     })
   
     .constant('SERVER_INFO', {
-      url: 'http://104.131.135.179:80'
+      url: 'http://104.131.135.179'
     })
 
     .constant('AUTH_EVENTS', {
