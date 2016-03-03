@@ -2,10 +2,8 @@
   angular
     .module('waitrApp')
     .service('waitlistService', ['$http', 'SERVER_INFO', waitlistService]);
-
     function waitlistService ($http, SERVER_INFO) {
         var url = SERVER_INFO.url + "/api/waitlist/";
-        
         this.isValidPhone = function (num) {
             if (num.length != 10) {
                 return false;
@@ -16,7 +14,7 @@
             }
             return false;
         }
-        
+
         this.maxPartySize = 100;
 
         this.addAnonToWaitlist = function(user, waitlistId, waitTime) {

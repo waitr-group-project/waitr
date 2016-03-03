@@ -10,10 +10,7 @@ angular.module('waitrApp')
 
     $ionicConfigProvider.backButton.text('').icon('ion-ios7-arrow-left');
 
-
-
-    $urlRouterProvider.otherwise('/restaurant/home');
-
+    $urlRouterProvider.otherwise('/login');
 
     $stateProvider
       // LOGIN - REGISTER ROUTES
@@ -43,17 +40,17 @@ angular.module('waitrApp')
 
       // CUSTOMER ROUTES
       .state('customer', {  //parent, sidenav
-         url: '/customer',
-         abstract: true,
-         templateUrl: './app/customer/custCustomer.html',
-         controller: 'custCustomerCtrl',
-         controllerAs: 'ccc',
+        url: '/customer',
+        abstract: true,
+        templateUrl: './app/customer/custCustomer.html',
+        controller: 'custCustomerCtrl',
+        controllerAs: 'ccc'
       })
       .state('customer.home', {
-         url: '/home',
-         templateUrl: './app/customer/home/custHome.html',
-         controller:'custHomeCtrl',
-         controllerAs: 'chc'
+        url: '/home',
+        templateUrl: './app/customer/home/custHome.html',
+        controller:'custHomeCtrl',
+        controllerAs: 'chc'
       })
 
       //restaurant child-that-has-children thingamajigger route
@@ -81,7 +78,7 @@ angular.module('waitrApp')
         url: '/home/menu/:restaurantId',
         templateUrl: './app/customer/menu/custRestaurantMenu.html',
         controller: 'custRestaurantMenuCtrl',
-        controllerAs: 'cmc',
+        controllerAs: 'cmc'
       })
     //   //child of menu
     //   .state('customer.menu.menuItems', {

@@ -7,7 +7,7 @@
   "dependencies": {
     "angular-moment": "^0.10.3",
     "moment": "^2.11.2",
-    "socket.io": "^1.4.5",
-    "underscore": "^1.8.3"
+    "underscore": "^1.8.3",
+    "socket.io-client": "^1.4.5"
   }
 }

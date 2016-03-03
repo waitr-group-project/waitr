@@ -1,4 +1,4 @@
-(function () {
+(function() {
   angular
     .module('waitrApp')
     .service('restaurantService', ['$http', 'SERVER_INFO', restaurantService]);
@@ -55,10 +55,6 @@
                 return response.data[0];
             });
         };
-
-
     }
-
-
 
 })();

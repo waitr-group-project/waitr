@@ -36,6 +36,10 @@
       user: 'user',
       restaurant: 'restaurant'
     })
+    .constant('USER_ROLES', {
+
+
+    })
     .run(function($rootScope, AUTH_EVENTS, authService, $timeout, $state) {
 
       var user = authService.getUser();

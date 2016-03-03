@@ -4,7 +4,7 @@
 .controller('restaEditCtrl', ['waitlistService', '$state', "$ionicHistory", "$stateParams", "$ionicPopup", '$cordovaVibration', '$ionicPlatform', restaEditCtrl]);
 
 function restaEditCtrl (waitlistService, $state, $ionicHistory, $stateParams, $ionicPopup) {
-    var socket = io();
+    var socket = io.connect('http://104.131.135.179');
 
 
     var rec = this;

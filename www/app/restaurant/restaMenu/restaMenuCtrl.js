@@ -10,8 +10,8 @@
     rmc.restaurantId = $scope.ac.currentUser.restaurant_id;
     rmc.menuTitle = null;
     rmc.menuContent = rmc.groupedMenu;
-    
-    restaurantService.getRestaurantMenu(rmc.restaurantId)
+
+    restaurantService.getCurrentRestaurant(rmc.restaurantId)
     .then(function (restaurant) {
         // console.log('restaurant',restaurant);
         rmc.restaurant = restaurant;
@@ -36,7 +36,7 @@
             rmc.menuTitle = key;
         }
     };
-    
+
     rmc.toggleArrow = function(key) {
         if(key === null){
             rmc.arrow = 'ion-ios-arrow-forward'
