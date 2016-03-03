@@ -8,5 +8,5 @@
     var ccc = this;
     ccc.currentUser = currentUser;
 
-
+  }
 })();
