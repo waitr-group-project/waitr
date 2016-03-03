@@ -5,7 +5,7 @@ var express = require('express'),
     jwt = require('jsonwebtoken'),
     config = require('./config/config');
 
-var port = '80';
+var port = process.env.PORT || 1234;
 
 var app = express();
 var http = require('http').Server(app);

@@ -28,8 +28,8 @@
       var currentUser = $scope.ac.currentUser;
       userService.currentUser(currentUser._id).then(function (user){
         cwc.user = user[0];
-        //console.log('this is wait user',cwc.user);
-        restaurantService.getCurrentRestaurants(user[0].inWaitList.restaurant_id).then(function (data) {
+        console.log('this is wait user',cwc.user);
+        restaurantService.getCurrentRestaurant(user[0].inWaitList.restaurant_id).then(function (data) {
           cwc.restaurant = data[0];
           //console.log('wait list rest', cwc.restaurant);
         })
@@ -69,6 +69,7 @@
         })
       }
     });
+
   }
 
 })();

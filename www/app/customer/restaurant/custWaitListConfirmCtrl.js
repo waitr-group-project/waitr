@@ -18,7 +18,7 @@
       cwlc.currentUser = $scope.ac.currentUser;
       //console.log('custWaitListConfirm', cwlc.currentUser);
 
-      restaurantService.getCurrentRestaurants(currRest).then(function (data) {
+      restaurantService.getCurrentRestaurant(currRest).then(function (data) {
         var currRestObj = data;
         //console.log('this is rest obj',currRestObj[0]);
 
