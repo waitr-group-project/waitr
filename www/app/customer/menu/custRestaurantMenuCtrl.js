@@ -11,8 +11,8 @@
     // console.log($stateParams.restaurantId);
     cmc.menuTitle = null;
     cmc.menuContent = cmc.groupedMenu;
-    
-    restaurantService.getRestaurantMenu(cmc.restaurantId)
+
+    restaurantService.getCurrentRestaurant(cmc.restaurantId)
     .then(function (restaurant) {
         // console.log('restaurant',restaurant);
         cmc.restaurant = restaurant;
@@ -37,7 +37,7 @@
             cmc.menuTitle = key;
         }
     };
-    
+
     cmc.toggleArrow = function(key) {
         if(key === null){
             cmc.arrow = 'ion-ios-arrow-forward'
@@ -45,9 +45,9 @@
             cmc.arrow = 'ion-ios-arrow-down'
         }
     };
-    
-    
-    
+
+
+
     //     $state.go("restaurant.home");
     //   })
     // };

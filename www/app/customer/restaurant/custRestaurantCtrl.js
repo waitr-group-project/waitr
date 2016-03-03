@@ -14,8 +14,9 @@
             crc.currentUser = $scope.ac.currentUser;
             //console.log('custRestaurant', crc.currentUser);
 
-            restaurantService.getCurrentRestaurants(restaurantId).then(function (restaurant) {
-                //console.log('hey', restaurant[0]);
+            restaurantService.getCurrentRestaurant(restaurantId).then(function (restaurant) {
+                console.log('hey', restaurant[0]);
+
                 crc.restaurant = restaurant[0];
             });
             restaurantService.getWaitlist(restaurantId).then(function (res) {

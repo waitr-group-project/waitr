@@ -26,7 +26,7 @@
 
     $timeout(function() {
       var currentUserID = $scope.ac.currentUser.restaurant_id;
-        restaurantService.getCurrentRestaurants(currentUserID).then(function (restaurant) {
+        restaurantService.getCurrentRestaurant(currentUserID).then(function (restaurant) {
           rsc.restaurant = restaurant[0];
           //for editing menu
           rsc.menuTitle = null;
