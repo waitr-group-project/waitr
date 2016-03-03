@@ -190,7 +190,7 @@ font-size: 90%;
 }
 
 
-/****MENUS*****/
+/****Restaurant Menus*****/
 .list .item.item-accordion {
     white-space: normal;  
     line-height: 25px;
@@ -201,13 +201,20 @@ font-size: 90%;
 .list .item.item-accordion.ng-hide {
      line-height: 0px;
 }
-.list .item.item-accordion h4 {
-    vertical-align: middle;
+.list .item.item-accordion h3 {
+    /*vertical-align: middle;*/
     float: left;
+    padding-top: 10px;
 }
 .list .item.item-accordion span {
     float: right;
 }
 .list .item.item-accordion p {
     clear: both;
+    text-align:justify;
+}
+/*Resaurant Edit Menus*/
+.title .button{
+    font-size: 2rem;
+    margin-top: 5px;
 }

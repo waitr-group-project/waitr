@@ -8,7 +8,6 @@ module.exports = {
                 console.log(err);
                 return res.status(500).send(err);
             }
-            // console.log(result);
             return res.status(200).send(result,"successfully created Restaurant!");
         });
     },
@@ -19,7 +18,6 @@ module.exports = {
             if (err) {
                 return res.status(500).send(err);
             }
-            // console.log("back end working",result)
             res.send(result);
         });
     },
@@ -32,6 +30,16 @@ module.exports = {
             res.send(result);
         });
     },
+    addItemToMenu: function(req, res) {
+        Restaurant
+        .findByIdAndUpdate(req.params.id, {$push: {menu: req.body}}, { new: true }, function(err, result) {
+            if (err) {
+                res.status(500).send(err);
+            }
+            res.send(result);
+    });
+},
+
     delete: function(req, res) {
         Restaurant
           .findByIdAndRemove(req.params.id, function(err, result) {

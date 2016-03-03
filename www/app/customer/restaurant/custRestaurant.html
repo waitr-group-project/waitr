@@ -2,22 +2,18 @@
     <ion-content overflow-scroll="true">
         <div class="item item-image">
             <ion-header-bar id="profileBarHeader" align-title="left" class="bar-transparent">
-                <button id="backButtonRestProfile" class="button button-clear icon ion-ios-arrow-back" ng-click="crc.goBack()">
+                <button id="backButtonRestProfile" menu-toggle="left" class="button button-clear icon ion-navicon">
                 </button>
             </ion-header-bar>
             <img id='resProfileImage' src="{{crc.restaurant.restaurantImage}}">
         </div>
         <span id="restaurantProfileDescription" class="item item-avatar item-icon-right">
-  <img src="{{crc.restaurant.restaurantIcon}}">
-  <h2 id="restaTitleInDesc">{{crc.restaurant.restaurantName}}</h2>
-  <p id="restaDescInDesc">{{crc.restaurant.foodType}}</p>
-  <p id="restaDescInDesc">{{crc.restaurant.addressLineOne}}</p>
-  <p id="restaDescInDesc">{{crc.restaurant.city}}, {{crc.restaurant.state}}, {{crc.restaurant.zipcode}}</p>
-  
-
-  
-  
-  <i id="timeOnRestaurantProfile" class="icon ion-ios-clock-outline"><span id="timerNumberRestaProfile">{{crc.customerEntries.quotedTime}}</span></i>  
+            <img src="{{crc.restaurant.restaurantIcon}}">
+            <h2 id="restaTitleInDesc">{{crc.restaurant.restaurantName}}</h2>
+            <p id="restaDescInDesc">{{crc.restaurant.foodType}}</p>
+            <p id="restaDescInDesc">{{crc.restaurant.addressLineOne}}</p>
+            <p id="restaDescInDesc">{{crc.restaurant.city}}, {{crc.restaurant.state}}, {{crc.restaurant.zipcode}}</p>
+            <i id="timeOnRestaurantProfile" class="icon ion-ios-clock-outline"><span id="timerNumberRestaProfile">{{crc.customerEntries.quotedTime}}</span></i>
         </span>
         <div id="resQWaitingList" class="item row">
             <div class="col text-center">

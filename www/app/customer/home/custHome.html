@@ -1,21 +1,16 @@
 <ion-view>
-  <ion-nav-title>
-    <span style="font-size:1.5rem">Restaurants</span>
-  </ion-nav-title>
-  <ion-content>
-    <div class="list" id="restList" ng-repeat="restaurant in chc.restaurantList">
-      <a class="item item-avatar item-icon-right" id="restItem" ui-sref="customer.restaurant({restaurantId: restaurant._id})">
-        <img ng-src="{{restaurant.restaurantImage}}">
-        <h2>{{restaurant.restaurantName}}</h2>
-        <p>{{restaurant.foodType}}</p>
-        <p>{{restaurant.addressLineOne}}, {{restaurant.city}}, {{restaurant.zipcode}}</p>
-        <i class="icon ion-ios-clock-outline" style="color: lightgrey">{{restaurant.waitlist_id.quotedTime}}</i>
-      </a>
-    </div>
-  </ion-content>
+    <ion-nav-title>
+        <span style="font-size:1.5rem">Restaurants</span>
+    </ion-nav-title>
+    <ion-content>
+        <div class="list" id="restList" ng-repeat="restaurant in chc.restaurantList">
+            <a class="item item-avatar item-icon-right" id="restItem" ui-sref="customer.restaurant({restaurantId: restaurant._id})">
+                <img ng-src="{{restaurant.restaurantImage}}">
+                <h2>{{restaurant.restaurantName}}</h2>
+                <p>{{restaurant.foodType}}</p>
+                <p>{{restaurant.addressLineOne}}, {{restaurant.city}}, {{restaurant.zipcode}}</p>
+                <i class="icon ion-ios-clock-outline" style="color: lightgrey">{{restaurant.waitlist_id.quotedTime}}</i>
+            </a>
+        </div>
+    </ion-content>
 </ion-view>
-
-  <!--<div class="col text-center">
-    <a id="restProfileLinks" ui-sref="customer.menu({restaurant_Id: {{}} class="button button-icon icon ion-ios-wineglass-outline"></a>
-    <div>MENU</div>
-  </div>-->
