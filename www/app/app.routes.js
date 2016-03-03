@@ -195,12 +195,12 @@ angular.module('waitrApp')
         controller: 'restaSettingsCtrl',
         controllerAs: 'rsc'
       })
-      // .state('restaurant.editWebsite', {
-      //   url: '/settings/edit-website',
-      //   templateUrl: './app/restaurant/restaSettings/restaEditWebsite.html',
-      //   controller: 'restaSettingsCtrl',
-      //   controllerAs: 'rsc'
-      // });
+      /*.state('restaurant.editWebsite', {
+        url: '/settings/edit-website',
+        templateUrl: './app/restaurant/restaSettings/restaEditWebsite.html',
+        controller: 'restaSettingsCtrl',
+        controllerAs: 'rsc'
+      });*/
 
     }
 

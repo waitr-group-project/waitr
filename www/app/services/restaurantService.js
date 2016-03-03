@@ -1,46 +1,60 @@
 (function() {
   angular
     .module('waitrApp')
-    .service('restaurantService', ['$http', restaurantService]);
+    .service('restaurantService', ['$http', 'SERVER_INFO', restaurantService]);
 
-    function restaurantService ($http) {
+    function restaurantService ($http, SERVER_INFO) {
 
-      this.getRestaurants = function () {
-        return $http.get('http://104.131.135.179/api/restaurant').then(function(response) {
-          return response.data;
-        });
-      };
+        this.getRestaurants = function () {
+          return $http({
+            method: 'GET',
+            url: SERVER_INFO.url + '/api/restaurant'
+          }).then(function (response) {
+            return response.data;
+          });
+        };
 
-      this.getCurrentRestaurant = function (id) {
-        return $http.get('http://104.131.135.179/api/restaurant/' + id).then(function(response){
+
+      this.getCurrentRestaurants = function (id) {
+        return $http({
+          method: 'GET',
+          url: SERVER_INFO.url + '/api/restaurant/' + id
+        }).then(function (response){
           return response.data;
         });
       };
 
       this.updateRestaurant = function (id, obj) {
-        return $http.put('http://104.131.135.179/api/restaurant/' + id, obj).then(function(response) {
+        return $http({
+          method: 'PUT',
+          url: SERVER_INFO.url + '/api/restaurant/' + id,
+          data: obj
+        }).then(function (response) {
           return response.data;
         });
       };
 
-      this.getWaitlist = function(waitListId) {
-        return $http.get('http://104.131.135.179/api/waitlist/?restaurant_id=' + waitListId).then(function(response) {
-          return response.data;
+        this.getWaitlist = function(waitListId) {
+          return $http.get(SERVER_INFO.url + '/api/waitlist/?restaurant_id=' + waitListId).then(function(response) {
+            //console.log(response);
+            return response.data;
+          });
+        };
+
+
+      this.getRestaurant = function(restaId) {
+        return $http.get(SERVER_INFO.url + '/api/restaurant/?_id=' + restaId).then(function(response) {
+          return response.data[0];
         });
       };
+      
 
-      // this.getRestaurant = function(restaId) {
-      //   return $http.get('/api/restaurant/?_id=' + restaId).then(function(response) {
-      //     return response.data[0];
-      //   });
-      // };
-      //
-      // this.getRestaurantMenu = function(restaId) {
-      //   return $http.get('/api/restaurant/?_id=' + restaId).then(function(response) {
-      //     return response.data[0];
-      //   });
-      // };
-
+        this.getRestaurantMenu = function(restaId) {
+            return $http.get(SERVER_INFO.url + '/api/restaurant/?_id=' + restaId).then(function(response) {
+                console.log(response.data[0]);
+                return response.data[0];
+            });
+        };
     }
 
 })();
