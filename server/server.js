@@ -45,19 +45,27 @@ var authorize = function(roles) {
   };
 };
 
+var tester = function(req, res, next) {
+    console.log("HIT ME");
+    if(next) {
+        next();
+    } else {
+        res.send();
+    }
+}
 // PROTECTED TEST ROUTE
 app.get('/protected', authorize(['restaurant']), function(req, res) {
   res.status(200).json('Auth worked!');
 });
 
 app.post('/register', userCtrl.register);
-app.post('/login', userCtrl.login);
+app.options('/login', tester, cors());
+app.post('/login', tester, userCtrl.login);
 // app.post('/api/user', userCtrl.create);
 app.get('/api/user', userCtrl.read);
 app.put('/api/user/:id', userCtrl.update);
 app.delete('/api/user/:id', userCtrl.delete);
 app.get('/api/user/:id', userCtrl.currentUser);
-
 
 app.post('/api/restaurant', restaurantCtrl.create);
 app.get('/api/restaurant', restaurantCtrl.read);

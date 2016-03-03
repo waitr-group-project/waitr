@@ -1,7 +1,7 @@
 (function() {
   angular
     .module('waitrApp')
-    .service('waitlistService', 'SERVER_INFO', waitlistService);
+    .service('waitlistService', ['$http', 'SERVER_INFO', waitlistService]);
 
     function waitlistService ($http, SERVER_INFO) {
         var url = SERVER_INFO.url + "/api/waitlist/";

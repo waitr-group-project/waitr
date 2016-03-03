@@ -1,7 +1,7 @@
 (function () {
   angular
     .module('waitrApp')
-    .service('userService', 'SERVER_INFO', userService);
+    .service('userService', ['$http', 'SERVER_INFO', userService]);
 
     function userService ($http, SERVER_INFO) {
 

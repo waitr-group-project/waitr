@@ -37,6 +37,7 @@ angular.module('waitrApp')
 
     function login(credentials) {
       var deferred = $q.defer();
+        console.log('Logging in to : ', SERVER_INFO.url+'/login');
       $http
         .post(SERVER_INFO.url + '/login', credentials)
         .then(function(res) {

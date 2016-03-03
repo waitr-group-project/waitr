@@ -22,8 +22,8 @@ angular.module('waitrApp')
       authService.login(credentials).then(function(user) {
         if (user.role === 'user') $state.go('customer.home');
         if (user.role === 'restaurant') $state.go('restaurant.home');
-      }, function(res) {
-        console.log('Login error: ' + res.data)
+      }, function(err) {
+        console.log('Login error: ', err)
         // var alertPopup = $ionicPopup.alert({
         //   title: 'Login failed!',
         //   template: 'Error: ' + res
