@@ -8,7 +8,7 @@
 
     rhc.newPerson = {};
 
-    var socket = io();
+    var socket = io.connect('http://104.131.135.179');
 
     socket.on('newPersonAdded', function (data) {
       console.log("socket data is: ", data);

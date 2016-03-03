@@ -10,7 +10,7 @@
 
     var cwlc = this;
     var currRest = $stateParams.restaurantId;
-    var socket = io();
+    var socket = io.connect('http://104.131.135.179');
     cwlc.currentUser = $scope.ccc.currentUser;
 
     restaurantService.getCurrentRestaurant(currRest)

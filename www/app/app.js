@@ -32,6 +32,9 @@
       user: 'user',
       restaurant: 'restaurant'
     })
+    
+    .constant('SERVER_URL', 'http://104.131.135.179')
+     
     .run(function ($rootScope, AUTH_EVENTS, authService, $timeout, $state) {
 
       var user = authService.getUser();

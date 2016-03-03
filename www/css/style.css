@@ -122,10 +122,10 @@ font-size: 90%;
   font-family: 'Lusitana', serif;
 }
 .login {
-  background-image: url(../../img/login.png);
+  background-image: url(../img/login.png);
 }
 .customer-reg {
-  background-image: url(../../img/customer_reg.png);
+  background-image: url(../img/customer_reg.png);
 }
 .restaurant-reg {
   background-image: url(../../img/restaurant_reg.png);

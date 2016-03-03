@@ -3,8 +3,8 @@
     .module('waitrApp')
     .service('waitlistService', waitlistService);
 
-  function waitlistService($http) {
-    var url = "/api/waitlist/";
+  function waitlistService($http, SERVER_URL) {
+    var url = SERVER_URL + "/api/waitlist/";
 
     this.isValidPhone = function (num) {
       if (num.length != 10) {
