@@ -1,13 +1,13 @@
 /**
  * Created by danle on 2/22/16.
  */
-(function() {
+(function () {
 
   angular.module('waitrApp', ['ionic', 'ngCordova', 'angularMoment'])
 
-    .run(function($ionicPlatform) {
-      $ionicPlatform.ready(function() {
-        if(window.cordova && window.cordova.plugins.Keyboard) {
+    .run(function ($ionicPlatform) {
+      $ionicPlatform.ready(function () {
+        if (window.cordova && window.cordova.plugins.Keyboard) {
           // Hide the accessory bar by default (remove this to show the accessory bar above the keyboard
           // for form inputs)
           cordova.plugins.Keyboard.hideKeyboardAccessoryBar(true);
@@ -17,7 +17,7 @@
           // a much nicer keyboard experience.
           cordova.plugins.Keyboard.disableScroll(true);
         }
-        if(window.StatusBar) {
+        if (window.StatusBar) {
           StatusBar.styleDefault();
         }
       });
@@ -32,11 +32,11 @@
       user: 'user',
       restaurant: 'restaurant'
     })
-    .run(function($rootScope, AUTH_EVENTS, authService, $timeout, $state) {
+    .run(function ($rootScope, AUTH_EVENTS, authService, $timeout, $state) {
 
       var user = authService.getUser();
       if (user) {
-        $timeout(function(){
+        $timeout(function () {
           $rootScope.$broadcast('currentUser', user);
         });
       }
@@ -49,7 +49,7 @@
             if (authService.isAuthenticated()) {
               // user is not allowed
               $rootScope.$broadcast(AUTH_EVENTS.notAuthorized);
-              $state.go($state.$current, {}, {reload: true});
+              $state.go($state.$current, {}, { reload: true });
             } else {
               // user is not logged in
               $rootScope.$broadcast(AUTH_EVENTS.notAuthenticated);

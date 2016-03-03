@@ -1,138 +1,138 @@
 <ion-view title="Profile" hide-nav-bar="true">
-    <ion-content overflow-scroll="true">
-        <div class="item item-image">
-            <ion-header-bar id="profileBarHeader" align-title="left" class="bar-transparent">
-                <button id="backButtonRestProfile" menu-toggle="left" class="button button-clear icon ion-navicon">
-                </button>
-            </ion-header-bar>
-            <img id='resProfileImage' ng-src="{{rpc.restaurant.restaurantImage}}">
-        </div>
-        <span id="restaurantProfileDescription" class="item item-avatar item-icon-right">
+  <ion-content overflow-scroll="true">
+    <div class="item item-image">
+      <ion-header-bar id="profileBarHeader" align-title="left" class="bar-transparent">
+        <button id="backButtonRestProfile" menu-toggle="left" class="button button-clear icon ion-navicon">
+        </button>
+      </ion-header-bar>
+      <img id='resProfileImage' ng-src="{{rpc.restaurant.restaurantImage}}">
+    </div>
+    <span id="restaurantProfileDescription" class="item item-avatar item-icon-right">
             <img ng-src="{{rpc.restaurant.restaurantIcon}}">
             <h2 id="restaTitleInDesc">{{rpc.restaurant.restaurantName}}</h2>
             <p id="restaDescInDesc">{{rpc.restaurant.shortDescription}}</p>
             <p id="restaDescInDesc">{{rpc.restaurant.addressLineOne}}</p>
             <p id="restaDescInDesc">{{rpc.restaurant.city}}, {{rpc.restaurant.state}}, {{rpc.restaurant.zipcode}}</p>
             <i id="timeOnRestaurantProfile" class="icon ion-ios-clock-outline"><span id="timerNumberRestaProfile">{{rpc.customerEntries.quotedTime}}</span></i>
-        </span>
-        <div id="resQWaitingList" class="item row">
-            <div class="col text-center">
-                <button href="tel:+1-801-833-7373" id="restProfileLinks" class="button button-icon icon ion-ios-telephone-outline"></button>
-                <div>CALL</div>
-            </div>
-            <div class="col text-center">
-                <a id="restProfileLinks" ui-sref="restaurant.menu" class="button button-icon icon ion-ios-wineglass-outline"></a>
-                <div>MENU</div>
-            </div>
-            <div class="col text-center">
-                <button id="restProfileLinks" class="button button-icon icon ion-ios-world-outline"></button>
-                <div>WEBSITE</div>
-            </div>
-            <div class="col text-center">
-                <button id="restProfileLinks" class="button button-icon icon ion-ios-list-outline" ng-click="rpc.showOnClick(true)"></button>
-                <div>INFO</div>
-            </div>
-            <div class="col text-center">
-                <button id="restProfileLinks" class="button button-icon icon ion-ios-time-outline " ng-click="rpc.showOnClick(false)"></button>
-                <div>HOURS</div>
-            </div>
+    </span>
+    <div id="resQWaitingList" class="item row">
+      <div class="col text-center">
+        <button href="tel:+1-801-833-7373" id="restProfileLinks" class="button button-icon icon ion-ios-telephone-outline"></button>
+        <div>CALL</div>
+      </div>
+      <div class="col text-center">
+        <a id="restProfileLinks" ui-sref="restaurant.menu" class="button button-icon icon ion-ios-wineglass-outline"></a>
+        <div>MENU</div>
+      </div>
+      <div class="col text-center">
+        <button id="restProfileLinks" class="button button-icon icon ion-ios-world-outline"></button>
+        <div>WEBSITE</div>
+      </div>
+      <div class="col text-center">
+        <button id="restProfileLinks" class="button button-icon icon ion-ios-list-outline" ng-click="rpc.showOnClick(true)"></button>
+        <div>INFO</div>
+      </div>
+      <div class="col text-center">
+        <button id="restProfileLinks" class="button button-icon icon ion-ios-time-outline " ng-click="rpc.showOnClick(false)"></button>
+        <div>HOURS</div>
+      </div>
+    </div>
+
+    <div id="restProfileBodyBox" class="item text-center item-text-wrap" ng-show="rpc.infoHoursToggle">
+      <p>{{rpc.restaurant.description}}</p>
+    </div>
+
+    <div id="restProfileBodyBox" class="item item-body text-center item-text-wrap" ng-hide="rpc.infoHoursToggle">
+      <div class="row text-center ">
+        <div class="col ">
+          <span id="dayOfTheWeekInResta"></span>
         </div>
-
-        <div id="restProfileBodyBox" class="item text-center item-text-wrap" ng-show="rpc.infoHoursToggle">
-            <p>{{rpc.restaurant.description}}</p>
+        <div class="col ">
+          <span id="dayOfTheWeekInResta">OPEN</span>
         </div>
-
-        <div id="restProfileBodyBox" class="item item-body text-center item-text-wrap" ng-hide="rpc.infoHoursToggle">
-            <div class="row text-center ">
-                <div class="col ">
-                    <span id="dayOfTheWeekInResta"></span>
-                </div>
-                <div class="col ">
-                    <span id="dayOfTheWeekInResta">OPEN</span>
-                </div>
-                <div class="col ">
-                    <span id="dayOfTheWeekInResta">CLOSE</span>
-                </div>
-            </div>
-            <div class="row text-center">
-                <div class="col ">
-                    <span>MON</span>
-                </div>
-                <div class="col ">
-                    {{rpc.restaurant.hours.monday.openTime | date: "hh:mm a"}}
-                </div>
-                <div class="col ">
-                    {{rpc.restaurant.hours.monday.closeTime | date: "hh:mm a"}}
-                </div>
-            </div>
-            <div class="row text-center">
-                <div class="col ">
-                    <span>TUE</span>
-                </div>
-                <div class="col ">
-                    {{rpc.restaurant.hours.tuesday.openTime | date: "hh:mm a"}}
-                </div>
-                <div class="col ">
-                    {{rpc.restaurant.hours.tuesday.closeTime | date: "hh:mm a"}}
-                </div>
-            </div>
-            <div class="row text-center">
-                <div class="col ">
-                    <span>WED</span>
-                </div>
-                <div class="col ">
-                    {{rpc.restaurant.hours.wednesday.openTime | date: "hh:mm a"}}
-                </div>
-                <div class="col ">
-                    {{rpc.restaurant.hours.wednesday.closeTime | date: "hh:mm a"}}
-                </div>
-            </div>
-            <div class="row text-center">
-                <div class="col ">
-                    <span>THU</span>
-                </div>
-                <div class="col ">
-                    {{rpc.restaurant.hours.thursday.openTime | date: "hh:mm a"}}
-                </div>
-                <div class="col ">
-                    {{rpc.restaurant.hours.thursday.closeTime | date: "hh:mm a"}}
-                </div>
-            </div>
-            <div class="row text-center">
-                <div class="col ">
-                    <span>FRI</span>
-                </div>
-                <div class="col ">
-                    {{rpc.restaurant.hours.friday.openTime | date: "hh:mm a"}}
-                </div>
-                <div class="col ">
-                    {{rpc.restaurant.hours.friday.closeTime | date: "hh:mm a"}}
-                </div>
-            </div>
-            <div class="row text-center">
-                <div class="col ">
-                    <span>SAT</span>
-                </div>
-                <div class="col ">
-                    {{rpc.restaurant.hours.saturday.openTime | date: "hh:mm a"}}
-                </div>
-                <div class="col ">
-                    {{rpc.restaurant.hours.saturday.closeTime | date: "hh:mm a"}}
-                </div>
-            </div>
-            <div class="row text-center">
-                <div class="col ">
-                    <span>SUN</span>
-                </div>
-                <div class="col ">
-                    {{rpc.restaurant.hours.sunday.openTime | date: "hh:mm a"}}
-                </div>
-                <div class="col ">
-                    {{rpc.restaurant.hours.sunday.closeTime | date: "hh:mm a"}}
-                </div>
-            </div>
-
+        <div class="col ">
+          <span id="dayOfTheWeekInResta">CLOSE</span>
         </div>
+      </div>
+      <div class="row text-center">
+        <div class="col ">
+          <span>MON</span>
+        </div>
+        <div class="col ">
+          {{rpc.restaurant.hours.monday.openTime | date: "hh:mm a"}}
+        </div>
+        <div class="col ">
+          {{rpc.restaurant.hours.monday.closeTime | date: "hh:mm a"}}
+        </div>
+      </div>
+      <div class="row text-center">
+        <div class="col ">
+          <span>TUE</span>
+        </div>
+        <div class="col ">
+          {{rpc.restaurant.hours.tuesday.openTime | date: "hh:mm a"}}
+        </div>
+        <div class="col ">
+          {{rpc.restaurant.hours.tuesday.closeTime | date: "hh:mm a"}}
+        </div>
+      </div>
+      <div class="row text-center">
+        <div class="col ">
+          <span>WED</span>
+        </div>
+        <div class="col ">
+          {{rpc.restaurant.hours.wednesday.openTime | date: "hh:mm a"}}
+        </div>
+        <div class="col ">
+          {{rpc.restaurant.hours.wednesday.closeTime | date: "hh:mm a"}}
+        </div>
+      </div>
+      <div class="row text-center">
+        <div class="col ">
+          <span>THU</span>
+        </div>
+        <div class="col ">
+          {{rpc.restaurant.hours.thursday.openTime | date: "hh:mm a"}}
+        </div>
+        <div class="col ">
+          {{rpc.restaurant.hours.thursday.closeTime | date: "hh:mm a"}}
+        </div>
+      </div>
+      <div class="row text-center">
+        <div class="col ">
+          <span>FRI</span>
+        </div>
+        <div class="col ">
+          {{rpc.restaurant.hours.friday.openTime | date: "hh:mm a"}}
+        </div>
+        <div class="col ">
+          {{rpc.restaurant.hours.friday.closeTime | date: "hh:mm a"}}
+        </div>
+      </div>
+      <div class="row text-center">
+        <div class="col ">
+          <span>SAT</span>
+        </div>
+        <div class="col ">
+          {{rpc.restaurant.hours.saturday.openTime | date: "hh:mm a"}}
+        </div>
+        <div class="col ">
+          {{rpc.restaurant.hours.saturday.closeTime | date: "hh:mm a"}}
+        </div>
+      </div>
+      <div class="row text-center">
+        <div class="col ">
+          <span>SUN</span>
+        </div>
+        <div class="col ">
+          {{rpc.restaurant.hours.sunday.openTime | date: "hh:mm a"}}
+        </div>
+        <div class="col ">
+          {{rpc.restaurant.hours.sunday.closeTime | date: "hh:mm a"}}
+        </div>
+      </div>
 
-    </ion-content>
+    </div>
+
+  </ion-content>
 </ion-view>

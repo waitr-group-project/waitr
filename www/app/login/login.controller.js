@@ -30,6 +30,7 @@ angular.module('waitrApp')
         // });
       });
     }
+    
 
   }
 })();

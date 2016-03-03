@@ -1,44 +1,44 @@
 <ion-view>
-    <ion-nav-title>
-        <span style="font-size:1.3rem">ADD ITEM</span>
-    </ion-nav-title>
+  <ion-nav-title>
+    <span style="font-size:1.3rem">ADD ITEM</span>
+  </ion-nav-title>
 
-    <div class="padding bar bar-header bar-dark">
-        <h2 class="title">{{remc.restaurant.restaurantName}}</h2>
-        < <!--<span style="font-size:1.5rem">{{remc.restaurant.restaurantName}}</span>-->
-    </div>
-    <ion-content class="has-subheader">
-        <div class="list">
-            <label class="item item-input item-floating-label">
-                <span class="input-label">Item Name</span>
-                <input type="text" placeholder="Item Name" ng-model="remc.newMenuItem.item">
-            </label>
-            <label class="item item-input item-floating-label">
-                <span class="input-label">Item Price</span>
-                <input type="text" placeholder="Item Price" ng-model="remc.newMenuItem.price">
-            </label>
-            <label class="item item-input item-floating-label">
-                <span class="input-label">Item Description</span>
-                <input type="text" placeholder="Item Description" ng-model="remc.newMenuItem.desc">
-            </label>
-            <label class="item item-input item-select">
-                <div class="input-label">
-                    Section
-                </div>
-                <select ng-model="remc.newMenuItem.section">
-                    <option value="">SELECT MENU SECTION</option>
-                    <option ng-repeat="(key, value) in remc.groupedMenu" value="{{key}}">{{key}}</option>
-                </select>
-            </label>
+  <div class="padding bar bar-header bar-dark">
+    <h2 class="title">{{remc.restaurant.restaurantName}}</h2>
+    < <!--<span style="font-size:1.5rem">{{remc.restaurant.restaurantName}}</span>-->
+  </div>
+  <ion-content class="has-subheader">
+    <div class="list">
+      <label class="item item-input item-floating-label">
+        <span class="input-label">Item Name</span>
+        <input type="text" placeholder="Item Name" ng-model="remc.newMenuItem.item">
+      </label>
+      <label class="item item-input item-floating-label">
+        <span class="input-label">Item Price</span>
+        <input type="text" placeholder="Item Price" ng-model="remc.newMenuItem.price">
+      </label>
+      <label class="item item-input item-floating-label">
+        <span class="input-label">Item Description</span>
+        <input type="text" placeholder="Item Description" ng-model="remc.newMenuItem.desc">
+      </label>
+      <label class="item item-input item-select">
+        <div class="input-label">
+          Section
         </div>
-    </ion-content>
-    <div class="bar bar-footer bar-positive">
-        <h2 class="title">
+        <select ng-model="remc.newMenuItem.section">
+          <option value="">SELECT MENU SECTION</option>
+          <option ng-repeat="(key, value) in remc.groupedMenu" value="{{key}}">{{key}}</option>
+        </select>
+      </label>
+    </div>
+  </ion-content>
+  <div class="bar bar-footer bar-positive">
+    <h2 class="title">
             <button class="button button-block button-positive" ng-click="remc.updateRestaurantMenu()">
                 SAVE
             </button>
         </h2>
-    </div>
+  </div>
 
 
 </ion-view>

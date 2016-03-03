@@ -1,30 +1,30 @@
 <ion-view>
-    <ion-nav-title>
-        <h1 class="title" style="font-size:1.5rem">Confirm</h1>
-    </ion-nav-title>
-    <ion-content class="formContainer">
-        <div class="list">
-            <label class="item item-input item-floating-label">
-                <span class="input-label">First Name</span>
-                <input type="text" placeholder="First Name" ng-model="cwlc.currentUser.firstName">
-            </label>
-            <label class="item item-input item-floating-label">
-                <span class="input-label">Last Name</span>
-                <input type="text" placeholder="Last Name" ng-model="cwlc.currentUser.lastName">
-            </label>
-            <label class="item item-input item-floating-label">
-                <span class="input-label">Party size</span>
-                <input type="tel" placeholder="Party size" ng-model="cwlc.currentUser.partySize">
-            </label>
-            <label class="item item-input item-floating-label">
-                <span class="input-label">Phone number</span>
-                <input type="tel" placeholder="Phone number" ng-model="cwlc.currentUser.phone">
-            </label>
-            <label class="item item-input item-floating-label">
-                <span class="input-label">Notes</span>
-                <input type="text" placeholder="Notes" ng-model="cwlc.currentUser.notes">
-            </label>
-        </div>
-        <button class="formButton button button-large button-energized" ng-click="cwlc.userAddingToQ(cwlc.currentUser.firstName, cwlc.currentUser.lastName, cwlc.currentUser.partySize, cwlc.currentUser.phone, cwlc.currentUser.notes)">confirm</button>
-    </ion-content>
+  <ion-nav-title>
+    <h1 class="title" style="font-size:1.5rem">Confirm</h1>
+  </ion-nav-title>
+  <ion-content class="formContainer">
+    <div class="list">
+      <label class="item item-input item-floating-label">
+        <span class="input-label">First Name</span>
+        <input type="text" placeholder="First Name" ng-model="cwlc.currentUser.firstName">
+      </label>
+      <label class="item item-input item-floating-label">
+        <span class="input-label">Last Name</span>
+        <input type="text" placeholder="Last Name" ng-model="cwlc.currentUser.lastName">
+      </label>
+      <label class="item item-input item-floating-label">
+        <span class="input-label">Party size</span>
+        <input type="tel" placeholder="Party size" ng-model="cwlc.currentUser.partySize">
+      </label>
+      <label class="item item-input item-floating-label">
+        <span class="input-label">Phone number</span>
+        <input type="tel" placeholder="Phone number" ng-model="cwlc.currentUser.phone">
+      </label>
+      <label class="item item-input item-floating-label">
+        <span class="input-label">Notes</span>
+        <input type="text" placeholder="Notes" ng-model="cwlc.currentUser.notes">
+      </label>
+    </div>
+    <button class="formButton button button-large button-energized" ng-click="cwlc.userAddingToQ(cwlc.currentUser.firstName, cwlc.currentUser.lastName, cwlc.currentUser.partySize, cwlc.currentUser.phone, cwlc.currentUser.notes)">confirm</button>
+  </ion-content>
 </ion-view>
