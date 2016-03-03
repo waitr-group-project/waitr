@@ -23,7 +23,7 @@ angular.module('waitrApp')
     function register(data) {
       var deferred = $q.defer();
       $http
-        .post('/register', data)
+        .post('http://104.131.135.179/register', data)
         .then(function(res) {
           authTokenService.setToken(res.data.token);
           var currentUser = parseToken(res.data.token);
@@ -38,7 +38,7 @@ angular.module('waitrApp')
     function login(credentials) {
       var deferred = $q.defer();
       $http
-        .post('/login', credentials)
+        .post('http://104.131.135.179/login', credentials)
         .then(function(res) {
           authTokenService.setToken(res.data.token);
           var currentUser = parseToken(res.data.token);

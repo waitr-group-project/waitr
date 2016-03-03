@@ -4,8 +4,8 @@
     .service('waitlistService', waitlistService);
 
     function waitlistService ($http) {
-        var url = "/api/waitlist/";
-        
+        var url = "http://104.131.135.179/api/waitlist/";
+
         this.isValidPhone = function (num) {
             if (num.length != 10) {
                 return false;
@@ -16,7 +16,7 @@
             }
             return false;
         }
-        
+
         this.maxPartySize = 100;
 
         this.addAnonToWaitlist = function(user, waitlistId, waitTime) {

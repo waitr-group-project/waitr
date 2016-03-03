@@ -11,7 +11,7 @@
 
     var currRest = $stateParams.restaurantId;
 
-    var socket = io();
+    var socket = io.connect('http://104.131.135.179');
 
 
     $timeout(function() {

@@ -5,10 +5,10 @@
 
 function restaHomeCtrl (restaurantService, waitlistService, $state, $ionicHistory, $scope, $timeout, $ionicPopup) {
     var rhc = this;
-    
+
     rhc.newPerson = {};
-    
-    var socket = io();
+
+    var socket = io.connect('http://104.131.135.179');
 
     socket.on('newPersonAdded', function(data) {
         console.log("socket data is: ", data);
@@ -80,7 +80,7 @@ function restaHomeCtrl (restaurantService, waitlistService, $state, $ionicHistor
                 ]
             })
         }
-        
+
     };
 
 
@@ -123,4 +123,3 @@ function restaHomeCtrl (restaurantService, waitlistService, $state, $ionicHistor
   }
 
 })();
-
