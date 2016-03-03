@@ -10,10 +10,7 @@
 
     $ionicConfigProvider.backButton.text('').icon('ion-ios7-arrow-left');
 
-
-
     $urlRouterProvider.otherwise('/login');
-
 
     $stateProvider
     // LOGIN - REGISTER ROUTES
@@ -209,5 +206,4 @@
         controllerAs: 'rsc'
       });
   }
-
 })();

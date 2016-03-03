@@ -1,84 +1,87 @@
 <!DOCTYPE html>
 <html ng-app="waitrApp">
 
-<head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no, width=device-width">
-  <title></title>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no, width=device-width">
+    <title></title>
 
-  <!--Styling links-->
+    <!--Styling links-->
 
-  <!-- <link href="lib/ionic/css/ionic.css" rel="stylesheet"> -->
-  <link href="css/ionic.app.css" rel="stylesheet">
-  <link href="css/style.css" rel="stylesheet">
-
-  <link href="https://fonts.googleapis.com/css?family=Lusitana%3A400%2C700" rel="stylesheet" type="text/css">
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
-
-  <!-- IF using Sass (run gulp sass first), then uncomment below and remove the CSS includes above
+    <!-- <link href="lib/ionic/css/ionic.css" rel="stylesheet"> -->
     <link href="css/ionic.app.css" rel="stylesheet">
-    -->
-</head>
+    <link href="css/style.css" rel="stylesheet">
 
-<body ng-controller="AppCtrl as ac">
-  <ion-nav-view class="background"></ion-nav-view>
+    <link href="https://fonts.googleapis.com/css?family=Lusitana%3A400%2C700" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
 
+    <!-- IF using Sass (run gulp sass first), then uncomment below and remove the CSS includes above
+      <link href="css/ionic.app.css" rel="stylesheet">
+      -->
+  </head>
 
-
-
-
-  <!-- ionic/angularjs js -->
-  <script src="lib/ionic/js/ionic.bundle.js"></script>
-
-  <script src="lib/ngCordova/dist/ng-cordova.js"></script>
-  <!--underscore cdn-->
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.8.3/underscore.js"></script>
-  <!-- cordova script (this will be a 404 during development) -->
-  <script src="cordova.js"></script>
-  <script src="lib/moment/moment.js"></script>
-  <script src="lib/angular-moment/angular-moment.js"></script>
-  <!-- your app's js -->
-  <script src="app/app.js"></script>
-  <script src="app/app.routes.js"></script>
-  <script src="app/app.controller.js"></script>
-
-  <!--Login / Registration Controllers' js-->
-  <script src="app/login/login.controller.js"></script>
-  <script src="app/registration/registration.controller.js"></script>
-
-  <!--Customer Controllers' js-->
-  <script src="app/customer/custCustomerCtrl.js"></script>
-
-  <script src="app/customer/home/custHomeCtrl.js"></script>
-  <script src="app/customer/restaurant/custRestaurantCtrl.js"></script>
-  <script src="app/customer/menu/custRestaurantMenuCtrl.js"></script>
-  <script src="app/customer/settings/custSettingsCtrl.js"></script>
-  <script src="app/customer/waitlist/custWaitlistCtrl.js"></script>
-  <script src="app/customer/restaurant/custWaitListConfirmCtrl.js"></script>
-
-  <!--Restaurant Controllers' js-->
-  <script src="app/restaurant/restaRestaurantCtrl.js"></script>
-
-  <script src="app/restaurant/restaHome/restaHomeCtrl.js"></script>
-
-  <script src="app/restaurant/restaHome/restaEditCtrl.js"></script>
-
-  <script src="app/restaurant/restaProfile/restaProfileCtrl.js"></script>
-  <script src="app/restaurant/restaSettings/restaSettingsCtrl.js"></script>
-  <script src="app/restaurant/restaEditMenu/restaEditMenuCtrl.js"></script>
-  <script src="app/restaurant/restaMenu/restaMenuCtrl.js"></script>
+  <body ng-controller="AppCtrl as ac">
+    <ion-nav-view class="background"></ion-nav-view>
 
 
-  <!--Services' js-->
-  <script src="app/services/restaurantService.js"></script>
-  <script src="app/services/userService.js"></script>
-  <script src="app/services/waitlistService.js"></script>
-
-  <script src="app/services/authService.js"></script>
-  <script src="app/services/authTokenService.js"></script>
-  <script src="app/services/authInterceptorService.js"></script>
 
 
-</body>
+
+    <!-- ionic/angularjs js -->
+    <script src="lib/ionic/js/ionic.bundle.js"></script>
+
+    <script src="lib/ngCordova/dist/ng-cordova.js"></script>
+    <!--underscore cdn-->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.8.3/underscore.js"></script>
+    <!-- cordova script (this will be a 404 during development) -->
+    <script src="cordova.js"></script>
+    <script src="lib/moment/moment.js"></script>
+    <script src="lib/angular-moment/angular-moment.js"></script>
+
+    <!--socket.io-->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/1.4.5/socket.io.js"></script>
+
+    <!-- your app's js -->
+    <script src="app/app.js"></script>
+    <script src="app/app.routes.js"></script>
+    <script src="app/app.controller.js"></script>
+
+    <!--Login / Registration Controllers' js-->
+    <script src="app/login/login.controller.js"></script>
+    <script src="app/registration/registration.controller.js"></script>
+
+    <!--Customer Controllers' js-->
+    <script src="app/customer/custCustomerCtrl.js"></script>
+    <script src="app/customer/home/custHomeCtrl.js"></script>
+    <script src="app/customer/restaurant/custRestaurantCtrl.js"></script>
+    <script src="app/customer/menu/custRestaurantMenuCtrl.js"></script>
+    <script src="app/customer/settings/custSettingsCtrl.js"></script>
+    <script src="app/customer/waitlist/custWaitlistCtrl.js"></script>
+    <script src="app/customer/restaurant/custWaitListConfirmCtrl.js"></script>
+
+    <!--Restaurant Controllers' js-->
+    <script src="app/restaurant/restaRestaurantCtrl.js"></script>
+
+    <script src="app/restaurant/restaHome/restaHomeCtrl.js"></script>
+
+    <script src="app/restaurant/restaHome/restaEditCtrl.js"></script>
+
+    <script src="app/restaurant/restaProfile/restaProfileCtrl.js"></script>
+    <script src="app/restaurant/restaSettings/restaSettingsCtrl.js"></script>
+    <script src="app/restaurant/restaEditMenu/restaEditMenuCtrl.js"></script>
+    <script src="app/restaurant/restaMenu/restaMenuCtrl.js"></script>
+
+
+    <!--Services' js-->
+    <script src="app/services/restaurantService.js"></script>
+    <script src="app/services/userService.js"></script>
+    <script src="app/services/waitlistService.js"></script>
+
+    <script src="app/services/authService.js"></script>
+    <script src="app/services/authTokenService.js"></script>
+    <script src="app/services/authInterceptorService.js"></script>
+
+
+  </body>
 
 </html>

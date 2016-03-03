@@ -6,6 +6,22 @@
   function restaHomeCtrl(waitlistService, $state, $ionicHistory, $scope, $ionicPopup) {
     var rhc = this;
 
+    rhc.newPerson = {};
+
+    var socket = io();
+
+    socket.on('newPersonAdded', function (data) {
+      console.log("socket data is: ", data);
+      rhc.customerEntries.list.push(data);
+      $scope.$apply();
+    });
+
+    socket.on('deletedPerson', function (data) {
+      console.log("hitting deletedPerson with data: ", data);
+      rhc.customerEntries.list.splice(data.pos, 1);
+      $scope.$apply();
+    });
+
     moment.locale('en', {
       relativeTime: {
         future: "in %s",
@@ -30,24 +46,51 @@
     });
 
     rhc.addPersonToQ = function (newQPerson) {
-      waitlistService.addAnonToWaitlist(newQPerson, rhc.customerEntries._id, rhc.customerEntries.quotedTime)
-        .then(function (res) {
-          console.log(res);
-          $ionicHistory.nextViewOptions({
-            disableBack: true
+      if (newQPerson.firstName && newQPerson.lastName && newQPerson.phone && newQPerson.partySize) {
+        if (waitlistService.isValidPhone(newQPerson.phone) && newQPerson.partySize < waitlistService.maxPartySize) {
+          waitlistService.addAnonToWaitlist(newQPerson, rhc.customerEntries._id, rhc.customerEntries.quotedTime).then(function (res) {
+            //console.log(res);
+            socket.emit('newPerson', res);
+
+            $ionicHistory.nextViewOptions({
+              disableBack: true
+            });
+
+            $state.go("restaurant.home");
           });
-          $state.go("restaurant.home");
-        });
+        } else {
+          $ionicPopup.show({
+            title: "Invalid Data",
+            template: "Phone number must be 10 digits and party size cannot exceed 100<br/>Ex. 1234567890",
+            buttons: [
+              { text: "OK" }
+            ]
+          })
+        }
+      } else {
+        $ionicPopup.show({
+          title: "Invalid Data",
+          template: "Fill out all fields before pressing 'Submit'",
+          buttons: [
+            { text: "OK" }
+          ]
+        })
+      }
+
     };
 
+
+
     rhc.showWaitTimeModal = function (time) {
+      console.log(time);
       rhc.time = time;
       var myPopup = $ionicPopup.confirm({
         template: '<label class="item item-input"><input type="tel" ng-model="rhc.time" min="0"></label>',
         title: "Enter Wait Time",
         scope: $scope,
-        buttons: [
-          { text: 'Cancel' },
+        buttons: [{ 
+            text: 'Cancel' 
+          },
           {
             text: '<b>Save</b>',
             type: 'button-positive',
@@ -59,18 +102,17 @@
                 return rhc.time;
               }
             }
-          }
-        ]
-      });
-
-      myPopup.then(function (res) {
+          }]
+      })
+      .then(function (res) {
         if (res >= 0) {
           waitlistService.updateWaitTime(rhc.customerEntries._id, res).then(function (res) {
             rhc.customerEntries.quotedTime = res;
           })
         }
       })
-    }
+    };
+
   }
 
 })();

@@ -5,14 +5,16 @@ var express = require('express'),
     jwt = require('jsonwebtoken'),
     config = require('./config/config');
 
+var port = process.env.PORT || 1234;
+
+var app = express();
+var http = require('http').Server(app);
+var io = require('socket.io')(http);
 
 var userCtrl = require('./controllers/userCtrl'),
     restaurantCtrl = require('./controllers/restaurantCtrl'),
     waitlistCtrl = require('./controllers/waitlistCtrl');
 
-var port = '1234';
-
-var app = express();
 app.use(bodyParser.json());
 app.use(cors());
 
@@ -75,8 +77,17 @@ app.delete('/api/waitlist/:id/list/:listId', waitlistCtrl.removeFromList);
 app.get('/api/waitlist/:id/list/:listId', waitlistCtrl.getFromList);
 app.put('/api/waitlist/:id/list/:listId', waitlistCtrl.updateListEntry);
 
+io.on('connection', function(socket) {
+    socket.on('newPerson', function(data) {
+        console.log("hitting newPerson endpoint");
+        io.emit('newPersonAdded', data);
+    });
+    socket.on('deletePerson', function(data) {
+        console.log('hitting deletePerson endpoint on server.js');
+        io.emit('deletedPerson', data);
+    });
+});
 
-
-app.listen(port, function() {
+http.listen(port, function() {
   console.log("listening on port ", port);
 });

@@ -22,8 +22,8 @@
     });
 
   function restaSettingsCtrl(restaurantService, $scope, $filter) {
-    var rsc = this;
 
+    var rsc = this;
     rsc.currentUserID = $scope.rrc.currentUser.restaurant_id;
     rsc.restaurant = $scope.rrc.restaurant;
 
@@ -41,18 +41,10 @@
     rsc.restaurant.hours.saturday.closeTime = new Date(rsc.restaurant.hours.saturday.closeTime);
     rsc.restaurant.hours.sunday.openTime = new Date(rsc.restaurant.hours.sunday.openTime);
     rsc.restaurant.hours.sunday.closeTime = new Date(rsc.restaurant.hours.sunday.closeTime);
-    //Aren't these three thingsjust doing the same thing?
-    rsc.updateRestaurantInfo = function (restaurant) {
-      restaurantService.updateRestaurant(rsc.restaurant._id, restaurant);
-    };
-    rsc.updateRestaurantContact = function (restaurant) {
-      restaurantService.updateRestaurant(rsc.restaurant._id, restaurant);
-    };
-    rsc.updateRestaurantHours = function (restaurant) {
-      restaurantService.updateRestaurant(rsc.restaurant._id, restaurant).then(function (response) {
-        console.log(response);
-      });
-    };
 
+    rsc.updateRestaurant = function (restaurant) {
+      restaurantService.updateRestaurant(rsc.restaurant._id, restaurant);
+    };
+    
   }
 })();

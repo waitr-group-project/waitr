@@ -4,37 +4,54 @@
 (function () {
   angular
     .module('waitrApp')
-    .controller('custWaitListConfirmCtrl', ['$stateParams', '$scope', 'waitlistService', 'restaurantService', '$state', 'userService', custWaitListConfirmCtrl]);
+    .controller('custWaitListConfirmCtrl', ['$stateParams', '$timeout', '$scope', 'waitlistService', 'restaurantService', '$state', 'userService', '$ionicHistory', custWaitListConfirmCtrl]);
 
-  function custWaitListConfirmCtrl($stateParams, $scope, waitlistService, restaurantService, $state, userService) {
+  function custWaitListConfirmCtrl($stateParams, $timeout, $scope, waitlistService, restaurantService, $state, userService, $ionicHistory) {
+
     var cwlc = this;
-
-    cwlc.currRest = $stateParams.restaurantId;
-
+    var currRest = $stateParams.restaurantId;
+    var socket = io();
     cwlc.currentUser = $scope.ccc.currentUser;
-    console.log('custWaitListConfirm', cwlc.currentUser);
 
-    restaurantService.getCurrentRestaurant(cwlc.currRest).then(function (data) {
-      var currRestObj = data;
-      cwlc.userAddingToQ = function (firstname, lastname, partysize, phone, notes) {
-        var person = {
-          user_id: cwlc.currentUser._id,
-          firstName: firstname,
-          lastName: lastname,
-          partySize: partysize,
-          phone: phone,
-          notes: notes
-        };
-        waitlistService.addAnonToWaitlist(person, currRestObj[0].waitlist_id).then(function (res) {
+    restaurantService.getCurrentRestaurant(currRest)
+      .then(function (data) {
+        cwlc.currRestObj = data;
+      });
+
+    cwlc.userAddingToQ = function (firstname, lastname, partysize, phone, notes) {
+      var person = {
+        user_id: cwlc.currentUser._id,
+        firstName: firstname,
+        lastName: lastname,
+        partySize: partysize,
+        phone: phone,
+        notes: notes
+      };
+
+      waitlistService.addAnonToWaitlist(person, cwlc.currRestObj[0].waitlist_id)
+        .then(function (res) {
+          socket.emit('newPerson', res);
+          $ionicHistory.nextViewOptions({
+            disableBack: true
+          });
           var waitlistId = {
-            inWaitList: currRestObj[0].waitlist_id
+            inWaitList: cwlc.currRestObj[0].waitlist_id
           };
           userService.updateUser(cwlc.currentUser._id, waitlistId);
           $state.go("customer.waitlist");
         });
-      };
 
-    });
+
+      waitlistService.addAnonToWaitlist(person, cwlc.currRestObj[0].waitlist_id)
+        .then(function (res) {
+          var waitlistId = {
+            inWaitList: cwlc.currRestObj[0].waitlist_id
+          };
+          userService.updateUser(cwlc.currentUser._id, waitlistId);
+          $state.go("customer.waitlist");
+        });
+    }
 
   }
+
 })();

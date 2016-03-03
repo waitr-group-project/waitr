@@ -6,26 +6,26 @@
     <div class="list">
       <label class="item item-input item-floating-label">
         <span class="input-label">First Name</span>
-        <input type="text" placeholder="First Name" ng-model="newPerson.firstName">
+        <input type="text" placeholder="First Name" ng-model="rhc.newPerson.firstName">
       </label>
       <label class="item item-input item-floating-label">
         <span class="input-label">Last Name</span>
-        <input type="text" placeholder="Last Name" ng-model="newPerson.lastName">
+        <input type="text" placeholder="Last Name" ng-model="rhc.newPerson.lastName">
       </label>
       <label class="item item-input item-floating-label">
         <span class="input-label">Party size</span>
-        <input type="tel" placeholder="Party size" ng-model="newPerson.partySize">
+        <input type="tel" placeholder="Party size" ng-model="rhc.newPerson.partySize">
       </label>
       <label class="item item-input item-floating-label">
         <span class="input-label">Phone number</span>
-        <input type="tel" placeholder="Phone number" ng-model="newPerson.phone">
+        <input type="tel" placeholder="Phone number" ng-model="rhc.newPerson.phone">
       </label>
       <label class="item item-input item-floating-label">
         <span class="input-label">Notes</span>
-        <input type="text" placeholder="Notes" ng-model="newPerson.notes">
+        <input type="text" placeholder="Notes" ng-model="rhc.newPerson.notes">
       </label>
     </div>
-    <button class="formButton button button-large button-energized" ng-click="rhc.addPersonToQ(newPerson)">Submit</button>
+    <button class="formButton button button-large button-energized" ng-click="rhc.addPersonToQ(rhc.newPerson)">Submit</button>
 
   </ion-content>
 </ion-view>

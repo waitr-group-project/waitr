@@ -8,12 +8,12 @@
       <img id='resProfileImage' ng-src="{{rpc.restaurant.restaurantImage}}">
     </div>
     <span id="restaurantProfileDescription" class="item item-avatar item-icon-right">
-            <img ng-src="{{rpc.restaurant.restaurantIcon}}">
-            <h2 id="restaTitleInDesc">{{rpc.restaurant.restaurantName}}</h2>
-            <p id="restaDescInDesc">{{rpc.restaurant.shortDescription}}</p>
-            <p id="restaDescInDesc">{{rpc.restaurant.addressLineOne}}</p>
-            <p id="restaDescInDesc">{{rpc.restaurant.city}}, {{rpc.restaurant.state}}, {{rpc.restaurant.zipcode}}</p>
-            <i id="timeOnRestaurantProfile" class="icon ion-ios-clock-outline"><span id="timerNumberRestaProfile">{{rpc.customerEntries.quotedTime}}</span></i>
+      <img ng-src="{{rpc.restaurant.restaurantIcon}}">
+      <h2 id="restaTitleInDesc">{{rpc.restaurant.restaurantName}}</h2>
+      <p id="restaDescInDesc">{{rpc.restaurant.shortDescription}}</p>
+      <p id="restaDescInDesc">{{rpc.restaurant.addressLineOne}}</p>
+      <p id="restaDescInDesc">{{rpc.restaurant.city}}, {{rpc.restaurant.state}}, {{rpc.restaurant.zipcode}}</p>
+      <i id="timeOnRestaurantProfile" class="icon ion-ios-clock-outline"><span id="timerNumberRestaProfile">{{rpc.customerEntries.quotedTime}}</span></i>
     </span>
     <div id="resQWaitingList" class="item row">
       <div class="col text-center">
@@ -37,7 +37,6 @@
         <div>HOURS</div>
       </div>
     </div>
-
     <div id="restProfileBodyBox" class="item text-center item-text-wrap" ng-show="rpc.infoHoursToggle">
       <p>{{rpc.restaurant.description}}</p>
     </div>

@@ -7,7 +7,6 @@ var Restaurant = require('../models/RestaurantModel'),
 module.exports = {
 
   register: function (req, res) {
-
     function regCust(req, res) {
       if (req.body.restaurant_id) {
         req.body.role = 'restaurant';
@@ -27,6 +26,42 @@ module.exports = {
       });
     }
 
+    if (req.body.restaurantName) {
+      var newRestaurant = new Restaurant({ restaurantName: req.body.restaurantName });
+      newRestaurant.save(function (err, restaurant) {
+        if (err)
+          res.status(500).send(err);
+        else {
+          var newWaitlist = new Waitlist({ restaurant_id: restaurant._id });
+          newWaitlist.save(function (err, waitlist) {
+            console.log('Waitlist saved successfully');
+            Restaurant.findByIdAndUpdate(restaurant._id, { $set: { waitlist_id: waitlist._id } }, function (err, restaurant) {
+              if (err)
+                res.status(500).send(err);
+              else {
+                req.body.restaurant_id = restaurant._id;
+                regCust(req, res);
+              }
+            });
+          });
+        }
+      });
+    } else {
+      regCust(req, res);
+    }
+    var newUser = new User(req.body);
+    newUser.password = newUser.generateHash(req.body.password);
+    newUser.save(function (err, user) {
+      if (err)
+        res.status(500).send(err);
+      else {
+        var payload = user.toObject();
+        var token = jwt.sign(payload, config.secretKey); // { expiresIn: 600 } expires in 10 minutes
+        res.status(200).json({
+          token: token
+        });
+      }
+    });
     if (req.body.restaurantName) {
       var newRestaurant = new Restaurant({ restaurantName: req.body.restaurantName });
       newRestaurant.save(function (err, restaurant) {
@@ -62,17 +97,6 @@ module.exports = {
       else res.status(401).send('User not found');
     });
   },
-
-  //  create: function(req, res) {
-  //      User.create(req.body, function(err, result) {
-  //          if (err) {
-  //              console.log(err);
-  //              return res.status(500).send(err);
-  //          }
-  //          // console.log(result);
-  //          return res.status(200).send(result,"successfully created user!");
-  //      });
-  //  },
 
   read: function (req, res) {
     User

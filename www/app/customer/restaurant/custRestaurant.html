@@ -2,22 +2,22 @@
   <ion-content overflow-scroll="true">
     <div class="item item-image">
       <ion-header-bar id="profileBarHeader" align-title="left" class="bar-transparent">
-        <button id="backButtonRestProfile" menu-toggle="left" class="button button-clear icon ion-navicon">
+        <button id="backButtonRestProfile" class="button button-clear icon ion-ios-arrow-back" ng-click="crc.goBack()">
         </button>
       </ion-header-bar>
       <img id='resProfileImage' src="{{crc.restaurant.restaurantImage}}">
     </div>
     <span id="restaurantProfileDescription" class="item item-avatar item-icon-right">
-            <img src="{{crc.restaurant.restaurantIcon}}">
-            <h2 id="restaTitleInDesc">{{crc.restaurant.restaurantName}}</h2>
-            <p id="restaDescInDesc">{{crc.restaurant.foodType}}</p>
-            <p id="restaDescInDesc">{{crc.restaurant.addressLineOne}}</p>
-            <p id="restaDescInDesc">{{crc.restaurant.city}}, {{crc.restaurant.state}}, {{crc.restaurant.zipcode}}</p>
-            <i id="timeOnRestaurantProfile" class="icon ion-ios-clock-outline"><span id="timerNumberRestaProfile">{{crc.customerEntries.quotedTime}}</span></i>
+      <img src="{{crc.restaurant.restaurantIcon}}">
+      <h2 id="restaTitleInDesc">{{crc.restaurant.restaurantName}}</h2>
+      <p id="restaDescInDesc">{{crc.restaurant.foodType}}</p>
+      <p id="restaDescInDesc">{{crc.restaurant.addressLineOne}}</p>
+      <p id="restaDescInDesc">{{crc.restaurant.city}}, {{crc.restaurant.state}}, {{crc.restaurant.zipcode}}</p>
+      <i id="timeOnRestaurantProfile" class="icon ion-ios-clock-outline"><span id="timerNumberRestaProfile">{{crc.customerEntries.quotedTime}}</span></i>
     </span>
     <div id="resQWaitingList" class="item row">
       <div class="col text-center">
-        <button id="restProfileLinks" class="button button-icon icon ion-ios-telephone-outline"></button>
+        <button id="restProfileLinks" class="button button-icon icon ion-ios-telephone-outline" ng-click="crc.callTel({{crc.restaurant.restaurantPhone}})"></button>
         <div>CALL</div>
       </div>
       <div class="col text-center">
@@ -37,10 +37,10 @@
         <div>HOURS</div>
       </div>
     </div>
-
     <div id="restProfileBodyBox" class="item text-center item-text-wrap" ng-show="crc.infoHoursToggle">
       <p>{{crc.restaurant.description}}</p>
     </div>
+
     <div id="restProfileBodyBox" class="item item-body text-center item-text-wrap" ng-hide="crc.infoHoursToggle">
       <div class="row text-center ">
         <div class="col ">
@@ -136,4 +136,3 @@
 <div class="bar bar-footer">
   <button id='buttonOnRestProfile' class="button button-block button-icon button-positive" ui-sref="customer.waitlistconfirm({restaurantId: crc.restaurant._id})">Enter line</button>
 </div>
->>>>>>> dev

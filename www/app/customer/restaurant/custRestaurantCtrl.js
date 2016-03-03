@@ -27,12 +27,16 @@
         $state.go("restaurant.home");
       });
     };
+    crc.callTel = function (tel) {
+      window.location.href = 'tel:' + tel;
+    };
+
 
     crc.goBack = function () {
       $ionicHistory.goBack();
     };
 
-
+    crc.infoHoursToggle = true;
     crc.showOnClick = function (value) {
       crc.infoHoursToggle = value;
     };
