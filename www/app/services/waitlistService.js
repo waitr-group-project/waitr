@@ -2,9 +2,22 @@
   angular
     .module('waitrApp')
     .service('waitlistService', waitlistService);
-    
+
     function waitlistService ($http) {
         var url = "/api/waitlist/";
+        
+        this.isValidPhone = function (num) {
+            if (num.length != 10) {
+                return false;
+            }
+            num = parseInt(num);
+            if (num && num > 1000000000) {
+                return true;
+            }
+            return false;
+        }
+        
+        this.maxPartySize = 100;
 
         this.addAnonToWaitlist = function(user, waitlistId, waitTime) {
             //first, we need to structure our data in a way that the server will accept
@@ -46,7 +59,7 @@
                 method: "DELETE",
                 url: url + waitlistId + "/list/" + userId
             }).then(function(res) {
-                console.log("hitting return");
+                //console.log("hitting return");
                 return res.data;
             })
         };
@@ -60,7 +73,7 @@
             }).then(function(res) {
                 return res.data;
             })
-        }
+        };
 
         this.updateWaitTime = function(waitlistId, time) {
             return $http({
@@ -68,7 +81,7 @@
                 url: url + waitlistId,
                 data: {quotedTime: time}
             }).then(function(res) {
-                console.log(res.data.quotedTime);
+                //console.log(res.data.quotedTime);
                 return res.data.quotedTime;
             })
         }

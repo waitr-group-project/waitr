@@ -8,26 +8,20 @@
         var crc = this;
 
         var restaurantId = $stateParams.restaurantId;
-        console.log('this is restaurant id', restaurantId);
+        //console.log('this is restaurant id', restaurantId);
 
         $timeout(function () {
             crc.currentUser = $scope.ac.currentUser;
-            console.log('custRestaurant', crc.currentUser);
+            //console.log('custRestaurant', crc.currentUser);
 
             restaurantService.getCurrentRestaurant(restaurantId).then(function (restaurant) {
                 console.log('hey', restaurant[0]);
+
                 crc.restaurant = restaurant[0];
             });
             restaurantService.getWaitlist(restaurantId).then(function (res) {
                 crc.customerEntries = res[0];
             });
-
-
-
-            // restaurantService.getCurrentRestaurant(restaurantId).then(function (restaurant) {
-            //   console.log('hey',restaurant[0]);
-            //   crc.restaurant = restaurant[0];
-            // });
 
             crc.userAddingToQ = function () {
                 //console.log('user adding to Q',crc.currentUser);
