@@ -1,10 +1,10 @@
 (function() {
   angular
     .module('waitrApp')
-    .service('waitlistService', waitlistService);
+    .service('waitlistService', 'SERVER_INFO', waitlistService);
 
-    function waitlistService ($http) {
-        var url = "/api/waitlist/";
+    function waitlistService ($http, SERVER_INFO) {
+        var url = SERVER_INFO.url + "/api/waitlist/";
         
         this.isValidPhone = function (num) {
             if (num.length != 10) {

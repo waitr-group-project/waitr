@@ -22,6 +22,10 @@
         }
       });
     })
+  
+    .constant('SERVER_INFO', {
+      url: 'http://192.168.0.212:1234'
+    })
 
     .constant('AUTH_EVENTS', {
       notAuthenticated: 'auth-not-authenticated',
