@@ -11,7 +11,7 @@
     rmc.menuTitle = null;
     rmc.menuContent = rmc.groupedMenu;
     
-    restaurantService.getRestaurantMenu(rmc.restaurantId)
+    restaurantService.getCurrentRestaurant(rmc.restaurantId)
     .then(function (restaurant) {
         // console.log('restaurant',restaurant);
         rmc.restaurant = restaurant;
