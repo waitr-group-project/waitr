@@ -12,7 +12,7 @@ angular.module('waitrApp')
 
 
 
-    $urlRouterProvider.otherwise('/restaurant/home');
+    $urlRouterProvider.otherwise('/login');
 
 
     $stateProvider
