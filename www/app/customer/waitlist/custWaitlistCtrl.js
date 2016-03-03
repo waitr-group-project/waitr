@@ -5,7 +5,7 @@
 
   function custWaitlistCtrl (userService, restaurantService, $timeout, $scope, waitlistService, $ionicPopup, $state, $ionicHistory) {
     var cwc = this;
-    var socket = io();
+    var socket = io.connect('http://104.131.135.179');
 
     socket.on('newPersonAdded', function(data) {
       //console.log("socket data is: ", data);

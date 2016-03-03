@@ -11,21 +11,16 @@
       //});
 
       $timeout(function() {
-        currentUser = $scope.ac.currentUser;
-        //console.log('resta profile',currentUser);
-        userService.currentUser(currentUser._id).then(function (currentUser) {
-          var currentUserID = currentUser[0].restaurant_id;
-
-        restaurantService.getCurrentRestaurant(currentUserID).then(function (restaurant) {
+        var currentRestID = $scope.ac.currentUser.restaurant_id;
+        restaurantService.getCurrentRestaurant(currentRestID).then(function (restaurant) {
             rpc.restaurant = restaurant[0];
 
-          restaurantService.getWaitlist(currentUserID).then(function(res) {
+          restaurantService.getWaitlist(currentRestID).then(function(res) {
               rpc.customerEntries = res[0];
               });
           });
         });
-      });
-
+        
       rpc.callTel = function(tel) {
             window.location.href = 'tel:'+ tel;
         };
