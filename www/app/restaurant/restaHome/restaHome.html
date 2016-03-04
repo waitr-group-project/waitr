@@ -1,6 +1,6 @@
 <ion-view>
   <ion-nav-buttons side="right">
-    <button menu-toggle="right" class="button button-icon icon ion-plus-round"  ui-sref="restaurant.addPerson"></button>
+    <button menu-toggle="right" class="button button-icon icon ion-plus-round" ui-sref="restaurant.addPerson"></button>
   </ion-nav-buttons>
   <ion-nav-title>
     <span style="font-size:1.5rem">Wait List</span>
@@ -19,14 +19,14 @@
       </div>
       <div class="item row" ng-repeat="entry in rhc.customerEntries.list | filter : search" ui-sref="restaurant.editPerson({person:entry._id, waitlist: rhc.customerEntries._id})">
         <div class="col col-40">{{entry.lastName}}</div>
-        <time am-time-ago="entry.timeAdded" class="col text-center" >{{entry.timeAdded}}</time>
+        <time am-time-ago="entry.timeAdded" class="col text-center">{{entry.timeAdded}}</time>
         <div class="col text-center">{{entry.quotedTimeGiven}}m</div>
         <div class="col text-center">{{entry.partySize}}</div>
       </div>
     </div>
   </ion-content>
-    <ion-footer-bar class="bar-energized" ng-click="rhc.showWaitTimeModal(rhc.customerEntries.quotedTime)">
-        <h2 class="title"><i class="ion-compose"></i>&nbsp; Wait Time: {{rhc.customerEntries.quotedTime}} mins</h2>
+  <ion-footer-bar class="bar-energized" ng-click="rhc.showWaitTimeModal(rhc.customerEntries.quotedTime)">
+    <h2 class="title"><i class="ion-compose"></i>&nbsp; Wait Time: {{rhc.customerEntries.quotedTime}} mins</h2>
 
-    </ion-footer-bar>
+  </ion-footer-bar>
 </ion-view>

@@ -1,14 +1,15 @@
 (function () {
   angular
-    .module('waitrApp')
-    .controller('custHomeCtrl', ['restaurantService', custHomeCtrl]);
+  .module('waitrApp')
+  .controller('custHomeCtrl', ['restaurantService', custHomeCtrl]);
 
-  function custHomeCtrl (restaurantService) {
+  function custHomeCtrl(restaurantService) {
     var chc = this;
 
-    restaurantService.getRestaurants().then(function (restaurant) {
-      chc.restaurantList = restaurant;
-    });
+    restaurantService.getRestaurants()
+      .then(function (restaurant) {
+        chc.restaurantList = restaurant;
+      });
 
 
   }

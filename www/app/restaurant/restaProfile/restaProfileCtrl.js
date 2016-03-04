@@ -1,41 +1,27 @@
 (function () {
   angular
     .module('waitrApp')
-    .controller('restaProfileCtrl', ['$timeout','restaurantService', '$scope', 'userService', restaProfileCtrl]);
+    .controller('restaProfileCtrl', ['waitlistService', '$scope', 'userService', restaProfileCtrl]);
 
-  function restaProfileCtrl ($timeout, restaurantService, $scope, userService) {
-      var rpc = this;
+  function restaProfileCtrl(waitlistService, $scope, userService) {
 
-      //restaurantService.getRestaurant('56ce9b91f6326bb743e015f0').then(function(response) {
-      //  rpc.restaurantObj = response;
-      //});
+    var rpc = this;
+    rpc.infoHoursToggle = true;
+    rpc.currentUser = $scope.rrc.currentUser;
+    rpc.restaurant = $scope.rrc.restaurant;
 
-      $timeout(function() {
-        currentUser = $scope.ac.currentUser;
-        //console.log('resta profile',currentUser);
-        userService.currentUser(currentUser._id).then(function (currentUser) {
-          var currentUserID = currentUser[0].restaurant_id;
+    waitlistService.getWaitlist(rpc.currentUser.restaurant_id).then(function (res) {
+      rpc.customerEntries = res[0];
+    });
 
-        restaurantService.getCurrentRestaurants(currentUserID).then(function (restaurant) {
-            rpc.restaurant = restaurant[0];
+    rpc.callTel = function (tel) {
+      window.location.href = 'tel:' + tel;
+    };
 
-          restaurantService.getWaitlist(currentUserID).then(function(res) {
-              rpc.customerEntries = res[0];
-              });
-          });
-        });
-      });
-
-      rpc.callTel = function(tel) {
-            window.location.href = 'tel:'+ tel;
-        };
-
-      rpc.infoHoursToggle = true;
-
-      rpc.showOnClick = function(value) {
-        rpc.infoHoursToggle = value;
-      };
-
-  }
+    rpc.infoHoursToggle = true;
+    rpc.showOnClick = function (value) {
+      rpc.infoHoursToggle = value;
+    };
+  };
 
 })();

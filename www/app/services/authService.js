@@ -4,9 +4,9 @@
 angular.module('waitrApp')
   .factory('authService', authService);
 
-  authService.$inject = ['$http', '$q', 'authTokenService', '$state', '$rootScope'];
+  authService.$inject = ['$http', 'SERVER_URL', '$q', 'authTokenService', '$state', '$rootScope'];
 
-  function authService($http, $q, authTokenService, $state, $rootScope) {
+  function authService($http, SERVER_URL, $q, authTokenService, $state, $rootScope) {
     return {
 
       register: register,
@@ -23,7 +23,7 @@ angular.module('waitrApp')
     function register(data) {
       var deferred = $q.defer();
       $http
-        .post('/register', data)
+        .post( SERVER_URL + '/register', data)
         .then(function(res) {
           authTokenService.setToken(res.data.token);
           var currentUser = parseToken(res.data.token);
@@ -38,7 +38,7 @@ angular.module('waitrApp')
     function login(credentials) {
       var deferred = $q.defer();
       $http
-        .post('/login', credentials)
+        .post( SERVER_URL + '/login', credentials)
         .then(function(res) {
           authTokenService.setToken(res.data.token);
           var currentUser = parseToken(res.data.token);
