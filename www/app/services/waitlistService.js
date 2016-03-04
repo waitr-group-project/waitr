@@ -1,7 +1,7 @@
 (function () {
   angular
     .module('waitrApp')
-    .service('waitlistService', waitlistService);
+    .service('waitlistService', ['$http', 'SERVER_URL', waitlistService]);
 
   function waitlistService($http, SERVER_URL) {
     var url = SERVER_URL + "/api/waitlist/";
@@ -19,7 +19,7 @@
 
     this.maxPartySize = 100;
 
-      var url = "/api/waitlist/";
+      var url = SERVER_URL + "/api/waitlist/";
 
       this.addAnonToWaitlist = function (user, waitlistId, waitTime) {
         //first, we need to structure our data in a way that the server will accept
@@ -60,7 +60,6 @@
           method: "DELETE",
           url: url + waitlistId + "/list/" + userId
         }).then(function (res) {
-          //console.log("hitting return");
           return res.data;
         })
       };
@@ -86,9 +85,10 @@
           return res.data.quotedTime;
         })
       }
+
       this.getWaitlist = function (waitListId) {
         return $http
-          .get('/api/waitlist/?restaurant_id=' + waitListId)
+          .get(SERVER_URL + '/api/waitlist/?restaurant_id=' + waitListId)
           .then(function (response) {
             return response.data;
           });

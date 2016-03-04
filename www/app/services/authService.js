@@ -23,7 +23,7 @@ angular.module('waitrApp')
     function register(data) {
       var deferred = $q.defer();
       $http
-        .post( SERVER_URL + '/register', data)
+        .post(SERVER_URL + '/register', data)
         .then(function(res) {
           authTokenService.setToken(res.data.token);
           var currentUser = parseToken(res.data.token);
@@ -38,7 +38,7 @@ angular.module('waitrApp')
     function login(credentials) {
       var deferred = $q.defer();
       $http
-        .post( SERVER_URL + '/login', credentials)
+        .post(SERVER_URL + '/login', credentials)
         .then(function(res) {
           authTokenService.setToken(res.data.token);
           var currentUser = parseToken(res.data.token);
