@@ -14,6 +14,7 @@ module.exports = {
   read: function (req, res) {
     Restaurant
       .find(req.query)
+      .populate('waitlist_id')
       .exec(function (err, result) {
         if (err) {
           return res.status(500).send(err);
