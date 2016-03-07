@@ -14,7 +14,8 @@ angular.module('waitrApp')
       logout: logout,
       isAuthenticated: isAuthenticated,
       isAuthorized: isAuthorized,
-      getUser: getUser
+      getUser: getUser,
+      updateToken: updateToken
 
     };
 
@@ -65,6 +66,12 @@ angular.module('waitrApp')
       }
       return (isAuthenticated() && authorizedRoles.indexOf(getUser().role) !== -1);
     }
+
+    function updateToken() {
+      
+    }
+
+
 
     ////////////////
 

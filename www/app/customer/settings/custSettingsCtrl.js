@@ -1,9 +1,9 @@
 (function () {
   angular
     .module('waitrApp')
-    .controller('custSettingsCtrl', ['userService', '$timeout', '$scope', custSettingsCtrl]);
+    .controller('custSettingsCtrl', ['userService', '$state', '$timeout', '$scope', custSettingsCtrl]);
 
-  function custSettingsCtrl(userService, $timeout, $scope) {
+  function custSettingsCtrl(userService, $state, $timeout, $scope) {
     var csc = this;
 
     csc.currentUser = $scope.ccc.currentUser;
@@ -19,7 +19,11 @@
         phone: phone,
         email: email
       };
-      userService.updateUser(csc.currentUser._id, user);
+      userService.updateUser(csc.currentUser._id, user).then(function(user) {
+        $scope.ccc.currentUser = user;
+        $state.go('customer.settings');
+      });
+
     };
 
   }
