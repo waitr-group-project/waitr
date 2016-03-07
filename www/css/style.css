@@ -90,7 +90,9 @@ font-size: 90%;
 }
 #menuItemFooter {
   border-style: none;
-  margin-top: -30px;
+}
+#menuItemFooter .item-content {
+  padding: 8px 0 0 16px;
 }
 #timerNumberRestaProfile {
     font-size: 0.7em;
@@ -192,7 +194,7 @@ font-size: 90%;
 
 /****Restaurant Menus*****/
 .list .item.item-accordion {
-    white-space: normal;  
+    white-space: normal;
     line-height: 25px;
     padding-top: 10px;
     padding-bottom: 10px;
