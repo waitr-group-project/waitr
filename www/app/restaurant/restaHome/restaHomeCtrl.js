@@ -1,14 +1,14 @@
 (function () {
   angular
     .module('waitrApp')
-    .controller('restaHomeCtrl', ['waitlistService', '$state', "$ionicHistory", '$scope', '$ionicPopup', 'SERVER_URL', restaHomeCtrl]);
+    .controller('restaHomeCtrl', ['waitlistService', '$state', "$ionicHistory", '$scope', '$ionicPopup', restaHomeCtrl]);
 
-  function restaHomeCtrl(waitlistService, $state, $ionicHistory, $scope, $ionicPopup, SERVER_URL) {
+  function restaHomeCtrl(waitlistService, $state, $ionicHistory, $scope, $ionicPopup) {
     var rhc = this;
 
     rhc.newPerson = {};
 
-    var socket = io.connect(SERVER_URL);
+    var socket = io.connect('http://104.131.135.179');
 
     socket.on('newPersonAdded', function (data) {
       console.log("socket data is: ", data);
@@ -88,8 +88,8 @@
         template: '<label class="item item-input"><input type="tel" ng-model="rhc.time" min="0"></label>',
         title: "Enter Wait Time",
         scope: $scope,
-        buttons: [{
-            text: 'Cancel'
+        buttons: [{ 
+            text: 'Cancel' 
           },
           {
             text: '<b>Save</b>',
@@ -116,3 +116,4 @@
   }
 
 })();
+

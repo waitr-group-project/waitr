@@ -1,11 +1,11 @@
 (function () {
   angular
     .module('waitrApp')
-    .controller('custWaitlistCtrl', ['userService', 'restaurantService', '$timeout', '$scope', 'waitlistService', '$ionicPopup', '$state', '$ionicHistory', 'SERVER_URL', custWaitlistCtrl]);
+    .controller('custWaitlistCtrl', ['userService', 'restaurantService', '$timeout', '$scope', 'waitlistService', '$ionicPopup', '$state', '$ionicHistory', custWaitlistCtrl]);
 
-  function custWaitlistCtrl(userService, restaurantService, $timeout, $scope, waitlistService, $ionicPopup, $state, $ionicHistory, SERVER_URL) {
+  function custWaitlistCtrl(userService, restaurantService, $timeout, $scope, waitlistService, $ionicPopup, $state, $ionicHistory) {
     var cwc = this;
-    var socket = io.connect(SERVER_URL);
+    var socket = io.connect('http://104.131.135.179');
 
     socket.on('newPersonAdded', function (data) {
       cwc.user.inWaitList.list.push(data);

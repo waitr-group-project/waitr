@@ -4,13 +4,13 @@
 (function () {
   angular
     .module('waitrApp')
-    .controller('custWaitListConfirmCtrl', ['$stateParams', '$timeout', '$scope', 'waitlistService', 'restaurantService', '$state', 'userService', '$ionicHistory', 'SERVER_URL', custWaitListConfirmCtrl]);
+    .controller('custWaitListConfirmCtrl', ['$stateParams', '$timeout', '$scope', 'waitlistService', 'restaurantService', '$state', 'userService', '$ionicHistory', custWaitListConfirmCtrl]);
 
-  function custWaitListConfirmCtrl($stateParams, $timeout, $scope, waitlistService, restaurantService, $state, userService, $ionicHistory, SERVER_URL) {
+  function custWaitListConfirmCtrl($stateParams, $timeout, $scope, waitlistService, restaurantService, $state, userService, $ionicHistory) {
 
     var cwlc = this;
     var currRest = $stateParams.restaurantId;
-    var socket = io.connect(SERVER_URL);
+    var socket = io.connect('http://104.131.135.179');
     cwlc.currentUser = $scope.ccc.currentUser;
 
     restaurantService.getCurrentRestaurant(currRest)
