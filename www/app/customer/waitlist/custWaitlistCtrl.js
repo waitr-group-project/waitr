@@ -20,16 +20,21 @@
     });
 
     cwc.currentUser = $scope.ccc.currentUser;
-    console.log('this is the current user',cwc.currentUser.inWaitList);
+    console.log('this is the current user',cwc.currentUser);
 
-    waitlistService.getWaitlist(cwc.currentUser.inWaitList).then(function (data){
-      console.log('rest part?',data);
-    })
+    //waitlistService.getWaitlist(cwc.currentUser.inWaitList).then(function (data){
+    //  console.log('rest part?',data);
+    //});
 
-    restaurantService.getCurrentRestaurant(cwc.currentUser.inWaitList.restaurant_id).then(function (data) {
-      cwc.restaurant = data[0];
-      console.log('wait list rest', cwc.restaurant);
+    userService.currentUser(cwc.currentUser._id).then(function (user) {
+      cwc.currentUser = user;
+
+      restaurantService.getCurrentRestaurant(cwc.currentUser.inWaitList.restaurant_id).then(function (data) {
+        cwc.restaurant = data[0];
+        console.log('wait list rest', cwc.restaurant);
+      });
     });
+
 
     cwc.removeFromWaitlist = function () {
       var list = cwc.currentUser.inWaitList.list;
