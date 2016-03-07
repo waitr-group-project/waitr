@@ -15,6 +15,8 @@
     };
 
     this.updateUser = function (id, obj) {
+      console.log('serverURL', SERVER_URL + '/api/user/' + id);
+      console.log('data', obj);
       return $http({
         method: 'PUT',
         url: SERVER_URL + '/api/user/' + id,

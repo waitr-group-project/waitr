@@ -79,6 +79,7 @@ angular.module('waitrApp')
     function getUser() {
       var currentUser = authTokenService.getToken();
       if (currentUser) {
+        console.log(JSON.parse(atob(currentUser.split('.')[1])));
         return JSON.parse(atob(currentUser.split('.')[1]));
       } else {
         return null;

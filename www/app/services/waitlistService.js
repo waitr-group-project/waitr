@@ -84,7 +84,7 @@
           //console.log(res.data.quotedTime);
           return res.data.quotedTime;
         })
-      }
+      };
 
       this.getWaitlist = function (waitListId) {
         return $http
@@ -93,6 +93,8 @@
             return response.data;
           });
       };
+
+
     }
 
   })();

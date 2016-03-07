@@ -99,6 +99,7 @@ module.exports = {
   },
 
   read: function (req, res) {
+    console.log(req.query);
     User
       .find(req.query)
       .exec(function (err, result) {

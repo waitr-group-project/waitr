@@ -20,6 +20,11 @@
     });
 
     cwc.currentUser = $scope.ccc.currentUser;
+    console.log('this is the current user',cwc.currentUser.inWaitList);
+
+    waitlistService.getWaitlist(cwc.currentUser.inWaitList).then(function (data){
+      console.log('rest part?',data);
+    })
 
     restaurantService.getCurrentRestaurant(cwc.currentUser.inWaitList.restaurant_id).then(function (data) {
       cwc.restaurant = data[0];
