@@ -7,19 +7,20 @@
     var cwc = this;
     var socket = io.connect('http://104.131.135.179');
 
+    cwc.currentUser = $scope.ccc.currentUser;
+
     socket.on('newPersonAdded', function (data) {
-      cwc.user.inWaitList.list.push(data);
+      cwc.currentUser.inWaitList.list.push(data);
       $scope.$apply();
     });
 
     socket.on('deletedPerson', function (data) {
-      if (cwc.user.inWaitList) {
-        cwc.user.inWaitList.list.splice(data.pos, 1);
+      if (cwc.currentUser.inWaitList) {
+        cwc.currentUser.inWaitList.list.splice(data.pos, 1);
         $scope.$apply();
       }
     });
 
-    cwc.currentUser = $scope.ccc.currentUser;
 
     userService.currentUser(cwc.currentUser._id).then(function(user) {
       cwc.currentUser = user[0];

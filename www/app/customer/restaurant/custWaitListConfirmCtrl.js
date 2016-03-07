@@ -41,15 +41,6 @@
           $state.go("customer.waitlist");
         });
 
-
-      waitlistService.addAnonToWaitlist(person, cwlc.currRestObj[0].waitlist_id)
-        .then(function (res) {
-          var waitlistId = {
-            inWaitList: cwlc.currRestObj[0].waitlist_id
-          };
-          userService.updateUser(cwlc.currentUser._id, waitlistId);
-          $state.go("customer.waitlist");
-        });
     }
 
   }
