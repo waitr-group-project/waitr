@@ -1,6 +1,13 @@
 (function () {
   angular
     .module('waitrApp')
+<<<<<<< HEAD
+=======
+.controller('restaEditCtrl', ['waitlistService', '$state', "$ionicHistory", "$stateParams", "$ionicPopup", '$cordovaVibration', '$ionicPlatform', restaEditCtrl]);
+
+function restaEditCtrl (waitlistService, $state, $ionicHistory, $stateParams, $ionicPopup) {
+    var socket = io.connect('http://104.131.135.179');
+>>>>>>> dev
 
     .controller('restaEditCtrl', ['waitlistService', '$state', "$ionicHistory", "$stateParams", "$ionicPopup", '$cordovaVibration', '$ionicPlatform', restaEditCtrl]);
 

@@ -7,6 +7,11 @@
     var rhc = this;
 
     rhc.newPerson = {};
+<<<<<<< HEAD
+=======
+
+    var socket = io.connect('http://104.131.135.179');
+>>>>>>> dev
 
     var socket = io.connect(SERVER_URL);
 
@@ -67,6 +72,7 @@
             ]
           })
         }
+<<<<<<< HEAD
       } else {
         $ionicPopup.show({
           title: "Invalid Data",
@@ -76,6 +82,8 @@
           ]
         })
       }
+=======
+>>>>>>> dev
 
     };
 

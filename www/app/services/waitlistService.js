@@ -3,8 +3,26 @@
     .module('waitrApp')
     .service('waitlistService', ['$http', 'SERVER_URL', waitlistService]);
 
+<<<<<<< HEAD
   function waitlistService($http, SERVER_URL) {
     var url = SERVER_URL + "/api/waitlist/";
+=======
+    function waitlistService ($http) {
+        var url = "http://104.131.135.179/api/waitlist/";
+
+        this.isValidPhone = function (num) {
+            if (num.length != 10) {
+                return false;
+            }
+            num = parseInt(num);
+            if (num && num > 1000000000) {
+                return true;
+            }
+            return false;
+        }
+
+        this.maxPartySize = 100;
+>>>>>>> dev
 
     this.isValidPhone = function (num) {
       if (num.length != 10) {

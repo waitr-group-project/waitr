@@ -33,11 +33,19 @@
       user: 'user',
       restaurant: 'restaurant'
     })
+<<<<<<< HEAD
     
     .constant('SERVER_URL', 'http://104.131.135.179')
     // .constant('SERVER_URL', 'http://localhost:1234')
      
     .run(function ($rootScope, AUTH_EVENTS, authService, $timeout, $state) {
+=======
+    .constant('USER_ROLES', {
+
+
+    })
+    .run(function($rootScope, AUTH_EVENTS, authService, $timeout, $state) {
+>>>>>>> dev
 
       var user = authService.getUser();
       if (user) {

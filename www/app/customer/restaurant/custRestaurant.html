@@ -41,10 +41,39 @@
       <p>{{crc.restaurant.description}}</p>
     </div>
 
+<<<<<<< HEAD
     <div id="restProfileBodyBox" class="item item-body text-center item-text-wrap" ng-hide="crc.infoHoursToggle">
       <div class="row text-center ">
         <div class="col ">
           <span id="dayOfTheWeekInResta"></span>
+=======
+
+
+
+  <i id="timeOnRestaurantProfile" class="icon ion-ios-clock-outline"><span id="timerNumberRestaProfile">{{crc.customerEntries.quotedTime}}</span></i>
+        </span>
+        <div id="resQWaitingList" class="item row">
+            <div class="col text-center">
+                <button id="restProfileLinks" class="button button-icon icon ion-ios-telephone-outline" ng-click="crc.callTel({{crc.restaurant.restaurantPhone}})"></button>
+                <div>CALL</div>
+            </div>
+            <div class="col text-center">
+                <a id="restProfileLinks" ui-sref="customer.menu({restaurantId: crc.restaurant._id})" class="button button-icon icon ion-ios-wineglass-outline"></a>
+                <div>MENU</div>
+            </div>
+            <div class="col text-center">
+                <button id="restProfileLinks" class="button button-icon icon ion-ios-world-outline" onclick="window.open('https://github.com/', '_system', 'location=yes'); return false;"></button>
+                <div>WEBSITE</div>
+            </div>
+            <div class="col text-center">
+                <button id="restProfileLinks" class="button button-icon icon ion-ios-list-outline" ng-click="crc.showOnClick(true)"></button>
+                <div>INFO</div>
+            </div>
+            <div class="col text-center">
+                <button id="restProfileLinks" class="button button-icon icon ion-ios-time-outline " ng-click="crc.showOnClick(false)"></button>
+                <div>HOURS</div>
+            </div>
+>>>>>>> dev
         </div>
         <div class="col ">
           <span id="dayOfTheWeekInResta">OPEN</span>

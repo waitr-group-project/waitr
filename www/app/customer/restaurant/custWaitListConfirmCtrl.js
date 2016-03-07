@@ -13,10 +13,23 @@
     var socket = io.connect(SERVER_URL);
     cwlc.currentUser = $scope.ccc.currentUser;
 
+<<<<<<< HEAD
     restaurantService.getCurrentRestaurant(currRest)
       .then(function (data) {
         cwlc.currRestObj = data;
       });
+=======
+    var socket = io.connect('http://104.131.135.179');
+
+
+    $timeout(function() {
+      cwlc.currentUser = $scope.ac.currentUser;
+      //console.log('custWaitListConfirm', cwlc.currentUser);
+
+      restaurantService.getCurrentRestaurant(currRest).then(function (data) {
+        var currRestObj = data;
+        //console.log('this is rest obj',currRestObj[0]);
+>>>>>>> dev
 
     cwlc.userAddingToQ = function (firstname, lastname, partysize, phone, notes) {
       var person = {
