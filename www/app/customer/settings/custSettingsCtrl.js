@@ -20,7 +20,9 @@
         email: email
       };
       userService.updateUser(csc.currentUser._id, user).then(function(user) {
+        console.log(user);
         $scope.ccc.currentUser = user;
+        // csc.currentUser = user;
         $state.go('customer.settings');
       });
 
