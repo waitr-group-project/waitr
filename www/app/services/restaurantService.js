@@ -5,6 +5,12 @@
 
   function restaurantService($http, SERVER_URL) {
 
+    this.notification = function (obj) {
+      return $http.put(SERVER_URL + '/api/twilio', obj).then(function(response) {
+        return response.data;
+      })
+    };
+
     this.getRestaurants = function () {
       return $http.get(SERVER_URL + '/api/restaurant').then(function(response) {
         return response.data;
@@ -28,12 +34,13 @@
         .then(function (response) {
           return response.data;
         });
-    }
+    };
     this.getWaitlist = function (waitListId) {
       return $http.get(SERVER_URL + '/api/waitlist/?restaurant_id=' + waitListId).then(function (response) {
         return response.data;
       });
     };
+
 
   }
 
