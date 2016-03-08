@@ -14,8 +14,11 @@
       rpc.customerEntries = res[0];
     });
 
-    rpc.callTel = function (tel) {
-      window.location.href = 'tel:' + tel;
+    rpc.callTel = function () {
+      window.location.href = 'tel:' + rpc.restaurant.restaurantPhone;
+    };
+    rpc.getWebsite = function () {
+      window.open(rpc.restaurant.restaurantWebsite, '_system', 'location=yes'); return false;
     };
 
     rpc.infoHoursToggle = true;
