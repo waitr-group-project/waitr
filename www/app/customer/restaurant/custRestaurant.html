@@ -17,7 +17,7 @@
     </span>
     <div id="resQWaitingList" class="item row">
       <div class="col text-center">
-        <button id="restProfileLinks" class="button button-icon icon ion-ios-telephone-outline" ng-click="crc.callTel({{crc.restaurant.restaurantPhone}})"></button>
+        <button id="restProfileLinks" class="button button-icon icon ion-ios-telephone-outline" ng-click="crc.callTel()"></button>
         <div>CALL</div>
       </div>
       <div class="col text-center">
@@ -25,7 +25,7 @@
         <div>MENU</div>
       </div>
       <div class="col text-center">
-        <button id="restProfileLinks" class="button button-icon icon ion-ios-world-outline" onclick="window.open('https://github.com/', '_system', 'location=yes'); return false;"></button>
+        <button id="restProfileLinks" class="button button-icon icon ion-ios-world-outline" ng-click="crc.getWebsite()"></button>
         <div>WEBSITE</div>
       </div>
       <div class="col text-center">

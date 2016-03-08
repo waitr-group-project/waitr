@@ -27,8 +27,11 @@
         $state.go("restaurant.home");
       });
     };
-    crc.callTel = function (tel) {
-      window.location.href = 'tel:' + tel;
+    crc.callTel = function () {
+      window.location.href = 'tel:' + crc.restaurant.restaurantPhone;
+    };
+    crc.getWebsite = function () {
+      window.open(crc.restaurant.restaurantWebsite, '_system', 'location=yes'); return false;
     };
 
 

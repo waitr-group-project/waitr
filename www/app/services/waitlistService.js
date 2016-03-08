@@ -19,9 +19,7 @@
 
     this.maxPartySize = 100;
 
-      var url = "/api/waitlist/";
-
-      this.addAnonToWaitlist = function (user, waitlistId, waitTime) {
+    this.addAnonToWaitlist = function (user, waitlistId, waitTime) {
         //first, we need to structure our data in a way that the server will accept
         var newListEntry = {
           firstName: user.firstName,
@@ -46,6 +44,7 @@
           return res.data;
         })
       };
+      
       this.getOneFromWaitlist = function (userId, waitlistId) {
         return $http({
           method: "GET",
@@ -88,7 +87,7 @@
       }
       this.getWaitlist = function (waitListId) {
         return $http
-          .get('/api/waitlist/?restaurant_id=' + waitListId)
+          .get(url + '?restaurant_id=' + waitListId)
           .then(function (response) {
             return response.data;
           });

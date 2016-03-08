@@ -10,9 +10,9 @@
       <p>{{cwc.restaurant.addressLineOne}}, {{cwc.restaurant.state}}, {{cwc.restaurant.zipcode}}</p>
       <i class="icon ion-ios-clock-outline" style="color: lightgrey">{{cwc.restaurant.waitlist_id.quotedTime}}</i>
     </div>
-    <ul class="list" ng-repeat="waitlist in cwc.user.inWaitList.list" id="waitList">
+    <ul class="list" ng-repeat="waitlist in cwc.currentUser.inWaitList.list" id="waitList">
       <li class="item">{{waitlist.lastName}}</li>
     </ul>
     <button class="button button-full button-assertive" ng-click="cwc.showRemovePopup()">LEAVE</button>
-  </ion-content>
+  </ion-content>  
 </ion-view>
