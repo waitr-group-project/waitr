@@ -3,7 +3,7 @@
     <span style="font-size:1.5rem">Restaurants</span>
   </ion-nav-title>
   <ion-content>
-    <div class="list" id="restList" ng-repeat="restaurant in chc.restaurantList">
+    <div class="list" id="restList" ng-repeat="restaurant in chc.restaurantList | orderBy:waitlist_id.quotedTime:true">
       <a class="item item-avatar item-icon-right" id="restItem" ui-sref="customer.restaurant({restaurantId: restaurant._id})">
         <img ng-src="{{restaurant.restaurantImage}}">
         <h2>{{restaurant.restaurantName}}</h2>
