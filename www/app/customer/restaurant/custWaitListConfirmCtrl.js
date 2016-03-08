@@ -30,6 +30,8 @@
 
       waitlistService.addAnonToWaitlist(person, cwlc.currRestObj[0].waitlist_id)
         .then(function (res) {
+          console.log("res: ", res);
+          
           socket.emit('newPerson', res);
           $ionicHistory.nextViewOptions({
             disableBack: true
@@ -37,8 +39,10 @@
           var waitlistId = {
             inWaitList: cwlc.currRestObj[0].waitlist_id
           };
-          userService.updateUser(cwlc.currentUser._id, waitlistId);
-          $state.go("customer.waitlist");
+          userService.updateUser(cwlc.currentUser._id, waitlistId).then(function(res) {
+              $scope.ccc.currentUser.inWaitList = waitlistId.inWaitList;
+              $state.go("customer.waitlist");
+          });
         });
 
     }
