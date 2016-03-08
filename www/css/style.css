@@ -1,11 +1,14 @@
 /* Empty. Add your own CSS if you like */
 #resQWaitingList {
 font-weight: bold;
-color: orange;
+color: #19b7bb;
 font-size: 90%;
 }
 .bar-energized {
-  background-color: orange !important;
+  background-color:#19b7bb !important;
+}
+.button-energized {
+  background-color:#19b7bb !important;
 }
 
 #resProfileImage {
@@ -17,7 +20,7 @@ font-size: 90%;
 #restaurantProfileDescription {
   position: relative;
   margin-top: -5px;
-  background-color: orange;
+  background-color: #19b7bb;
 }
 .sizeOfCardOnRestProfile{
   height: 26vh;
@@ -27,7 +30,7 @@ font-size: 90%;
   position: relative;
   height: 40px;
   margin-top: -3px;
-  background-color: rgb(32, 120, 223) !important;
+  background-color: rgb(222, 146, 32) !important;
   font-size: 1.5em;
   color: white;
   font-weight: bold;
@@ -55,7 +58,7 @@ font-size: 90%;
   color: white;
 }
 #restProfileLinks {
-  color: orange;
+  color: #19b7bb;
 }
 .formButton {
     font-weight: 600;
@@ -219,4 +222,10 @@ font-size: 90%;
 .title .button{
     font-size: 2rem;
     margin-top: 5px;
+}
+.back-button > .back-text > .default-title {
+    display:none;
+}
+.back-button > .back-text > .previous-title {
+    display:none;
 }
