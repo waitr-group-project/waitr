@@ -13,7 +13,8 @@ var io = require('socket.io')(http);
 
 var userCtrl = require('./controllers/userCtrl'),
     restaurantCtrl = require('./controllers/restaurantCtrl'),
-    waitlistCtrl = require('./controllers/waitlistCtrl');
+    waitlistCtrl = require('./controllers/waitlistCtrl'),
+    twilioCtrl = require('./controllers/twilioCtrl');
 
 app.use(bodyParser.json());
 app.use(cors());
@@ -76,6 +77,8 @@ app.put('/api/waitlist/:id/list', waitlistCtrl.addToList);
 app.delete('/api/waitlist/:id/list/:listId', waitlistCtrl.removeFromList);
 app.get('/api/waitlist/:id/list/:listId', waitlistCtrl.getFromList);
 app.put('/api/waitlist/:id/list/:listId', waitlistCtrl.updateListEntry);
+
+app.put('/api/twilio', twilioCtrl.sendTextMessage);
 
 io.on('connection', function(socket) {
     socket.on('newPerson', function(data) {

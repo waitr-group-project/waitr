@@ -24,6 +24,14 @@
         <span class="input-label">Zip</span>
         <input type="text" placeholder="ZIP" ng-model="rsc.restaurant.zipcode">
       </label>
+      <label class="item item-input item-floating-label">
+        <span class="input-label">Phone</span>
+        <input type="text" placeholder="Phone" ng-model="rsc.restaurant.restaurantPhone">
+      </label>
+      <label class="item item-input item-floating-label">
+        <span class="input-label">Website</span>
+        <input type="text" placeholder="Website" ng-model="rsc.restaurant.restaurantWebsite">
+      </label>
     </div>
     <button class="button button-full button-positive" ng-click="rsc.updateRestaurant(rsc.restaurant)" ui-sref="restaurant.settings">SAVE</button>
   </ion-content>

@@ -1,11 +1,11 @@
 /* Empty. Add your own CSS if you like */
 #resQWaitingList {
 font-weight: bold;
-color: orange;
+color: #F26101;
 font-size: 90%;
 }
 .bar-energized {
-  background-color: orange !important;
+  background-color: #F26101 !important;
 }
 
 #resProfileImage {
@@ -17,7 +17,7 @@ font-size: 90%;
 #restaurantProfileDescription {
   position: relative;
   margin-top: -5px;
-  background-color: orange;
+  background-color: #F26101;
 }
 .sizeOfCardOnRestProfile{
   height: 26vh;
@@ -50,6 +50,9 @@ font-size: 90%;
 #restaDescInDesc {
   color: white;
   font-size: 0.7em;
+}
+#custHomeRestList {
+  font-size: 0.8em;
 }
 #timeOnRestaurantProfile {
   color: white;
