@@ -51,6 +51,9 @@ font-size: 90%;
   color: white;
   font-size: 0.7em;
 }
+#custHomeRestList {
+  font-size: 0.8em;
+}
 #timeOnRestaurantProfile {
   color: white;
 }
