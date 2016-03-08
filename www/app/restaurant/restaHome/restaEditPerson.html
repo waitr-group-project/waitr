@@ -1,5 +1,4 @@
 <ion-view>
-
   <ion-nav-buttons side="right">
     <button id="saveButton" class="button button-energized" ng-click="rec.submitEditedEntry(rec.person)">Save</button>
   </ion-nav-buttons>
@@ -29,9 +28,9 @@
         <input type="text" placeholder="Notes" ng-model="rec.person.notes">
       </label>
     </div>
-    <button class="formButton button button-block button-energized" ng-click="rec.vibrate()">Notification</button>
-    <button class="formButton button button-block button-energized" ng-click="rec.showCheckInPopup()">Check In</button>
-    <button class="formButton button button-outline button-block button-energized" ng-click="rec.showRemovePopup()">Remove</button>
+    <button class="formButton button button-large button-energized" ng-click="rec.notification()">Notification</button>
+    <button class="formButton button button-large button-energized" ng-click="rec.showCheckInPopup()">Check In</button>
+    <button class="formButton button button-outline button-large button-energized" ng-click="rec.showRemovePopup()">Remove</button>
   </ion-content>
 
 </ion-view>
