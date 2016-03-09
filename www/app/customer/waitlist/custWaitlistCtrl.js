@@ -36,6 +36,7 @@
         if (list[i].user_id == cwc.currentUser._id) {
           waitlistService.removeFromWaitlist(list[i]._id, cwc.currentUser.inWaitList._id).
             then(function (res) {
+              $scope.ccc.currentUser.inWaitList = undefined;
               socket.emit('deletePerson', res);
               $ionicHistory.nextViewOptions({
                 disableBack: true
