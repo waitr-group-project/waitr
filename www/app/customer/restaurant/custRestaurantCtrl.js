@@ -10,7 +10,7 @@
     crc.restaurantId = $stateParams.restaurantId;
     crc.currentUser = $scope.ccc.currentUser;
       //console.log(crc.currentUser);
-      
+
     //we need to get the user again just in case they get added to a list
     /*userService.currentUser(crc.currentUser._id).then(function(res) {
         crc.currentUser = res[0];
@@ -38,7 +38,7 @@
       window.location.href = 'tel:' + crc.restaurant.restaurantPhone;
     };
     crc.getWebsite = function () {
-      window.open(crc.restaurant.restaurantWebsite, '_system', 'location=yes'); return false;
+      window.open(crc.restaurant.restaurantWebsite, '_blank', 'location=yes'); return false;
     };
 
 
