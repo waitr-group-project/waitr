@@ -223,3 +223,9 @@ font-size: 90%;
     font-size: 2rem;
     margin-top: 5px;
 }
+
+/****Nav Icons*****/
+i.navIcon {
+  font-size: 1.2em;
+  padding-top: 5px;
+}

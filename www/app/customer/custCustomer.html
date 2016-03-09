@@ -19,22 +19,22 @@
     <ion-content class="has-header">
       <ion-list>
         <ion-item id="menuItem" nav-clear menu-close ui-sref="customer.home">
-          <i class="icon ion-android-restaurant"></i>&nbsp; RESTAURANTS LIST
+          <i class="icon ion-android-restaurant navIcon"></i>&nbsp; RESTAURANTS LIST
         </ion-item>
 
         <ion-item id="menuItem" nav-clear menu-close ui-sref="customer.waitlist" ng-show="ccc.user.inWaitList">
-          <i class="icon ion-ios-timer-outline"></i>&nbsp; WAIT LIST
+          <i class="icon ion-ios-timer-outlin navIcone"></i>&nbsp; WAIT LIST
         </ion-item>
 
         <ion-item id="menuItem" nav-clear menu-close ui-sref="customer.settings">
-          <i class="icon ion-gear-b"></i>&nbsp; SETTINGS
+          <i class="icon ion-gear-b navIcon"></i>&nbsp; SETTINGS
         </ion-item>
       </ion-list>
     </ion-content>
 
     <ion-footer-bar>
       <ion-item id="menuItemFooter" nav-clear menu-close ui-sref="login" class="sideMenuItem" ng-click="ac.logout()">
-        LOG OUT &nbsp;<i class="icon ion-power"></i>
+        LOG OUT &nbsp;<i class="icon ion-log-out navIcon"></i>
       </ion-item>
     </ion-footer-bar>
 
