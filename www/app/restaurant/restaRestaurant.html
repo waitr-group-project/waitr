@@ -19,27 +19,32 @@
 
     <ion-content class="has-header" id="resta-sideMenu">
       <ion-list>
-        <ion-item id="menuItem" nav-clear menu-close ui-sref='restaurant.home'>
-          <i class="icon ion-ios-timer-outline navIcon"></i>&nbsp; WAIT LIST
+        <ion-item class="navLine" id="menuItem" nav-clear menu-close ui-sref='restaurant.home'>
+          <i class="icon ion-ios-timer-outline navIcon"></i>
+          <span class="navTitle">WAIT LIST</span>
         </ion-item>
 
-        <ion-item id="menuItem" nav-clear menu-close ui-sref='restaurant.profile'>
-          <i class="icon ion-person navIcon"></i>&nbsp; PROFILE
+        <ion-item class="navLine" id="menuItem" nav-clear menu-close ui-sref='restaurant.profile'>
+          <i class="icon ion-person navIcon"></i>
+          <span class="navTitle">PROFILE</span>
         </ion-item>
 
-        <ion-item id="menuItem" nav-clear menu-close>
-          <i class="icon ion-ios-chatbubble navIcon"></i>&nbsp; REVIEWS
+        <ion-item class="navLine" id="menuItem" nav-clear menu-close>
+          <i class="icon ion-ios-chatbubble navIcon"></i>
+          <span class="navTitle">REVIEWS</span>
         </ion-item>
 
-        <ion-item id="menuItem" nav-clear menu-close ui-sref="restaurant.settings">
-          <i class="icon ion-gear-b navIcon"></i>&nbsp; SETTINGS
+        <ion-item class="navLine" id="menuItem" nav-clear menu-close ui-sref="restaurant.settings">
+          <i class="icon ion-gear-b navIcon"></i>
+          <span class="navTitle">SETTINGS</span>
         </ion-item>
       </ion-list>
     </ion-content>
 
     <ion-footer-bar>
-      <ion-item id="menuItemFooter" nav-clear menu-close class="sideMenuItem" ng-click="ac.logout()" ui-sref="login">
-        LOG OUT &nbsp;<i class="icon ion-log-out navIcon"></i>
+      <ion-item class="navLine" id="menuItemFooter" nav-clear menu-close class="sideMenuItem" ng-click="ac.logout()" ui-sref="login">
+        <i class="icon ion-log-out navIcon"></i>
+        <span class="navTitle">LOG OUT</span>
       </ion-item>
     </ion-footer-bar>
 
