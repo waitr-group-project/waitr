@@ -134,6 +134,6 @@
   </ion-content>
 </ion-view>
 <div class="bar bar-footer">
-  <button ng-show="!crc.currentUser.inWaitList" id='buttonOnRestProfile' class="button button-block button-icon button-positive" ui-sref="customer.waitlistconfirm({restaurantId: crc.restaurant._id})">Enter line</button>
-  <button ng-show="crc.currentUser.inWaitList" id='buttonOnRestProfile' class="button button-block button-icon button-positive" ui-sref="customer.waitlist">Go to Waitlist</button>
+  <button ng-if="!crc.currentUser.inWaitList" id='buttonOnRestProfile' class="button button-block button-icon button-positive" ui-sref="customer.waitlistconfirm({restaurantId: crc.restaurant._id})">Enter line</button>
+  <button ng-if="crc.currentUser.inWaitList" id='buttonOnRestProfile' class="button button-block button-icon button-positive" ui-sref="customer.waitlist">Go to Waitlist</button>
 </div>
