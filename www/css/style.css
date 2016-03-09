@@ -130,6 +130,11 @@ font-size: 90%;
   margin-bottom: 0;
 }
 
+.user {
+    color: teal;
+    background-color: #ecf0f1;
+}
+
 /***** LOGIN & REGISTRATION  ***********************************************/
 .bg {
   background-size: cover;
@@ -247,4 +252,9 @@ font-size: 90%;
 }
 #sideMenuLogo {
   max-width: 40px;
+
+/****Nav Icons*****/
+i.navIcon {
+  font-size: 1.2em;
+  padding-top: 5px;
 }
