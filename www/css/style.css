@@ -1,11 +1,18 @@
 /* Empty. Add your own CSS if you like */
 #resQWaitingList {
 font-weight: bold;
-color: #F26101;
+color: gray;
 font-size: 90%;
 }
 .bar-energized {
-  background-color: #F26101 !important;
+  background-color:orange !important;
+}
+.button-energized {
+  background-color:orange !important;
+}
+#editPersonRemoveButton {
+  color: orange;
+  border-color: orange;
 }
 
 #resProfileImage {
@@ -17,7 +24,7 @@ font-size: 90%;
 #restaurantProfileDescription {
   position: relative;
   margin-top: -5px;
-  background-color: #F26101;
+  background-color: orange;
 }
 .sizeOfCardOnRestProfile{
   height: 26vh;
@@ -27,7 +34,7 @@ font-size: 90%;
   position: relative;
   height: 40px;
   margin-top: -3px;
-  background-color: rgb(32, 120, 223) !important;
+  background-color: orange !important;
   font-size: 1.5em;
   color: white;
   font-weight: bold;
@@ -60,6 +67,9 @@ font-size: 90%;
 #restProfileLinks {
   color: orange;
 }
+#restProfileLinkText {
+  color: gray;
+}
 .formButton {
     font-weight: 600;
     font-size: 200%;
@@ -73,7 +83,7 @@ font-size: 90%;
     margin-right: 10px;
 }
 #saveButton {
-    color: black;
+    color: white;
     border: none;
     background-color: transparent;
     font-size: 125%;
@@ -228,6 +238,20 @@ font-size: 90%;
     font-size: 2rem;
     margin-top: 5px;
 }
+.back-button > .back-text > .default-title {
+    display:none;
+}
+.back-button > .back-text > .previous-title {
+    display:none;
+}
+#loginLogo {
+  max-width: 45vw;
+}
+#resgisterLogo {
+  max-width: 30vw;
+}
+#sideMenuLogo {
+  max-width: 40px;
 
 /****Nav Icons*****/
 i.navIcon {
