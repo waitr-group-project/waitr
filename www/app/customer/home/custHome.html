@@ -2,18 +2,11 @@
   <ion-nav-title>
     <span style="font-size:1.5rem">Restaurants</span>
   </ion-nav-title>
-  <!-- <ion-nav-buttons side="right">
-    <i class="button icon ion-chevron-up" ng-click="chc.reverse = !chc.reverse" ng-show="chc.reverse"></i>
-    <i class="button icon ion-chevron-down" ng-click="chc.reverse = !chc.reverse" ng-show="!chc.reverse"></i>
-  </ion-nav-buttons> -->
-
 
   <ion-nav-buttons side="right">
     <a><i class="button icon ion-chevron-up" ng-click="chc.reverse = !chc.reverse" ng-show="chc.reverse"></i></a>
     <a><i class="button icon ion-chevron-down" ng-click="chc.reverse = !chc.reverse" ng-show="!chc.reverse"></i></a>
   </ion-nav-buttons>
-
-
 
   <ion-content>
     <div class="list" id="restList" ng-repeat="restaurant in chc.restaurantList | orderBy:waitlist_id.quotedTime:chc.reverse">
