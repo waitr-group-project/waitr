@@ -40,6 +40,15 @@ module.exports = {
         res.send(result);
       });
   },
+  deleteItemToMenu:function (req, res) {
+    Restaurant
+      .findByIdAndRemove(req , { new: true }, function (err, result) {
+        if (err) {
+          res.status(500).send(err);
+        }
+        res.send(result);
+      });
+  },
 
   delete: function (req, res) {
     Restaurant

@@ -20,12 +20,15 @@
         </ion-item>
         <ion-item ng-show="remc.menuTitle === key" class="item-accordion">
           <div ng-repeat="item in value">
-            <h3>{{item.item}}</h3> <span>${{item.price}}</span>
+            <h3>
+              <i class="ion-compose"></i>
+              &nbsp; {{item.item}}
+              &nbsp; <i class="ion-ios-trash-outline" ng-click="remc.deleteItem(item)"></i>
+            </h3> <span>${{item.price}}</span>
             <p style="text-align:justify">{{item.desc}}</p>
           </div>
         </ion-item>
       </div>
     </ion-list>
   </ion-content>
-
 </ion-view>

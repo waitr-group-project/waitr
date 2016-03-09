@@ -35,6 +35,11 @@
           return response.data;
         });
     };
+    
+    this.deleteRestaurantMenuItem = function (id, itemId) {
+      return $http.delete(SERVER_URL + '/api/restaurant/' + id, itemId )
+    };
+     
     this.getWaitlist = function (waitListId) {
       return $http.get(SERVER_URL + '/api/waitlist/?restaurant_id=' + waitListId).then(function (response) {
         return response.data;
