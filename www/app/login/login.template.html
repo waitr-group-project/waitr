@@ -1,23 +1,27 @@
 <ion-view view-title="Login">
   <ion-content class="padding bg login">
-
     <div class="loginRegHeader">
-      <h1>Waitr.</h1>
+      <!-- <h1>Waitr.</h1> -->
+      <img id="loginLogo"src="./img/logo.svg" alt="" />
+      <br><br>
       <h4>Don't wait anymore.</h4>
+      <br>
     </div>
 
-    <form ng-submit="logCtrl.login(credentials)">
+    <form ng-submit="logCtrl.login(logCtrl.credentials)">
       <div class="list list-inset loginReg">
         <label class="item item-input">
           <i class="icon ion-ios-email placeholder-icon"></i>
-          <input type="text" placeholder="Email" ng-model="credentials.email" autofocus="true">
+          <input type="email" placeholder="Email" autocapitalize="none" ng-model="logCtrl.credentials.email" autofocus="true">
+          <i class="ion-close" on-touch="logCtrl.credentials.email = ''" ng-show="logCtrl.credentials.email !== ''"></i>
         </label>
       </div>
 
       <div class="list list-inset loginReg">
         <label class="item item-input">
           <i class="icon ion-locked placeholder-icon"></i>
-          <input type="password" placeholder="Password" ng-model="credentials.password">
+          <input type="password" placeholder="Password" autocapitalize="none" ng-model="logCtrl.credentials.password">
+          <i class="ion-close" on-touch="logCtrl.credentials.password = ''" ng-show="logCtrl.credentials.password !== ''"></i>
         </label>
       </div>
 
@@ -33,12 +37,10 @@
       <i class="fa fa-twitter-square"></i>
     </div> -->
 
-
-
   </ion-content>
-  <div class="bar bar-footer bar-clear">
+  <div class="bar bar-footer bar-clear" style="height: 60px;">
     <div class="loginRegFooter">
       <a ui-sref="customer-sign-up">No account? Register.</a>
     </div>
-  </div>
+  </ion-content>
 </ion-view>

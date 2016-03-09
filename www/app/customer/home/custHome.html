@@ -3,13 +3,14 @@
     <span style="font-size:1.5rem">Restaurants</span>
   </ion-nav-title>
   <ion-content>
-    <div class="list" id="restList" ng-repeat="restaurant in chc.restaurantList">
+    <div class="list" id="restList" ng-repeat="restaurant in chc.restaurantList | orderBy:waitlist_id.quotedTime:true">
       <a class="item item-avatar item-icon-right" id="restItem" ui-sref="customer.restaurant({restaurantId: restaurant._id})">
         <img ng-src="{{restaurant.restaurantImage}}">
         <h2>{{restaurant.restaurantName}}</h2>
-        <p>{{restaurant.foodType}}</p>
-        <p>{{restaurant.addressLineOne}}, {{restaurant.city}}, {{restaurant.zipcode}}</p>
-        <i class="icon ion-ios-clock-outline" style="color: lightgrey">{{restaurant.waitlist_id.quotedTime}}</i>
+        <p id="custHomeRestList">{{restaurant.foodType}}</p>
+        <p id="custHomeRestList">{{restaurant.addressLineOne}}</p>
+        <p id="custHomeRestList">{{restaurant.city}}, {{restaurant.state}}, {{restaurant.zipcode}}</p>
+        <i class="icon ion-ios-clock-outline" id="timerNumberCustomerHome">{{restaurant.waitlist_id.quotedTime}}</i>
       </a>
     </div>
   </ion-content>

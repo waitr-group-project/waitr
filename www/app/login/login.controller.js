@@ -10,7 +10,7 @@ angular.module('waitrApp')
     var logCtrl = this;
 
     logCtrl.credentials = {
-      username: '',
+      email: '',
       password: ''
     };
 
@@ -20,6 +20,8 @@ angular.module('waitrApp')
 
     function login(credentials) {
       authService.login(credentials).then(function(user) {
+        logCtrl.credentials.email = '';
+        logCtrl.credentials.password = '';
         if (user.role === 'user') $state.go('customer.home');
         if (user.role === 'restaurant') $state.go('restaurant.home');
       }, function(res) {
@@ -30,7 +32,7 @@ angular.module('waitrApp')
         // });
       });
     }
-    
+
 
   }
 })();

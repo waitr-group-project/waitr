@@ -1,44 +1,51 @@
 <ion-view view-title="Customer Registration">
-  <ion-content class="padding bg customer-reg">
+  <ion-content id="RegistrationContent" class="padding bg customer-reg">
 
     <div class="loginRegHeader">
-      <h1>Waitr.</h1>
+      <!-- <h1>Waitr.</h1> -->
+      <img id="resgisterLogo"src="./img/logo.svg" alt="" />
+      <br><br>
         <h4>Customer Registration</h4>
     </div>
 
-    <form ng-submit="regCtrl.register(cust)">
+    <form ng-submit="regCtrl.register(regCtrl.cust)">
       <div class="list list-inset loginReg" style="width: 48%; float: left;">
         <label class="item item-input">
           <i class="icon ion-person placeholder-icon"></i>
-          <input type="text" placeholder="First name" ng-model="cust.firstName"  autofocus="true">
+          <input type="text" placeholder="First name" ng-model="regCtrl.cust.firstName"  autofocus="true">
+          <i class="ion-close" on-touch="regCtrl.cust.firstName = ''" ng-show="regCtrl.cust.firstName !== ''"></i>
         </label>
       </div>
 
       <div class="list list-inset loginReg" style="width: 48%; float: right;">
         <label class="item item-input">
           <!-- <i class="icon ion-locked placeholder-icon"></i> -->
-          <input type="text" placeholder="Last name" ng-model="cust.lastName">
+          <input type="text" placeholder="Last name" ng-model="regCtrl.cust.lastName">
+          <i class="ion-close" on-touch="regCtrl.cust.lastName = ''" ng-show="regCtrl.cust.lastName !== ''"></i>
         </label>
       </div>
 
       <div class="list list-inset loginReg" style="clear: both;">
         <label class="item item-input">
           <i class="icon ion-ios-email placeholder-icon"></i>
-          <input type="text" placeholder="Email" ng-model="cust.email">
+          <input type="email" placeholder="Email" autocapitalize="none" ng-model="regCtrl.cust.email">
+          <i class="ion-close" on-touch="regCtrl.cust.email = ''" ng-show="regCtrl.cust.email !== ''"></i>
         </label>
       </div>
 
       <div class="list list-inset loginReg">
         <label class="item item-input">
           <i class="icon ion-locked placeholder-icon"></i>
-          <input type="password" placeholder="Password" ng-model="cust.password">
+          <input type="password" placeholder="Password" autocapitalize="none" ng-model="regCtrl.cust.password">
+          <i class="ion-close" on-touch="regCtrl.cust.password = ''" ng-show="regCtrl.cust.password !== ''"></i>
         </label>
       </div>
 
       <div class="list list-inset loginReg">
         <label class="item item-input">
           <i class="icon ion-ios-telephone placeholder-icon"></i>
-          <input type="text" placeholder="Phone" ng-model="cust.phone">
+          <input type="tel" placeholder="Phone" ng-model="regCtrl.cust.phone">
+          <i class="ion-close" on-touch="regCtrl.cust.phone = ''" ng-show="regCtrl.cust.phone !== ''"></i>
         </label>
       </div>
 
@@ -48,7 +55,7 @@
     </form>
 
   </ion-content>
-  <div class="bar bar-footer bar-clear" style="height: 80px;">
+  <div class="bar bar-footer bar-clear" style="height: 60px;">
     <div class="loginRegFooter">
       <a ui-sref="login">Already have an account? Sign In.</a><br>
       <a ui-sref="restaurant-sign-up">Register a restaurant.</a>

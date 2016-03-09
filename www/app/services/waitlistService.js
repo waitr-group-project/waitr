@@ -43,7 +43,7 @@
         }).then(function (res) {
           return res.data;
         })
-      };
+    };
       
       this.getOneFromWaitlist = function (userId, waitlistId) {
         return $http({

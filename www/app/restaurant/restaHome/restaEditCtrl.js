@@ -2,15 +2,28 @@
   angular
     .module('waitrApp')
 
-    .controller('restaEditCtrl', ['waitlistService', '$state', "$ionicHistory", "$stateParams", "$ionicPopup", '$cordovaVibration', '$ionicPlatform', restaEditCtrl]);
+    .controller('restaEditCtrl', ['waitlistService', '$state', "$ionicHistory", "$stateParams", "$ionicPopup", 'restaurantService', '$scope', restaEditCtrl]);
 
-  function restaEditCtrl(waitlistService, $state, $ionicHistory, $stateParams, $ionicPopup, $cordovaVibration, $ionicPlatform) {
+  function restaEditCtrl(waitlistService, $state, $ionicHistory, $stateParams, $ionicPopup, restaurantService, $scope) {
     var socket = io.connect('http://104.131.135.179');
     var rec = this;
 
+    rec.currentRestaurant = $scope.rrc.restaurant;
+
     waitlistService.getOneFromWaitlist($stateParams.person, $stateParams.waitlist).then(function (res) {
-      rec.person = res;
+      rec.person = res
     });
+
+    rec.notification = function () {
+      var obj = {
+        phone: '+1'+rec.person.phone,
+        firstName: rec.person.firstName,
+        restaurant: rec.currentRestaurant.restaurantName
+        //message: rec.message
+      };
+      console.log('this is the phone number',obj.phone);
+      restaurantService.notification(obj);
+    };
 
     rec.submitEditedEntry = function (person) {
       console.log("rec.person is: ", person);
@@ -22,11 +35,6 @@
           disableBack: true
         });
       })
-    };
-
-    rec.vibrate = function () {
-      console.log('im getting clicky');
-      $cordovaVibration.vibrate(50000);
     };
 
     var removeFromWaitlist = function () {

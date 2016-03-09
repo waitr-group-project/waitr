@@ -17,15 +17,15 @@
     </span>
     <div id="resQWaitingList" class="item row">
       <div class="col text-center">
-        <button href="tel:+1-801-833-7373" id="restProfileLinks" class="button button-icon icon ion-ios-telephone-outline"></button>
-        <div>CALL</div>
+        <button id="restProfileLinks" class="button button-icon icon ion-ios-telephone-outline" ng-click="rpc.callTel()"></button>
+        <div class="restProfileLinkText">CALL</div>
       </div>
       <div class="col text-center">
         <a id="restProfileLinks" ui-sref="restaurant.menu" class="button button-icon icon ion-ios-wineglass-outline"></a>
         <div>MENU</div>
       </div>
       <div class="col text-center">
-        <button id="restProfileLinks" class="button button-icon icon ion-ios-world-outline" onclick="window.open('https://github.com/', '_system', 'location=yes'); return false;"></button>
+        <button id="restProfileLinks" class="button button-icon icon ion-ios-world-outline" ng-click="rpc.getWebsite()"></button>
         <div>WEBSITE</div>
       </div>
       <div class="col text-center">
