@@ -28,8 +28,8 @@
         <input type="text" placeholder="Notes" ng-model="rec.person.notes">
       </label>
     </div>
-    <button class="formButton button button-large button-energized" ng-click="rec.notification()">Notification</button>
-    <button class="formButton button button-large button-energized" ng-click="rec.showCheckInPopup()">Check In</button>
-    <button class="formButton button button-outline button-large button-energized" ng-click="rec.showRemovePopup()">Remove</button>
+    <button class="formButton button button-block button-energized" ng-click="rec.notification()">Notification</button>
+    <button class="formButton button button-block button-energized" ng-click="rec.showCheckInPopup()">Check In</button>
+    <button id="editPersonRemoveButton" class="formButton button button-outline button-block" ng-click="rec.showRemovePopup()">Remove</button>
   </ion-content>
 </ion-view>

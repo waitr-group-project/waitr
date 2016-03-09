@@ -13,28 +13,33 @@
 
   <ion-side-menu side="left">
     <header class="bar bar-header">
+      <img id="sideMenuLogo"src="./img/logo2.svg" alt="" />
       <h1 class="title">Hello, {{ccc.currentUser.firstName}}</h1>
     </header>
 
     <ion-content class="has-header">
       <ion-list>
-        <ion-item id="menuItem" nav-clear menu-close ui-sref="customer.home">
-          <i class="icon ion-android-restaurant"></i>&nbsp; RESTAURANTS LIST
+        <ion-item class="navLine" id="menuItem" nav-clear menu-close ui-sref="customer.home">
+          <i class="icon ion-android-restaurant navIcon"></i>
+          <span class="navTitle">RESTAURANTS LIST</span>
         </ion-item>
 
-        <ion-item id="menuItem" nav-clear menu-close ui-sref="customer.waitlist" ng-show="ccc.user.inWaitList">
-          <i class="icon ion-ios-timer-outline"></i>&nbsp; WAIT LIST
+        <ion-item class="navLine" id="menuItem" nav-clear menu-close ui-sref="customer.waitlist" ng-show="ccc.user.inWaitList">
+          <i class="icon ion-ios-timer-outlin navIcone"></i>
+          <span class="navTitle">WAIT LIST</span>
         </ion-item>
 
-        <ion-item id="menuItem" nav-clear menu-close ui-sref="customer.settings">
-          <i class="icon ion-gear-b"></i>&nbsp; SETTINGS
+        <ion-item class="navLine" id="menuItem" nav-clear menu-close ui-sref="customer.settings">
+          <i class="icon ion-gear-b navIcon"></i>
+          <span class="navTitle">SETTINGS</span>
         </ion-item>
       </ion-list>
     </ion-content>
 
     <ion-footer-bar>
       <ion-item id="menuItemFooter" nav-clear menu-close ui-sref="login" class="sideMenuItem" ng-click="ac.logout()">
-        LOG OUT &nbsp;<i class="icon ion-power"></i>
+        <i class="icon ion-log-out navIcon"></i>
+        <span class="navTitle">LOG OUT</span>
       </ion-item>
     </ion-footer-bar>
 
