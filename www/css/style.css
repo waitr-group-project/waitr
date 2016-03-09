@@ -108,7 +108,11 @@ font-size: 90%;
   padding: 8px 0 0 12px;
 }
 #timerNumberRestaProfile {
-    font-size: 0.7em;
+    font-size: 1.3rem;
+}
+#timerNumberCustomerHome {
+  font-size: 1.5rem;
+  color: lightgrey;
 }
 #restProfileBodyBox{
   border: 0px;
@@ -209,6 +213,17 @@ font-size: 90%;
   font-weight: 700;
 }
 
+div.loginReg label {
+  position: relative;
+}
+div.loginReg label .ion-close {
+  position: absolute;
+  top: 8px;
+  right: 12px;
+	font-size: 1.3em;
+	color: #999999;
+  z-index: 1000;
+}
 
 /****Restaurant Menus*****/
 .list .item.item-accordion {
@@ -253,7 +268,9 @@ font-size: 90%;
 #sideMenuLogo {
   max-width: 40px;
 }
-
+#RegistrationContent {
+  top: -50px;
+}
 /****Nav Icons*****/
 .navLine {
 }

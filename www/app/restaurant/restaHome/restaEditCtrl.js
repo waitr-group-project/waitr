@@ -2,11 +2,13 @@
   angular
     .module('waitrApp')
 
-    .controller('restaEditCtrl', ['waitlistService', '$state', "$ionicHistory", "$stateParams", "$ionicPopup", 'restaurantService', restaEditCtrl]);
+    .controller('restaEditCtrl', ['waitlistService', '$state', "$ionicHistory", "$stateParams", "$ionicPopup", 'restaurantService', '$scope', restaEditCtrl]);
 
-  function restaEditCtrl(waitlistService, $state, $ionicHistory, $stateParams, $ionicPopup, restaurantService) {
+  function restaEditCtrl(waitlistService, $state, $ionicHistory, $stateParams, $ionicPopup, restaurantService, $scope) {
     var socket = io.connect('http://104.131.135.179');
     var rec = this;
+
+    rec.currentRestaurant = $scope.rrc.restaurant;
 
     waitlistService.getOneFromWaitlist($stateParams.person, $stateParams.waitlist).then(function (res) {
       rec.person = res
@@ -16,7 +18,7 @@
       var obj = {
         phone: '+1'+rec.person.phone,
         firstName: rec.person.firstName,
-        //restaurant:
+        restaurant: rec.currentRestaurant.restaurantName
         //message: rec.message
       };
       console.log('this is the phone number',obj.phone);
