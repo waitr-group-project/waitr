@@ -1,12 +1,11 @@
 <ion-view view-title="Login">
   <ion-content class="padding bg login">
-    <br>
     <div class="loginRegHeader">
       <!-- <h1>Waitr.</h1> -->
       <img id="loginLogo"src="./img/logo.svg" alt="" />
       <br><br>
       <h4>Don't wait anymore.</h4>
-      <br><br>
+      <br>
     </div>
 
     <form ng-submit="logCtrl.login(credentials)">
@@ -35,13 +34,12 @@
       <i class="fa fa-google-plus-square"></i>
       <i class="fa fa-twitter-square"></i>
     </div> -->
-
-
-
-  </ion-content>
-  <div class="bar bar-footer bar-clear">
-    <div class="loginRegFooter">
-      <a ui-sref="customer-sign-up">No account? Register.</a>
+    <br><br><br>
+    <div class="bar bar-footer bar-clear">
+      <div class="loginRegFooter">
+        <a ui-sref="customer-sign-up">No account? Register.</a>
+      </div>
     </div>
-  </div>
+  </ion-content>
+
 </ion-view>

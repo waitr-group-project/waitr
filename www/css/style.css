@@ -253,7 +253,9 @@ font-size: 90%;
 #sideMenuLogo {
   max-width: 40px;
 }
-
+#RegistrationContent {
+  top: -50px;
+}
 /****Nav Icons*****/
 .navLine {
 }
