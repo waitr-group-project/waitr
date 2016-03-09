@@ -283,3 +283,8 @@ span.navTitle {
   font-size: 1.1em;
   padding-left: 5px;
 }
+
+
+i.button {
+  background-color: orange !important;
+}
