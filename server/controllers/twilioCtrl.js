@@ -9,7 +9,7 @@ module.exports = {
     client.sendMessage({
       to: req.body.phone,
       from: '+14352141519',
-      body: req.body.firstName + " your table is ready!"
+      body: req.body.firstName + ", your table at " + req.body.restaurant + " is now ready!"
     }, function (err, data) {
       if (err) {
         res.status(500).send('failed to send');
