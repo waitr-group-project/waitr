@@ -105,7 +105,7 @@ font-size: 90%;
   border-style: none;
 }
 #menuItemFooter .item-content {
-  padding: 8px 0 0 16px;
+  padding: 8px 0 0 12px;
 }
 #timerNumberRestaProfile {
     font-size: 0.7em;
@@ -252,9 +252,17 @@ font-size: 90%;
 }
 #sideMenuLogo {
   max-width: 40px;
+}
 
 /****Nav Icons*****/
+.navLine {
+}
 i.navIcon {
-  font-size: 1.2em;
-  padding-top: 5px;
+  font-size: 1.6em;
+  vertical-align: middle;
+}
+span.navTitle {
+  vertical-align: middle;
+  font-size: 1.1em;
+  padding-left: 5px;
 }
