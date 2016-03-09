@@ -38,7 +38,7 @@
       window.location.href = 'tel:' + crc.restaurant.restaurantPhone;
     };
     crc.getWebsite = function () {
-      window.open(crc.restaurant.restaurantWebsite, '_blank', 'location=yes'); return false;
+      window.open(crc.restaurant.restaurantWebsite, '_system', 'location=yes'); return false;
     };
 
 
