@@ -213,6 +213,17 @@ font-size: 90%;
   font-weight: 700;
 }
 
+div.loginReg label {
+  position: relative;
+}
+div.loginReg label .ion-close {
+  position: absolute;
+  top: 8px;
+  right: 12px;
+	font-size: 1.3em;
+	color: #999999;
+  z-index: 1000;
+}
 
 /****Restaurant Menus*****/
 .list .item.item-accordion {
