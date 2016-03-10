@@ -5,7 +5,7 @@ var express = require('express'),
     jwt = require('jsonwebtoken'),
     config = require('./config/config');
 
-var port = 80;
+var port = 1234;
 
 var app = express();
 var http = require('http').Server(app);
@@ -18,7 +18,7 @@ var userCtrl = require('./controllers/userCtrl'),
 
 app.use(bodyParser.json());
 app.use(cors());
-
+  
 app.use(express.static(__dirname + '/../www'));
 
 mongoose.connect(config.db);
