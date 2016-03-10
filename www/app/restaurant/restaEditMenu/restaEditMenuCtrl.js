@@ -9,6 +9,7 @@
     remc.menuTitle = null;
     remc.groupedMenu = _.groupBy(remc.restaurant.menu, 'section');
     remc.newMenuItem;
+    remc.newSection;
 
     remc.goBack = function() {
       $ionicHistory.goBack();
@@ -23,33 +24,41 @@
     };
 
     //ADD NEW ITEM
-    remc.updateRestaurantMenu = function () {
-      if (remc.newMenuItem.item === null || remc.newMenuItem.price === null || remc.newMenuItem.desc === null || remc.newMenuItem.section === null) {
-        return console.log('item not complete, menu not updated!')
-      };
-      restaurantService.updateRestaurantMenu(remc.restaurant._id, remc.newMenuItem)
-        .then(function (restaurant) {
-          $scope.rrc.restaurant.menu.push(remc.newMenuItem);
-          $state.go('restaurant.editMenu');
+    remc.updateRestaurantMenu = function() {
+      $ionicPopup.confirm({
+        templateUrl: './app/restaurant/restaEditMenu/restaAddMenuItem.html',
+        scope: $scope
+      })
+        .then(function(res) {
+          if (res) {
+            if (remc.newMenuItem.section === 'new'){
+              remc.newMenuItem.section = remc.newSection;
+            }
+            restaurantService.updateRestaurantMenu(remc.restaurant._id, remc.newMenuItem)
+              .then(function(result) {
+                console.log(result);
+                remc.groupedMenu = _.groupBy(result.menu, 'section');
+              })
+          }
         })
     };
-    remc.deleteItem = function(itemToDelete) {
-      remc.itemToDelete = itemToDelete; 
+
+    remc.deleteItem = function(item) {
       $ionicPopup.confirm({
-        template: "<h3>Are you sure you want to delete <input type='text' ng-model='remc.itemToDelete'/>?",
+        template: "<h3>Are you sure?</h3>",
         title: "Deleting item",
-        // scope: $scope,
+        scope: $scope
       })
-      .then( function (res) {
-        if (res) {
-          restaurantService.deleteRestaurantMenuItem(remc.restaurant._id, remc.itemToDelete._id)
-          .then(function(result) {
-            console.log(result.data.menu);
-            remc.groupedMenu = _.groupBy(result.data.menu, 'section');
-          })
-        }
-      })
+        .then(function(res) {
+          if (res) {
+            restaurantService.deleteRestaurantMenuItem(remc.restaurant._id, item)
+              .then(function(result) {
+                remc.groupedMenu = _.groupBy(result.menu, 'section');
+              })
+          }
+        })
     }
+
   }
 
 })();

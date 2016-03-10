@@ -30,14 +30,17 @@
     };
 
     this.updateRestaurantMenu = function (id, menuObj) {
-      return $http.put(SERVER_URL + '/api/restaurant/menu/' + id, menuObj)
+      return $http.put(SERVER_URL + '/api/restaurant/menu/add/' + id, menuObj)
         .then(function (response) {
           return response.data;
         });
     };
     
-    this.deleteRestaurantMenuItem = function (id, itemId) {
-      return $http.delete(SERVER_URL + '/api/restaurant/' + id, itemId )
+    this.deleteRestaurantMenuItem = function (id, item) {
+      return $http.put(SERVER_URL + '/api/restaurant/menu/remove/' + id, item)
+        .then(function(response) {
+          return response.data;
+        })
     };
      
     this.getWaitlist = function (waitListId) {

@@ -192,13 +192,6 @@
         controller: 'restaEditMenuCtrl',
         controllerAs: 'remc',
       })
-    //called in restaEditMenu, but still restaurant child
-      .state('restaurant.addMenuItem', {
-        url: '/settings/edit-menu/addItem',
-        templateUrl: './app/restaurant/restaEditMenu/restaAddMenuItem.html',
-        controller: 'restaEditMenuCtrl',
-        controllerAs: 'remc'
-      })
       .state('restaurant.editHours', {
         url: '/settings/edit-hours',
         templateUrl: './app/restaurant/restaSettings/restaEditHours.html',
