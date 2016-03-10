@@ -11,7 +11,7 @@
   <ion-content>
     <div class="list" id="restList" ng-repeat="restaurant in chc.restaurantList | orderBy:waitlist_id.quotedTime:chc.reverse">
       <a class="item item-avatar item-icon-right" id="restItem" ui-sref="customer.restaurant({restaurantId: restaurant._id})">
-        <img ng-src="{{restaurant.restaurantImage}}">
+        <img ng-src="{{restaurant.restaurantIcon}}">
         <h2>{{restaurant.restaurantName}}</h2>
         <p id="custHomeRestList">{{restaurant.foodType}}</p>
         <p id="custHomeRestList">{{restaurant.addressLineOne}}</p>
