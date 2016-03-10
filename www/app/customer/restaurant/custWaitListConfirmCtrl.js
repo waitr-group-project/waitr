@@ -44,7 +44,6 @@
               $state.go("customer.waitlist");
           });
         });
-
     }
 
   }
