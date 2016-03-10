@@ -41,7 +41,7 @@ module.exports = {
           return res.status(500).send(err);
         }
         res.send(result);
-      })
+      });
     });
   },
   delete: function (req, res) {
@@ -60,9 +60,9 @@ module.exports = {
       }
       waitList.list.push(req.body);
       waitList.save();
-            
+
       //NEW CODE!!!!
-            
+
       res.send(waitList.list[waitList.list.length - 1]);
     });
   },
