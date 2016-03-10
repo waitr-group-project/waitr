@@ -1,6 +1,4 @@
-/**
- * Created by danle on 3/8/16.
- */
+
 var config = require('../config/config.js'),
     client = require('twilio')(config.ACCOUNT_SID, config.AUTH_TOKEN);
 
@@ -16,6 +14,6 @@ module.exports = {
       } else {
         res.json(data);
       }
-    })
+    });
   }
 };
