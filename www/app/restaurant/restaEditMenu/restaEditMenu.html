@@ -3,24 +3,26 @@
     <span style="font-size:1.3rem">MENU</span>
   </ion-nav-title>
   <ion-nav-buttons side="right">
-    <!-- <h6>ADD ITEM</h6> -->
-    <a menu-toggle="right" ui-sref="restaurant.addMenuItem">
+    <a menu-toggle="right" ng-click="remc.updateRestaurantMenu()">
       <i class="button icon ion-plus-round"></i>
     </a>
   </ion-nav-buttons>
-  <div class="padding bar bar-subheader bar-dark">
-    <h2 class="title">{{remc.restaurant.restaurantName}}</h2>
-  </div>
-  <ion-content class="has-subheader">
+  <ion-content>
+    <div class="item item-divider">
+      <h2>{{remc.restaurant.restaurantName}}</h2>
+    </div>
     <ion-list>
       <div ng-repeat="(key, value) in remc.groupedMenu">
-        <ion-item class="item-stable" ng-click="remc.toggleSection(key)">
+        <ion-item ng-click="remc.toggleSection(key)">
           <i class="icon ion-ios-arrow-forward" ng-show="remc.menuTitle !== key"></i>
           <i class="icon ion-ios-arrow-down" ng-show="remc.menuTitle === key"></i> &nbsp; {{key}}
         </ion-item>
         <ion-item ng-show="remc.menuTitle === key" class="item-accordion">
           <div ng-repeat="item in value">
-            <h3>{{item.item}}</h3> <span>${{item.price}}</span>
+            <h3>
+              {{item.item}}
+              &nbsp; <i style="font-size: 1.3em;" class="ion-ios-trash-outline" ng-click="remc.deleteItem(item)"></i>
+            </h3> <span>${{item.price}}</span>
             <p style="text-align:justify">{{item.desc}}</p>
           </div>
         </ion-item>
@@ -28,4 +30,4 @@
     </ion-list>
   </ion-content>
 
-</ion-view>
+</i

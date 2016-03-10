@@ -40,6 +40,21 @@ module.exports = {
         res.send(result);
       });
   },
+  deleteItemToMenu: function (req, res) {
+    console.log(req.body);
+    Restaurant
+      .findByIdAndUpdate( 
+        req.params.id, 
+        { $pull: { 'menu': { '_id': req.body._id } } },
+        { new: true }, 
+        function (err, result) {
+          if (err) {
+            res.status(500).send(err);
+          }
+          res.send(result);
+        }
+      );
+  },
 
   delete: function (req, res) {
     Restaurant
