@@ -9,7 +9,11 @@
   </ion-nav-buttons>
 
   <ion-content>
-    <div class="list" id="restList" ng-repeat="restaurant in chc.restaurantList | orderBy:waitlist_id.quotedTime:chc.reverse">
+    <div class="spinner-container" ng-show="!chc.restaurantList">
+      <ion-spinner class="spinner-energized"></ion-spinner>
+    </div>
+
+    <div class="list" id="restList" ng-repeat="restaurant in chc.restaurantList | orderBy:'waitlist_id.quotedTime':chc.reverse">
       <a class="item item-avatar item-icon-right" id="restItem" ui-sref="customer.restaurant({restaurantId: restaurant._id})">
         <img ng-src="{{restaurant.restaurantIcon}}">
         <h2>{{restaurant.restaurantName}}</h2>
